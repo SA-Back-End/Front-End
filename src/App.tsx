@@ -1,5 +1,3 @@
-import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import './components/profile/editProfile'
 
@@ -9,10 +7,12 @@ import Status from './components/profile/status';
 
 function App() {  
   return (
-    <div>
-      <EditProfile/>
-      <Followers/>
-      <Status/>
+    <div className='Body'>
+      <div className='Rectangle'>
+        <EditProfile/>
+        <Followers/>
+        <Status/>
+      </div>
     </div>
   );
 }

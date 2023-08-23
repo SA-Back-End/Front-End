@@ -1,0 +1,19 @@
+.Body {
+    background-color: rgb(12, 61, 221);
+}
+
+.Rectangle {
+    text-align: center;
+    width: 400px;
+    height: 600px;
+    background: rgb(255, 255, 255);
+}
+
+.Picture {
+    text-align: center;
+    width: 150px; 
+    height: 150px;
+    border-radius: 50%; 
+    overflow: hidden;
+}
+
