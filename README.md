@@ -1,3 +1,5 @@
+**Warning** Criar branch com o nome da tela que está fazendo e codar nela. *Não codar na `main`*
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
