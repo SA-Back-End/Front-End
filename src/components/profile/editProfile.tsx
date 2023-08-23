@@ -7,7 +7,6 @@ export default function EditProfile(){
         <div>
             <ProfilePicture/>
             <NameUser/>
-            <Status/>
         </div>
     )
 }
