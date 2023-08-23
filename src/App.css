@@ -1,38 +1,103 @@
-.App {
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
+
+* {
+  background-color: #1F71FF;
+}
+
+h1 {
   text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 40px;
+  color: #FF8200;
+  font-size: 10ex;
+  margin-top: 110px;
+  z-index: 900;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h2 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 40px;
+  color: aliceblue;
+  margin-top: -65px;
+  margin-bottom: 60px;
+  font-size: 25x;
+  z-index: 901;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.centralizar {
+  display: grid;
+  place-items: center;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.button_submit {
+  display: grid;
+  place-items: center;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 20px;
+}
+
+.primeiro_nome,
+.ultimo_nome,
+.usuario,
+.email,
+.senha,
+.descricao {
+  background-color: aliceblue;
+  border-radius: 20px;
+  border-color: aliceblue;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 900;
+}
+
+.primeiro_nome, .email{
+  margin-right: 10px;
+}
+
+
+.nome,
+.credenciais {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-top: 5px;
+  margin-left: 5px;
+  font-weight: bold;
 }
 
-.App-link {
-  color: #61dafb;
+input#data_nascimento {
+  font-family: 'Montserrat', sans-serif;
+  background-color: aliceblue;
+  border-radius: 20px;
+  border-color: aliceblue;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.Logo {
+  display: grid;
+  place-items: center;
+  top: -100px;
+  transform: scale(2.5);
+  z-index: -;
+}
+
+.botao {
+  background-color: aliceblue;
+  border-radius: 20px;
+  border-color: aliceblue;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 900;
+}
+
+.data {
+  width: 210px;
+  height: 50px;
+  text-align: center;
+  z-index: 900;
+  background:transparent;
+}
+
+label {
+  font-family: 'Montserrat', sans-serif;
+  color: #fff;
+  background:transparent;
 }
