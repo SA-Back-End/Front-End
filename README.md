@@ -1,4 +1,4 @@
-> **warning** Criar branch com o nome da tela que está fazendo e codar nela. *Não codar na `main`*
+> **warning** ⚠️ Criar branch com o nome da tela que está fazendo e codar nela. *Não codar na `main`*
 
 # Getting Started with Create React App
 
