@@ -1,6 +1,6 @@
 import React from 'react';
 import img from './img/profile.svg';
-import './home.css';
+import './Match.css';
 import Filtro from './filter';
 
 export default function Home() {

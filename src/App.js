@@ -1,14 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import Home from './tela-match/Mprojetos.jsx';
+import match from './tela-match/tela';
 
 const App = () => {
     return (
         <div>
             <Router>
                 <Routes>
-                    <Route path='/Mprojetos' element={<Home />} />
-                    <Route path='/' element={<Cadastro />} />
+                    <Route path='/match' element={<match />} />
                 </Routes>
             </Router>
         </div>
