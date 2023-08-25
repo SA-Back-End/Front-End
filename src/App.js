@@ -1,13 +1,13 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
-import match from './tela-match/tela.jsx';
+import TelaMatch from './tela-match/tela.jsx';
 
 const App = () => {
     return (
         <div>
             <Router>
                 <Routes>
-                    <Route path='/match' element={<match />} />
+                    <Route path='/match' element={<TelaMatch />} />
                 </Routes>
             </Router>
         </div>
