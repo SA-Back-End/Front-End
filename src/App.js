@@ -1,16 +1,24 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import React from 'react';
 import './App.css';
-import TelaMatch from './tela-match/Tela.jsx';
+import Filtro from './filter';
 
 const App = () => {
     return (
-        <div>
-            <div className></div>
-            <Router>
-                <Routes>
-                    <Route path='/match' element={<TelaMatch />} />
-                </Routes>
-            </Router>
+        <div className="gradiente">
+            <header></header>
+
+            <div className="dropdown">
+                <select>
+                    <option value="participantes">Buscar participantes</option>
+                    <option value="projetos">Buscar projetos</option>
+                </select>
+                <Filtro />
+            </div>
+
+            <div className="card">
+                <h3>Nome da pessoa</h3>
+                <p>Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas</p>
+            </div>
         </div>
     );
 }
