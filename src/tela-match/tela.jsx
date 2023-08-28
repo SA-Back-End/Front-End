@@ -5,7 +5,7 @@ import Filtro from './filter';
 
 export default function Home() {
   return (
-    <div>
+    <div className="gradient">
       <header>
 
       </header>
