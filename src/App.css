@@ -8,9 +8,6 @@
 
 body {
   font-family: 'Montserrat', sans-serif;
-}
-
-.gradiente {
   background: linear-gradient(to bottom, #0052E0, #1F71FF); 
 }
 
@@ -24,7 +21,7 @@ header {
   float: left;
   top: 100;
   margin-top: 1%;
-  margin-left: 3%;
+  margin-left: 2%;
 }
 
 select {
@@ -36,17 +33,21 @@ select {
   float: right;
 }
 
-.container {
-  display: flex;
-  align-items: center; 
-  height: 92vh; 
-
-}
-
 .card {
-  display: flex;
   background-color: #FAFAFA;
   width: 50vw;
-  height: 80vh;
-  margin-top: 2%;
+  height: 75vh;
+  margin-top: 4%;
+  margin-left: 25%;
+}
+
+h3 {
+  text-align: justify;
+  padding: 2%;
+}
+
+p {
+  margin-top: 5%;
+  text-align: justify;
+  padding: 2%;
 }
