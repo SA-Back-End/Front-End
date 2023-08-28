@@ -36,11 +36,6 @@ select {
   float: right;
 }
 
-.container {
-  top: 10%;
-  left: 4%;
-}
-
 .card {
   background-color: #FAFAFA;
   width: 70vw;

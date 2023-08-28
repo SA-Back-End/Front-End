@@ -5,7 +5,7 @@ import TelaMatch from './tela-match/Tela.jsx';
 const App = () => {
     return (
         <div>
-            <div className="container"></div>
+            <div className></div>
             <Router>
                 <Routes>
                     <Route path='/match' element={<TelaMatch />} />
