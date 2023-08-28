@@ -2,9 +2,9 @@ import React from 'react';
 import './Match.css';
 import Filtro from './filter';
 
-export default function Home() {
+export default function Match() {
   return (
-    <div>
+    <div className="gradiente">
       <header>
 
       </header>
