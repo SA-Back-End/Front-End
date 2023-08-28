@@ -1,7 +1,7 @@
 //import './App.css';
 import Skill from './components/skill';
 import Habilidade from './components/habilidade';
-import { Multiselect } from './components/mutiselect';
+import { Multiselect } from './components/multiselect';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       </header>
       <Multiselect/>
       <Habilidade>
-        <Skill/>
+      <Skill/>
       </Habilidade>
     </div>
   );
