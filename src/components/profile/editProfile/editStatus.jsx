@@ -4,17 +4,21 @@ function Status (){
     const [status, setStatus] = useState('Disponível');
 
     function changeStatus() {
-        if (status === 'Indisponível') {
+        if (status === 'Disponível') {
             setStatus('Indisponível');
-        } else if (status === 'Em Pausa') {
+        } else if (status === 'Indisponível') {
             setStatus('Em Pausa');
-        } else if (status === 'Disponibilidade Limitada') {
+        } else if (status === 'Em Pausa') {
             setStatus('Disponibilidade Limitada');
         }
+          else if (status === 'Disponibilidade Limitada') {
+            setStatus('Disponível');
+          };
+        
     }
     return(
             <div>
-                <p onClick={changeStatus}>{status}</p>
+                <button onClick={changeStatus}>{status}</button>
             </div>
     )
 

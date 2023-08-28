@@ -8,12 +8,13 @@ export default function Followers() {
     useEffect(() => {
         fetchData();
     }, []);
+    
 //teste consulta API
     const fetchData = async () => {
         try {
-            const response = await axios.get('https://viacep.com.br/ws/01001000/json/');
+            const response = await axios.get('https://viacep.com.br/ws/88107483/json/');
             setNumFollowers(response.data.siafi);
-            setNumFollowing(response.data.gia);
+            setNumFollowing(response.data.ibge);
         } catch (error) {
             console.error('Erro ao buscar dados:', error);
         }
