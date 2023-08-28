@@ -3,14 +3,11 @@
 body {
   font-family: 'Montserrat', sans-serif;
   background: linear-gradient(to bottom, #0052E0, #1F71FF);
-  width: 110%;
-  height: 110%;
 }
 
 header {
-  background-color: gray;
+  background-color: #FAFAFA;
   height: 8vh;
-  width: 100%;
 }
 
 .dropdown {
@@ -22,7 +19,6 @@ header {
 }
 
 select {
-  font-family: 'Montserrat', sans-serif;
   border-radius: 40px;
 }
 
@@ -37,7 +33,7 @@ select {
 }
 
 .card {
-  background-color: lightgray;
+  background-color: #FAFAFA;
   width: 90vw;
   height: 80vh;
   margin-top: 4%;
