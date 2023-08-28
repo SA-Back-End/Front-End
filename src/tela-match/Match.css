@@ -7,29 +7,10 @@ body {
   height: 110%;
 }
 
-.box {
+header {
   background-color: gray;
   height: 8vh;
   width: 100%;
-  
-}
-
-.profile {
-  height: 8vmin;
-  pointer-events: none;
-}
-
-.card {
-  background-color: lightgray;
-  width: 90vw;
-  height: 80vh;
-  margin-top: 4%;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.container {
-  top: 10%;
-  left: 4%;
 }
 
 .dropdown {
@@ -40,12 +21,30 @@ body {
   margin-left: 3%;
 }
 
-select{
+select {
   font-family: 'Montserrat', sans-serif;
   border-radius: 40px;
 }
 
-.filtro{
+.filtro {
   align-items: right;
   float: right;
+}
+
+.container {
+  top: 10%;
+  left: 4%;
+}
+
+.card {
+  background-color: lightgray;
+  width: 90vw;
+  height: 80vh;
+  margin-top: 4%;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.profile {
+  height: 8vmin;
+  pointer-events: none;
 }

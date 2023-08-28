@@ -5,8 +5,8 @@ import Filtro from './filter';
 
 export default function Home() {
   return (
-    <div className="App">
-      <header className="box">
+    <div>
+      <header>
 
       </header>
 
@@ -20,7 +20,7 @@ export default function Home() {
 
       <div className='container'>
         <div className="card">
-          <h3 className="name">Nome da pessoa</h3>
+          <h3>Nome da pessoa</h3>
           <p>
             Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas
           </p>
