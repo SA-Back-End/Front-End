@@ -1,10 +1,12 @@
 import React from 'react';
 import './Match.css';
 import Filtro from './filter';
+import gradiente from './gradient';
 
 export default function Home() {
   return (
-    <div className="gradient">
+    <div>
+       <gradiente />
       <header>
 
       </header>
