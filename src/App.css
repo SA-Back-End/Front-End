@@ -77,7 +77,7 @@ input#data_nascimento {
   place-items: center;
   top: -100px;
   transform: scale(2.5);
-  z-index: -;
+  z-index: -1;
 }
 
 .botao {

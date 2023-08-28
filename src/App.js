@@ -1,6 +1,6 @@
 import './App.css';
-import Data from './data.jsx'
-import Logo from './logo';
+import Data from './Modules/Data/data.js'
+import Logo from './img/logo.js';
 
 function App() {
   return (
