@@ -36,9 +36,17 @@ select {
   float: right;
 }
 
+.container {
+  display: flex;
+  align-items: center; 
+  height: 92vh; 
+
+}
+
 .card {
+  display: flex;
   background-color: #FAFAFA;
-  width: 70vw;
-  height: 70vh;
-  margin-top: 4%;
+  width: 50vw;
+  height: 80vh;
+  margin-top: 2%;
 }

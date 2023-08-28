@@ -15,9 +15,11 @@ const App = () => {
                 <Filtro />
             </div>
 
-            <div className="card">
-                <h3>Nome da pessoa</h3>
-                <p>Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas</p>
+            <div className="container">
+                <div className="card">
+                    <h3>Nome da pessoa</h3>
+                    <p>Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas</p>
+                </div>
             </div>
         </div>
     );
