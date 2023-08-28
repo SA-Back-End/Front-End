@@ -1,5 +1,4 @@
 import React from 'react';
-import img from './img/profile.svg';
 import './Match.css';
 import Filtro from './filter';
 
@@ -24,7 +23,6 @@ export default function Home() {
           <p>
             Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas
           </p>
-          <img src={img} className="profile" alt="image" />
         </div>
       </div>
     </div>

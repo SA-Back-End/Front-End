@@ -45,13 +45,8 @@ select {
 
 .card {
   background-color: #FAFAFA;
-  width: 90vw;
-  height: 80vh;
+  width: 70vw;
+  height: 70vh;
   margin-top: 4%;
   font-family: 'Montserrat', sans-serif;
-}
-
-.profile {
-  height: 8vmin;
-  pointer-events: none;
 }
