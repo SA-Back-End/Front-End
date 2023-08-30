@@ -22,6 +22,7 @@ const App = () => {
       </header>
 
       <h1>S K I L L S</h1>
+      <p>Encontre os parceiros<b>ideais</b>para os seus projetos</p>
 
     </div>
   );
