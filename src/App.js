@@ -22,8 +22,8 @@ const App = () => {
       </header>
 
       <h1>S K I L L S</h1>
-      <p>Encontre os parceiros<b>ideais</b>para os seus projetos</p>
-
+      <p>Encontre os parceiros ideais para os seus projetos</p>
+      <button onclick='' type="button">Saiba mais</button>
     </div>
   );
 }
