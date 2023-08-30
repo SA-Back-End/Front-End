@@ -19,8 +19,9 @@ const App = () => {
             <td><a href=''>Login</a></td>
           </tr>
         </table>
-
       </header>
+
+      <h1>S K I L L S</h1>
 
     </div>
   );
