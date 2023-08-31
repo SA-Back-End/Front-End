@@ -1,3 +1,6 @@
+import Data from './Components/Data/data.js'
+import Logo from './img/logo.js'
+
 function TelaCadastro() {
     return (
         <div className="cadastro">
