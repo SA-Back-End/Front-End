@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 export default function NameUser() {
+    /*
     const [name, setName] = useState('User');
     const [newName, setNewName] = useState('');
 
@@ -27,8 +28,9 @@ export default function NameUser() {
         setName(newName);
         setNewName('');
     };
-
+    */
     return (
+        /*
         <div>
             <h2>{name}</h2>
             <form onSubmit={handleSubmit}>
@@ -41,5 +43,9 @@ export default function NameUser() {
                 <button type="submit">Alterar Nome</button>
             </form>
         </div>
+        */
+       <div>
+            <h1>Nome usuário</h1>
+       </div>
     );
 }

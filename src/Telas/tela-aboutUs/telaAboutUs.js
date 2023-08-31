@@ -1,4 +1,5 @@
 import './telaAboutUs.css';
+import Logo from './img/logo.ico'
 
 const TelaAboutUs = () => {
   return (

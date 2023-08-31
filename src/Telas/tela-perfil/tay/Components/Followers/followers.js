@@ -1,7 +1,8 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+// import { useEffect, useState } from "react";
+// import axios from "axios";
 
 export default function Followers() {
+    /*
     const [numFollowers, setNumFollowers] = useState(0);
     const [numFollowing, setNumFollowing] = useState(0);
 
@@ -19,12 +20,18 @@ export default function Followers() {
             console.error('Erro ao buscar dados:', error);
         }
     };
-
+    */
     return (
+        /*
         <div>
             <p>{numFollowers} <br /> Seguidores</p>
             <p>{numFollowing} <br /> Seguindo</p>
         </div>
+        */
+       <div>
+            <h2>Seguidores</h2>
+            <h3>Seguindo</h3>
+       </div>
     )
 
 }

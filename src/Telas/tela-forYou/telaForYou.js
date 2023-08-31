@@ -1,5 +1,4 @@
-import logo from './logo.svg';
-import Feed from './ForYou/Feed'
+import Feed from './Components/feed'
 
 function TelaForYou() {
   return (

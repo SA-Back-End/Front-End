@@ -1,7 +1,9 @@
-import { useState, useEffect } from "react"
-import axios from "axios";
+// import { useState, useEffect } from "react"
+// import axios from "axios";
 
 export default function Address() {
+
+    /*
     const [address, setAddress] = useState(' ')
     const [newAddress, setNewAddress] = useState();
 
@@ -28,7 +30,10 @@ export default function Address() {
         setNewAddress('');
     };
 
+    */
+
     return (
+        /*
         <div>
             <p>{address}</p>
             <form onSubmit={handle}>
@@ -41,5 +46,9 @@ export default function Address() {
                 <button type="submit">Alterar Endereço</button>
             </form>
         </div>
+        */
+       <div>
+            <h1>Endereço</h1>
+       </div>
     );
 }

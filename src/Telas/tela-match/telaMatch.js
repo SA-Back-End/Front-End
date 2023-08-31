@@ -1,8 +1,7 @@
 import React from 'react';
-import './App.css';
-import Filtro from './filter';
+import Filtro from './Components/filter.js';
 
-const App = () => {
+const TelaMatch = () => {
     return (
         <div>
             <header></header>
@@ -23,4 +22,4 @@ const App = () => {
     );
 }
 
-export default App;
+export default TelaMatch;

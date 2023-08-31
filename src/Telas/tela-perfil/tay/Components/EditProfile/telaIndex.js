@@ -1,7 +1,7 @@
-import NameUser from "./nameUser";
-import ProfilePicture from "./editProfilePicture"
-import Status from "./editStatus";
-import Address from "./editAdress";
+import NameUser from "./userName";
+import ProfilePicture from "./userPicture"
+import Status from "./userStatus";
+import Address from "./address";
 
 export default function EditProfile() {
     return (
