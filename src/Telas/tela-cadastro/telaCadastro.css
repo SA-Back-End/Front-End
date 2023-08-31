@@ -1,0 +1,110 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
+
+* {
+    background-color: #1F71FF;
+    overflow: hidden;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 40px;
+    color: #FF8200;
+    font-size: 10ex;
+    margin-top: 110px;
+    z-index: 900;
+}
+
+h2 {
+    text-align: center;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 40px;
+    color: aliceblue;
+    margin-bottom: 10%;
+    margin-top: -65px;
+    font-size: 25x;
+    z-index: -1;
+
+}
+
+.centralizar {
+    display: grid;
+    place-items: center;
+    margin-top: 100px;
+    margin-bottom: 5px;
+}
+
+.button_submit {
+    display: grid;
+    place-items: center;
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 20px;
+}
+
+.primeiro_nome,
+.ultimo_nome,
+.usuario,
+.email,
+.senha,
+.descricao,
+.confirmar_senha {
+    background-color: aliceblue;
+    border-radius: 20px;
+    border-color: aliceblue;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 900;
+}
+
+.descricao {
+    margin-top: 5px;
+}
+
+.nome,
+.credenciais,
+.user_email {
+    display: flex;
+    margin-top: 5px;
+    margin-left: 5px;
+    font-weight: bold;
+}
+
+input#data_nascimento {
+    font-family: 'Montserrat', sans-serif;
+    background-color: aliceblue;
+    border-radius: 20px;
+    border-color: aliceblue;
+
+}
+
+.Logo {
+    display: grid;
+    place-items: center;
+    top: -100px;
+    transform: scale(2.5);
+    z-index: 0;
+}
+
+.botao {
+    background-color: aliceblue;
+    border-radius: 20px;
+    border-color: aliceblue;
+    font-family: 'Montserrat', sans-serif;
+    z-index: 900;
+}
+
+.data {
+    width: 210px;
+    height: 50px;
+    text-align: center;
+    z-index: 900;
+    background: transparent;
+    margin-top: -15px;
+    font-family: 'Montserrat', sans-serif;
+
+}
+
+label {
+    font-family: 'Montserrat', sans-serif;
+    color: #fff;
+    background: transparent;
+}

@@ -1,0 +1,3 @@
+Tem o 'perfil-tay.js' e o 'telaIndex.js', mas, talvez, na prática poderiam ser o mesmo, visto que o 'telaIndex.js' armazena todos os 
+componentes da tela, menos o 'Followers', mas que tbm poderia ser integrado junto. Então, TALVEZ, dê para juntar os dois em um só arquivo,
+visto que, na prática, deverá existir um componente PAI que será basicamente a Tela completa.
