@@ -7,19 +7,17 @@ const App = () => {
     <div>
       <header>
         <table>
-          <tbody>
-            <tr>
-              <td>
-                <div className='container'>
-                  <img src={Logo} alt="logo" />
-                  <figcaption>S K I L L S</figcaption>
-                </div>
-              </td>
-              <td><a href=''>Quem somos?</a></td>
-              <td><a href=''>Cadastre-se</a></td>
-              <td><a href=''>Login</a></td>
-            </tr>
-          </tbody>
+          <tr>
+            <td>
+              <div className='container'>
+                <img src={Logo} alt="logo" />
+                <figcaption>S K I L L S</figcaption>
+              </div>
+            </td>
+            <td><a href=''>Quem somos?</a></td>
+            <td><a href=''>Cadastre-se</a></td>
+            <td><a href=''>Login</a></td>
+          </tr>
         </table>
       </header>
       <div className='welcome'>
