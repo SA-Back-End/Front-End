@@ -24,6 +24,7 @@ body::before {
 table {
   width: 100%;
   border-collapse: collapse;
+  background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
 }
 
 td {
@@ -40,7 +41,7 @@ img {
 }
 
 figcaption {
-  color: #FF8200;
+  color: #003DA5;
   font-family: 'Montserrat';
   display: inline-block;
   vertical-align: middle;
@@ -51,6 +52,15 @@ a {
   color: white;
   text-decoration: none;
   font-family: 'Montserrat';
+  transition-duration: 0.5s;
+}
+
+a:hover {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat';
+  font-size: large;
+  transition-duration: 0.5s;
 }
 
 .welcome {
@@ -63,7 +73,7 @@ a {
 
 h1 {
   color: #FF8200;
-  font-size: 90px;
+  font-size: 85px;
   font-family: 'Montserrat';
 }
 
@@ -79,9 +89,8 @@ span {
 
 button {
   width: 12vw;
-  height: 6vh;
+  height: 5vh;
   border: 0;
-  border-radius: 10%;
   background-color: #003DA5;
   color: white;
   font-family: 'Montserrat';

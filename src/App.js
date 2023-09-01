@@ -11,7 +11,7 @@ const App = () => {
             <td>
               <div className='container'>
                 <img src={Logo} alt="logo" />
-                <figcaption><b>S K I L L S</b></figcaption>
+                <figcaption>S K I L L S</figcaption>
               </div>
             </td>
             <td><a href=''>Quem somos?</a></td>
@@ -21,7 +21,7 @@ const App = () => {
         </table>
       </header>
       <div className='welcome'>
-        <h1><b>S K I L L S</b></h1>
+        <h1>S K I L L S</h1>
         <p><b>Encontre os parceiros <span>ideais</span> para os seus projetos</b></p>
         <button type="button">Saiba mais</button>
       </div>
