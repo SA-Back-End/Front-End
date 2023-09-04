@@ -13,9 +13,11 @@ const App = () => {
               <figcaption>S K I L L S</figcaption>
             </div>
           </li>
+          <ul>
           <li className='topics'><a href=''>Quem somos?</a></li>
           <li className='topics'><a href=''>Cadastre-se</a></li>
           <li className='topics'><a href=''>Login</a></li>
+        </ul>
         </ul>
       </nav>
       <div className='welcome'>
