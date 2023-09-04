@@ -21,7 +21,9 @@ const App = () => {
       <div className='welcome'>
         <h1>S K I L L S</h1>
         <p>Encontre os parceiros <span>ideais</span> para os seus projetos</p>
-        <button type="button">Saiba mais</button>
+        <a href=''>
+          <button htype="button">Saiba mais</button>
+        </a>
       </div>
     </div>
   );

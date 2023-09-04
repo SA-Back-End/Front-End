@@ -43,9 +43,9 @@ img {
 }
 
 figcaption {
-  color: #003DA5;
+  color: #0052E0;
   font-family: 'Montserrat', sans-serif;
-  font-weight: bolder;
+  font-weight: bold;
   display: inline-block;
   vertical-align: middle;
   margin-top: -6%;
@@ -95,4 +95,12 @@ button {
   background-color: #003DA5;
   color: white;
   font-family: 'Montserrat', sans-serif;
+  transition-duration: 0.8s;
+}
+
+button:hover {
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  background-color: #0052E0;
 }
