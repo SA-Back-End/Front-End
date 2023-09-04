@@ -1,7 +1,11 @@
 import React, { useState, useEffect , useRef } from 'react';
+import './Posts.css';
+import Like from './like.png';
+import Comment from './comment.png';
 
 const Feed = () => {
 
+    const profilePicture = "https://i.ytimg.com/vi/oFIrA4Ef8tY/hqdefault.jpg";
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -13,7 +17,7 @@ const Feed = () => {
         setError(null);
         
             try {
-                const response = await fetch(`http://localhost:8000/user/findAll/${page}`);
+                const response = await fetch(`http://localhost:3000/user/findAll/${page}`);
                 const data = await response.json();
                 console.log(data);
                 
@@ -58,24 +62,28 @@ const Feed = () => {
 
     return (
         <div>
-            <ul>
             {items.map(item => (
             <React.Fragment key={item.id_user}>
-                <li>{item.username}</li>
-                <li>{item.status}</li>
-                <li>{item.firstName}</li>
-                <li>{item.lastName}</li>
-                <li>{item.email}</li>
-                <li>{item.description}</li>
-                <li>{item.birthDate}</li>
-                <li>{item.state}</li>
-                <br/>
+                <div className="Post">
+                    <div className="Post-Top">
+                        <div classname="Item" id="profilePicture"><img src={profilePicture} width="60px" height="60px"/></div>
+                        <div className="Item">{item.username}</div>
+                    </div>
+                    <div className="Item">{item.status}</div>
+                    <div className="Item">{item.firstName}</div>
+                    <div className="Item">{item.lastName}</div>
+                    <div className="Item">{item.email}</div>
+                    <div className="Item">{item.description}</div>
+                    <div className="Item">{item.birthDate}</div>
+                    <div className="Item">{item.state}</div>
+                    <div className="Post-Footer"><img src={Like} width="30px" height="30px"/></div>
+                    <div className="Post-Footer"><img src={Comment} width="30px" height="30px"/></div>
+                </div>
             </React.Fragment>
             ))}
-            </ul>
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
-      </div>
+        </div>
     )
 };
 
