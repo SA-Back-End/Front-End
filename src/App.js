@@ -5,24 +5,22 @@ import Logo from './logo.ico';
 const App = () => {
   return (
     <div>
-      <header>
-        <table>
-          <tr>
-            <td>
-              <div className='container'>
-                <img src={Logo} alt="logo" />
-                <figcaption>S K I L L S</figcaption>
-              </div>
-            </td>
-            <td><a href=''>Quem somos?</a></td>
-            <td><a href=''>Cadastre-se</a></td>
-            <td><a href=''>Login</a></td>
-          </tr>
-        </table>
-      </header>
+      <nav>
+        <ul>
+          <li>
+            <div className='container'>
+              <img src={Logo} alt="logo" />
+              <figcaption>S K I L L S</figcaption>
+            </div>
+          </li>
+          <li className='topics'><a href=''>Quem somos?</a></li>
+          <li className='topics'><a href=''>Cadastre-se</a></li>
+          <li className='topics'><a href=''>Login</a></li>
+        </ul>
+      </nav>
       <div className='welcome'>
         <h1>S K I L L S</h1>
-        <p><b>Encontre os parceiros <span>ideais</span> para os seus projetos</b></p>
+        <p>Encontre os parceiros <span>ideais</span> para os seus projetos</p>
         <button type="button">Saiba mais</button>
       </div>
     </div>
