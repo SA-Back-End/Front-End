@@ -12,7 +12,7 @@ function App() {
     <div>
       <Router>
         <Routes>
-          <Route path="/" element={<TelaCadastro />} />
+          <Route path="/" element={<TelaAboutUs />} />
           <Route path="/match" element={<TelaMatch />} />
           <Route path="/forYou" element={<TelaForYou />} />
           <Route path="/aboutUs" element={<TelaAboutUs />} />
