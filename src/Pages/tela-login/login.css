@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,700;0,900;1,700&display=swap');
+
+
+.fixed-position {
+  background: rgb(0, 61, 165);
+  background: linear-gradient(45deg, rgba(0, 61, 165, 1) 0%, rgba(0, 82, 224, 1) 35%, rgba(0, 0, 0, 1) 100%);
+}
+
+h1 {
+  text-align: center;
+  font-family: 'Montserrat', sans-serif;
+  border-radius: 40px;
+  color: #003DA5;
+  font-size: 10ex;
+  margin-top: 100px;
+  z-index: 900;
+  position: relative;
+  left: 40px;
+  margin-bottom: 70px;
+  top: 50px;
+}
+
+.secundaria {
+  background-color: #ffffff;
+  width: 750px;
+  height: 500px;
+  border-radius: 20px;
+  position: relative;
+  left: 550px;
+  top: -35px;
+}
+
+.conta {
+  left: 30px;
+  position: relative;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
+.senha {
+  position: relative;
+  right: 65px;
+  margin-top: 5px;
+  font-family: 'Montserrat', sans-serif;
+  color: black;
+}
+
+.fixed-position {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+input {
+  background-color: #fafafa;
+  border-radius: 15px;
+  border-color: aliceblue;
+  font-family: 'Montserrat', sans-serif;
+  z-index: 900;
+  border: 2px solid #003DA5;
+  width: 375px;
+  height: 45px;
+  margin-top: 10px;
+  font-size: medium;
+  right: 20px;
+  left: 220px;
+  position: relative;
+}
+.logo{
+    height: 20px;
+    width: 20px;
+}
+.boneco {
+  height: 250px;
+  width: 250px;
+}
+.conectar{
+    color:#fafafa;
+    font-size: 25px;
+}
+
+.aprimore {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  border-radius: 20px;
+  background-color: #003DA5;
+  width: 550px;
+  height: 500px;
+  top: -535px;
+  position: relative;
+  left: 70px;
+  padding: 20px 50px;
+  box-sizing: border-box;
+}
+
+a {
+  color: #FF8200;
+}
+
+button {
+  background-color: #003DA5;
+  border-radius: 15px;
+  width: 375px;
+  height: 45px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: medium;
+  color: #fafafa;
+  border: 2px;
+  left: 220px;
+  position: relative;
+  margin-top: 15px;
+}
+
+.texto {
+  font-family: 'Montserrat', sans-serif;
+  color: #ffffff;
+  font-size: 25px;
+  word-wrap: break-word;
+  width: 300px;
+  height: 50px;
+  text-align: end;
+  position: relative;
+  top: 20px;
+  left: -30px;
+}
+
+.laranja {
+  color: #FF8200;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+}
+
+strong{
+  font-size: larger;
+}
