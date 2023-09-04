@@ -30,11 +30,12 @@ ul {
 }
 
 .logo {
-  margin-top: 11px;
+  margin-top: 20px;
+  margin-left: 30px;
 }
 
 .topics {
-  margin-top: 20px;
+  margin-top: 29px;
   margin-right: 100px;
 }
 
@@ -43,7 +44,7 @@ img {
 }
 
 figcaption {
-  color: #0052E0;
+  color: #003DA5;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
   display: inline-block;
