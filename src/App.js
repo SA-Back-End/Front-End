@@ -1,10 +1,10 @@
 import React from 'react'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import TelaCadastro from './Telas/tela-cadastro/telaCadastro.js'
-import TelaMatch from './Telas/tela-match/telaMatch.js';
-import TelaForYou from './Telas/tela-forYou/telaForYou.js';
-import TelaAboutUs from './Telas/tela-aboutUs/telaAboutUs.js';
-import { TelaPerfil } from './Telas/tela-perfil/telaPerfil.js';
+import TelaCadastro from './Pages/tela-cadastro/telaCadastro.js'
+import TelaMatch from './Pages/tela-match/telaMatch.js';
+import TelaForYou from './Pages/tela-forYou/telaForYou.js';
+import TelaAboutUs from './Pages/tela-aboutUs/telaAboutUs.js';
+import { TelaPerfil } from './Pages/tela-perfil/telaPerfil.js';
 
 function App() {
   return (
