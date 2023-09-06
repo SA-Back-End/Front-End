@@ -1,5 +1,5 @@
 import Data from './Components/Data/data.js'
-import Logo from './img/logo.js'
+import Logo from './Components/logo.js'
 
 function TelaCadastro() {
     return (
