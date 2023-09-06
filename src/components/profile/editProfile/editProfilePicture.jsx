@@ -7,7 +7,7 @@
 // }
 import React, { useState } from 'react';
 
-export default function ProfileEditor() {
+ function ProfileEditor() {
     const [profileImage, setProfileImage] = useState('https://static.vecteezy.com/ti/vetor-gratis/p1/9292244-default-avatar-icon-vector-of-social-media-user-vetor.jpg');
 
     const handleImageChange = (event) => {
@@ -34,4 +34,4 @@ export default function ProfileEditor() {
     );
 }
 
-
+export default ProfileEditor;

@@ -1,10 +1,10 @@
-import EditProfile from './components/profile/editProfile/editProfileIndex'
+import IconeEdit from './components/profile/editProfile/buttonPicture';
 import Followers from './components/profile/followers';
 
 function App() {  
   return (
       <div>
-        <EditProfile/>
+        <IconeEdit/>
         <Followers/>
       </div>
   );
