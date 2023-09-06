@@ -1,19 +1,44 @@
 .Post{
     background-color: #ffffff;
-    border: 3px solid #ddd;
-    border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgb(226, 226, 226);
+    border-radius: 7px;
     width: 500px;
     padding: 16px;
-    background-color: rgb(208, 252, 237);
+    margin: 7px;
+    margin-left: 400px;
 }
 
-.Post-Top{
-    background-color: white;
-    display: inline-block;
+#profilePicture {
+  margin-right: 7px;
 }
 
-.Post-Footer{
-    display: inline-block;
+.Post-header{
+    margin-left: 5px;
+    display: flex;
+    align-items: end;
 }
 
+.Post-action {
+    display: flex;
+    align-items: center
+}
+
+.Post-action button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    margin-right: 20px;
+    transition: transform 0.2s;
+    width: 30px;
+    height: 30px;
+  }
+
+  .Post-action button#like:hover {
+    transform: scale(1.1); /* Efeito de escala durante o hover */
+    background-image: url('like_hover.png'); /* Troque para a versão colorida durante o hover */
+  }
+  
+  .Post-action button#comment:hover {
+    transform: scale(1.1);
+    background-image: url('comment_hover.png'); /* Troque para a versão colorida durante o hover */
+  }

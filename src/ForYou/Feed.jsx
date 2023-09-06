@@ -1,4 +1,4 @@
-import React, { useState, useEffect , useRef } from 'react';
+import React, { useState, useEffect } from 'react';
 import './Posts.css';
 import Like from './like.png';
 import Comment from './comment.png';
@@ -11,8 +11,22 @@ const Feed = () => {
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
     const [dataLength, setDataLength] = useState()
+    const [liked, setLiked] = useState(false);
+    const [commented, setCommented] = useState(false)
 
-
+/*função 'likado'*/ 
+    
+    const toggleLike = () => {
+        setLiked(!liked);
+    }
+/*função 'comentado'*/
+    
+    const toggleComment = () => {
+        setCommented(!commented);
+    }
+    
+     
+    
     const fetchData = async () => {
         setError(null);
         
@@ -24,17 +38,11 @@ const Feed = () => {
                 if(data.length === 0){
                     console.log("Final da página");
                 }
-                else if(data.length === 20){
-                    console.log("Próxima página")
-                    setDataLength(data.length);
-                    setItems(prevItems => [...prevItems, ...data]);
-                    setPage(prevPage => prevPage + 1);
-                }
-                else if (dataLength != data.length) {
+                else if (dataLength !== data.length) {
                     setDataLength(data.length);
                     setItems(prevItems => [...prevItems, ...data])
                 }
-                else if(dataLength == data.length){
+                else if(dataLength === data.length){
                     console.log("Nem sei o que isso deveria fazer")
                 }
             } catch (error) {
@@ -65,19 +73,29 @@ const Feed = () => {
             {items.map(item => (
             <React.Fragment key={item.id_user}>
                 <div className="Post">
-                    <div className="Post-Top">
-                        <div classname="Item" id="profilePicture"><img src={profilePicture} width="60px" height="60px"/></div>
-                        <div className="Item">{item.username}</div>
+                    <div className="Post-header">
+                        <div id="profilePicture"><img src={profilePicture} width="60px" height="60px" alt={item.username} /></div>
+                        <div><strong>{item.username}</strong></div>
                     </div>
-                    <div className="Item">{item.status}</div>
-                    <div className="Item">{item.firstName}</div>
-                    <div className="Item">{item.lastName}</div>
-                    <div className="Item">{item.email}</div>
-                    <div className="Item">{item.description}</div>
-                    <div className="Item">{item.birthDate}</div>
-                    <div className="Item">{item.state}</div>
-                    <div className="Post-Footer"><img src={Like} width="30px" height="30px"/></div>
-                    <div className="Post-Footer"><img src={Comment} width="30px" height="30px"/></div>
+                    <div className="Post-content">
+                        <div>{item.status}</div>
+                        <div>{item.firstName}</div>
+                        <div>{item.lastName}</div>
+                        <div>{item.email}</div>
+                        <div>{item.description}</div>
+                        <div>{item.birthDate}</div>
+                        <div>{item.state}</div>
+                    </div>
+                    <div className="Post-action">
+                        <div><button 
+/*Botão Like*/          className={`action-button like-button ${liked ? 'liked' : ''}`}             
+                        id="like"><img src={Like} width="30px" height="30px" alt="Curtir"/></button></div>
+                        <div>
+                        <button 
+/*Botão comentario*/    className={`action-button comment-button ${commented ? 'commented' : ''}`}
+                        onclick = {toggleComment}
+                        id="comment"><img src={Comment} width="30px" height="30px" alt="Comentar"/></button></div>
+                    </div>
                 </div>
             </React.Fragment>
             ))}
