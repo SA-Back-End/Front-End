@@ -1,134 +1,193 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,700;0,900;1,700&display=swap');
-
-.tela {
-  background: rgb(0, 61, 165);
-  background: linear-gradient(45deg, rgba(0, 61, 165, 1) 0%, rgba(0, 82, 224, 1) 35%, rgba(0, 0, 0, 1) 100%);
-  overflow: hidden;
-}
-
-.div-fixed-position {
-  position: fixed;
-  position: relative;
+/*div principal*/
+.tela-login {
   width: 100%;
   height: 100vh;
-  left: 15%;
+  /* background: rgb(0, 61, 165); */
+  background: linear-gradient(45deg, rgba(0, 61, 165, 1) 0%, rgba(0, 82, 224, 1) 35%, rgba(0, 0, 0, 1) 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+/*---------------------------------*/
+
+.div-toGroup {
+  display: flex;
+  width: 100%;
+  margin-top: 10%;
+  margin-left: 14%;
   overflow: hidden;
 }
 
-.div-secundaria {
-  background-color: #ffffff;
-  width: 750px;
-  height: 500px;
-  border-radius: 20px;
-  position: relative;
-  left: 550px;
-  top: -35px;
-}
+/*---------------------------------*/
 
-.div-text {
+.div-merchan {
   position: relative;
-  flex-direction: column;
-  justify-content: space-around;
+  z-index: 2;
+  width: 650px;
+  height: 500px;
+  left: 50px;
+  padding: 20px 50px;
   border-radius: 20px;
   background-color: #003DA5;
-  width: 550px;
-  height: 500px;
-  top: -535px;
-  left: 70px;
-  padding: 20px 50px;
   box-sizing: border-box;
 }
 
-.conta,
-.senha {
-  position: relative;
-  left: 90px;
-  margin-top: 40px;
-  font-family: 'Montserrat', sans-serif;
-  color: black;
+.p-merchan {
+  color: #ffffff;
+  font-size: 25px;
+  word-wrap: break-word;
 }
 
-h1 {
-  text-align: center;
-  font-family: 'Montserrat', sans-serif;
-  border-radius: 40px;
-  color: #003DA5;
-  font-size: 10ex;
-  margin-top: 100px;
-  z-index: 900;
-  position: relative;
-  left: 40px;
-  margin-bottom: 70px;
-  top: 50px;
-}
-
-input {
-  background-color: #fafafa;
-  border-radius: 15px;
-  border-color: aliceblue;
-  font-family: 'Montserrat', sans-serif;
-  z-index: 900;
-  border: 2px solid #003DA5;
-  width: 375px;
-  height: 45px;
-  margin-top: 10px;
-  font-size: medium;
-  right: 20px;
-  left: 220px;
-  position: relative;
-}
-
-button {
-  background-color: #003DA5;
-  border-radius: 15px;
-  width: 375px;
-  height: 45px;
-  font-family: 'Montserrat', sans-serif;
-  font-size: medium;
-  color: #fafafa;
-  border: 2px;
-  left: 220px;
-  position: relative;
-  margin-top: 15px;
-}
-
+/*img logo*/
 .logo {
   height: 20px;
   width: 20px;
 }
 
+/*img boneco*/
 .boneco {
   height: 250px;
   width: 250px;
 }
 
-.conectar {
-  color: #fafafa;
-  font-size: 25px;
-}
+/*---------------------------------*/
 
-.texto {
-  font-family: 'Montserrat', sans-serif;
-  color: #ffffff;
-  font-size: 25px;
-  word-wrap: break-word;
-  width: 300px;
-  height: 50px;
-  text-align: end;
+.div-login {
   position: relative;
-  top: 20px;
-  left: -30px;
+  z-index: 1;
+  width: 750px;
+  height: 500px;
+  background-color: #ffffff;
+  border-radius: 20px;
+  text-align: center;
+  /* right: 40px; */
 }
 
-/*.laranja*/
-b,
-a {
+.div-login-top {
+  margin-top: 40px;
+}
+
+.h1-skills-login {
+  color: #003DA5;
+  font-size: 10ex;
+}
+
+.login-inputs {
+  background-color: #fafafa;
+  border-radius: 15px;
+  border-color: aliceblue;
+  border: 2px solid #003DA5;
+  width: 375px;
+  height: 45px;
+  margin-top: 5px;
+  font-size: medium;
+}
+
+.p-conta,
+.p-senha {
+  margin-top: 20px;
+  color: black;
+}
+
+.botao-submit {
+  background-color: #003DA5;
+  border-radius: 15px;
+  width: 375px;
+  height: 45px;
+  font-size: medium;
+  color: #fafafa;
+  border: 2px;
+}
+
+.a-login {
   color: #FF8200;
-  font-family: 'Montserrat', sans-serif;
   font-weight: bold;
 }
 
-strong {
+.strong-login {
+  color: #FF8200;
   font-size: larger;
+}
+
+/*---------------------------------------------*/
+
+@media screen and (max-width: 810px) {
+
+  .div-toGroup {
+    display: flex;
+    width: 100%;
+    margin-top: 25%;
+    margin-left: 10%;
+    overflow: hidden;
+  }
+
+  /*---------------------------------*/
+
+  .div-merchan {
+    display: none;
+  }
+
+  /*---------------------------------------------*/
+
+  .div-login {
+    position: relative;
+    width: 80%;
+    height: 420px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    text-align: center;
+    /* right: 40px; */
+  }
+
+  /*---------------------------------------------*/
+
+  .div-login-top {
+    margin-top: 30px;
+  }
+
+  .h1-skills-login {
+    color: #003DA5;
+    font-size: xx-large;
+  }
+
+  /*---------------------------------------------*/
+
+  .div-inputs {
+    margin-top: 30px;
+  }
+
+  .login-inputs {
+    width: 260px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #fafafa;
+    border-radius: 15px;
+    border-color: aliceblue;
+    border: 2px solid #003DA5;
+    font-size: medium;
+  }
+
+  /*---------------------------------------------*/
+
+  .div-links {
+    margin-top: 40px;
+  }
+
+  .p-conta,
+  .p-senha {
+    font-size: small;
+    margin-top: 20px;
+    color: black;
+  }
+
+  .botao-submit {
+    background-color: #003DA5;
+    border-radius: 15px;
+    width: 150px;
+    height: 40px;
+    font-size: medium;
+    color: #fafafa;
+    border: 2px;
+  }
+
 }

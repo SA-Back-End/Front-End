@@ -1,11 +1,13 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
-
-.cadastro {
-    background-color: #1F71FF;
+.tela-cadastro {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background: rgb(0, 61, 165);
+    background: linear-gradient(45deg, rgba(0, 61, 165, 1) 0%, rgba(0, 82, 224, 1) 35%, rgba(0, 0, 0, 1) 100%);
     overflow: hidden;
 }
 
-h1 {
+.h1-skills-cadastro {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     border-radius: 40px;
@@ -15,7 +17,7 @@ h1 {
     z-index: 900;
 }
 
-h2 {
+.h2-cadastrar {
     text-align: center;
     font-family: 'Montserrat', sans-serif;
     border-radius: 40px;
@@ -24,7 +26,6 @@ h2 {
     margin-top: -65px;
     font-size: 25x;
     z-index: -1;
-
 }
 
 .centralizar {
@@ -68,13 +69,13 @@ h2 {
     font-weight: bold;
 }
 
-input#data_nascimento {
+/* input#data_nascimento {
     font-family: 'Montserrat', sans-serif;
     background-color: aliceblue;
     border-radius: 20px;
     border-color: aliceblue;
 
-}
+} */
 
 .Logo {
     display: grid;
@@ -99,12 +100,4 @@ input#data_nascimento {
     z-index: 900;
     background: transparent;
     margin-top: -15px;
-    font-family: 'Montserrat', sans-serif;
-
-}
-
-label {
-    font-family: 'Montserrat', sans-serif;
-    color: #fff;
-    background: transparent;
 }

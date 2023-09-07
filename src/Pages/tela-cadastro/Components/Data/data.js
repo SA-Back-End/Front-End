@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import './data.css'
 
 const Data = () => {
   const [selectedDate, setSelectedDate] = useState('');
@@ -8,8 +9,8 @@ const Data = () => {
   };
 
   return (
-    <div className='data'>
-      <label htmlFor="data_nascimento">Data de nascimento </label>
+    <div className='div-data'>
+      <label htmlFor="data_nascimento" className='label-dataNasc'>Data de nascimento </label><br/>
       <input
         type="date"
         id="data_nascimento"

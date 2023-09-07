@@ -6,6 +6,7 @@ import TelaForYou from './Pages/tela-forYou/telaForYou.js';
 import TelaAboutUs from './Pages/tela-aboutUs/telaAboutUs.js';
 import { TelaPerfil } from './Pages/tela-perfil/telaPerfil.js';
 import TelaLogin from './Pages/tela-login/login.js';
+import TestTelaCadastro from './Pages/tela-cadastro/test/testTelaCadastro.js';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
           <Route path="/perfil" element={<TelaPerfil />} />
           <Route path="/login" element={<TelaLogin />} />
           <Route path="/cadastro" element={<TelaCadastro />} />
+          <Route path='/test' element={<TestTelaCadastro />} />
         </Routes>
       </Router>
     </div>

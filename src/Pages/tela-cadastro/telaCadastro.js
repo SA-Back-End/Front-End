@@ -1,11 +1,12 @@
 import Data from './Components/Data/data.js'
 import Logo from './Components/logo.js'
+import './telaCadastro.css';
 
 function TelaCadastro() {
     return (
-        <div className="cadastro">
-            <h1>S K I L L S</h1>
-            <h2>Cadastrar</h2>
+        <div className="tela-cadastro">
+            <h1 className='h1-skills-cadastro'>S K I L L S</h1>
+            <h2 className='h2-cadastrar'>Cadastrar</h2>
             <div className='centralizar'>
 
                 <div className="nome">

@@ -1,95 +1,251 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
-
-body {
+/*div principal*/
+.tela-principal {
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    height: 100vh;
     background-image: url('./img/Background.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     background-attachment: fixed;
+    position: relative;
 }
 
-body::before {
-    content: "";
+.tela-principal::before {
+    display: block;
     position: absolute;
+    content: "";
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
 }
 
+/*---------------------------------------------*/
 
-table {
+.header-aboutUs {
+    display: flex;
+    position: relative;
+    align-items: center;
     width: 100%;
-    border-collapse: collapse;
+    margin-top: 10px;
+    z-index: 1;
 }
 
-td {
-    padding: 10px;
+.header-aboutUs::after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
+/*---------------------------------------------*/
+
+/*nav onde os itens abaixo estão inseridos*/
+.nav-links {
+    margin-left: 60%;
+}
+
+/*ul*/
+.links-toOtherPages {
+    margin-right: 30px;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 50px;
+}
+
+/*li*/
+.options-links {
+    color: #FF8200;
+    text-decoration: none;
+    transition: 0.6s;
+    font-size: medium
+}
+
+.options-links:hover {
+    font-size: large;
+    color: #003DA5;
+}
+
+/*---------------------------------------------*/
+
+/*logo + SKILLS*/
 .container {
+    margin-left: 10px;
     display: inline-block;
     position: relative;
 }
 
-img {
+.img-logo {
     width: 10%;
 }
 
-figcaption {
+.icon-skills {
     color: #FF8200;
-    font-family: 'Montserrat';
     display: inline-block;
     vertical-align: middle;
     margin-top: -6%;
 }
 
-a {
-    color: #003DA5;
-    text-decoration: none;
-    font-family: 'Montserrat';
-    transition: 1s;
-}
+/*---------------------------------------------*/
 
-a:hover {
-    font-size: large;
-    color: #FF8200;
-}
-
-.welcome {
+/*div central (SKILLS + frase + botao saiba mais*/
+.div-center {
+    text-align: center;
     position: absolute;
-    top: 50%;
+    top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    text-align: center;
 }
 
-h1 {
+.skills {
+    left: 0;
     color: #FF8200;
-    font-size: 90px;
-    font-family: 'Montserrat';
+    font-size: 80px;
 }
 
-p {
+.merchan {
     color: rgb(255, 255, 255);
-    font-family: 'Montserrat';
-    margin-top: -10%;
+    font-size: medium;
+    margin-top: 6px;
 }
 
-span {
+.span-aboutUs {
     color: #FF8200;
 }
 
-button {
+.btt-saibaMais {
     width: 12vw;
     height: 6vh;
     border: 0;
     border-radius: 10%;
     background-color: #003DA5;
     color: white;
-    font-family: 'Montserrat';
+}
+
+/*---------------------------------------------*/
+
+
+/* Media Query for Medium-sized Screens (Tablet) */
+@media screen and (max-width: 1000px) {
+
+    .header-aboutUs {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        margin-top: 10px;
+        z-index: 1;
+    }
+
+    .header-aboutUs::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /*---------------------------------------------*/
+
+    .nav-links {
+        margin-left: 20%;
+        /* Adjust margin for medium-sized screens */
+    }
+
+    /*ul*/
+    .links-toOtherPages {
+        margin-right: 30px;
+        list-style: none;
+        padding: 0;
+        display: flex;
+        gap: 50px;
+    }
+
+    /*li*/
+    .options-links {
+        color: #FF8200;
+        text-decoration: none;
+        transition: 0.6s;
+        font-size: medium
+    }
+
+    .options-links:hover {
+        font-size: large;
+        color: #003DA5;
+    }
+
+    /*---------------------------------------------*/
+}
+
+
+/* Media Query for Small Screens (e.g., Mobile) */
+@media screen and (max-width: 540px) {
+
+    .header-aboutUs {
+        display: flex;
+        position: relative;
+        align-items: center;
+        width: 100%;
+        z-index: 1;
+    }
+
+    .header-aboutUs::after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+
+    /*---------------------------------------------*/
+
+    .nav-links {
+        margin-left: 0;
+    }
+
+    .links-toOtherPages {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .options-links {
+        font-size: x-small;
+    }
+
+    /*---------------------------------------------*/
+
+    .container {
+        margin-right: 40%;
+        text-align: center;
+    }
+
+    .img-logo {
+        width: 20px;
+    }
+
+    /*---------------------------------------------*/
+
+    .div-center {
+        top: 30%;
+        margin-top: 30px;
+    }
+
+    .skills {
+        font-size: 30px;
+    }
+
+    .merchan {
+        font-size: small;
+        margin-top: 3px;
+    }
+
+    .btt-saibaMais {
+        width: 25vw;
+        height: 4vh;
+        border: 0;
+        border-radius: 10%;
+        background-color: #003DA5;
+        color: white;
+    }
 }
