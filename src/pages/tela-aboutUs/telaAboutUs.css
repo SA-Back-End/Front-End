@@ -6,9 +6,10 @@
     width: 100%;
     height: 100vh;
     background-image: url('./img/Background.jpg');
+    background-attachment: fixed;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-attachment: fixed;
     position: relative;
 }
 
@@ -21,8 +22,8 @@
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
 }
 
 /*---------------------------------------------*/
@@ -46,29 +47,33 @@
 
 /*nav onde os itens abaixo estão inseridos*/
 .nav-links {
-    margin-left: 60%;
+    margin-left: 59%;
 }
 
 /*ul*/
 .links-toOtherPages {
     margin-right: 30px;
     list-style: none;
-    padding: 0;
     display: flex;
-    gap: 50px;
+    gap: 30px;
+
 }
+
 
 /*li*/
 .options-links {
     color: #FF8200;
+    font-weight: bold;
     text-decoration: none;
     transition: 0.6s;
-    font-size: medium
+    font-size: medium;
+    margin-left: 10px;
 }
 
 .options-links:hover {
     font-size: large;
     color: #003DA5;
+    font-weight: bold;
 }
 
 /*---------------------------------------------*/
@@ -86,9 +91,11 @@
 
 .icon-skills {
     color: #FF8200;
+    text-transform: uppercase;
     display: inline-block;
     vertical-align: middle;
     margin-top: -6%;
+    margin-left: 10px;
 }
 
 /*---------------------------------------------*/
@@ -106,11 +113,14 @@
     left: 0;
     color: #FF8200;
     font-size: 80px;
+    text-transform: uppercase;
+    letter-spacing: 20px;
 }
 
 .merchan {
     color: rgb(255, 255, 255);
     font-size: medium;
+    font-weight: bold;
     margin-top: 6px;
 }
 
@@ -118,16 +128,57 @@
     color: #FF8200;
 }
 
-.btt-saibaMais {
-    width: 12vw;
+.btn-saibaMais {
+    font-weight: bold;
+    margin-top: 30px;
+    width: 15vw;
     height: 6vh;
     border: 0;
-    border-radius: 10%;
+    border-radius: 10px;
     background-color: #003DA5;
     color: white;
+    transition: .3s;
 }
 
-/*---------------------------------------------*/
+.btn-saibaMais:hover {
+    transform: scale(1.1, 1.1);
+    filter: drop-shadow(0 0 50px #222222);
+    transition: .3s;
+}
+
+#main {
+    height: 1000px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#main h1 {
+    font-size: 24px;
+}
+
+#main p {
+    font-size: 18px;
+}
+
+#container2 {
+    background-color: palegoldenrod;
+    display: grid;
+    place-items: 'center';
+    width: 40%;
+    margin-left: 0px;
+}
+
+#imgTemplate {
+    width: 450px;
+    height: 150px;
+    background-color: #003DA5;
+    margin-left: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+}
 
 
 /* Media Query for Medium-sized Screens (Tablet) */
@@ -240,7 +291,7 @@
         margin-top: 3px;
     }
 
-    .btt-saibaMais {
+    .btn-saibaMais {
         width: 25vw;
         height: 4vh;
         border: 0;
