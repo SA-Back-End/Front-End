@@ -1,24 +1,34 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,700;0,900;1,700&display=swap');
+
+/*aumentar a fonte das coisas --> olhar no figma*/
+
 .tela {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-image: url('./background.jpg');
   background-size: cover;
+  width: 100%;
   height: 100vh;
   position: relative;
 }
 
 .tela::before {
   content: "";
-  position: relative;
+  display: block;
+  position: absolute;
   height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: -1;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
 }
 
 .topo {
+  position: relative;
+  display: block;
   background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
-  z-index: 2;
+  /*mais claro*/
 }
 
 .lista {
@@ -90,7 +100,7 @@
   width: 150px;
   height: 40px;
   border: 0;
-  border-radius: 20px;
+  border-radius: 10px;
   background-color: #003DA5;
   color: white;
   font-family: 'Montserrat', sans-serif;
