@@ -1,4 +1,4 @@
-import IconeEdit from './components/profile/editProfile/buttonPicture';
+import IconeEdit from './components/profile/editProfile/buttons';
 import Followers from './components/profile/followers';
 
 function App() {  
