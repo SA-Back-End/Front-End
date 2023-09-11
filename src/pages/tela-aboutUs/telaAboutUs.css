@@ -1,302 +1,105 @@
-/*div principal*/
-.tela-principal {
+body {
     margin: 0;
     padding: 0;
-    overflow: hidden;
-    width: 100%;
-    height: 100vh;
+    box-sizing: border-box;
     background-image: url('./img/Background.jpg');
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
     background-size: cover;
-    position: relative;
-}
-
-.tela-principal::before {
-    display: block;
-    position: absolute;
+  }
+  
+  body::before {
     content: "";
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
-    -webkit-backdrop-filter: blur(10px);
-    backdrop-filter: blur(10px);
-}
-
-/*---------------------------------------------*/
-
-.header-aboutUs {
-    display: flex;
-    position: relative;
-    align-items: center;
-    width: 100%;
-    margin-top: 10px;
-    z-index: 1;
-}
-
-.header-aboutUs::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-/*---------------------------------------------*/
-
-/*nav onde os itens abaixo estão inseridos*/
-.nav-links {
-    margin-left: 59%;
-}
-
-/*ul*/
-.links-toOtherPages {
-    margin-right: 30px;
+    z-index: -1;
+  }
+  
+  nav {
+    background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
+  }
+  
+  ul {
+    justify-content: space-between;
+    margin: 0;
     list-style: none;
     display: flex;
-    gap: 30px;
-
-}
-
-
-/*li*/
-.options-links {
-    color: #FF8200;
-    font-weight: bold;
-    text-decoration: none;
-    transition: 0.6s;
-    font-size: medium;
-    margin-left: 10px;
-}
-
-.options-links:hover {
-    font-size: large;
+    padding: 0 10px;
+  }
+  
+  .logo {
+    margin-top: 20px;
+    margin-left: 30px;
+  }
+  
+  .topics {
+    margin-top: 29px;
+    margin-right: 100px;
+  }
+  
+  img {
+    width: 40px;
+  }
+  
+  figcaption {
     color: #003DA5;
+    font-family: 'Montserrat', sans-serif;
     font-weight: bold;
-}
-
-/*---------------------------------------------*/
-
-/*logo + SKILLS*/
-.container {
-    margin-left: 10px;
-    display: inline-block;
-    position: relative;
-}
-
-.img-logo {
-    width: 10%;
-}
-
-.icon-skills {
-    color: #FF8200;
-    text-transform: uppercase;
-    display: inline-block;
-    vertical-align: middle;
-    margin-top: -6%;
-    margin-left: 10px;
-}
-
-/*---------------------------------------------*/
-
-/*div central (SKILLS + frase + botao saiba mais*/
-.div-center {
-    text-align: center;
+  }
+  
+  a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    transition-duration: 0.5s;
+  }
+  
+  a:hover {
+    font-size: 17px;
+  }
+  
+  .welcome {
     position: absolute;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-}
-
-.skills {
-    left: 0;
+    text-align: center;
+  }
+  
+  h1 {
     color: #FF8200;
     font-size: 80px;
-    text-transform: uppercase;
-    letter-spacing: 20px;
-}
-
-.merchan {
+    font-family: 'Montserrat', sans-serif;
+  }
+  
+  p {
     color: rgb(255, 255, 255);
-    font-size: medium;
-    font-weight: bold;
-    margin-top: 6px;
-}
-
-.span-aboutUs {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    margin-top: -10%;
+  }
+  
+  span {
     color: #FF8200;
-}
-
-.btn-saibaMais {
     font-weight: bold;
-    margin-top: 30px;
-    width: 15vw;
-    height: 6vh;
+  }
+  
+  button {
+    width: 150px;
+    height: 40px;
     border: 0;
-    border-radius: 10px;
+    border-radius: 20px;
     background-color: #003DA5;
     color: white;
-    transition: .3s;
-}
-
-.btn-saibaMais:hover {
-    transform: scale(1.1, 1.1);
-    filter: drop-shadow(0 0 50px #222222);
-    transition: .3s;
-}
-
-#main {
-    height: 1000px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-#main h1 {
-    font-size: 24px;
-}
-
-#main p {
-    font-size: 18px;
-}
-
-#container2 {
-    background-color: palegoldenrod;
-    display: grid;
-    place-items: 'center';
-    width: 40%;
-    margin-left: 0px;
-}
-
-#imgTemplate {
-    width: 450px;
-    height: 150px;
-    background-color: #003DA5;
-    margin-left: 100px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-}
-
-
-/* Media Query for Medium-sized Screens (Tablet) */
-@media screen and (max-width: 1000px) {
-
-    .header-aboutUs {
-        display: flex;
-        position: relative;
-        align-items: center;
-        width: 100%;
-        margin-top: 10px;
-        z-index: 1;
-    }
-
-    .header-aboutUs::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /*---------------------------------------------*/
-
-    .nav-links {
-        margin-left: 20%;
-        /* Adjust margin for medium-sized screens */
-    }
-
-    /*ul*/
-    .links-toOtherPages {
-        margin-right: 30px;
-        list-style: none;
-        padding: 0;
-        display: flex;
-        gap: 50px;
-    }
-
-    /*li*/
-    .options-links {
-        color: #FF8200;
-        text-decoration: none;
-        transition: 0.6s;
-        font-size: medium
-    }
-
-    .options-links:hover {
-        font-size: large;
-        color: #003DA5;
-    }
-
-    /*---------------------------------------------*/
-}
-
-
-/* Media Query for Small Screens (e.g., Mobile) */
-@media screen and (max-width: 540px) {
-
-    .header-aboutUs {
-        display: flex;
-        position: relative;
-        align-items: center;
-        width: 100%;
-        z-index: 1;
-    }
-
-    .header-aboutUs::after {
-        content: "";
-        display: table;
-        clear: both;
-    }
-
-    /*---------------------------------------------*/
-
-    .nav-links {
-        margin-left: 0;
-    }
-
-    .links-toOtherPages {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .options-links {
-        font-size: x-small;
-    }
-
-    /*---------------------------------------------*/
-
-    .container {
-        margin-right: 40%;
-        text-align: center;
-    }
-
-    .img-logo {
-        width: 20px;
-    }
-
-    /*---------------------------------------------*/
-
-    .div-center {
-        top: 30%;
-        margin-top: 30px;
-    }
-
-    .skills {
-        font-size: 30px;
-    }
-
-    .merchan {
-        font-size: small;
-        margin-top: 3px;
-    }
-
-    .btn-saibaMais {
-        width: 25vw;
-        height: 4vh;
-        border: 0;
-        border-radius: 10%;
-        background-color: #003DA5;
-        color: white;
-    }
-}
+    font-family: 'Montserrat', sans-serif;
+    transition-duration: 0.8s;
+  }
+  
+  button:hover {
+    cursor: pointer;
+    width: 150px;
+    height: 40px;
+    background-color: #0052E0;
+  }
