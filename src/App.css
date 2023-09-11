@@ -1,12 +1,13 @@
-body {
+.tela {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   background-image: url('./background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
 }
 
-body::before {
+.tela::before {
   content: "";
   position: absolute;
   top: 0;
@@ -17,11 +18,11 @@ body::before {
   z-index: -1;
 }
 
-nav {
+.topo {
   background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
 }
 
-ul {
+.lista {
   justify-content: space-between;
   margin: 0;
   list-style: none;
@@ -32,6 +33,7 @@ ul {
 .logo {
   margin-top: 20px;
   margin-left: 30px;
+  width: 10%;
 }
 
 .topics {
@@ -39,11 +41,7 @@ ul {
   margin-right: 100px;
 }
 
-img {
-  width: 10%;
-}
-
-figcaption {
+.legenda {
   color: #003DA5;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -52,14 +50,14 @@ figcaption {
   margin-top: -6%;
 }
 
-a {
+.redirect {
   color: white;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   transition-duration: 0.5s;
 }
 
-a:hover {
+.redirect:hover {
   font-size: 17px;
 }
 
@@ -71,25 +69,25 @@ a:hover {
   text-align: center;
 }
 
-h1 {
+.nome {
   color: #FF8200;
   font-size: 80px;
   font-family: 'Montserrat', sans-serif;
 }
 
-p {
+.slogan {
   color: rgb(255, 255, 255);
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   margin-top: -10%;
 }
 
-span {
+.laranja {
   color: #FF8200;
   font-weight: bold;
 }
 
-button {
+.btn {
   width: 150px;
   height: 40px;
   border: 0;
@@ -100,7 +98,7 @@ button {
   transition-duration: 0.8s;
 }
 
-button:hover {
+.btn:hover {
   cursor: pointer;
   width: 150px;
   height: 40px;
