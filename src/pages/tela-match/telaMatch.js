@@ -1,22 +1,20 @@
 import React from 'react';
-import Filtro from './Components/filter.js';
+import Filter from './component/filter/Filter';
+import ToogleBtn from './component/filter/Toogle.btn';
 
 const TelaMatch = () => {
+
+    const logState = (state) => {
+        // Usar o state para fazer o bgl de trocar tela
+        console.log("Toggled:", state)
+    }
+
     return (
+
         <div>
-            <header></header>
-
-            <div className="dropdown">
-                <select>
-                    <option value="participantes">Buscar participantes</option>
-                    <option value="projetos">Buscar projetos</option>
-                </select>
-                <Filtro />
-            </div>
-
-            <div className="card">
-                <h3>Nome da pessoa</h3>
-                <p>Lorem ipsum dolor sit amet. Sit deleniti sint id voluptas</p>
+            <div className='inner_header'>
+                <ToogleBtn toFilter={logState} />
+                <Filter />
             </div>
         </div>
     );
