@@ -1,4 +1,4 @@
-import EditProfile from './Components/EditProfile/telaIndex.js'
+import EditProfile from './Components/EditProfile/index-editProfile.js'
 import Followers from './Components/Followers/followers';
 
 function PerfilTay() {
