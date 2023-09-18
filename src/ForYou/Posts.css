@@ -8,6 +8,24 @@
     margin-left: 400px;
 }
 
+.Comment-section {
+  display: flex;
+  margin-top: 10px;
+  flex-direction: row;
+}
+
+#comment {
+  width: 400px;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 10px;
+}
+
+#submit {
+  margin-left: 5px;
+  border: 1px solid rgb(226, 226, 226);
+  border-radius: 80px;
+}
+
 #profilePicture {
   margin-right: 7px;
   border: 1px solid white;
@@ -45,7 +63,7 @@
     background-image: url('like_hover.png'); /* Troque para a versão colorida durante o hover */
   }
   
-  .Post-action button#comment:hover {
+  .Post-action button#comment-button:hover {
     transform: scale(1.1);
     background-image: url('comment_hover.png'); /* Troque para a versão colorida durante o hover */
   }
