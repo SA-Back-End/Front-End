@@ -1,8 +1,8 @@
-import EditCertificados from './EditCertificados';
+import InputProjetos from './InputProjetos';
 import essaAqui from '../../assets/pencil.png';
 import React, { useState } from 'react';
 
-function Certificados() {
+function Projetos() {
     const [showRegister, setshowRegister] = useState(false);
 
     const handleNotRegister = () => {
@@ -10,12 +10,13 @@ function Certificados() {
     }
 
     if (showRegister) {
-        return <EditCertificados />;
+        return <InputProjetos />;
+        
     }
 
     return (
         <div>
-            <h1>Certificados</h1>
+            <h1>Projetos</h1>
             <img src={essaAqui} alt="Editar" onClick={handleNotRegister} />
             <p>...</p>
         </div>
@@ -23,4 +24,4 @@ function Certificados() {
 }
 
 
-export default Certificados;
+export default Projetos;

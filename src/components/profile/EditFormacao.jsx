@@ -15,7 +15,7 @@ function EditFormacao() {
                 <label>Data de conclusão:</label>
                 <input type="date" name="dataConclusao" />
                 <label>Descrição:</label>
-                <textarea name="comment" form="usrform">Descrição</textarea>
+                <textarea name="comment" form="usrform" placeholder="Descrição"></textarea>
                 <input type="submit" value="Submit" />
             </form>
         </div>

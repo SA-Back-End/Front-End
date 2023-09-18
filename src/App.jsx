@@ -1,14 +1,19 @@
 import { BrowserRouter as Route, Router, Routes } from 'react-router-dom';
 import './App.css';
+import Atividades from './components/profile/Atividades';
 import Bio from './components/profile/Bio';
-import EditProfile from './components/profile/EditProfile';
+import Certificados from './components/profile/Certificados';
 import Formacao from './components/profile/Formacao';
+import Projetos from './components/profile/Projetos';
 
 function App() {
   return (
     <div>
-      <Bio></Bio>
       <Formacao></Formacao>
+      <Bio></Bio>
+      <Certificados></Certificados>
+      <Atividades></Atividades>
+      <Projetos></Projetos>
     </div>
   );
 }
