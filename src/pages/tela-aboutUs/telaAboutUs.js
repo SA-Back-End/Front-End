@@ -1,32 +1,38 @@
 import React from 'react';
 import './telaAboutUs.css';
 import Logo from './img/logo.ico';
+import TelaLogin from '../tela-login/login.js'
+import TelaCarrossel from './tela-carrossel/telaCarrossel';
 
-const App = () => {
+const TelaAboutUs = () => {
   return (
     <div>
-      <nav>
-        <ul>
-          <li className='logo'>
-            <img src={Logo} alt="logo" />
-            <figcaption>S K I L L S</figcaption>
-          </li>
-          <ul>
-            <li className='topics'><a href=''>Quem somos?</a></li>
-            <li className='topics'><a href=''>Cadastre-se</a></li>
-            <li className='topics'><a href=''>Login</a></li>
+      <div className='tela'>
+        <nav className='topo'>
+          <ul className='lista'>
+            <li>
+              <img src={Logo} className='logo' alt="logo" />
+              <figcaption className='legenda'>S K I L L S</figcaption>
+            </li>
+            <ul className='lista'>
+              <li className='topics'><a className='redirect' href=''>Quem somos?</a></li>
+              <li className='topics'><a className='redirect' href=''>Cadastre-se</a></li>
+              <li className='topics'><a className='redirect' href='/login'>Login</a></li>
+            </ul>
           </ul>
-        </ul>
-      </nav>
-      <div className='welcome'>
-        <h1>S K I L L S</h1>
-        <p>Encontre os parceiros <span>ideais</span> para os seus projetos</p>
-        <a href=''>
-          <button htype="button">Saiba mais</button>
-        </a>
+        </nav>
+        <div className='welcome'>
+          <h1 className='nome'>S K I L L S</h1>
+          <p className='slogan'>Encontre os parceiros <span className='laranja'>ideais</span> para os seus projetos</p>
+          <a href=''>
+            <button className='btn' htype="button">Saiba mais</button>
+          </a>
+        </div>
       </div>
+      {/* <TelaCarrossel /> */}
+      <TelaLogin />
     </div>
   );
 }
 
-export default App;
+export default TelaAboutUs;

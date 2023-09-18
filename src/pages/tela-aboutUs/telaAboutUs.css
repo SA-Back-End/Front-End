@@ -1,105 +1,115 @@
-body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    background-image: url('./img/Background.jpg');
-    background-size: cover;
-  }
-  
-  body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-  }
-  
-  nav {
-    background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
-  }
-  
-  ul {
-    justify-content: space-between;
-    margin: 0;
-    list-style: none;
-    display: flex;
-    padding: 0 10px;
-  }
-  
-  .logo {
-    margin-top: 20px;
-    margin-left: 30px;
-  }
-  
-  .topics {
-    margin-top: 29px;
-    margin-right: 100px;
-  }
-  
-  img {
-    width: 40px;
-  }
-  
-  figcaption {
-    color: #003DA5;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: bold;
-  }
-  
-  a {
-    color: white;
-    text-decoration: none;
-    font-family: 'Montserrat', sans-serif;
-    transition-duration: 0.5s;
-  }
-  
-  a:hover {
-    font-size: 17px;
-  }
-  
-  .welcome {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    text-align: center;
-  }
-  
-  h1 {
-    color: #FF8200;
-    font-size: 80px;
-    font-family: 'Montserrat', sans-serif;
-  }
-  
-  p {
-    color: rgb(255, 255, 255);
-    font-family: 'Montserrat', sans-serif;
-    font-size: 17px;
-    margin-top: -10%;
-  }
-  
-  span {
-    color: #FF8200;
-    font-weight: bold;
-  }
-  
-  button {
-    width: 150px;
-    height: 40px;
-    border: 0;
-    border-radius: 20px;
-    background-color: #003DA5;
-    color: white;
-    font-family: 'Montserrat', sans-serif;
-    transition-duration: 0.8s;
-  }
-  
-  button:hover {
-    cursor: pointer;
-    width: 150px;
-    height: 40px;
-    background-color: #0052E0;
-  }
+/* @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,700;0,900;1,700&display=swap'); */
+
+/*aumentar a fonte das coisas --> olhar no figma*/
+
+.tela {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-image: url('./img/Background.jpg');
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.tela::before {
+  content: "";
+  display: block;
+  position: absolute;
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+}
+
+.topo {
+  position: relative;
+  display: block;
+  background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
+  /*mais claro*/
+}
+
+.lista {
+  justify-content: space-between;
+  margin: 0;
+  list-style: none;
+  display: flex;
+  padding: 0 10px;
+}
+
+.logo {
+  margin-top: 20px;
+  margin-left: 30px;
+  width: 10%;
+}
+
+.topics {
+  margin-top: 29px;
+  margin-right: 100px;
+}
+
+.legenda {
+  color: #003DA5;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: bold;
+  display: inline-block;
+  vertical-align: middle;
+  margin-top: -6%;
+}
+
+.redirect {
+  color: white;
+  text-decoration: none;
+  font-family: 'Montserrat', sans-serif;
+  transition-duration: 0.5s;
+}
+
+.redirect:hover {
+  font-size: 17px;
+}
+
+.welcome {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.nome {
+  color: #FF8200;
+  font-size: 80px;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.slogan {
+  color: rgb(255, 255, 255);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  margin-top: -10%;
+}
+
+.laranja {
+  color: #FF8200;
+  font-weight: bold;
+}
+
+.btn {
+  width: 150px;
+  height: 40px;
+  border: 0;
+  border-radius: 10px;
+  background-color: #003DA5;
+  color: white;
+  font-family: 'Montserrat', sans-serif;
+  transition-duration: 0.8s;
+}
+
+.btn:hover {
+  cursor: pointer;
+  width: 150px;
+  height: 40px;
+  background-color: #0052E0;
+}

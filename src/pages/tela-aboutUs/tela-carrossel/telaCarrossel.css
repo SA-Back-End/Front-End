@@ -1,7 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Montserrat:ital,wght@0,500;0,700;0,900;1,700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates&family=Montserrat:ital,wght@0,100;0,200;0,700;0,900;1,700&display=swap');
-
+/* TelaCarrossel.css */
 .back_end {
   width: 400px;
   height: 300px;
@@ -12,7 +9,7 @@
   z-index: 1;
 }
 
-.mover{
+.mover {
   margin-top: -280px;
   width: 50%;
   height: 50%;
@@ -29,25 +26,29 @@
 }
 
 .texto-destacado {
-  color: orange; /* Cor laranja */
+  color: orange;
 }
 
-.texto-titulo{
+.texto-titulo {
   color: #003DA5;
   font-size: 40px;
 }
 
-.icones{
+.icones {
   margin-top: 100px;
   display: flex;
   text-align: center;
   font-size: 30px;
   margin-left: 90px;
 }
-.coracao, .olho, .alvo{
+
+.coracao,
+.olho,
+.alvo {
   width: 130px;
   height: 130px;
 }
+
 .h2_sobre_nos {
   margin-top: 20px;
   right: 20px;
@@ -58,7 +59,7 @@
 }
 
 .texto_sobre_nos {
-  left:20px;
+  left: 20px;
   position: relative;
   font-size: 24px;
   font-family: 'Montserrat', sans-serif;
@@ -120,14 +121,14 @@ p {
 .espaco {
   margin-top: 70px;
   color: black;
-  left:20px;
+  left: 20px;
   position: relative;
   font-size: 24px;
   font-family: 'Montserrat', sans-serif;
   text-align: start;
 }
 
-.linha1{
+.linha1 {
   width: 3px;
   height: 155px;
   top: 30px;
@@ -136,7 +137,7 @@ p {
   position: relative;
 }
 
-.linha{
+.linha {
   width: 3px;
   height: 155px;
   top: 30px;
@@ -164,8 +165,10 @@ p {
   color: blue;
 }
 
-.missao, .valores, .visao{
-  width:30%;
+.missao,
+.valores,
+.visao {
+  width: 30%;
   height: 50%;
   font-size: 24px;
 }
