@@ -12,8 +12,10 @@ const Feed = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
-    const [dataLength, setDataLength] = useState()
+    const [dataLength, setDataLength] = useState();
     const [liked, setLiked] = useState({});
+    const [comments, setComments] = useState([]);
+    const [newComment, setNewComment] = useState('');
 
     //Define se foi dado o like ou não
     const toggleLike = (id_post) => {
@@ -32,6 +34,13 @@ const Feed = () => {
                     : item
             )
         );
+    };
+
+    // "Mandar o comentário para o banco" --> Nunca vai acontecer 
+    const addComment = (postId, newComment) => {
+        // POST para o back-end
+        setComments((prevComments) => [...prevComments, { postId, text: newComment }]);
+        ;
     };
 
     const fetchData = async () => {
@@ -114,19 +123,32 @@ const Feed = () => {
                                     onClick={() => toggleComment(item.id_post)}
                                     id="comment-button"
                                 >
-                                    <img 
-                                        src={Comment} 
-                                        width="30px" 
-                                        height="30px" 
+                                    <img
+                                        src={Comment}
+                                        width="30px"
+                                        height="30px"
                                         alt="Comentar" />
                                 </button>
                             </div>
                         </div>
 
                         <div className="Comment-section">
-                            <div><img src={profilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible}/></div>
-                            <input id="comment" name="comment" placeholder="Comentário" hidden={!item.commentVisible}/>
-                            <button id="submit" hidden={!item.commentVisible}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
+                            <div><img src={profilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible} /></div>
+                            <input
+                                type="text"
+                                placeholder="Digite seu Comentario..."
+                                value={newComment}
+                                onChange={(e) => setNewComment(e.target.value)}
+                            />
+                            <button onClick={() => addComment(item.id, setComment)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
+
+                            {comments
+                                .filter((comment) => comment.postId === item.id_post)
+                                .map((comment) => (
+                                    <div key={comment.id}>
+                                        <strong>{comment.username}</strong>: {comment.text}
+                                    </div>
+                                ))}
                         </div>
                     </div>
                 </React.Fragment>
@@ -134,8 +156,7 @@ const Feed = () => {
             }
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
-        </div >
-    )
-};
+        </div>
+)};
 
 export default Feed;
