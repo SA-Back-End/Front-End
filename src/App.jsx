@@ -7,13 +7,16 @@ import Formacao from './components/profile/Formacao';
 import Projetos from './components/profile/Projetos';
 
 function App() {
+
+  const user={name: 'Nic', userName: 'NicNic'}
+
   return (
     <div>
-      <Formacao></Formacao>
+      {/* <Formacao></Formacao>
       <Bio></Bio>
       <Certificados></Certificados>
-      <Atividades></Atividades>
-      <Projetos></Projetos>
+      <Atividades></Atividades> */}
+      <Projetos user={user}></Projetos>
     </div>
   );
 }
