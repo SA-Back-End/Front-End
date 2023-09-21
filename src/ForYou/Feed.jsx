@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Posts.css';
-import Like from './like.png';
-import Liked from './like_clicked.png';
-import Comment from './comment.png';
-import Arrow from './arrow.png';
+import Like from './img/like.png';
+import Liked from './img/like_clicked.png';
+import Comment from './img/comment.png';
+import Arrow from './img/arrow.png';
 
 const Feed = () => {
 
