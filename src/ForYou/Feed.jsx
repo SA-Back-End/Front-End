@@ -37,37 +37,67 @@ const Feed = () => {
     };
 
     // "Mandar o comentário para o banco" --> Nunca vai acontecer 
-    const addComment = (postId, newComment) => {
-        // POST para o back-end
-        setComments((prevComments) => [...prevComments, { postId, text: newComment }]);
-        ;
+    const addComment = async (userId, postId, newCommentText) => {
+        try {
+            const response = await fetch(`http://localhost:3000/post/${postId}/comment`, {
+                method: 'PATCH',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ userId, text: newCommentText }),
+            });
+
+            if (response.ok) {
+                console.log('hfO07OU0x0zEmDgDcNohhiUI1qtriBEDNGon-SVRIfA')
+            } else {
+                console.error('Erro ao enviar o comentário para o servidor');
+            }
+        } catch (error) {
+            console.error('Erro ao enviar o comentário:', error);
+        }
     };
+
 
     const fetchData = async () => {
         setError(null);
 
-        //Chamada do Back-End para apresentar os posts na página
         try {
             const response = await fetch(`http://localhost:3000/post/findAll/${page}`);
             const data = await response.json();
-            console.log(data);
 
-            if (data.length === 0) {
+            // Mapeia os dados e busca informações de usuário para cada comentário
+            const itemsWithUserDetails = await Promise.all(
+                data.map(async (item) => {
+                    // Consulta o servidor para obter os detalhes do usuário
+                    const userResponse = await fetch(`http://localhost:3000/user/${item.userId}`); // Mudar para a rota correta
+                    const userData = await userResponse.json();
+
+                    // Combina os dados do usuário com os dados do comentário
+                    const itemWithUser = {
+                        ...item,
+                        userProfileImageUrl: userData.profileImageUrl, // Substituir pela propriedade correta com a URL da foto de perfil
+                        username: userData.username, // Substituir pela propriedade correta com o nome de usuário
+                    };
+
+                    return itemWithUser;
+                })
+            );
+
+            if (itemsWithUserDetails.length === 0) {
                 console.log("Final da página");
-            }
-            else if (dataLength !== data.length) {
-                setDataLength(data.length);
-                setItems(prevItems => [...prevItems, ...data])
-            }
-            else if (dataLength === data.length) {
-                console.log("Nem sei o que isso deveria fazer")
+            } else if (dataLength !== itemsWithUserDetails.length) {
+                setDataLength(itemsWithUserDetails.length);
+                setItems((prevItems) => [...prevItems, ...itemsWithUserDetails]);
+            } else if (dataLength === itemsWithUserDetails.length) {
+                console.log("Nem sei o que isso deveria fazer");
             }
         } catch (error) {
             setError(error);
         } finally {
             setIsLoading(false);
         }
-    }
+    };
+
 
     //Coloca o FetchData em uso ao abrir ou recarregar a página
     useEffect(() => {
@@ -133,6 +163,8 @@ const Feed = () => {
                         </div>
 
                         <div className="Comment-section">
+
+
                             <div><img src={profilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible} /></div>
                             <input
                                 type="text"
@@ -140,15 +172,27 @@ const Feed = () => {
                                 value={newComment}
                                 onChange={(e) => setNewComment(e.target.value)}
                             />
-                            <button onClick={() => addComment(item.id, setComment)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
+                            <button onClick={() => addComment(item.user.user_id, item.id, newComment)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
 
-                            {comments
-                                .filter((comment) => comment.postId === item.id_post)
-                                .map((comment) => (
-                                    <div key={comment.id}>
-                                        <strong>{comment.username}</strong>: {comment.text}
-                                    </div>
-                                ))}
+                            <div className="Mini-comment-section">
+                                {comments
+                                    .filter((comment) => comment.postId === item.id_post)
+                                    .map((comment) => (
+                                        <div key={comment.id} className="Comment">
+                                            <img
+                                                src={item.user.userProfileImageUrl} // Usar a URL da foto de perfil do usuário
+                                                alt={item.user.username} // usar a propriedade correta
+                                                className="Comment-user-image"
+                                            />
+                                            <div className="Comment-content">
+                                                <strong>{comment.username}</strong>: {comment.text}
+                                            </div>
+                                        </div>
+                                    ))}
+
+
+                            </div>
+
                         </div>
                     </div>
                 </React.Fragment>
@@ -157,6 +201,7 @@ const Feed = () => {
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
         </div>
-)};
+    )
+};
 
 export default Feed;

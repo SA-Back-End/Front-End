@@ -9,10 +9,51 @@
 }
 
 .Comment-section {
-  display: flex;
+  /* Estilos para a seção principal de comentários */
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
+  padding: 10px;
   margin-top: 10px;
-  flex-direction: row;
+  border-radius: 5px;
 }
+
+.Mini-comment-section {
+  /* Estilos para a mini aba de comentários */
+  background-color: #fff;
+  border: 1px solid #ccc;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+.Comment {
+  /* Estilo para o comentário individual */
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.Comment-user-image {
+  width: 40px; /* Tamanho da imagem do usuário */
+  height: 40px;
+  border-radius: 50%; /* Para tornar a imagem redonda, se desejar */
+  margin-right: 10px; /* Espaçamento entre a imagem e o conteúdo do comentário */
+}
+
+.Comment-content {
+  flex: 1;
+  background-color: #f2f2f2; /* Cor de fundo do comentário */
+  padding: 10px;
+  border-radius: 5px; /* Borda arredondada do comentário */
+}
+
+
+.Mini-comment-section div {
+  margin-bottom: 8px;
+  font-size: 14px;
+  color: #333;
+}
+
 
 #comment {
   width: 400px;
