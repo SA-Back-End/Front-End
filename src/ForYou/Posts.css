@@ -35,7 +35,7 @@
 
 .Comment-user-image {
   width: 40px; /* Tamanho da imagem do usuário */
-  height: 40px;
+  height: 40px;                      
   border-radius: 50%; /* Para tornar a imagem redonda, se desejar */
   margin-right: 10px; /* Espaçamento entre a imagem e o conteúdo do comentário */
 }

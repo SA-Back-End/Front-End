@@ -6,8 +6,6 @@ import Comment from './comment.png';
 import Arrow from './arrow.png';
 
 const Feed = () => {
-
-    const profilePicture = "https://i.ytimg.com/vi/oFIrA4Ef8tY/hqdefault.jpg";
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -175,20 +173,18 @@ const Feed = () => {
                             <button onClick={() => addComment(item.user.user_id, item.id, newComment)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
 
                             <div className="Mini-comment-section">
-                                {comments
-                                    .filter((comment) => comment.postId === item.id_post)
-                                    .map((comment) => (
-                                        <div key={comment.id} className="Comment">
-                                            <img
-                                                src={item.user.userProfileImageUrl} // Usar a URL da foto de perfil do usuário
-                                                alt={item.user.username} // usar a propriedade correta
-                                                className="Comment-user-image"
-                                            />
-                                            <div className="Comment-content">
-                                                <strong>{comment.username}</strong>: {comment.text}
+                                <div className="Mini-comment-section">
+                                    {comments
+                                        .filter((comment) => comment.postId === item.id_post)
+                                        .map((comment) => (
+                                            <div key={comment.id} className="Comment">
+                                                <div className="Comment-content">
+                                                    <strong>{comment.username}</strong>: {comment.text}
+                                                </div>
                                             </div>
-                                        </div>
-                                    ))}
+                                        ))}
+                                </div>
+
 
 
                             </div>
