@@ -2,6 +2,7 @@ import React from 'react';
 import './EditProfile.css';
 import HomeNavbar from './components/navbar/navbar';
 import profilePicture from './profilePicture.png'
+
 const EditProfile = () => {
     return (
         <div className='EditProfile'>
@@ -24,16 +25,61 @@ const EditProfile = () => {
                 </div>
             </div>
 
-            <div>
-                <label>Primeiro nome:</label>
-                <input type="text" name="firstName" id="firstName" />
-
-                <label>Último nome:</label>
-                <input type="text" name="firstName" id="firstName" />
-
-                <label>Data de nascimento:</label>
-                <input type="date" name="firstName" id="firstName" />
+            <div className='edit-Infosinputs'>
+                <ul className='listaInfos'>
+                    <li>
+                        <div>
+                            <label>Primeiro nome:</label>
+                            <input type="text" name="firstName" id="firstName" className='inputs' />
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label>Último nome:</label>
+                            <input type="text" name="lastName" id="lastName" className='inputs' />
+                        </div>
+                    </li>
+                </ul>
+                <hr></hr>
+                <ul className='listaInfos'>
+                    <li>
+                        <div style={{
+                            display: 'flex'
+                        }}>
+                            <div style={{ width: 150 }}><label>Data de nascimento:</label></div>
+                            <input type="date" name="birthdate" id="birthdate" className='inputDate'/>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label>Estado: </label>
+                            <input type="text" name="state" id="state" className='inputs' />
+                        </div>
+                    </li>
+                </ul>
+                <hr></hr>
+                <ul className='listaInfos'>
+                    <li>
+                        <div style={{
+                            display:'flex'
+                        }}>
+                            <label>Biografia:</label>
+                            <div style={{
+                                marginLeft:80
+                            }}>
+                                <textarea rows={5} cols={40} placeholder='Adicione uma curta biografia...'/>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div>
+                            <label>Último nome:</label>
+                            <input type="text" name="lastName" id="lastName" className='inputs' />
+                        </div>
+                    </li>
+                </ul>
             </div>
+
         </div >
     );
 }

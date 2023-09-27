@@ -1,11 +1,12 @@
 .TelaPerfil {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
 
 /*-----------------------*/
 
-.div-perfil-retanguloAzul {
+.TelaPerfil .div-perfil-retanguloAzul {
     display: flex;
     position: relative;
     width: 100%;
@@ -16,7 +17,7 @@
 /*-----------------------*/
 
 /* <div> sobre informações da conta */
-.container-perfil-retanguloBranco {
+.TelaPerfil .container-perfil-retanguloBranco {
     position: absolute;
     z-index: 2;
     margin-top: 8%;
@@ -29,7 +30,7 @@
 }
 
 /* <img> */
-.iconPerfil {
+.TelaPerfil .iconPerfil {
     border-radius: 100%;
     width: 250px;
     height: 230px;
@@ -37,7 +38,7 @@
 }
 
 /* <div> para armazenar o conteudo da <div> principal */
-.container-perfil-infos {
+.TelaPerfil .container-perfil-infos {
     display: flex;
     position: relative;
     margin: 50px 0 0 60px;
@@ -45,23 +46,23 @@
     /* height: 300px; */
 }
 
-.div-infosLeft {
+.TelaPerfil .div-infosLeft {
     width: 300px;
     margin-left: 80px;
 }
 
-.infoHeader span {
+.TelaPerfil .infoHeader span {
     font-size: 20px;
     color: black;
     filter: drop-shadow(0 0px 0px black);
 }
 
-.infoHeader h1 {
+.TelaPerfil .infoHeader h1 {
     margin-bottom: 5px;
 }
 
 /* <div> para armazenar infos gerais da conta */
-.accountInfos {
+.TelaPerfil .accountInfos {
     display: flex;
     margin-top: 40px;
     width: 40%;
@@ -69,65 +70,65 @@
 }
 
 /* <div> para organizar os itens 'seguindo' e 'seguidores' */
-.div-forInfos {
+.TelaPerfil .div-forInfos {
     text-align: center;
     width: 90px;
     height: 70px;
 }
 
 /* <span> following */
-.infoFollowing {
+.TelaPerfil .infoFollowing {
     color: #ff8200;
     font-size: 40px;
     font-weight: bold;
     word-wrap: break-word;
 }
 
-.spanFollowing {
+.TelaPerfil .spanFollowing {
     filter: drop-shadow(0 0px 0px black);
 }
 
 /* <hr> */
-.lineDivisor {
+.TelaPerfil .lineDivisor {
     margin: 0 30px 0 30px;
 }
 
 /* <span> followers */
-.infoFollowers {
+.TelaPerfil .infoFollowers {
     color: #003da5;
     font-size: 40px;
     font-weight: bold;
     word-wrap: break-word;
 }
 
-.spanFollowers {
+.TelaPerfil .spanFollowers {
     filter: drop-shadow(0 0px 0px black);
 }
 
-.div-infosRight {
+.TelaPerfil .div-infosRight {
     width: 500px;
     margin-left: 150px;
 }
 
-.div-infosRight ul {
+.TelaPerfil .div-infosRight ul {
     display: flex;
     justify-content: space-between;
     align-items: center;
     list-style-type: none;
 }
 
-.groupIcons {
+.TelaPerfil .groupIcons {
     display: flex;
     margin: 25px;
     width: 280px;
 }
 
-.spanIcon {
+.TelaPerfil .spanIcon {
     margin: 20px 0 0 10px;
     font-weight: 600;
 }
 
-.div-blueIcon {
+.TelaPerfil .div-blueIcon {
     background-color: #003da5;
     width: 55px;
     height: 45px;
@@ -142,7 +143,7 @@
     filter: drop-shadow(0 3px 3px #3a3a3a);
 }
 
-.div-orangeIcon {
+.TelaPerfil .div-orangeIcon {
     background-color: #ff8200;
     width: 55px;
     height: 45px;
@@ -157,11 +158,11 @@
     filter: drop-shadow(0 3px 3px #3a3a3a);
 }
 
-.div-button {
+.TelaPerfil .div-button {
     position: relative;
 }
 
-.btt-editProfile {
+.TelaPerfil .btt-editProfile {
     border: 1px solid #696161;
     border-radius: 20px;
     font-weight: bold;
@@ -175,7 +176,7 @@
 /*-----------------------*/
 
 /* <div> Sobre Mim */
-.container-perfil-aboutMe-retanguloLaranja {
+.TelaPerfil .container-perfil-aboutMe-retanguloLaranja {
     position: relative;
     z-index: 1;
     margin-top: 18%;
@@ -190,11 +191,11 @@
 }
 
 /* conteúdo da <div> acima */
-.container-perfil-aboutMe-infos {
+.TelaPerfil .container-perfil-aboutMe-infos {
     margin: 170px 70px 0 70px;
 }
 
-.container-perfil-aboutMe-infos p {
+.TelaPerfil .container-perfil-aboutMe-infos p {
     font-size: 18px;
     filter: drop-shadow(0 0px 0px black);
 }
