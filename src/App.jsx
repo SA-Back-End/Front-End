@@ -4,16 +4,19 @@ import Atividades from './components/profile/Atividades';
 import Bio from './components/profile/Bio';
 import Certificados from './components/profile/Certificados';
 import Formacao from './components/profile/Formacao';
-import Projetos from './components/profile/Projetos';
+import Projetos from './components/profile/Projetos.js';
 
 function App() {
+
+  const user = { name: 'Nic', userName: 'NicNic' }
+
   return (
     <div>
-      <Formacao></Formacao>
+      {/* <Formacao></Formacao>
       <Bio></Bio>
       <Certificados></Certificados>
-      <Atividades></Atividades>
-      <Projetos></Projetos>
+      <Atividades></Atividades> */}
+      <Projetos user={user}></Projetos>
     </div>
   );
 }

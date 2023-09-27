@@ -1,5 +1,3 @@
-import './Bio.css';
-import { Link } from "react-router-dom";
 import EditProfile from './EditProfile';
 import essaAqui from '../../assets/pencil.png';
 import React, { useState } from 'react';
