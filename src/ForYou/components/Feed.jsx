@@ -1,60 +1,23 @@
 import React, { useState, useEffect } from 'react';
 import './Posts.css';
-import Like from './like.png';
-import Liked from './like_clicked.png';
-import Comment from './comment.png';
-import Arrow from './arrow.png';
+import Like from '../img/like.png';
+import Liked from '../img/like_clicked.png';
+import Comment from '../img/comment.png';
+import Arrow from '../img/arrow.png';
+
+// Importe as funções exportadas
+import { toggleLike } from './Like';
+import { toggleComment, addComment } from './Coment';
 
 const Feed = () => {
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
-    const [dataLength, setDataLength] = useState();
+    const [dataLength, setDataLength] = useState(0); // Defina um valor inicial apropriado
     const [liked, setLiked] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
-
-    //Define se foi dado o like ou não
-    const toggleLike = (id_post) => {
-        setLiked((prevLiked) => ({
-            ...prevLiked,
-            [id_post]: !prevLiked[id_post],
-        }));
-    };
-
-    //Troca a visibilidade da barra de comentário
-    const toggleComment = (postId) => {
-        setItems((prevItems) =>
-            prevItems.map((item) =>
-                item.id_post === postId
-                    ? { ...item, commentVisible: !item.commentVisible }
-                    : item
-            )
-        );
-    };
-
-    // "Mandar o comentário para o banco" --> Nunca vai acontecer 
-    const addComment = async (userId, postId, newCommentText) => {
-        try {
-            const response = await fetch(`http://localhost:3000/post/${postId}/comment`, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ userId, text: newCommentText }),
-            });
-
-            if (response.ok) {
-                console.log('hfO07OU0x0zEmDgDcNohhiUI1qtriBEDNGon-SVRIfA')
-            } else {
-                console.error('Erro ao enviar o comentário para o servidor');
-            }
-        } catch (error) {
-            console.error('Erro ao enviar o comentário:', error);
-        }
-    };
-
 
     const fetchData = async () => {
         setError(null);
@@ -96,6 +59,22 @@ const Feed = () => {
         }
     };
 
+    // Função para lidar com o clique no botão de curtir
+    const handleLikeClick = (id_post) => {
+        toggleLike(id_post, liked, setLiked);
+    };
+
+    // Função para lidar com o clique no botão de comentário
+    const handleCommentClick = (postId) => {
+        toggleComment(postId, items, setItems);
+    };
+
+    // Função para adicionar um novo comentário
+    const handleAddComment = (postId) => {
+        addComment(item.user.userId, postId, newComment); // Substitua 1 pelo ID do usuário atual
+        // Limpa o campo de comentário após a adição
+        setNewComment('');
+    };
 
     //Coloca o FetchData em uso ao abrir ou recarregar a página
     useEffect(() => {
@@ -123,7 +102,7 @@ const Feed = () => {
                 <React.Fragment key={item.userId}>
                     <div className="Post">
                         <div className="Post-header">
-                            <div><img src={profilePicture} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
+                            <div><img src={item.user.profileImageUrl} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
                             <div><strong>{item.user.username}</strong></div>
                         </div>
                         <div className="Post-content">
@@ -135,7 +114,7 @@ const Feed = () => {
                             <div>
                                 <button
                                     className={`action-button like-button ${liked[item.id_post] ? 'liked' : ''}`}
-                                    onClick={() => toggleLike(item.id_post)}
+                                    onClick={() => handleLikeClick(item.id_post)}
                                     id="like"
                                 >
                                     <img
@@ -148,7 +127,7 @@ const Feed = () => {
 
                                 <button
                                     className={`action-button comment-button ${item.id_post}`}
-                                    onClick={() => toggleComment(item.id_post)}
+                                    onClick={() => handleCommentClick(item.id_post)}
                                     id="comment-button"
                                 >
                                     <img
@@ -161,16 +140,14 @@ const Feed = () => {
                         </div>
 
                         <div className="Comment-section">
-
-
-                            <div><img src={profilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible} /></div>
+                            <div><img src={item.user.profileImageUrl} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible} /></div>
                             <input
                                 type="text"
                                 placeholder="Digite seu Comentario..."
                                 value={newComment}
                                 onChange={(e) => setNewComment(e.target.value)}
                             />
-                            <button onClick={() => addComment(item.user.user_id, item.id, newComment)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
+                            <button onClick={() => handleAddComment(item.id_post)}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
 
                             <div className="Mini-comment-section">
                                 <div className="Mini-comment-section">
@@ -184,16 +161,11 @@ const Feed = () => {
                                             </div>
                                         ))}
                                 </div>
-
-
-
                             </div>
-
                         </div>
                     </div>
                 </React.Fragment>
-            ))
-            }
+            ))}
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
         </div>
