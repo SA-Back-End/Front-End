@@ -14,7 +14,7 @@ function TelaPerfil() {
             <Header />
 
             <div className='div-perfil-retanguloAzul'>
-                <div className='container-perfil-retanguloBranco'>
+                {/* <div className='container-perfil-retanguloBranco'>
                     <div className='container-perfil-infos'>
                         <img src={iconPerfil} className='iconPerfil' alt='icon' />
                         <div className='div-infosLeft'>
@@ -62,7 +62,7 @@ function TelaPerfil() {
                             e busco projetos que me permitam aprender mais!
                         </p>
                     </div>
-                </div>
+                </div> */}
             </div>
         </div>
     );
