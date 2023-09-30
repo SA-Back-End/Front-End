@@ -54,7 +54,13 @@ const EditProfile = () => {
                     <li>
                         <div>
                             <label>Estado: </label>
-                            <input type="text" name="state" id="state" className='inputs estado' />
+                            <select className='inputs' style={{
+                                marginLeft: 83
+                            }}>
+                                <option value={'teste'}>teste</option>
+                                <option value={'teste'}>teste2</option>
+                                <option value={'teste'}>teste3</option>
+                            </select>
                         </div>
                     </li>
                 </ul>
@@ -74,13 +80,36 @@ const EditProfile = () => {
                     </li>
                     <li>
                         <div style={{
-                            display:'flex'
+                            display: 'flex'
                         }}>
-                            <div style={{width: 110}}>
+                            <div style={{ width: 110 }}>
                                 <label>Área do conhecimento:</label>
                             </div>
-                            <input type="text" className='inputs' />
+                            <select className='inputs'>
+                                <option value={'teste'}>teste</option>
+                                <option value={'teste'}>teste2</option>
+                                <option value={'teste'}>teste3</option>
+                            </select>
                         </div>
+                    </li>
+                </ul>
+                <hr />
+                <ul className='listaInfos'>
+                    <li>
+                        <div>
+                            <label>Foto de Perfil:</label>
+                            <input type='file'></input>
+                        </div>
+                    </li>
+                    <li>
+                        <label>Status:</label>
+                        <select className='inputs' style={{
+                            marginLeft: 90
+                        }}>
+                            <option value={'teste'}>teste</option>
+                            <option value={'teste'}>teste2</option>
+                            <option value={'teste'}>teste3</option>
+                        </select>
                     </li>
                 </ul>
             </div>

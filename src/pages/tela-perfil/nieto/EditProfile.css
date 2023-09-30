@@ -37,7 +37,7 @@
     margin-left: 30px;
 }
 
-.EditProfile .breakLine-left{
+.EditProfile .breakLine-left {
     width: 310px;
 }
 
@@ -100,33 +100,37 @@
 /*<ul> . Está agrupando 'horizontalmente' a dupla <label> + <input>*/
 .EditProfile .listaInfos {
     display: flex;
-    /* justify-content: space-between; */
-    /* gap: 50px; */
+    justify-content: space-between;
+    /* gap: 0px; */
     align-items: center;
     list-style-type: none;
 }
 
 .EditProfile .edit-Infosinputs li {
-    width: 490px;
+    /* width: 490px; */
     /* flex-grow: 1; */
 }
 
 /*generalizando algumas estilizações*/
 .EditProfile input,
 label,
-textarea {
-    font-size: 16px;
+textarea,
+select,
+option {
+    font-size: 14px;
     color: black;
     filter: drop-shadow(0 0px 0px black);
 }
 
 /*generalizando algumas estilizações*/
 .EditProfile input,
-textarea {
+textarea,
+select,
+option {
     font-weight: bold;
     border-radius: 15px;
     border: 1px solid #000;
-    text-align: center;
+    text-align: left;
 }
 
 .EditProfile input:focus {
@@ -135,13 +139,9 @@ textarea {
 
 /*<input> (auto-explicativo)*/
 .EditProfile .inputs {
-    width: 250px;
+    width: 300px;
     height: 30px;
     margin-left: 30px; /*margin em relação ao label*/
-}
-
-.EditProfile .estado {
-    margin-left: 75px;
 }
 
 /*<input type='date'> . Somente uma config visual especifica para esse input*/
@@ -149,6 +149,7 @@ textarea {
     width: 250px;
     height: 40px;
     margin-left: 50px;
+    text-align: center;
 }
 
 /*<hr>*/
@@ -159,5 +160,7 @@ textarea {
 
 /*<textarea>*/
 .EditProfile textarea {
+    text-align: left;
+    padding: 15px;
     resize: none;
 }
