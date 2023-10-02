@@ -101,10 +101,10 @@
 
   .Post-action button#like:hover {
     transform: scale(1.1); /* Efeito de escala durante o hover */
-    background-image: url('like_hover.png'); /* Troque para a versão colorida durante o hover */
+    background-image: url('../img/like_hover.png'); /* Troque para a versão colorida durante o hover */
   }
   
   .Post-action button#comment-button:hover {
     transform: scale(1.1);
-    background-image: url('comment_hover.png'); /* Troque para a versão colorida durante o hover */
+    background-image: url('../img/comment_hover.png'); /* Troque para a versão colorida durante o hover */
   }

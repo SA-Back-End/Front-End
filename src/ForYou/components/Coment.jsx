@@ -1,5 +1,5 @@
  //Troca a visibilidade da barra de comentário
-export const toggleComment = (postId) => {
+export const toggleComment = (postId, setItems) => {
     setItems((prevItems) =>
         prevItems.map((item) =>
             item.id_post === postId

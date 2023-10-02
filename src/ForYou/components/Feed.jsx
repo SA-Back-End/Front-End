@@ -14,7 +14,7 @@ const Feed = () => {
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
-    const [dataLength, setDataLength] = useState(0); // Defina um valor inicial apropriado
+    const [dataLength, setDataLength] = useState(0);
     const [liked, setLiked] = useState({});
     const [comments, setComments] = useState([]);
     const [newComment, setNewComment] = useState('');
@@ -71,7 +71,7 @@ const Feed = () => {
 
     // Função para adicionar um novo comentário
     const handleAddComment = (postId) => {
-        addComment(item.user.userId, postId, newComment); // Substitua 1 pelo ID do usuário atual
+        addComment(postId, newComment, setItems);
         // Limpa o campo de comentário após a adição
         setNewComment('');
     };
@@ -165,7 +165,7 @@ const Feed = () => {
                         </div>
                     </div>
                 </React.Fragment>
-            ))}
+        ))}
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
         </div>
