@@ -4,6 +4,7 @@ import Like from '../img/like.png';
 import Liked from '../img/like_clicked.png';
 import Comment from '../img/comment.png';
 import Arrow from '../img/arrow.png';
+import { link } from 'react-router-dom';
 
 // Importe as funções exportadas
 import { toggleLike } from './Like';
@@ -30,7 +31,7 @@ const Feed = () => {
             const itemsWithUserDetails = await Promise.all(
                 data.map(async (item) => {
                     // Consulta o servidor para obter os detalhes do usuário
-                    const userResponse = await fetch(`http://localhost:3000/user/${item.userId}`); // Mudar para a rota correta
+                    const userResponse = await fetch(`http://localhost:3000/user/${item.userId}`);
                     const userData = await userResponse.json();
 
                     // Combina os dados do usuário com os dados do comentário
@@ -103,7 +104,7 @@ const Feed = () => {
                     <div className="Post">
                         <div className="Post-header">
                             <div><img src={item.user.profileImageUrl} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
-                            <div><strong>{item.user.username}</strong></div>
+                            <div><strong><Link to={`/user/${item.user.userId}`}>{item.user.username}</Link></strong></div> {/*Link aqui*/}
                         </div>
                         <div className="Post-content">
                             <div>{item.status}</div>
@@ -165,11 +166,40 @@ const Feed = () => {
                         </div>
                     </div>
                 </React.Fragment>
-        ))}
+            ))}
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
         </div>
     )
 };
+
+
+// Adicione o estado showMorePosts
+const [showMorePosts, setShowMorePosts] = useState(false);
+
+// Crie a função handleShowMorePosts
+const handleShowMorePosts = () => {
+    setShowMorePosts(!showMorePosts);
+};
+
+// No retorno JSX, atualize a renderização dos posts de perfis não seguidos
+{
+    showMorePosts &&
+    items
+        .filter(item => !item.isFollowed)   // verificação (se é seguidor ou não)
+        .map(item => (
+            <React.Fragment key={item.userId}>
+                <div className="Post">
+                    {/* conteúdo do post */}
+                </div>
+            </React.Fragment>
+        ))
+}
+
+// Adicione um botão "Ver mais" no final da lista de posts
+<button onClick={handleShowMorePosts}>
+    {showMorePosts ? 'Ver menos' : 'Ver mais'}
+</button>
+
 
 export default Feed;
