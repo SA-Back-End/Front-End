@@ -6,9 +6,8 @@ import profilePicture from './profilePicture.png'
 const EditProfile = () => {
     return (
         <div className='EditProfile'>
-            <header>
-                <HomeNavbar />
-            </header>
+            
+            <HomeNavbar />
 
             <div className='gradient'>
                 <div className='flex'>
