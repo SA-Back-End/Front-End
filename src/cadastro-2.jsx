@@ -28,20 +28,19 @@ function App() {
         <h2>Bem vindo! Informe os dados abaixo para criar sua conta.</h2>
         <div className="nome">
           <input type="text" className="primeiro_nome" placeholder='Primeiro Nome' />
-          <input type="text" className="ultimo_nome" placeholder='Último Nome' /><br />
+          <input type="text" className="ultimo_nome" placeholder='Unidade Federativa' /><br />
         </div>
-        <div className='user_email'>
-          <input type="text" className="usuario" placeholder='Usuário' /> <br></br>
-          <input type="text" className="email" placeholder='E-mail' />
-        </div>
-        {/* <div className="credenciais">
+        <div className="credenciais">
             <input type="password" className="senha" id="senha" placeholder='Senha' /><br />
             <input type="password" className="confirmar_senha" id="confirmar_senha" placeholder='Confirme a Senha' /><br />
           </div>
-          <input type="text" className="descricao" placeholder='Descrição' /><br /> */}
-        {/* <Data></Data> */}
+          <input type="text" className="descricao" placeholder='Descrição' /><br />
+        <Data></Data>
+        <div className='button_back'>
+          <button className="botao" type="submit" >back</button>
+        </div>
         <div className='button_submit'>
-          <button className="botao" type="submit" >Próximo➜</button>
+          <button className="botao" type="submit" onClick={() => verificarSenhasIguais()}>Criar uma conta</button>
         </div>
         <p className='com_login'>Já tem uma conta? <span className='laranjaa'>Faça login</span></p>
       </div>
