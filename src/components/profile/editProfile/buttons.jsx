@@ -13,7 +13,7 @@ export default function IconeEdit() {
     }
 
     return (
-        <div>
+        <div className="Button">
             <h1>Editar</h1>
             <img src="https://cdn-icons-png.flaticon.com/512/1159/1159633.png" alt="Editar" onClick={handleNotRegister} />
         </div>

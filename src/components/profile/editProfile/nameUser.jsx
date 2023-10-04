@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
-export default function NameUser(){
+export default function NameUser() {
     const [name, setName] = useState('User');
     const [newName, setNewName] = useState('');
 
@@ -24,7 +24,7 @@ export default function NameUser(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setName(newName);
+        // setName(newName);
         setNewName('');
     };
 
