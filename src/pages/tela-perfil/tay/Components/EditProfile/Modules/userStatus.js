@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-function Status() {
+function UserStatus() {
     const [status, setStatus] = useState('Disponível');
 
-    function changeStatus() { //acho interessante mudar para um switch/case, visto que todos os 'resultados' são sabidos
+    function changeStatus() {
         if (status === 'Disponível') {
             setStatus('Indisponível');
         } else if (status === 'Indisponível') {
@@ -23,4 +23,4 @@ function Status() {
     )
 
 }
-export default Status;
+export default UserStatus;

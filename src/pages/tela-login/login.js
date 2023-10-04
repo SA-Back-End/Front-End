@@ -9,7 +9,7 @@ function TelaLogin() {
       <div className="div-toGroup">
 
         <div className="div-merchan">
-          <p className="p-merchan"> <img className="logo" src={logo} alt="logo" /> Aprimore suas <strong className='strong-login'>skills!</strong> </p>
+          <p className="p-merchan"> <img className="logoLogin" src={logo} alt="logo" /> Aprimore suas <strong className='strong-login'>skills!</strong> </p>
           <p className="p-merchan"> <strong> Para nos mantermos <strong className='strong-login'>conectados</strong>, entre com suas credenciais.</strong></p>
           <img className="boneco" src={login} alt="login" />
         </div>
