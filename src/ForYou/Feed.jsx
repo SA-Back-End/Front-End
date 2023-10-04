@@ -4,16 +4,17 @@ import Like from './like.png';
 import Liked from './like_clicked.png';
 import Comment from './comment.png';
 import Arrow from './arrow.png';
+import ProfilePicture from './perfil.png';
 
 const Feed = () => {
 
-    const profilePicture = "https://i.ytimg.com/vi/oFIrA4Ef8tY/hqdefault.jpg";
     const [items, setItems] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
-    const [dataLength, setDataLength] = useState()
+    const [dataLength, setDataLength] = useState();
     const [liked, setLiked] = useState({});
+    const [comment2, setCommentText] = useState();
 
     //Define se foi dado o like ou não
     const toggleLike = (id_post) => {
@@ -85,47 +86,55 @@ const Feed = () => {
             {items.map(item => (
                 <React.Fragment key={item.userId}>
                     <div className="Post">
-                        <div className="Post-header">
-                            <div><img src={profilePicture} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
-                            <div><strong>{item.user.username}</strong></div>
-                        </div>
                         <div className="Post-content">
-                            <div>{item.status}</div>
-                            <div>{item.text}</div>
-                            <div>{item.likedBy}</div>
-                        </div>
-                        <div className="Post-action">
-                            <div>
-                                <button
-                                    className={`action-button like-button ${liked[item.id_post] ? 'liked' : ''}`}
-                                    onClick={() => toggleLike(item.id_post)}
-                                    id="like"
-                                >
-                                    <img
-                                        src={liked[item.id_post] ? Liked : Like} //Troca a imagem do like quando for dado o like
-                                        width="30px"
-                                        height="30px"
-                                        alt="Curtir"
-                                    />
-                                </button>
 
-                                <button
-                                    className={`action-button comment-button ${item.id_post}`}
-                                    onClick={() => toggleComment(item.id_post)}
-                                    id="comment-button"
-                                >
-                                    <img 
-                                        src={Comment} 
-                                        width="30px" 
-                                        height="30px" 
-                                        alt="Comentar" />
-                                </button>
+                            <div id="post-image"></div>
+                            <div>
+
+                                <div className="Post-header">
+                                    <div><img src={ProfilePicture} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
+                                    <div><strong>{item.user.username}</strong></div>
+                                </div>
+
+                                <div>{item.status}</div>
+                                <div id="text">{item.text}</div>
+                                <div>{item.likedBy}</div>
+                                <div className={`Post-action ${item.id_post}`}>
+
+                                <div>
+                                    <button
+                                        className={`action-button like-button ${liked[item.id_post] ? 'liked' : ''}`}
+                                        onClick={() => toggleLike(item.id_post)}
+                                        id="like"
+                                    >
+                                        <img
+                                            src={liked[item.id_post] ? Liked : Like} //Troca a imagem do like quando for dado o like
+                                            width="30px"
+                                            height="30px"
+                                            alt="Curtir"
+                                        />
+                                    </button>
+
+                                    <button
+                                        className={`action-button comment-button ${item.id_post}`}
+                                        onClick={() => toggleComment(item.id_post)}
+                                        id="comment-button"
+                                    >
+                                        <img 
+                                            src={Comment} 
+                                            width="30px" 
+                                            height="30px" 
+                                            alt="Comentar" />
+                                    </button>
+                                </div>
+                                
                             </div>
                         </div>
-
+                    </div>
+ 
                         <div className="Comment-section">
-                            <div><img src={profilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible}/></div>
-                            <input id="comment" name="comment" placeholder="Comentário" hidden={!item.commentVisible}/>
+                            <div><img src={ProfilePicture} width="30px" height="30px" alt={item.userId} id="profilePicture" hidden={!item.commentVisible}/></div>
+                            <input className='comments' id={`comment${item.id_post}`} name="comment" placeholder="Comentário" hidden={!item.commentVisible}/>
                             <button id="submit" hidden={!item.commentVisible}><img src={Arrow} alt="Comentar" width="25px" height="30px" /></button>
                         </div>
                     </div>

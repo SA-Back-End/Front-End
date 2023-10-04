@@ -1,11 +1,29 @@
 .Post {
     background-color: #ffffff;
-    border: 1px solid rgb(226, 226, 226);
-    border-radius: 7px;
-    width: 500px;
-    padding: 16px;
-    margin: 7px;
-    margin-left: 400px;
+    border: 0.5px solid rgb(192, 192, 192);
+    border-radius: 15px;
+    height: 448px;
+    width: 1147px;
+    margin: 25px;
+    margin-left: 3.5%;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+#post-image {
+  width: 578px; 
+  height: 448px;
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  background: url("https://openseauserdata.com/files/8fac8c9e2c0824aea0bcfd2f2c7a78bb.jpg");
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#text {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  display: flex;
+  align-items: flex-start;
 }
 
 .Comment-section {
@@ -14,7 +32,7 @@
   flex-direction: row;
 }
 
-#comment {
+.comments {
   width: 400px;
   border: 1px solid rgb(226, 226, 226);
   border-radius: 10px;
@@ -39,7 +57,8 @@
 }
 
 .Post-content {
-  margin-top: 10px;
+  display: flex;
+  flex-direction: row;
   margin-bottom: 10px;
 }
 
