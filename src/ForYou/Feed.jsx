@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import './Posts.css';
-import Like from './like.png';
-import Liked from './like_clicked.png';
-import Comment from './comment.png';
-import Arrow from './arrow.png';
+import Like from './img/like.png';
+import Liked from './img/like_clicked.png';
+import Comment from './img/comment.png';
+import Arrow from './img/arrow.png';
 import ProfilePicture from './perfil.png';
 
 const Feed = () => {
@@ -83,6 +83,24 @@ const Feed = () => {
     //retorna os valores do Back-end como HTML
     return (
         <div>
+
+            <div className="Pesquisa">
+                <h4>S K I L L S</h4>
+                <input type="text"></input>
+            </div>
+
+            <div className="Post-Maker">
+                <div>
+                    <img src="./perfil.png" width="60px" height="60px" id="profilePicture"></img>
+                    <input type="text" className="Post-message"></input>
+                    <button className="Compartilhar">Compartilhar</button>
+                </div>
+                <hr className="hr"/>
+                <div className="Post-options">
+                    <h5>Adicione ao seu post</h5>
+                </div>
+            </div>
+
             {items.map(item => (
                 <React.Fragment key={item.userId}>
                     <div className="Post">
