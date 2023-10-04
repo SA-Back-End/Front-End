@@ -2,7 +2,7 @@ import './App.css';
 import Data from './Modules/Data/data.js'
 import Logo from './img/logo.js';
 import React, { useState } from 'react';
-import Barrafixa from './barra_fixa';
+import Barrafixa from './barra-fixa/barra_fixa';
 import desenho from './img/desenho.png';
 import logo from './img/logo_skills.png'
 

@@ -116,11 +116,6 @@ h2 {
   top: 13px;
 }
 
-.barra {
-  width: 1365px;
-  height: 55px;
-  background-color: #FFFF;
-}
 .bichinho {
   left: 680px;
   top: -640px;
@@ -145,22 +140,6 @@ h2 {
   color: white;
 }
 
-.logo {
-  height: 44px;
-  width: 39px;
-  position: relative;
-  top: 3px;
-  right: -14px;
-}
-
-.quem-somos {
-  position: relative;
-  right: -963px;
-  top: -122px;
-  font-family: 'Montserrat', sans-serif;
-  color: #003DA5;
-}
-
 .cadastre-se {
   position: relative;
   right: -1119px;
@@ -176,14 +155,6 @@ h2 {
 .laranjaa {
   color: #FF8200;
   font-weight: bold;
-}
-
-.login {
-  position: relative;
-  right: -1275px;
-  top: -192px;
-  font-family: 'Montserrat', sans-serif;
-  color: #003DA5;
 }
 
 .com_login{

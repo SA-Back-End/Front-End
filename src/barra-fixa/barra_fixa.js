@@ -1,6 +1,6 @@
 import React from "react"
-import Logo from './img/logo_skills.png'
-import './App.css';
+import Logo from './logo_skills.png'
+import './barra-fixa.css';
 
 function Barrafixa() {
     return (
