@@ -4,7 +4,8 @@ import Like from './img/like.png';
 import Liked from './img/like_clicked.png';
 import Comment from './img/comment.png';
 import Arrow from './img/arrow.png';
-import ProfilePicture from './perfil.png';
+import ProfilePicture from './img/perfil.png';
+import PostModal from './PostModal'
 
 const Feed = () => {
 
@@ -15,6 +16,9 @@ const Feed = () => {
     const [dataLength, setDataLength] = useState();
     const [liked, setLiked] = useState({});
     const [comment2, setCommentText] = useState();
+    const [postText, setPostText] = useState('');
+    const [isPostSectionVisible, setIsPostSectionVisable] = useState(false);
+
 
     //Define se foi dado o like ou não
     const toggleLike = (id_post) => {
@@ -33,6 +37,31 @@ const Feed = () => {
                     : item
             )
         );
+    };
+
+    const openPostSection = () => {
+        setIsPostSectionVisable(true);
+    };
+
+    const closePostSection = () => {
+        setIsPostSectionVisable(false);
+        setPostText('');
+    }
+
+    const sharePost = () => {
+        // Envio da postagem para o banco de dados;
+        closePostSection();
+    }
+
+    const handlePostSubmit = (newPostText) => {
+        //envio da postagem para o banco de dados
+        //adicionar a postagem para a lista de itens
+        const newPost = {
+            id_post: items.length + 1, //item de id_post
+            text: newPostText,
+            //propriedades da postagem
+        };
+        setItems((prevItems) => [newPost, ...prevItems]);
     };
 
     const fetchData = async () => {
@@ -89,17 +118,12 @@ const Feed = () => {
                 <input type="text"></input>
             </div>
 
-            <div className="Post-Maker">
-                <div>
-                    <img src="./perfil.png" width="60px" height="60px" id="profilePicture"></img>
-                    <input type="text" className="Post-message"></input>
-                    <button className="Compartilhar">Compartilhar</button>
+            
+                <div className = "PostMaker">
+                    <button onClick={openPostSection} className="cancel-button">Compartilhar</button>
+
                 </div>
-                <hr className="hr"/>
-                <div className="Post-options">
-                    <h5>Adicione ao seu post</h5>
-                </div>
-            </div>
+            
 
             {items.map(item => (
                 <React.Fragment key={item.userId}>
@@ -111,7 +135,7 @@ const Feed = () => {
 
                                 <div className="Post-header">
                                     <div><img src={ProfilePicture} width="60px" height="60px" alt={item.userId} id="profilePicture" /></div>
-                                    <div><strong>{item.user.username}</strong></div>
+                                    <div><strong>{item.username}</strong></div>
                                 </div>
 
                                 <div>{item.status}</div>
@@ -161,6 +185,12 @@ const Feed = () => {
             }
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
+
+            {isPostSectionVisible && (
+                <div className="overlay">
+                    <PostModal onClose={closePostSection} onPost={handlePostSubmit} />
+                </div>
+            )}
         </div >
     )
 };
