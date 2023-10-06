@@ -7,7 +7,7 @@ import TelaCarrossel from './tela-carrossel/telaCarrossel';
 const TelaAboutUs = () => {
   return (
     <div>
-      <div className='tela'>
+      <div className='TelaAboutUs'>
         <nav className='topo'>
           <ul className='lista'>
             <li>

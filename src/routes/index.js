@@ -7,7 +7,7 @@ import TelaAboutUs from '../pages/tela-aboutUs/telaAboutUs.js';
 import { TelaPerfil } from '../pages/tela-perfil/telaPerfil.js';
 import TelaLogin from '../pages/tela-login/login.js';
 import TelaCarrossel from '../pages/tela-aboutUs/tela-carrossel/telaCarrossel.js';
-import EditProfile from "../pages/tela-perfil/nieto/EditProfile.jsx"
+import EditProfile from "../pages/tela-perfil/nieto-EditProfile/EditProfile.js"
 import Nieto from '../pages/nieto/nieto.js';
 
 function WebRoutes() {

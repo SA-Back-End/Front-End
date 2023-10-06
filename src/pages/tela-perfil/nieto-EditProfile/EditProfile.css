@@ -123,13 +123,14 @@ option {
 }
 
 /*generalizando algumas estilizações*/
-.EditProfile input,
+.EditProfile .inputs,
 textarea,
 select,
 option {
+    font-size: 13px;
     font-weight: bold;
     border-radius: 15px;
-    border: 1px solid #000;
+    border: 1px solid #969595;
     text-align: left;
 }
 
@@ -141,15 +142,29 @@ option {
 .EditProfile .inputs {
     width: 300px;
     height: 30px;
-    margin-left: 30px; /*margin em relação ao label*/
+    margin-left: 30px;
+    padding-left: 15px;
+    /*margin em relação ao label*/
 }
 
 /*<input type='date'> . Somente uma config visual especifica para esse input*/
 .EditProfile .inputDate {
-    width: 250px;
+    width: 200px;
     height: 40px;
+    border-radius: 15px;
+    border: 1px solid #969595;
     margin-left: 50px;
     text-align: center;
+
+    font-size: 13px;
+    font-weight: bold;
+    padding-right: 15px;
+}
+
+.EditProfile .inputFile {
+    border-radius: 15px;
+    border: 1px solid #969595;
+    margin-left: 50px;
 }
 
 /*<hr>*/
@@ -163,4 +178,8 @@ option {
     text-align: left;
     padding: 15px;
     resize: none;
+}
+
+.EditProfile footer {
+    height: 100px;
 }

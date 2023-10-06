@@ -1,11 +1,12 @@
 import './login.css';
 import login from './img/login.png';
 import logo from './img/logo_login.png';
+import { Link } from 'react-router-dom';
 
 function TelaLogin() {
 
   return (
-    <div className='tela-login'>
+    <div className='TelaLogin'>
       <div className="div-toGroup">
 
         <div className="div-merchan">
@@ -17,7 +18,7 @@ function TelaLogin() {
         <div className='div-login'>
 
           <div className='div-login-top'>
-            <h1 className='h1-skills-login'>S K I L L S</h1>
+            <h1>S K I L L S</h1>
           </div>
 
           <div className='div-inputs'>
@@ -26,9 +27,9 @@ function TelaLogin() {
           </div>
 
           <div className='div-links'>
-            <p className='p-senha'><b>Esqueceu a senha?</b></p>
-            <button className="botao-submit" type="submit"><b>Entrar</b></button>
-            <p className='p-conta'><b>Não possuí uma conta?</b> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
+            <p className='p-senha'>Esqueceu a senha?</p>
+            <Link to={'/perfil'}><button className="botao-submit" type="submit"><b>Entrar</b></button></Link>
+            <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
           </div>
 
         </div>

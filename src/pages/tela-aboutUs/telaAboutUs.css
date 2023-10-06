@@ -2,7 +2,7 @@
 
 /*aumentar a fonte das coisas --> olhar no figma*/
 
-.tela {
+.TelaAboutUs {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -13,7 +13,7 @@
   position: relative;
 }
 
-.tela::before {
+.TelaAboutUs::before {
   content: "";
   display: block;
   position: absolute;
@@ -24,14 +24,14 @@
   backdrop-filter: blur(3px);
 }
 
-.topo {
+.TelaAboutUs .topo {
   position: relative;
   display: block;
   background: linear-gradient(rgba(255, 130, 0, 0.2), rgba(0, 61, 165, 0));
   /*mais claro*/
 }
 
-.lista {
+.TelaAboutUs .lista {
   justify-content: space-between;
   margin: 0;
   list-style: none;
@@ -39,18 +39,18 @@
   padding: 0 10px;
 }
 
-.logo {
+.TelaAboutUs .logo {
   margin-top: 20px;
   margin-left: 30px;
   width: 10%;
 }
 
-.topics {
+.TelaAboutUs .topics {
   margin-top: 29px;
   margin-right: 100px;
 }
 
-.legenda {
+.TelaAboutUs .legenda {
   color: #003DA5;
   font-family: 'Montserrat', sans-serif;
   font-weight: bold;
@@ -59,18 +59,18 @@
   margin-top: -6%;
 }
 
-.redirect {
+.TelaAboutUs .redirect {
   color: white;
   text-decoration: none;
   font-family: 'Montserrat', sans-serif;
   transition-duration: 0.5s;
 }
 
-.redirect:hover {
+.TelaAboutUs .redirect:hover {
   font-size: 17px;
 }
 
-.welcome {
+.TelaAboutUs .welcome {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -78,25 +78,25 @@
   text-align: center;
 }
 
-.nome {
+.TelaAboutUs .nome {
   color: #FF8200;
   font-size: 80px;
   font-family: 'Montserrat', sans-serif;
 }
 
-.slogan {
+.TelaAboutUs .slogan {
   color: rgb(255, 255, 255);
   font-family: 'Montserrat', sans-serif;
   font-size: 17px;
   margin-top: -10%;
 }
 
-.laranja {
+.TelaAboutUs .laranja {
   color: #FF8200;
   font-weight: bold;
 }
 
-.btn {
+.TelaAboutUs .btn {
   width: 150px;
   height: 40px;
   border: 0;
@@ -107,7 +107,7 @@
   transition-duration: 0.8s;
 }
 
-.btn:hover {
+.TelaAboutUs .btn:hover {
   cursor: pointer;
   width: 150px;
   height: 40px;

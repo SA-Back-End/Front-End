@@ -1,11 +1,12 @@
 // import PerfilTay from "./tay/perfil-tay";
 // import Logo from '../tela-aboutUs/img/logo.ico';
 import iconPerfil from './img/mamaco.jpg';
-import Header from './nieto/components/navbar/navbar.js'
+import Header from '../components/navbar/navbar'
 import "./telaPerfil.css";
 import { FaCakeCandles } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
 import { FaMapLocationDot } from 'react-icons/fa6'
+import { Link } from 'react-router-dom';
 
 function TelaPerfil() {
     return (
@@ -47,7 +48,7 @@ function TelaPerfil() {
                                 <li>
                                     <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div><span className='spanIcon'>Engenharia/Tecnologia</span></div>
                                 </li>
-                                <li style={{marginLeft:40}}>
+                                <li style={{ marginLeft: 40 }}>
                                     <div className='groupIcons'><div className='div-blueIcon'><FaCakeCandles className='icon' /></div><span className='spanIcon'>25 de agosto</span></div>
                                 </li>
                             </ul>
@@ -55,14 +56,14 @@ function TelaPerfil() {
                                 <li>
                                     <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>Disponibilidade limitada</span></div>
                                 </li>
-                                <li style={{marginLeft:33}}>
+                                <li style={{ marginLeft: 33 }}>
                                     <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>Santa Catarina</span></div>
                                 </li>
                             </ul>
                         </div>
 
                         <div className='div-button'>
-                            <button className='btt-editProfile'>Editar Perfil</button>
+                            <Link to={'/editProfile'}><button className='btt-editProfile'>Editar Perfil</button></Link>
                         </div>
 
                     </div>

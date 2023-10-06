@@ -11,6 +11,16 @@
     list-style-type: none;
 }
 
+/*<ul>*/
+.HomeNavbar .icon-buttons {
+    gap: 15px;
+}
+
+.HomeNavbar .icons {
+    font-size: 25px;
+    color: #003da5;
+}
+
 .logoFlex {
     display: flex;
 }
