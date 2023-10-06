@@ -12,14 +12,15 @@ const TelaMatch = () => {
     }
 
     const actingAreaList = [
-        'Ciências Exatas e da Terra',
+        'Ciências Exatas',
         'Ciências Biológicas',
-        'Engenharia / Tecnologia',
+        'Engenharia',
+        'Tecnologia',
         'Ciências da Saúde',
         'Ciências Agrárias',
         'Ciências Sociais',
         'Ciências Humanas',
-        'Lingüística',
+        'Linguística',
         'Letras e Artes',
     ];
 
@@ -46,7 +47,6 @@ const TelaMatch = () => {
                     <BtnDrop onItemSelect={addItemFilter} btnText={'Área de atuação'} itensList={actingAreaList} />
                     <BtnDrop onItemSelect={addItemFilter} btnText={'Modalidade'} itensList={workTypeList} />
                     <Button type='button' className='btn-filter'> Filtrar </Button>
-
                 </Filter>
                 <div></div>
                 <div></div>
