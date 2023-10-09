@@ -1,8 +1,9 @@
 import React from 'react';
 import { styled } from 'styled-components';
 import ToogleBtn from './component/filter/Toogle.btn';
-
+import TitleCardMatch from './component/title/titleCardMatch'
 import BtnDrop from './component/buttonDropdown/btn-drop';
+import ProjectCardMatch from './component/cardMatch/projectCardMatch';
 
 const TelaMatch = () => {
 
@@ -40,7 +41,7 @@ const TelaMatch = () => {
 
     return (
 
-        <main>
+        <Main>
             <div>
                 <Filter>
                     <ToogleBtn toFilter={logState} />
@@ -48,13 +49,17 @@ const TelaMatch = () => {
                     <BtnDrop onItemSelect={addItemFilter} btnText={'Modalidade'} itensList={workTypeList} />
                     <Button type='button' className='btn-filter'> Filtrar </Button>
                 </Filter>
-                <div></div>
-                <div></div>
+                <TitleCardMatch title='Buscando novos projetos' subTitle='Para o seu' subTitleEnphasisWord='portfólio'/>
+                <ProjectCardMatch />
                 <div></div>
             </div>
-        </main>
+        </Main>
     );
 }
+
+const Main = styled.main`
+    padding: 50px
+`
 
 const Filter = styled.div`
     display: flex;
