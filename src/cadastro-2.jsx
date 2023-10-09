@@ -1,4 +1,4 @@
-import './cadastro.css';
+import './App.css';
 import Data from './Modules/Data/data.js'
 import Logo from './img/logo.js';
 import React, { useState } from 'react';
@@ -26,7 +26,8 @@ function App() {
       <div className='quadrado-branco'>
         <h1>S K I L L S</h1>
         <h2>Bem vindo! Informe os dados abaixo para criar sua conta.</h2>
-        <div className="aleatorio">
+        <div className="nome">
+          <input type="text" className="primeiro_nome" placeholder='Primeiro Nome' />
           <input type="text" className="ultimo_nome" placeholder='Unidade Federativa' /><br />
         </div>
         <div className="credenciais">

@@ -59,88 +59,60 @@ h2 {
     font-weight: 300;
 }
 
-.credenciais {
-    height: 50px;
-    width: 420px;
-    top: -45px;
-    position: relative;
-}
-
+.usuario,
+.email,
+.credenciais,
 .senha,
 .password,
+.descricao,
 .confirmar_senha {
     font-family: 'Montserrat', sans-serif;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 2px solid #003DA5;
     color: black;
-    width: 200px;
+    width: 435px;
     height: 40px;
-    /* right: -52px; */
+    right: -52px;
     position: relative;
     margin-bottom: 10px;
 }
 
-.confirmar_senha {
-    right: -262px;
-    top: -41px;
-}
-
-.confirmar_senha:hover {
-    border: 2px solid #003DA5;
-}
-
-.confirmar_senha::after {
-    border: 2px solid #003DA5;
-    transform: translateX(-50%);
-}
-
-.senha {
-    right: -52px;
-    top: 15px;
-}
-
-.senha:hover {
-    border: 2px solid #003DA5;
-}
-
-.senha::after {
-    border: 2px solid #003DA5;
-    transform: translateX(-50%);
-}
-
-.unidades {
+.primeiro_nome {
     font-family: 'Montserrat', sans-serif;
-    border-radius: 10px;
+    border-radius: 5px;
     border: 2px solid #003DA5;
-    width: 206px;
-    height: 50px;
+    color: black;
+    width: 203px;
+    height: 40px;
     position: relative;
+    right: -53px;
     margin-bottom: 10px;
     margin-right: 17px;
-    left: 262px;
-    top: -31px;
 }
 
-.unidades:hover {
+.ultimo_nome {
+    font-family: 'Montserrat', sans-serif;
+    border-radius: 5px;
     border: 2px solid #003DA5;
-}
-
-.unidades::after {
-    border: 2px solid #003DA5;
-    transform: translateX(-50%);
+    color: black;
+    width: 203px;
+    height: 40px;
+    position: relative;
+    right: -53px;
+    margin-bottom: 10px;
 }
 
 .botao {
     font-family: 'Montserrat', sans-serif;
     background-color: #003DA5;
     color: white;
-    border-radius: 10px;
+    border-radius: 15px;
     font-size: 18px;
     border: none;
     padding: 10px 20px;
-    width: 300px;
+    width: 444px;
     position: relative;
-    right: -170px;
+    right: -51px;
     top: 13px;
 }
 
@@ -191,18 +163,4 @@ h2 {
     position: relative;
     text-align: center;
     font-family: 'Montserrat', sans-serif;
-}
-
-.voltar {
-    font-family: 'Montserrat', sans-serif;
-    background-color: #FF8200;
-    color: white;
-    border-radius: 10px;
-    font-size: 18px;
-    border: none;
-    padding: 10px 20px;
-    width: 110px;
-    position: relative;
-    right: 248px;
-    top: 13px;
 }
