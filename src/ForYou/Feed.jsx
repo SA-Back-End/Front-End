@@ -72,6 +72,18 @@ const Feed = () => {
             const response = await fetch(`http://localhost:3000/post/findAll/${page}`);
             const data = await response.json();
             console.log(data);
+            for(var i = 0; i < data.length; i++) {
+                for(var ii = 0; ii < data[i].post_img.length; ii++) {
+                    const buffer = data[i].post_img[ii].data;
+                    const binaryString = String.fromCharCode.apply(null, buffer);
+                    const converted = btoa(binaryString);
+                    console.log(converted);
+                    data[i].post_img[ii].data = converted;
+                    console.log(data[i].post_img[ii].data);
+                }
+            }
+            
+            
 
             if (data.length === 0) {
                 console.log("Final da página");
@@ -116,6 +128,7 @@ const Feed = () => {
             <div className="Pesquisa">
                 <h4>S K I L L S</h4>
                 <input type="text"></input>
+                
             </div>
 
             
@@ -128,9 +141,10 @@ const Feed = () => {
             {items.map(item => (
                 <React.Fragment key={item.userId}>
                     <div className="Post">
+                        
                         <div className="Post-content">
 
-                            <div id="post-image"></div>
+                            <div id="post-image"><img src={`data:image/jpg;base64,${item.post_img[0].data}`} /></div>
                             <div>
 
                                 <div className="Post-header">
@@ -181,7 +195,7 @@ const Feed = () => {
                         </div>
                     </div>
                 </React.Fragment>
-            ))
+             ))
             }
             {isLoading && <p>Loading...</p>}
             {error && <p>Error: {error.message}</p>}
