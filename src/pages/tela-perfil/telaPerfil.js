@@ -22,7 +22,7 @@ function TelaPerfil() {
 
                         <div className='div-infosLeft'>
                             <img src={iconPerfil} className='iconPerfil' alt='icon' />
-                            <div style={{ display: 'block' }}>
+                            <div style={{ display: 'block' , marginLeft:'10%'}}>
                                 <div className='infoHeader'>
                                     <h1>Happy Monke 🍌</h1>
                                     <span>@happyMonke22</span>
@@ -56,7 +56,7 @@ function TelaPerfil() {
                                 <li>
                                     <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>Disponibilidade limitada</span></div>
                                 </li>
-                                <li style={{ marginLeft: 33 }}>
+                                <li style={{ marginLeft: 30 }}>
                                     <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>Santa Catarina</span></div>
                                 </li>
                             </ul>

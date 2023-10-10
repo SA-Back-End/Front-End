@@ -1,4 +1,4 @@
-/*tela padrao 1280x720*/
+/*tela padrao 1366x768*/
 
 /*div principal*/
 .TelaLogin {
@@ -14,7 +14,7 @@
   display: flex;
   width: 100%;
   margin-top: 8%;
-  margin-left: 8%;
+  margin-left: 15%;
   overflow: hidden;
 }
 
@@ -138,6 +138,15 @@
 
 /*---------------------------------------------*/
 
+@media (min-width: 1500px) {
+
+  .TelaLogin .div-toGroup {
+    margin-left: 23%;
+  }
+
+}
+
+/*tela celular (?) */
 @media screen and (max-width: 810px) {
 
   .TelaLogin .div-toGroup {

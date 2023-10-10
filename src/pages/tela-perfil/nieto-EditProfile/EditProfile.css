@@ -1,4 +1,4 @@
-/*tela padrão: 1280x720*/
+/*tela padrão: 1366x768*/
 
 .EditProfile {
     margin: 0;
@@ -19,7 +19,7 @@
 /*<img> profile picture*/
 .EditProfile #profile {
     margin-top: 80px;
-    margin-left: 130px;
+    margin-left: 10%;
     width: 150px;
     border-radius: 100%;
 }
@@ -106,10 +106,10 @@
     list-style-type: none;
 }
 
-.EditProfile .edit-Infosinputs li {
-    /* width: 490px; */
-    /* flex-grow: 1; */
-}
+/* .EditProfile .edit-Infosinputs li {
+    width: 490px;
+    flex-grow: 1;
+} */
 
 /*generalizando algumas estilizações*/
 .EditProfile input,
@@ -170,7 +170,7 @@ option {
 /*<hr>*/
 .EditProfile hr {
     margin: 30px 0 30px 45px;
-    width: 135vh;
+    width: 95%;
 }
 
 /*<textarea>*/
@@ -182,4 +182,15 @@ option {
 
 .EditProfile footer {
     height: 100px;
+}
+
+@media (min-width: 1500px) {
+    .EditProfile .flex #profile {
+        margin-left: 20%;
+    }
+
+    .EditProfile hr {
+        margin: 30px 0 30px 30px;
+        width: 98%;
+    }
 }

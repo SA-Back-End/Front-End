@@ -2,7 +2,7 @@
 import './telaCadastro.css'
 // import Logo from './Components/logo';
 import React, { useState } from 'react';
-import Barrafixa from './Components/Inputs/Geral/barra_fixa';
+import NavBar from './Components/Inputs/Geral/navBarCadastro';
 import desenho from './img/desenho.png';
 // import logo from './img/logo_skills.png'
 
@@ -22,9 +22,7 @@ function TelaCadastro() {
 
     return (
         <div className="TelaCadastro">
-            {/* <header>
-                <Barrafixa />
-            </header> */}
+            <NavBar />
             <div className='containers'>
                 <div className='left-container'>
                     <div className='quadrado-branco'>
