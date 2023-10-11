@@ -1,14 +1,56 @@
 import React, { useState } from 'react';
 import './Posts.css'
+import axios from 'axios'
 
 function PostModal({ onClose, onPost }) {
   const [postText, setPostText] = useState('');
 
+
+
   const handlePostSubmit = () => {
-    // Envio da postagem
-    // Chamar onPost para enviar os dados da postagem
-    onPost(postText);
-    onClose();
+
+    if(!postText.trim()){
+      alert('A postagem necessita de texto!')
+      return;
+    }
+    const accessToken = sessionStorage.getItem('accessToken');
+
+    if (accessToken) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${accessToken}`,
+        },
+      };
+
+      axios.get('http://localhost:3000/auth/profile', config)
+        .then(res => {
+          const user_data = res.data;
+
+          const post_data = {
+            userId: user_data.id,
+            text: postText,
+            post_img: [
+              "U3dhZ2dlciByb2Nrcw=="
+            ]
+          }
+
+          axios.post('http://localhost:3000/post/create', post_data, config)
+            .then(function (response) {
+              console.log(response);
+            })
+            .catch(function (error) {
+              console.log(error);
+            });
+        })
+        .catch(error => {
+          console.log(error)
+        })
+
+      onPost(postText);
+      onClose();
+    } else {
+      alert('N TEM TOKEN')
+    }
   };
 
   return (
