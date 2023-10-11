@@ -3,9 +3,11 @@ import { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import { AiFillInfoCircle, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
+import ProjectLikedAplication from "../projectLikedAplication/projectLikedAplication";
 
 export default function ProjectCardMatch() {
   const [data, setData] = useState([]);
+  const [showLikedAplicationComponent, setShowLikedAplicationComponent] = useState(false);
 
   useEffect(() => {
     setData([]);
@@ -27,6 +29,11 @@ export default function ProjectCardMatch() {
     data[0] && console.log(data[0]);
     return;
   };
+
+
+  const toggleLikedAplicationComponent = () => {
+    setShowLikedAplicationComponent(!showLikedAplicationComponent);
+  }
 
   return (
     <div>
@@ -68,16 +75,17 @@ export default function ProjectCardMatch() {
         </div>
       </StyledProjectCard>
       <div className="card-applications">
-        <div>
-          <button>
+        <div className="btn-card-applications">
+          <button onClick={toggleLikedAplicationComponent}>
             <AiFillHeart />
           </button>
         </div>
-        <div>
+        <div className="btn-card-applications">
           <button>
             <AiOutlineClose />
           </button>
         </div>
+          { showLikedAplicationComponent && <ProjectLikedAplication projectName={data[0] && data[0].project_name} projectRole={data[0] && data[0].project_Role} closeModal={toggleLikedAplicationComponent}/> }
       </div>
     </div>
   );
@@ -143,7 +151,7 @@ const StyledProjectCard = styled.div`
   }
 
   &+.card-applications {
-    div {
+    div.btn-card-applications {
       margin: 0 10px;
 
       button {
