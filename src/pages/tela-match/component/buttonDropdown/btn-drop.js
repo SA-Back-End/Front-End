@@ -1,5 +1,6 @@
 import { styled } from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
+import { AiOutlineHeart, AiFillHeart } from "react-icons/ai";
 import { useState } from "react";
 
 export default function BtnDrop({ btnText, itensList, onItemSelect }) {
@@ -23,6 +24,8 @@ export default function BtnDrop({ btnText, itensList, onItemSelect }) {
         break;
     }
   };
+
+  const arr = [1,2,3,4,5,6,7,8,9,10]
 
   return (
     <DropContainer>
@@ -84,8 +87,11 @@ const DropContainer = styled.div`
   }
 
   .dropdown ul {
+    background-color: white;
+    height: 200px;
     margin: 0;
     padding: 0;
+    overflow-y: auto;
     width: 100%;
   }
 

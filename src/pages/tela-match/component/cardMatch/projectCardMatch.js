@@ -23,7 +23,7 @@ export default function ProjectCardMatch({disableItensParent}) {
   }, []);
 
   const getDataAPI = async () => {
-    const url = "http://localhost:3333/project/findOpenProjects";
+    const url = "http://localhost:3000/project/findOpenProjects";
     axios.get(url).then((res) => {
       handleResponse(res);
     });
@@ -33,6 +33,8 @@ export default function ProjectCardMatch({disableItensParent}) {
     if (res.status !== 200) {
       return console.log("Deu erro");
     }
+    
+    console.log(res.data);
     setData(res.data);
     return;
   };
@@ -57,7 +59,7 @@ export default function ProjectCardMatch({disableItensParent}) {
         <div className="card-title">
           <div>
             <h2>{data[currentProjectToDisplay] && data[currentProjectToDisplay].project_name}</h2>
-            <p>Liderado por {data[currentProjectToDisplay] && data[currentProjectToDisplay].id_projectManager}</p>
+            <p>Liderado por {data[currentProjectToDisplay] && data[currentProjectToDisplay].status}</p>
           </div>
           <div className="hXj1oQp">
             <p>

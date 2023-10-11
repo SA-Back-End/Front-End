@@ -3,7 +3,7 @@ import { useState } from "react";
 import { styled } from "styled-components";
 
 /** * 
- * @param {{projectId: number, projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0 
+ * @param {{projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0 
  * @returns 
  */
 export default function ProjectLikedAplication({projectName, projectRole, closeModal}) {
@@ -11,11 +11,11 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
   const [idRole, setIdRole] = useState(null);
   
   const handleIdSelect = (e) => {
+    console.log(e.target.id)
     setIdRole(e.target.id);
   }
 
-  const handleCloseModal = () => {
-    
+  const handleCloseModal = () => {    
     closeModal();
   }
 
@@ -33,14 +33,14 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
     }
   }
 
-  const prepareHeaders = () => {
+  const prepareHeaders = async () => {
     return {
       "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
     }
   }
 
   const sendLiked = async (payload, headers) => {
-    const url = `http://localhost:3333/screen-stick/create?idRequisitionMaker=${sessionStorage.getItem("id")}`;
+    const url = `http://localhost:3000/screen-stick/create?idRequisitionMaker=${sessionStorage.getItem("id")}`;
     await axios.post(url, payload, { headers }).then((res) => {
       handleResponse(res);
     });
@@ -59,17 +59,17 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
   return (
     <ProjectLikedAplicationComponent>
       <div><h2>Você curtiu o projeto {projectName}. Para enviar sua solicitação, selecione o cargo que gostaria de preencher!</h2></div>
-      <div>
+      <form>
         <ul>
           {projectRole.map((e) => {
             return (
               <li key={e.id_role}>
-                <label htmlFor={e.id_role}>{e.user_role}</label><input id={e.id_role} type="radio" onInput={handleIdSelect}></input>
+                <label htmlFor={e.id_role}>{e.user_role}</label><input name="projectLikedApp" id={e.id_role} type="radio" onInput={handleIdSelect}></input>
               </li>
             );
           })}
         </ul>
-      </div>
+      </form>
       <div className="form-buttons">
         <button onClick={handleCloseModal}>Cancelar</button>
         <button disabled={!idRole ? true : false} onClick={handleLiked}>Concluir solicitação</button>
@@ -90,7 +90,7 @@ const ProjectLikedAplicationComponent = styled.div`
   width: 600px;
   z-index: 999;
 
-  div ul {
+  form ul {
     list-style: none;
     padding: 0;
     
