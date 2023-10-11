@@ -1,24 +1,26 @@
-// import Data from './Modules/Data/data.js'
 import './telaCadastro.css'
-// import Logo from './Components/logo';
 import React, { useState } from 'react';
 import NavBar from './Components/Inputs/Geral/navBarCadastro';
 import desenho from './img/desenho.png';
-// import logo from './img/logo_skills.png'
-
+import { FirstInputs } from './Components/Inputs/FirstInputs/firstInputs.js';
+import SecondInputs from './Components/Inputs/SecondInputs/secondInputs.js';
 
 function TelaCadastro() {
 
-    // const verificarSenhasIguais = () => {
-    //     const senha = document.getElementById('senha').value;
-    //     const confirmarSenha = document.getElementById('confirmar_senha').value;
-    //     if (senha === confirmarSenha) {
-    //         alert('Senhas iguais')
-    //         return true;
-    //     } else {
-    //         alert('Senhas incorretas')
-    //     }
-    // }
+    const [divForInputsContent, setDivForInputsContent] = useState(<FirstInputs />)
+    const [showButton, setShowButton] = useState(true);
+    const [showBackButton, setBackButton] = useState(false)
+
+    const changeDivForInputsContent = () => {
+        setDivForInputsContent(<SecondInputs />);
+        setShowButton(false); // Ocultar o botão
+    };
+
+    const reChangeDivForInputsContent = () => {
+        setDivForInputsContent(<FirstInputs />);
+        // setShowButton(false)
+        setBackButton(true);
+    }
 
     return (
         <div className="TelaCadastro">
@@ -30,16 +32,16 @@ function TelaCadastro() {
                             <h1>S K I L L S</h1>
                             <h2>Bem vindo! Informe os dados abaixo para criar sua conta.</h2>
                         </div>
-                        <div className="nome">
-                            <input type="text" className="primeiro_nome" placeholder='Primeiro Nome' />
-                            <input type="text" className="ultimo_nome" placeholder='Último Nome' />
-                        </div>
-                        <div className='user_email'>
-                            <input type="text" className="usuario" placeholder=' Nome de usuário' />
-                            <input type="text" className="email" placeholder='E-mail' />
-                        </div>
-                        <div className='button_submit'>
-                            <button className="botao" type="submit" >Próximo➜</button>
+                        <div className='divForInputs'>
+                            {divForInputsContent}
+                            <div className='button_submit'>
+                                {showButton && ( // Renderizar o botão apenas se showButton for true
+                                    <button className="botao" onClick={changeDivForInputsContent}>Próximo➜</button>
+                                )}
+                                {showBackButton && (
+                                    <button className="voltar" onClick={reChangeDivForInputsContent}>🠔</button>
+                                )}
+                            </div>
                         </div>
                         <p className='p-login'><span className='text'>Já tem uma conta?</span> <a style={{ color: '#FF8200', fontWeight: 'bold' }} href='/login'>Faça login</a></p>
                     </div>

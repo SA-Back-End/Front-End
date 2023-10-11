@@ -17,7 +17,7 @@ const TelaAboutUs = () => {
             <ul className='lista'>
               <li className='topics'><a className='redirect' href=''>Quem somos?</a></li>
               <li className='topics'><a className='redirect' href='/cadastro'>Cadastre-se</a></li>
-              <li className='topics'><a className='redirect' href='/login'>Login</a></li>
+              <li className='topics'><a className='redirect' href='#login'>Login</a></li>
             </ul>
           </ul>
         </nav>
@@ -30,7 +30,9 @@ const TelaAboutUs = () => {
         </div>
       </div>
       {/* <TelaCarrossel /> */}
-      <TelaLogin />
+      <div id='login'>
+        <TelaLogin />
+      </div>
     </div>
   );
 }

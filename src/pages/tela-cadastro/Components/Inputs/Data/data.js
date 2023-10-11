@@ -9,8 +9,7 @@ const Data = () => {
   };
 
   return (
-    <div className='div-data'>
-      <label htmlFor="data_nascimento" className='label-dataNasc'>Data de nascimento </label><br/>
+    <div className='data'>
       <input
         type="date"
         id="data_nascimento"
