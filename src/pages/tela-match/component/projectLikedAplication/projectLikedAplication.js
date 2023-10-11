@@ -1,17 +1,59 @@
+import axios from "axios";
+import { useState } from "react";
 import { styled } from "styled-components";
 
 /** * 
- * @param {{projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0 
+ * @param {{projectId: number, projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0 
  * @returns 
  */
 export default function ProjectLikedAplication({projectName, projectRole, closeModal}) {
+
+  const [idRole, setIdRole] = useState(null);
   
   const handleIdSelect = (e) => {
-    console.log(e.target.id);
+    setIdRole(e.target.id);
   }
 
   const handleCloseModal = () => {
+    
     closeModal();
+  }
+
+  const handleLiked = () => {
+    const payLoad = preparePayload();
+    const header = prepareHeaders();
+    sendLiked(payLoad, header);
+  }
+
+  const preparePayload = () => {
+    return {
+      id_candidate: Number(sessionStorage.getItem("id")),
+      id_role: Number(idRole),
+      match_dateTime: new Date().toISOString(),
+    }
+  }
+
+  const prepareHeaders = () => {
+    return {
+      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+    }
+  }
+
+  const sendLiked = async (payload, headers) => {
+    const url = `http://localhost:3333/screen-stick/create?idRequisitionMaker=${sessionStorage.getItem("id")}`;
+    await axios.post(url, payload, { headers }).then((res) => {
+      handleResponse(res);
+    });
+  }
+
+  const handleResponse = (res) => {
+    if (res.status !== 201) {
+      return console.log(res);
+    }
+    setIdRole(null);
+    handleCloseModal();
+    alert("Solicitação enviada com sucesso!")
+    return;
   }
 
   return (
@@ -21,7 +63,7 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
         <ul>
           {projectRole.map((e) => {
             return (
-              <li>
+              <li key={e.id_role}>
                 <label htmlFor={e.id_role}>{e.user_role}</label><input id={e.id_role} type="radio" onInput={handleIdSelect}></input>
               </li>
             );
@@ -30,7 +72,7 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
       </div>
       <div className="form-buttons">
         <button onClick={handleCloseModal}>Cancelar</button>
-        <button>Concluir solicitação</button>
+        <button disabled={!idRole ? true : false} onClick={handleLiked}>Concluir solicitação</button>
       </div>
     </ProjectLikedAplicationComponent>
   );
@@ -69,11 +111,17 @@ const ProjectLikedAplicationComponent = styled.div`
       cursor: pointer;
       height: 25px;
       padding: 5px 10px;
+      transition: 0.3s;
 
       &:first-child {
         background-color: #003da5;
         color: #fff;
         margin-right: 10px;
+      }
+
+      &:disabled {
+        filter: brightness(0.8);
+        cursor: not-allowed;
       }
     }
 

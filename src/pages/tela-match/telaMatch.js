@@ -1,16 +1,25 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { styled } from "styled-components";
 import ToogleBtn from "./component/filter/Toogle.btn";
 import TitleCardMatch from "./component/title/titleCardMatch";
 import BtnDrop from "./component/buttonDropdown/btn-drop";
 import ProjectCardMatch from "./component/cardMatch/projectCardMatch";
-import { AiFillHeart, AiOutlineClose } from "react-icons/ai";
 
 const TelaMatch = () => {
   const logState = (state) => {
     // Usar o state para fazer o bgl de trocar tela
     console.log("Toggled:", state);
   };
+
+  const [disableItens, setDisableItens] = useState(false);
+
+  const handleDisableOutputProp = (flag) => {
+    setDisableItens(flag);
+  }
+
+  useEffect(() => {
+    setDisableItens(false)
+  }, [])
 
   const actingAreaList = [
     "Ciências Exatas",
@@ -38,29 +47,33 @@ const TelaMatch = () => {
   return (
     <Main>
       <div>
-        <Filter>
-          <ToogleBtn toFilter={logState} />
-          <BtnDrop
-            onItemSelect={addItemFilter}
-            btnText={"Área de atuação"}
-            itensList={actingAreaList}
-          />
-          <BtnDrop
-            onItemSelect={addItemFilter}
-            btnText={"Modalidade"}
-            itensList={workTypeList}
-          />
-          <Button type="button" className="btn-filter">
-            {" "}
-            Filtrar{" "}
-          </Button>
-        </Filter>
-        <TitleCardMatch
-          title="Buscando novos projetos"
-          subTitle="Para o seu"
-          subTitleEnphasisWord="portfólio"
-        />
-        <ProjectCardMatch />
+        { !disableItens && (          
+          <>
+            <Filter>
+              <ToogleBtn toFilter={logState} />
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={"Área de atuação"}
+                itensList={actingAreaList}
+              />
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={"Modalidade"}
+                itensList={workTypeList}
+              />
+              <Button type="button" className="btn-filter">
+                {" "}
+                Filtrar{" "}
+              </Button>
+            </Filter>
+            <TitleCardMatch
+              title="Buscando novos projetos"
+              subTitle="Para o seu"
+              subTitleEnphasisWord="portfólio"
+            />
+          </>
+        )}
+        <ProjectCardMatch disableItensParent={handleDisableOutputProp}/>
       </div>
     </Main>
   );

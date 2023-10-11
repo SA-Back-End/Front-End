@@ -4,10 +4,18 @@ import { styled } from "styled-components";
 import { AiFillInfoCircle, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import ProjectLikedAplication from "../projectLikedAplication/projectLikedAplication";
+import StyledAllDone from "./styledAllDone";
 
-export default function ProjectCardMatch() {
+/**
+ * 
+ * @param {{disableItensParent: () => boolean}} param0 
+ * @returns 
+ */
+export default function ProjectCardMatch({disableItensParent}) {
   const [data, setData] = useState([]);
-  const [showLikedAplicationComponent, setShowLikedAplicationComponent] = useState(false);
+  const [currentProjectToDisplay, setCurrentProjectToDisplay] = useState(0);
+  const [showLikedAplicationComponent, setShowLikedAplicationComponent] =
+    useState(false);
 
   useEffect(() => {
     setData([]);
@@ -26,22 +34,30 @@ export default function ProjectCardMatch() {
       return console.log("Deu erro");
     }
     setData(res.data);
-    data[0] && console.log(data[0]);
     return;
   };
 
-
   const toggleLikedAplicationComponent = () => {
     setShowLikedAplicationComponent(!showLikedAplicationComponent);
+  };
+
+  const handleNextAplication = () => {
+    setCurrentProjectToDisplay(currentProjectToDisplay + 1)
+  }
+
+  const disableItens = () => {
+    disableItensParent(true);
   }
 
   return (
     <div>
-      <StyledProjectCard>
+      {data[currentProjectToDisplay] ? (
+        <>
+          <StyledProjectCard>
         <div className="card-title">
           <div>
-            <h2>{data[0] && data[0].project_name}</h2>
-            <p>Liderado por {data[0] && data[0].id_projectManager}</p>
+            <h2>{data[currentProjectToDisplay] && data[currentProjectToDisplay].project_name}</h2>
+            <p>Liderado por {data[currentProjectToDisplay] && data[currentProjectToDisplay].id_projectManager}</p>
           </div>
           <div className="hXj1oQp">
             <p>
@@ -52,9 +68,9 @@ export default function ProjectCardMatch() {
         </div>
         <div className="card-desc">
           <p>
-            <strong>Área de atuação:</strong> {data[0] && data[0].studyArea[0]}{" "}
+            <strong>Área de atuação:</strong> {data[currentProjectToDisplay] && data[currentProjectToDisplay].studyArea[0]}{" "}
           </p>
-          <p> {data[0] && data[0].description} </p>
+          <p> {data[currentProjectToDisplay] && data[currentProjectToDisplay].description} </p>
         </div>
         <div className="card-roles">
           <div>
@@ -63,8 +79,8 @@ export default function ProjectCardMatch() {
             </p>
           </div>
           <div className="card-roles-display">
-            {data[0] &&
-              data[0].project_Role.map((e) => {
+            {data[currentProjectToDisplay] &&
+              data[currentProjectToDisplay].project_Role.map((e) => {
                 return (
                   <span>
                     <BsFillPersonFill /> {e.user_role}
@@ -81,12 +97,16 @@ export default function ProjectCardMatch() {
           </button>
         </div>
         <div className="btn-card-applications">
-          <button>
+          <button onClick={handleNextAplication}>
             <AiOutlineClose />
           </button>
         </div>
-          { showLikedAplicationComponent && <ProjectLikedAplication projectName={data[0] && data[0].project_name} projectRole={data[0] && data[0].project_Role} closeModal={toggleLikedAplicationComponent}/> }
+          { showLikedAplicationComponent && <ProjectLikedAplication projectName={data[currentProjectToDisplay] && data[currentProjectToDisplay].project_name} projectRole={data[currentProjectToDisplay] && data[currentProjectToDisplay].project_Role} closeModal={toggleLikedAplicationComponent}/> }
       </div>
+        </>
+      ) : 
+        <StyledAllDone onLoad={disableItens} />
+      }
     </div>
   );
 }
@@ -150,7 +170,7 @@ const StyledProjectCard = styled.div`
     }
   }
 
-  &+.card-applications {
+  & + .card-applications {
     div.btn-card-applications {
       margin: 0 10px;
 
@@ -165,12 +185,12 @@ const StyledProjectCard = styled.div`
         width: 70px;
 
         &:hover {
-            background-color: #ff8200;
+          background-color: #ff8200;
         }
 
         svg {
           font-size: 30px;
-        } 
+        }
       }
     }
   }
