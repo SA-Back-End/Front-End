@@ -6,7 +6,7 @@ import Botao from "./botao";
 function Formacao() {
   const [formacoes, setFormacoes] = useState([]);
   const [inputText, setInputText] = useState("");
-
+  
   const add = () => {
     if (inputText) {
       // Crie um objeto para representar a formação e adicione-o à lista de formação
@@ -14,10 +14,47 @@ function Formacao() {
         id: Date.now(), // Usando a data/hora atual como ID único (você pode ajustar isso conforme necessário)
         texto: inputText,
       };
+      
+      sessionStorage.setItem('accessToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzA0NjE0NCwiZXhwIjoxNjk3MDQ5NzQ0fQ.UO_qrvrRR5VVr4oGBwCn4PuL1ZPlfBg8oAeSG7F131Y")
+      const accessToken = sessionStorage.getItem('accessToken')
+
+
+      if (accessToken) {
+        const config = {
+          headers: {
+            Authorization: `Bearer ${accessToken}`,
+          },
+        };
+
+      
+      axios.post('instuition/create', instituition_data, config)
+        .then(function (response) {
+            console.log(response);
+        })
+        .catch(function(error) {
+          console.log(error)
+        })
+      
+
+      axios.get('https://localhost:3000/auth/profile', config)
+        .then(res => {
+          const user_data = res.data;
+        })}
+        else {
+          alert('NÃO TEM TOKEN')
+        }
+
+        const instituition_data = {
+        
+          institution_name: "Unisul",
+          institutions_type: "Faculdade"
+        
+      }
+      
+        
+
       //adcionar a instituição na lista
-      axios.post('/institution/create', {
-        institution_name:inputText, institutions_type:ensino?
-      })
+      axios.post('/institution/create', instituition_data)
 
       setFormacoes([...formacoes, novaFormacao]);
       setInputText(""); // Limpe o input
