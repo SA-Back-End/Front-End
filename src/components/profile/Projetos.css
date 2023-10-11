@@ -39,11 +39,7 @@
 
     
 }
-/* 
-.test{
-    display: flex;
-    align-content: space-between;
-} */
+
 
 .profile_card_body_content .test{
     display: flex;
@@ -68,15 +64,18 @@
     height: 214px; 
     margin: 0 15px;
     padding: 15px 20px;
+    position: relative;
     width: 282px;
     display: flex;
     flex-direction: column;
+    transition:  all  0.3s ease;
+    z-index: 20;
 }
 .profile_card_body_real-oficial .profile_card_body_content ul li p {
-    font-size: 12px;
+    font-size: 10px;
 }
 .profile_card_body_real-oficial .profile_card_body_content ul li h3 {
-    font-size: 18px;
+    font-size: 17px;
 }
 
 .profile_card_body_real-oficial .profile_card_body_content ul li .card_coisas_em_baixo {
@@ -88,9 +87,95 @@
     padding: 5px 0;
     word-wrap: break-word;
 }
+
 .icone{
     margin-left: 900px;
     z-index: 900;
     position: relative;
     margin-top: 20px;
+}
+
+.openClose {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1000;
+}
+
+.liTaFechado .escondida{
+    display: none;
+}
+
+.liTaAberto {
+    height: 300px !important;
+    padding: 10px;
+}
+
+.liTaAberto .escondida {
+    position: relative;
+    top: -45px;
+    display: block;
+}
+
+.lideranca {
+    position: relative;
+    top: 30px;
+    left: 01px;
+}
+
+.engenheiro {
+    position: relative;
+    top: 0px;
+    left: 119px;
+}
+
+.engenheirosoftware {
+    position: relative;
+    top: 2px;
+    left: 119px;
+}
+.engenheirolaranja{
+    position: relative;
+    top: -28px;
+    left: 1px;
+}
+
+h2 {
+    font-size: 10px;
+    position: relative;
+    top:34px;
+}
+
+.tituloLideranca{
+    font-size: 9px;
+    position: relative;
+    left: 14px;
+    top: 15px; 
+}
+
+.tituloEngenheiro{
+    font-size: 9px;
+    position: relative;
+    top: 15px;
+    left: 14px;
+}
+
+.titulodesenvolvedorlaranja{
+    font-size: 9px;
+    position: relative;
+    top: 15px;
+    left: 14px;
+}
+
+.tituloCargo{
+    font-size: 9px;
+    position: relative;
+    top: 15px;
+    left: 14px;
+}
+
+.editor{
+    position: relative;
+    top: -137px;
+    left: 189px;
 }
