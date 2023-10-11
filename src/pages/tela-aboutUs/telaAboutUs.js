@@ -29,7 +29,7 @@ const TelaAboutUs = () => {
           </a>
         </div>
       </div>
-      {/* <TelaCarrossel /> */}
+      <TelaCarrossel />
       <div id='login'>
         <TelaLogin />
       </div>
