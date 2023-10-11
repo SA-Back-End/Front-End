@@ -8,12 +8,10 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <Multiselect/>
-      <Habilidade>
-      <Skill/>
-      </Habilidade>
+      <Habilidade/>
     </div>
   );
 }
 
+//<Skill/>
 export default App;
