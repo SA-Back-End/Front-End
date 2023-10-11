@@ -10,13 +10,25 @@ import { styled } from "styled-components"
  */
 export default function TitleCardMatch({title, subTitle, subTitleEnphasisWord}) {
     return (
-        <div>
+        <StyledTitleContainer>
             <h2>{title}</h2>
-            <p>{subTitle} <StyledSpan>{subTitleEnphasisWord}</StyledSpan>!</p>
-        </div>
+            <p>{subTitle} <span>{subTitleEnphasisWord}</span>!</p>
+        </StyledTitleContainer>
     )
 }
 
-const StyledSpan = styled.span`
-color: #FF8200;
+const StyledTitleContainer = styled.div`
+    margin-top: 100px;
+
+    h2 {
+        margin-bottom: 0;
+    }
+
+    p {
+        margin-top: 0;
+    
+        span {
+            color: #FF8200;
+        }
+    }
 `

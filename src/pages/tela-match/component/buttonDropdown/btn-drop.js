@@ -90,6 +90,7 @@ const DropContainer = styled.div`
   }
 
   li {
+    background-color: white;
     border: 1px solid black;
     border-radius: 5px;
     box-shadow: 0 5px 9px -5px black;
