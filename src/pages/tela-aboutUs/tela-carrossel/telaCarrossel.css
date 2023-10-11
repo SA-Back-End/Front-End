@@ -1,174 +1,19 @@
-/* TelaCarrossel.css */
-/* .back_end {
-  width: 400px;
-  height: 300px;
-  right: 20px;
-  left: 870px;
-  position: relative;
-  margin-top: -15px;
-  z-index: 1;
+.container{
+  
+  width: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
 }
 
-.mover {
-  margin-top: -280px;
-  width: 50%;
-  height: 50%;
-}
-
-.fundo_azul {
-  width: 400px;
-  height: 300px;
-  right: 20px;
-  left: 900px;
-  position: relative;
-  margin-top: -390px;
-  z-index: -988;
-}
-
-.texto-destacado {
-  color: orange;
-}
-
-.texto-titulo {
-  color: #003DA5;
-  font-size: 40px;
-}
-
-.icones {
-  margin-top: 100px;
-  display: flex;
+.title{
   text-align: center;
-  font-size: 30px;
-  margin-left: 90px;
+  margin: 24px auto;
 }
 
-.coracao,
-.olho,
-.alvo {
-  width: 130px;
-  height: 130px;
+.slide-item{
+  margin-top: 60px;
+  margin-bottom: 60px;
+  width: 100%;
+  height: 530px;
+  object-fit: cover;
 }
-
-.h2_sobre_nos {
-  margin-top: 20px;
-  right: 20px;
-  left: 24px;
-  position: relative;
-  color: #003DA5;
-  padding-bottom: 20px;
-}
-
-.texto_sobre_nos {
-  left: 20px;
-  position: relative;
-  font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
-}
-
-.log {
-  width: 100px;
-  height: 100px;
-}
-
-p {
-  text-align: justify;
-  left: 40px;
-  position: relative;
-  color: #000;
-}
-
-.lg {
-  width: 50%;
-  height: 50%;
-}
-
-.texto {
-  width: 50%;
-  height: 70%;
-  left: 10px;
-  text-align: justify;
-}
-
-.tela_3 {
-  width: 50%;
-  height: 50%;
-  left: 20px;
-  margin-top: 50px;
-  font-family: 'Montserrat', sans-serif;
-  position: relative;
-  text-align: justify;
-}
-
-.sobre_nos {
-  color: black;
-  text-align: justify;
-  font-size: 65px;
-  text-align: left;
-  color: #000;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
-
-.logo {
-  width: 469px;
-  height: 469px;
-  right: 20px;
-  left: 800px;
-  position: relative;
-  top: -400px;
-}
-
-.espaco {
-  margin-top: 70px;
-  color: black;
-  left: 20px;
-  position: relative;
-  font-size: 24px;
-  font-family: 'Montserrat', sans-serif;
-  text-align: start;
-}
-
-.linha1 {
-  width: 3px;
-  height: 155px;
-  top: 30px;
-  left: 350px;
-  top: 200px;
-  position: relative;
-}
-
-.linha {
-  width: 3px;
-  height: 155px;
-  top: 30px;
-  left: -145px;
-  top: -203px;
-  position: relative;
-}
-
-.hh {
-  color: black;
-  text-align: justify;
-  font-size: 65px;
-  margin-bottom: 80px;
-  text-align: left;
-  color: #000;
-  font-family: 'Montserrat', sans-serif;
-  font-family: 'Montserrat Alternates', sans-serif;
-}
-
-.orange {
-  color: orange;
-}
-
-.blue {
-  color: blue;
-}
-
-.missao,
-.valores,
-.visao {
-  width: 30%;
-  height: 50%;
-  font-size: 24px;
-} */
