@@ -63,7 +63,7 @@
     filter: drop-shadow(0 0px 0px black);
 }
 
-.TelaCadastro .left-container .quadrado-branco .usuario,
+/* .TelaCadastro .left-container .quadrado-branco .usuario,
 .email,
 .primeiro_nome,
 .ultimo_nome {
@@ -111,7 +111,7 @@
     border: none;
     padding: 10px 20px;
     width: 443px;
-}
+} */
 
 .TelaCadastro .left-container .quadrado-branco .p-login {
     color: black;
@@ -154,6 +154,20 @@
 
 .TelaCadastro .div-text span {
     color: #FF8200;
+}
+
+.TelaCadastro .button_submit {
+    margin: 15px 0 10px 40px;
+}
+
+.TelaCadastro .botao {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 443px;
 }
 
 @media (min-width: 1500px) {

@@ -237,7 +237,7 @@
 }
 
 /* Estilos para resolução 1920x1080 */
-@media (min-width: 1820px) {
+@media (min-width: 1700px) {
 
     .TelaPerfil .container-perfil-infos {
         top: 13%;
