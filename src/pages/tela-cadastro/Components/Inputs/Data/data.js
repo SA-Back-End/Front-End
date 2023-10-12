@@ -6,6 +6,7 @@ const Data = () => {
 
   const handleDateChange = (event) => {
     setSelectedDate(event.target.value);
+    console.log(event.target.value);
   };
 
   return (

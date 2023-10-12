@@ -16,3 +16,9 @@
   height: 540px;
   object-fit: cover;
 }
+
+@media (min-width:1370px) {
+  .TelaCarrossel-container .slide-item {
+    object-fit: contain;
+  }
+}

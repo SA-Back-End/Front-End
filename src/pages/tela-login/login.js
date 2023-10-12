@@ -1,9 +1,39 @@
 import './login.css';
 import login from './img/login.png';
 import logo from './img/logo_login.png';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
 
 function TelaLogin() {
+
+  const navigate = useNavigate()
+
+  const userLogin = (e) => {
+
+    e.preventDefault();
+
+    const userLogin = document.getElementById('user-login').value
+    const password = document.getElementById('user-password').value
+
+    console.log(userLogin, password)
+
+    const loginInfos = {
+      login: userLogin,
+      password: password
+    }
+
+    axios.post('http://localhost:3000/auth/login', loginInfos)
+      .then(response => {
+        console.log(response.data)
+        sessionStorage.setItem('accessToken', response.data);
+        alert("Login sucesso: " + response.status);
+        navigate('/perfil')
+      })
+      .catch(error => {
+        console.log(error.response)
+        alert("Login erro: " + error.status);
+      })
+  }
 
   return (
     <div className='TelaLogin'>
@@ -22,13 +52,13 @@ function TelaLogin() {
           </div>
 
           <div className='div-inputs'>
-            <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' /> <br></br>
-            <input type="password" className='login-inputs' placeholder='Senha' />
+            <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' id='user-login' /> <br></br>
+            <input type="password" className='login-inputs' placeholder='Senha' id='user-password' />
           </div>
 
           <div className='div-links'>
             <p className='p-senha'>Esqueceu a senha?</p>
-            <Link to={'/perfil'}><button className="botao-submit" type="submit"><b>Entrar</b></button></Link>
+            <button className="botao-submit" type="submit" onClick={userLogin}><b>Entrar</b></button>
             <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
           </div>
 
