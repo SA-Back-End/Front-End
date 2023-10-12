@@ -1,3 +1,7 @@
+.SecondInputs {
+    margin-top: 4%;
+}
+
 .SecondInputs .unidades {
     border-radius: 10px;
     border: 2px solid #003DA5;
@@ -19,7 +23,7 @@
     transform: translateX(-50%);
 }
 
-.SecondInputs .botao {
+/* .SecondInputs .botao {
     background-color: #003DA5;
     color: white;
     border-radius: 10px;
@@ -30,9 +34,9 @@
     position: relative;
     right: -170px;
     top: 13px;
-}
+} */
 
-.SecondInputs .voltar {
+/* .SecondInputs .voltar {
     background-color: #FF8200;
     color: white;
     border-radius: 10px;
@@ -43,7 +47,7 @@
     position: relative;
     right: 248px;
     top: 13px;
-}
+} */
 
 .SecondInputs .credenciais {
     height: 50px;

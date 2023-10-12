@@ -1,6 +1,5 @@
 import './secondInputs.css';
 import Data from './../Data/data.js'
-import React, { useState } from 'react';
 
 function SecondInputs() {
 
@@ -52,8 +51,6 @@ function SecondInputs() {
                 <input type="password" className="senha" id="senha" placeholder='Senha' /><br />
                 <input type="password" className="confirmar_senha" id="confirmar_senha" placeholder='Confirmar senha' /><br />
             </div>
-            <a href='/perfil'><button className="botao" type="submit">Criar uma conta ➞</button></a>
-            <button className="voltar" type="submit">🠔</button>
         </div>
     );
 }

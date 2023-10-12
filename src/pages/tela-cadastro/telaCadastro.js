@@ -8,18 +8,19 @@ import SecondInputs from './Components/Inputs/SecondInputs/secondInputs.js';
 function TelaCadastro() {
 
     const [divForInputsContent, setDivForInputsContent] = useState(<FirstInputs />)
-    const [showButton, setShowButton] = useState(true);
-    const [showBackButton, setBackButton] = useState(false)
+    const [showFirstButton, setShowButton] = useState(true);
+    const [showSecondButtons, setBackButton] = useState(false)
 
     const changeDivForInputsContent = () => {
         setDivForInputsContent(<SecondInputs />);
         setShowButton(false); // Ocultar o botão
+        setBackButton(true)
     };
 
     const reChangeDivForInputsContent = () => {
         setDivForInputsContent(<FirstInputs />);
-        // setShowButton(false)
-        setBackButton(true);
+        setShowButton(true)
+        setBackButton(false);
     }
 
     return (
@@ -35,11 +36,14 @@ function TelaCadastro() {
                         <div className='divForInputs'>
                             {divForInputsContent}
                             <div className='button_submit'>
-                                {showButton && ( // Renderizar o botão apenas se showButton for true
-                                    <button className="botao" onClick={changeDivForInputsContent}>Próximo➜</button>
+                                {showFirstButton && ( // Renderizar o botão apenas se showButton for true
+                                    <button className="btt-toSecondInputs" onClick={changeDivForInputsContent}>Próximo➜</button>
                                 )}
-                                {showBackButton && (
-                                    <button className="voltar" onClick={reChangeDivForInputsContent}>🠔</button>
+                                {showSecondButtons && (
+                                    <button className="btt-backFirstInputs" onClick={reChangeDivForInputsContent}>🠔</button>
+                                )}
+                                {showSecondButtons && (
+                                    <a href='/perfil'><button className="btt-createAccount" type="submit">Criar uma conta ➞</button></a>
                                 )}
                             </div>
                         </div>
