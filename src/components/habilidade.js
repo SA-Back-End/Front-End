@@ -1,5 +1,4 @@
 import Skill from "./skill"
-import Botao from "./botao"
 import Formacao from "./formacaoEdit"
 
 function Habilidade() {
