@@ -8,64 +8,79 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
 function TelaCadastro() {
+
+    //para navegar entre as telas
     const navigate = useNavigate();
 
-    const [userData, setUserData] = useState({
-        firstName: '',
-        birthDate: '',
-        lastName: '',
-        username: '',
-        email: '',
-        state: '',
-        password: '',
-    });
+    //para receber os dados de FirstInput
+    const [dataFirstInputs, setDataFirstInputs] = useState();
+    const getFirstInputsData = (data) => {
+        setDataFirstInputs(data)
+    }
 
+    const [dataSecondInputs, setDataSecontInputs] = useState()
+    const getSecondInputsData = (data) => {
+        setDataSecontInputs(data)
+    }
+
+    //Criar usuário a partir dos dados do front e mandar para o back-end
     const createUser = () => {
-        // userData agora contém os valores dos campos de entrada
+
         const user = {
-            // firstName: userData.firstName,
-            // birthDate: userData.birthDate,
-            // lastName: userData.lastName,
-            // username: userData.username,
-            // email: userData.email,
-            // password: userData.password,
-            // state: userData.state,
-            firstName: "João",
+            firstName: dataFirstInputs.firstName,
             status: "Disponivel",
-            birthDate: "2003-09-21T18:19:31.966Z",
-            lastName: "Vitor",
-            username: "JoaoVitor2",
+            birthDate: dataSecondInputs.birthDate,
+            lastName: dataFirstInputs.lastName,
+            username: dataFirstInputs.username,
             description: "Lorem ipsun, lorem lorem",
-            email: "joaovitor2@gmail.com",
-            password: "senhaQ!1dojoao",
-            isAdmin: true,
-            state: "SC",
+            email: dataFirstInputs.email,
+            password: dataSecondInputs.password,
+            state: dataSecondInputs.state,
             profilePicture: "U3dhZ2dlciByb2Nrcw=="
+            //
+            // firstName: "Kleber",
+            // status: "Disponivel",
+            // birthDate: "2003-09-21T18:19:31.966Z",
+            // lastName: "Vitor",
+            // username: "r2",
+            // description: "Lorem ipsun, lorem lorem",
+            // email: "ja2@gmail.com",
+            // password: "senhaQ!1dojoao",
+            // isAdmin: true,
+            // state: "SC",
+            // profilePicture: "U3dhZ2dlciByb2Nrcw=="
         };
+
+        console.log(user)
 
         axios.post('http://localhost:3000/user/create', user)
             .then(response => {
                 console.log(response);
                 console.log(response.data);
-                navigate('/login');
+                navigate('/perfil');
             })
             .catch(error => {
-                console.log(error.status);
+                console.log(error.request.response);
             });
     };
 
-    const [divForInputsContent, setDivForInputsContent] = useState(<FirstInputs userData={userData} setUserData={setUserData} />);
+    /* 
+    Aqui ocorre o seguinte: Deve existir uma interação entre TelaCadastro e FirstInputs (serve o mesmo para SecondInputs).
+    Essa interação, sera por meio de parâmetros/propriedades. Primeiramente, observe oq foi feito em FirstInputs e dps volta aqui.
+    Agora, 
+    */
+    const [divForInputsContent, setDivForInputsContent] = useState(<FirstInputs onFormUpdate={getFirstInputsData} />);
     const [showFirstButton, setShowButton] = useState(true);
     const [showSecondButtons, setBackButton] = useState(false);
 
-    const changeDivForInputsContent = () => {
-        setDivForInputsContent(<SecondInputs userData={userData} setUserData={setUserData} />);
+    const changeForSecondInputs = () => {
+        setDivForInputsContent(<SecondInputs onFormUpdate={getSecondInputsData}/>);
         setShowButton(false);
         setBackButton(true);
     };
 
-    const reChangeDivForInputsContent = () => {
-        setDivForInputsContent(<FirstInputs userData={userData} setUserData={setUserData} />);
+    const changeForFirstInputs = () => {
+        setDivForInputsContent(<FirstInputs onFormUpdate={getFirstInputsData} />);
         setShowButton(true);
         setBackButton(false);
     };
@@ -84,12 +99,12 @@ function TelaCadastro() {
                             {divForInputsContent}
                             <div className="button_submit">
                                 {showFirstButton && (
-                                    <button className="btt-toSecondInputs" onClick={changeDivForInputsContent}>
+                                    <button className="btt-toSecondInputs" onClick={changeForSecondInputs}>
                                         Próximo➜
                                     </button>
                                 )}
                                 {showSecondButtons && (
-                                    <button className="btt-backFirstInputs" onClick={reChangeDivForInputsContent}>
+                                    <button className="btt-backFirstInputs" onClick={changeForFirstInputs}>
                                         🠔
                                     </button>
                                 )}

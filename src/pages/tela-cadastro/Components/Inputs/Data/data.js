@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
 import './data.css'
 
-const Data = () => {
-  const [selectedDate, setSelectedDate] = useState('');
+const Data = (props) => {
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
-    console.log(event.target.value);
+  const handleDateChange = () => {
+    props.onDateUpdate(document.getElementById('data_nascimento').value)
   };
 
   return (
@@ -14,7 +11,6 @@ const Data = () => {
       <input
         type="date"
         id="data_nascimento"
-        value={selectedDate}
         onChange={handleDateChange}
       />
     </div>

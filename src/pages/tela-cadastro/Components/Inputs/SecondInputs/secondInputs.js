@@ -2,7 +2,7 @@ import './secondInputs.css';
 import Data from './../Data/data.js'
 import { useState } from 'react';
 
-function SecondInputs() {
+function SecondInputs(props) {
 
     // const verificarSenhasIguais = () => {
     //     const senha = document.getElementById('senha').value;
@@ -15,18 +15,30 @@ function SecondInputs() {
     //     }
     // }
 
-    const [selectedState, setSelectedState] = useState(''); // Estado selecionado
+    const [userBirthDate, setBirthDate] = useState()
+    const getBirthDate = (birthDate) => {
+        setBirthDate(birthDate)
+    }
 
-    // Função para lidar com a mudança na seleção do estado
-    const handleStateChange = (event) => {
-        setSelectedState(event.target.value);
-        console.log(event.target.value)
+    const handleInputUpdate = () => {
+
+        const birthDate = userBirthDate
+        const state = document.getElementById('state').value
+        const password = document.getElementById('senha').value
+
+        const data = {
+            birthDate: birthDate,
+            state: state,
+            password: password
+        }
+
+        props.onFormUpdate(data)
     }
 
     return (
         <div className='SecondInputs'>
-            <Data></Data>
-            <select className='unidades' placeholder='Unidade Federativa' value={selectedState} onChange={handleStateChange} id='state'>
+            <Data onDateUpdate={getBirthDate}></Data>
+            <select className='unidades' placeholder='Unidade Federativa' id='state'>
                 <option value="">Selecione um estado</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
@@ -57,7 +69,7 @@ function SecondInputs() {
                 <option value="TO">TO</option>
             </select>
             <div className="credenciais">
-                <input type="password" className="senha" id="senha" placeholder='Senha' /><br />
+                <input type="password" className="senha" id="senha" placeholder='Senha' onChange={handleInputUpdate}/><br />
                 <input type="password" className="confirmar_senha" id="confirmar_senha" placeholder='Confirmar senha' /><br />
             </div>
         </div>
