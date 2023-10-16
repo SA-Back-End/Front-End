@@ -29,7 +29,6 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
     return {
       id_candidate: Number(sessionStorage.getItem("id")),
       id_role: Number(idRole),
-      match_dateTime: new Date().toISOString(),
     }
   }
 
