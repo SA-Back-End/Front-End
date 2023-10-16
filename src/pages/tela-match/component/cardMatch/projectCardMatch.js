@@ -24,7 +24,10 @@ export default function ProjectCardMatch({ disableItensParent }) {
 
   const getDataAPI = async () => {
     const url = "http://localhost:3000/project/findOpenProjects";
-    axios.get(url).then((res) => {
+    const AUTH = {
+      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+    }
+    axios.get(url, { headers: AUTH }).then((res) => {
       handleResponse(res);
     });
   };
@@ -33,8 +36,6 @@ export default function ProjectCardMatch({ disableItensParent }) {
     if (res.status !== 200) {
       return console.log("Deu erro");
     }
-
-    console.log(res.data);
     setData(res.data);
     return;
   };

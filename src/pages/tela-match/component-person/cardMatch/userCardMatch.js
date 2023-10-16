@@ -1,51 +1,95 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { AiFillInfoCircle } from "react-icons/ai";
+import { AiFillHeart, AiFillInfoCircle, AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 
 export default function UserCardMatch() {
 
-    const [data, setData] = useState([]);
-    const [currentUserToDisplay, setCurrentUserToDisplay] = useState(0);
-    const [userImage, setUserImage] = useState("");
+  const [data, setData] = useState([]);
+  const [currentUserToDisplay, setCurrentUserToDisplay] = useState(0);
+  const [userImage, setUserImage] = useState("");
 
 
-    useEffect(() => {
-        setData([]);
-        getDataAPI();
-    }, [])
+  useEffect(() => {
+    setData([]);
+    getDataAPI();
+  }, [])
 
-    const getDataAPI = async () => {
-        const url = "http://localhost:3000/user/findInterested";
-        axios.get(url).then((res) => {
-            handleResponse(res);
-        });
+  const getDataAPI = async () => {
+    const url = "http://localhost:3000/user/findInterested";
+    axios.get(url).then((res) => {
+      handleResponse(res);
+    });
+  }
+
+  const handleResponse = (res) => {
+    if (res.status !== 200) {
+      return console.log("Deu erro");
     }
+    setData(res.data);
+    return;
+  }
 
-    const handleResponse = (res) => {
-        if (res.status !== 200) {
-            return console.log("Deu erro");
-        }
-        setData(res.data);
-        handleUserImage(res.data[0].profilePicture.data);
-        return; 
-    }
-
-    const handleUserImage = (algo) => {
-        const base64String = btoa(String.fromCharCode(...new Uint8Array(algo)));
-        setUserImage(`data:image/png;base64,${base64String}`);
-        console.log(userImage)
-    }
+  
 
   return (
-    <StyledUserCard>
+    <div>
+      <StyledUserCard>
         <div className="left-side">
-            <div className="img-container">
-                <img src={userImage} alt="user-profile-image"/>
-            </div>
+          <div className="img-container">
+            <img src={userImage} alt="user-profile-image" />
+          </div>
         </div>
-        <div className="rigth-side"></div>
-    </StyledUserCard>
+        <div className="rigth-side">
+          <div className="user-status">
+            <div className="user_name">
+              <h3>{data[0] && data[0].name}</h3>
+              <p>{data[0] && data[0].username}</p>
+            </div>
+            <div className="follow-status">
+              <div>
+                <p style={{ color:  '#FF8200', fontWeight: 700 }}>{data[0] && data[0].followers.length}</p>
+                <p>seguidores</p>
+              </div>
+              <div>
+                <p style={{ color: '#003DA5', fontWeight: 700 }}>{data[0] && data[0].following.length}</p>
+                <p>seguindo</p>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div>
+              <p>{data[0] && data[0].description}</p>
+            </div>
+          </div>
+        </div>
+      </StyledUserCard>
+      <div className="card-applications">
+        <div className="btn-card-applications">
+          <button onClick={console.log}>
+            <AiFillHeart />
+          </button>
+        </div>
+        <div className="btn-card-applications">
+          <button onClick={console.log}>
+            <AiOutlineClose />
+          </button>
+        </div>
+        {/* {showLikedAplicationComponent && (
+          <ProjectLikedAplication
+            projectName={
+              data[currentProjectToDisplay] &&
+              data[currentProjectToDisplay].project_name
+            }
+            projectRole={
+              data[currentProjectToDisplay] &&
+              data[currentProjectToDisplay].project_Role
+            }
+            closeModal={toggleLikedAplicationComponent}
+          />
+        )} */}
+      </div>
+    </div>
   );
 }
 
@@ -57,28 +101,40 @@ const StyledUserCard = styled.div`
   padding: 25px 50px;
 
   .left-side {
-    background-color: red;
-    min-width: 300px;
+    min-width: 150px;
     width: 25%;
     height: 300px;
 
     .img-container {
-        height: 220px;
-        width: 220px;
+      height: 220px;
+      width: 220px;
 
-        img {
-            border-radius: 50%;
-            height: 100%;
-            width: 100%;
-        }
+      img {
+          border-radius: 50%;
+          height: 100%;
+          width: 100%;
+      }
     }
   }
 
   .rigth-side {
-    background-color: blue;
     min-width: 300px;
     width: 75%;
     height: 300px;
+
+    .user-status {
+      display: flex;
+      justify-content: space-between;
+      max-width: 400px;
+      width: 95%;
+      
+      .follow-status {
+        display: flex;
+        justify-content: space-between;
+        text-align: center;
+        width: 45%;
+      }
+    }
   }
 
   .card-title {
@@ -92,6 +148,31 @@ const StyledUserCard = styled.div`
 
     p {
       margin-top: 5px;
+    }
+  }
+
+  & + .card-applications {
+    div.btn-card-applications {
+      margin: 0 10px;
+
+      button {
+        background-color: #ffa647;
+        border: none;
+        border-radius: 100%;
+        color: #003da5;
+        cursor: pointer;
+        height: 70px;
+        transition: 0.3s;
+        width: 70px;
+
+        &:hover {
+          background-color: #ff8200;
+        }
+
+        svg {
+          font-size: 30px;
+        }
+      }
     }
   }
 `;
