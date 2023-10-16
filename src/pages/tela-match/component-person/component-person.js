@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import TitleCardMatch from "../component/title/titleCardMatch";
+import UserCardMatch from "./cardMatch/userCardMatch";
 
 export default function ComponentPerson() {
 
@@ -24,6 +25,7 @@ export default function ComponentPerson() {
                     />
                 </>
             )}
+            <UserCardMatch />
         </div>
     )
 }

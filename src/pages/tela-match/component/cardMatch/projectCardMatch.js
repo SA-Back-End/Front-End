@@ -7,11 +7,11 @@ import ProjectLikedAplication from "../projectLikedAplication/projectLikedAplica
 import StyledAllDone from "./styledAllDone";
 
 /**
- * 
- * @param {{disableItensParent: () => boolean}} param0 
- * @returns 
+ *
+ * @param {{disableItensParent: () => boolean}} param0
+ * @returns
  */
-export default function ProjectCardMatch({disableItensParent}) {
+export default function ProjectCardMatch({ disableItensParent }) {
   const [data, setData] = useState([]);
   const [currentProjectToDisplay, setCurrentProjectToDisplay] = useState(0);
   const [showLikedAplicationComponent, setShowLikedAplicationComponent] =
@@ -33,7 +33,7 @@ export default function ProjectCardMatch({disableItensParent}) {
     if (res.status !== 200) {
       return console.log("Deu erro");
     }
-    
+
     console.log(res.data);
     setData(res.data);
     return;
@@ -44,71 +44,96 @@ export default function ProjectCardMatch({disableItensParent}) {
   };
 
   const handleNextAplication = () => {
-    setCurrentProjectToDisplay(currentProjectToDisplay + 1)
-  }
+    setCurrentProjectToDisplay(currentProjectToDisplay + 1);
+  };
 
   const disableItens = () => {
     disableItensParent(true);
-  }
+  };
 
   return (
     <div>
       {data[currentProjectToDisplay] ? (
         <>
           <StyledProjectCard>
-        <div className="card-title">
-          <div>
-            <h2>{data[currentProjectToDisplay] && data[currentProjectToDisplay].project_name}</h2>
-            <p>Liderado por {data[currentProjectToDisplay] && data[currentProjectToDisplay].status}</p>
+            <div className="card-title">
+              <div>
+                <h2>
+                  {data[currentProjectToDisplay] &&
+                    data[currentProjectToDisplay].project_name}
+                </h2>
+                <p>
+                  Liderado por{" "}
+                  {data[currentProjectToDisplay] &&
+                    data[currentProjectToDisplay].status}
+                </p>
+              </div>
+              <div className="hXj1oQp">
+                <p>
+                  <AiFillInfoCircle />
+                  <span>Ver mais!</span>
+                </p>
+              </div>
+            </div>
+            <div className="card-desc">
+              <p>
+                <strong>Área de atuação:</strong>{" "}
+                {data[currentProjectToDisplay] &&
+                  data[currentProjectToDisplay].studyArea[0]}{" "}
+              </p>
+              <p>
+                {" "}
+                {data[currentProjectToDisplay] &&
+                  data[currentProjectToDisplay].description}{" "}
+              </p>
+            </div>
+            <div className="card-roles">
+              <div>
+                <p>
+                  <strong>Cargos:</strong>
+                </p>
+              </div>
+              <div className="card-roles-display">
+                {data[currentProjectToDisplay] &&
+                  data[currentProjectToDisplay].project_Role.map((e) => {
+                    return (
+                      <span>
+                        <BsFillPersonFill /> {e.user_role}
+                      </span>
+                    );
+                  })}
+              </div>
+            </div>
+          </StyledProjectCard>
+          <div className="card-applications">
+            <div className="btn-card-applications">
+              <button onClick={toggleLikedAplicationComponent}>
+                <AiFillHeart />
+              </button>
+            </div>
+            <div className="btn-card-applications">
+              <button onClick={handleNextAplication}>
+                <AiOutlineClose />
+              </button>
+            </div>
+            {showLikedAplicationComponent && (
+              <ProjectLikedAplication
+                projectName={
+                  data[currentProjectToDisplay] &&
+                  data[currentProjectToDisplay].project_name
+                }
+                projectRole={
+                  data[currentProjectToDisplay] &&
+                  data[currentProjectToDisplay].project_Role
+                }
+                closeModal={toggleLikedAplicationComponent}
+              />
+            )}
           </div>
-          <div className="hXj1oQp">
-            <p>
-              <AiFillInfoCircle />
-              <span>Ver mais!</span>
-            </p>
-          </div>
-        </div>
-        <div className="card-desc">
-          <p>
-            <strong>Área de atuação:</strong> {data[currentProjectToDisplay] && data[currentProjectToDisplay].studyArea[0]}{" "}
-          </p>
-          <p> {data[currentProjectToDisplay] && data[currentProjectToDisplay].description} </p>
-        </div>
-        <div className="card-roles">
-          <div>
-            <p>
-              <strong>Cargos:</strong>
-            </p>
-          </div>
-          <div className="card-roles-display">
-            {data[currentProjectToDisplay] &&
-              data[currentProjectToDisplay].project_Role.map((e) => {
-                return (
-                  <span>
-                    <BsFillPersonFill /> {e.user_role}
-                  </span>
-                );
-              })}
-          </div>
-        </div>
-      </StyledProjectCard>
-      <div className="card-applications">
-        <div className="btn-card-applications">
-          <button onClick={toggleLikedAplicationComponent}>
-            <AiFillHeart />
-          </button>
-        </div>
-        <div className="btn-card-applications">
-          <button onClick={handleNextAplication}>
-            <AiOutlineClose />
-          </button>
-        </div>
-          { showLikedAplicationComponent && <ProjectLikedAplication projectName={data[currentProjectToDisplay] && data[currentProjectToDisplay].project_name} projectRole={data[currentProjectToDisplay] && data[currentProjectToDisplay].project_Role} closeModal={toggleLikedAplicationComponent}/> }
-      </div>
         </>
-      ) : 
+      ) : (
         <StyledAllDone onLoad={disableItens} />
-      }
+      )}
     </div>
   );
 }
