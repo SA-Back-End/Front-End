@@ -29,26 +29,12 @@ function TelaCadastro() {
         const user = {
             firstName: dataFirstInputs.firstName,
             status: "Disponivel",
-            birthDate: dataSecondInputs.birthDate,
+            birthDate: `${dataSecondInputs.birthDate}T00:00:00.000Z`,
             lastName: dataFirstInputs.lastName,
             username: dataFirstInputs.username,
-            description: "Lorem ipsun, lorem lorem",
             email: dataFirstInputs.email,
             password: dataSecondInputs.password,
-            state: dataSecondInputs.state,
-            profilePicture: "U3dhZ2dlciByb2Nrcw=="
-            //
-            // firstName: "Kleber",
-            // status: "Disponivel",
-            // birthDate: "2003-09-21T18:19:31.966Z",
-            // lastName: "Vitor",
-            // username: "r2",
-            // description: "Lorem ipsun, lorem lorem",
-            // email: "ja2@gmail.com",
-            // password: "senhaQ!1dojoao",
-            // isAdmin: true,
-            // state: "SC",
-            // profilePicture: "U3dhZ2dlciByb2Nrcw=="
+            state: dataSecondInputs.state
         };
 
         console.log(user)
