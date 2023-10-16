@@ -15,7 +15,6 @@ function Formacao() {
         texto: inputText,
       };
       
-      sessionStorage.setItem('accessToken', "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzA0NjE0NCwiZXhwIjoxNjk3MDQ5NzQ0fQ.UO_qrvrRR5VVr4oGBwCn4PuL1ZPlfBg8oAeSG7F131Y")
       const accessToken = sessionStorage.getItem('accessToken')
 
 
@@ -26,35 +25,34 @@ function Formacao() {
           },
         };
 
-      
-      axios.post('instuition/create', instituition_data, config)
-        .then(function (response) {
-            console.log(response);
+        axios.get('http://localhost:3000/auth/profile', config)
+          .then(res => {
+              const user_data = res.data;
+
+              const post_data = {
+                institution_name: 'UNISUL',
+                institutions_type: 'Faculdade'
+              }
+              axios.post('http://localhost:3000/institution/create', post_data, config)
+                .then(function(response) {
+                  console.log(response);
+                })
+                .catch(function(error) {
+                  console.log(error);
+                });
         })
-        .catch(function(error) {
+        .catch(error => {
           console.log(error)
         })
-      
+      }
 
-      axios.get('https://localhost:3000/auth/profile', config)
-        .then(res => {
-          const user_data = res.data;
-        })}
         else {
           alert('NÃO TEM TOKEN')
         }
 
-        const instituition_data = {
         
-          institution_name: "Unisul",
-          institutions_type: "Faculdade"
-        
-      }
       
         
-
-      //adcionar a instituição na lista
-      axios.post('/institution/create', instituition_data)
 
       setFormacoes([...formacoes, novaFormacao]);
       setInputText(""); // Limpe o input
