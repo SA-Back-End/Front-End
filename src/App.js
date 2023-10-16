@@ -4,13 +4,16 @@ import EditarPerfil from './componentes/EditarPerfil';
 import { userState, userEffect } from 'react';
 
 
+
 function App() {
   return (
     <div className="App">
-      <EditarPerfil></EditarPerfil>
+      <EditarPerfil/>
 
     </div>
+    
   );
 }
+
 
 export default App;
