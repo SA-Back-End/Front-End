@@ -1,16 +1,16 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@300;400&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@300;400&display=swap");
 
 /* Botao.css */
 
 .botao {
   padding: 1px 10px;
   font-size: 16px;
-  background-color: #0052E0;
+  background-color: #0052e0;
   color: white;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
   margin-left: 91px;
   z-index: 900;
   position: relative;
@@ -24,7 +24,8 @@
 .title {
   z-index: auto;
   position: relative;
-  top: 25px;
+  top: 89px;
+  font-weight: 500;
 }
 
 /* Modal.css */
@@ -70,24 +71,37 @@
   cursor: pointer;
 }
 
-
-.Dropdown {
-  border-radius: 5px;
-  font-family: 'Montserrat', sans-serif;
-}
-
 input {
-  width: 445px;
+  width: 466px;
   height: 20px;
-  top: 108px;
-  left: 31px;
   border-radius: 5px;
   border-color: #696161;
+  margin-bottom: 13px;
+  border: 1px solid #999;
+}
+.lados {
+  display: flex;
+  gap: 25px;
+  z-index: 1;
+}
+
+.statusDeAndamento,
+.modalidade {
+  flex-direction: column;
+  z-index: 10;
+}
+.status_modalidade{
+  border-radius: 5px;
+  border-color: #696161;
+  margin-bottom: 13px;
+  border: 1px solid #999;
+  width: 220px;
+  height: 30px;
 }
 
 .azul {
-  background: #003DA5;
-  color: #FFF;
+  background: #003da5;
+  color: #fff;
   width: 75px;
   height: 25px;
   top: 540px;
@@ -98,12 +112,12 @@ input {
 }
 
 .lateral {
-  background: #003DA5;
-  color: #FFF;
-  width: 75px;
-  height: 25px;
-  top: 369px;
-  left: 393px;
+  background: #003da5;
+  color: #fff;
+  width: 74px;
+  height: 22px;
+  top: 416px;
+  left: 413px;
   border-radius: 5px;
   border: none;
   position: absolute;
@@ -111,8 +125,8 @@ input {
 }
 
 .laranja {
-  background: #FF8200;
-  color: #FFF;
+  background: #ff8200;
+  color: #fff;
   width: 75px;
   height: 25px;
   top: 540px;
@@ -131,13 +145,15 @@ input {
 }
 
 .titulo {
-  width: 431px;
-  height: 29px;
+  top: 8px;
+  height: 55px;
   position: relative;
+  font-size: 23px;
+  font-weight: 500;
 }
 
 .descricao {
-  width: 445px;
+  width: 466px;
   height: 70px;
   border-radius: 5px;
 }
@@ -163,4 +179,12 @@ input {
   width: 190px;
   height: 20px;
   border-radius: 5px;
+}
+
+.p {
+  position: relative;
+  top: -1px;
+  font-size: 14px;
+  font-weight: 500;
+  color: black;
 }

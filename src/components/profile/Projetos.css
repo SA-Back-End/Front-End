@@ -50,8 +50,9 @@
 }
 
 .profile_card_body_real-oficial .profile_card_body_title p{
-    margin: 10px 0;
+    margin: 16px 0;
     text-transform: capitalize;
+    font-weight: 500;
 }
 
 
@@ -93,6 +94,7 @@
     z-index: 900;
     position: relative;
     margin-top: 20px;
+    top: 35px;
 }
 
 .openClose {
@@ -177,5 +179,5 @@ h2 {
 .editor{
     position: relative;
     top: -137px;
-    left: 189px;
+    left: 235px;
 }

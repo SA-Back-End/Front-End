@@ -172,14 +172,14 @@ function Projetos({ user }) {
                       </div>
 
                       <div className="escondida">
-                        <div className="editor"><EditProjeto></EditProjeto></div>
-                        <div>
+                       <div className="editor">
+                          <EditProjeto></EditProjeto>
+                        </div><div>
                           <h2>Cargos:</h2>
                           <div className="lideranca">
                             <div className="tituloLideranca">Liderança</div>
                             <Img></Img>
                           </div>
-
                           <div className="engenheiro">
                             <div className="tituloEngenheiro">
                               Engenheiro de Software
