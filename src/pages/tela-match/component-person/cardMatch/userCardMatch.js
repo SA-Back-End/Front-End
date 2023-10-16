@@ -2,12 +2,13 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { AiFillHeart, AiFillInfoCircle, AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
+import ModalInviteToProject from "./modalInviteToProjectComponent";
 
 export default function UserCardMatch() {
 
   const [data, setData] = useState([]);
   const [currentUserToDisplay, setCurrentUserToDisplay] = useState(0);
-  const [userImage, setUserImage] = useState("");
+  const [openSelectProjectModal, setOpenSelectProjectModal] = useState(false)
 
 
   useEffect(() => {
@@ -30,14 +31,16 @@ export default function UserCardMatch() {
     return;
   }
 
-  
+  const handleOpenSelectProjectModal = () => {
+    setOpenSelectProjectModal(!openSelectProjectModal);
+  }
 
   return (
     <div>
       <StyledUserCard>
         <div className="left-side">
           <div className="img-container">
-            <img src={userImage} alt="user-profile-image" />
+            <img src='' alt="user-profile-image" />
           </div>
         </div>
         <div className="rigth-side">
@@ -66,7 +69,7 @@ export default function UserCardMatch() {
       </StyledUserCard>
       <div className="card-applications">
         <div className="btn-card-applications">
-          <button onClick={console.log}>
+          <button onClick={handleOpenSelectProjectModal}>
             <AiFillHeart />
           </button>
         </div>
@@ -75,19 +78,9 @@ export default function UserCardMatch() {
             <AiOutlineClose />
           </button>
         </div>
-        {/* {showLikedAplicationComponent && (
-          <ProjectLikedAplication
-            projectName={
-              data[currentProjectToDisplay] &&
-              data[currentProjectToDisplay].project_name
-            }
-            projectRole={
-              data[currentProjectToDisplay] &&
-              data[currentProjectToDisplay].project_Role
-            }
-            closeModal={toggleLikedAplicationComponent}
-          />
-        )} */}
+        {openSelectProjectModal && (
+          <ModalInviteToProject nameUser={data[0] && data[0].name} closeModal={handleOpenSelectProjectModal} idUser={data[0] && data[0].id_user}/>
+        )}
       </div>
     </div>
   );
