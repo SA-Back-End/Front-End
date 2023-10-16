@@ -1,9 +1,47 @@
 import './login.css';
-import login from './img/login.png';
+import boneco from './img/login.png';
 import logo from './img/logo_login.png';
-import { Link } from 'react-router-dom';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom'
+import { useState } from 'react';
 
 function TelaLogin() {
+
+  const navigate = useNavigate()
+
+  const [login, setUserLogin] = useState('')
+  const handleLogin = (htmlInputLogin) => {
+    setUserLogin(htmlInputLogin.target.value)
+  }
+
+  const [password, setUserPassword] = useState('')
+  const handlePassword = (htmlInputPassword) => {
+    setUserPassword(htmlInputPassword.target.value)
+  }
+
+  const userLogin = (e) => {
+
+    e.preventDefault();
+
+    console.log(login, password)
+
+    const loginInfos = {
+      login: login,
+      password: password
+    }
+
+    axios.post('http://localhost:3000/auth/login', loginInfos)
+      .then(response => {
+        console.log(response.data)
+        sessionStorage.setItem('accessToken', response.data);
+        alert("Login sucesso: " + response.status);
+        navigate('/perfil')
+      })
+      .catch(error => {
+        console.log(error.response)
+        alert("Login erro: " + error.status);
+      })
+  }
 
   return (
     <div className='TelaLogin'>
@@ -12,7 +50,7 @@ function TelaLogin() {
         <div className="div-merchan">
           <p className="p-merchan"> <img className="logoLogin" src={logo} alt="logo" /> Aprimore suas <strong className='strong-login'>skills!</strong> </p>
           <p className="p-merchan"> <strong> Para nos mantermos <strong className='strong-login'>conectados</strong>, entre com suas credenciais.</strong></p>
-          <img className="boneco" src={login} alt="login" />
+          <img className="boneco" src={boneco} alt="login" />
         </div>
 
         <div className='div-login'>
@@ -22,13 +60,13 @@ function TelaLogin() {
           </div>
 
           <div className='div-inputs'>
-            <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' /> <br></br>
-            <input type="password" className='login-inputs' placeholder='Senha' />
+            <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' id='user-login' onInput={handleLogin} /> <br></br>
+            <input type="password" className='login-inputs' placeholder='Senha' id='user-password' onInput={handlePassword} />
           </div>
 
           <div className='div-links'>
             <p className='p-senha'>Esqueceu a senha?</p>
-            <Link to={'/perfil'}><button className="botao-submit" type="submit"><b>Entrar</b></button></Link>
+            <button className="botao-submit" type="submit" onClick={userLogin}><b>Entrar</b></button>
             <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
           </div>
 

@@ -1,0 +1,98 @@
+.SecondInputs {
+    margin-top: 4%;
+}
+
+.SecondInputs .unidades {
+    border-radius: 10px;
+    border: 2px solid #003DA5;
+    width: 206px;
+    height: 50px;
+    position: relative;
+    margin-bottom: 10px;
+    margin-right: 17px;
+    left: 262px;
+    top: -31px;
+}
+
+.SecondInputs .unidades:hover {
+    border: 2px solid #003DA5;
+}
+
+.SecondInputs .unidades::after {
+    border: 2px solid #003DA5;
+    transform: translateX(-50%);
+}
+
+/* .SecondInputs .botao {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 300px;
+    position: relative;
+    right: -170px;
+    top: 13px;
+} */
+
+/* .SecondInputs .voltar {
+    background-color: #FF8200;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 110px;
+    position: relative;
+    right: 248px;
+    top: 13px;
+} */
+
+.SecondInputs .credenciais {
+    height: 50px;
+    width: 420px;
+    top: -45px;
+    position: relative;
+}
+
+.SecondInputs .senha,
+.password,
+.confirmar_senha {
+    border-radius: 10px;
+    border: 2px solid #003DA5;
+    color: black;
+    width: 200px;
+    height: 40px;
+    /* right: -52px; */
+    position: relative;
+    margin-bottom: 10px;
+}
+
+.SecondInputs .confirmar_senha {
+    right: -262px;
+    top: -41px;
+}
+
+.SecondInputs .confirmar_senha:hover {
+    border: 2px solid #003DA5;
+}
+
+.SecondInputs .confirmar_senha::after {
+    border: 2px solid #003DA5;
+    transform: translateX(-50%);
+}
+
+.SecondInputs .senha {
+    right: -52px;
+    top: 15px;
+}
+
+.SecondInputs .senha:hover {
+    border: 2px solid #003DA5;
+}
+
+.SecondInputs .senha::after {
+    border: 2px solid #003DA5;
+    transform: translateX(-50%);
+}

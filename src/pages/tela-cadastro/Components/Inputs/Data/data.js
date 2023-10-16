@@ -1,20 +1,16 @@
-import React, { useState } from 'react';
 import './data.css'
 
-const Data = () => {
-  const [selectedDate, setSelectedDate] = useState('');
+const Data = (props) => {
 
-  const handleDateChange = (event) => {
-    setSelectedDate(event.target.value);
+  const handleDateChange = () => {
+    props.onDateUpdate(document.getElementById('data_nascimento').value)
   };
 
   return (
-    <div className='div-data'>
-      <label htmlFor="data_nascimento" className='label-dataNasc'>Data de nascimento </label><br/>
+    <div className='data'>
       <input
         type="date"
         id="data_nascimento"
-        value={selectedDate}
         onChange={handleDateChange}
       />
     </div>

@@ -63,7 +63,7 @@
     filter: drop-shadow(0 0px 0px black);
 }
 
-.TelaCadastro .left-container .quadrado-branco .usuario,
+/* .TelaCadastro .left-container .quadrado-branco .usuario,
 .email,
 .primeiro_nome,
 .ultimo_nome {
@@ -103,7 +103,7 @@
     margin: 15px 0 10px 40px;
 }
 
-.TelaCadastro .left-container .quadrado-branco .botao {
+.TelaCadastro .left-container .quadrado-branco .btt-toSecondInputs {
     background-color: #003DA5;
     color: white;
     border-radius: 15px;
@@ -111,6 +111,28 @@
     border: none;
     padding: 10px 20px;
     width: 443px;
+} */
+
+.TelaCadastro .left-container .quadrado-branco .btt-backFirstInputs {
+    background-color: #FF8200;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 110px;
+    margin: 0 0 0 2.5%;
+}
+
+.TelaCadastro .left-container .quadrado-branco .btt-createAccount {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 300px;
+    margin: 0 0 0 1%;
 }
 
 .TelaCadastro .left-container .quadrado-branco .p-login {
@@ -154,6 +176,20 @@
 
 .TelaCadastro .div-text span {
     color: #FF8200;
+}
+
+.TelaCadastro .button_submit {
+    margin: 15px 0 10px 40px;
+}
+
+.TelaCadastro .btt-toSecondInputs {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 443px;
 }
 
 @media (min-width: 1500px) {
