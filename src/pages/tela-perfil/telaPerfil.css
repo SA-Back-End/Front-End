@@ -26,7 +26,7 @@
     z-index: 2;
 
     width: 85%;
-    height: 281px;
+    height: 290px;
     margin-top: 8%;
     margin-left: 8%;
 
@@ -71,9 +71,19 @@
     filter: drop-shadow(0 0px 0px black);
 }
 
+.TelaPerfil .infoHeader a {
+    font-size: 15px;
+    font-weight: bold;
+    position: absolute;
+    margin: 1% 0 0 2%;
+    color: #003da5;
+    text-decoration: none;
+}
+
+
 .TelaPerfil .infoHeader h1 {
     font-size: 23px;
-    margin-bottom: 5px;
+    margin-bottom: 6px;
 }
 
 /* <div> para armazenar infos gerais da conta */
@@ -208,7 +218,7 @@
     z-index: 1;
 
     width: 85%;
-    height: 30vh;
+    height: 280px;
     margin: 22% 0 0 8%;
 
     border-radius: 50px;

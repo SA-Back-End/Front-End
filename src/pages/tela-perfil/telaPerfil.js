@@ -21,13 +21,18 @@ function TelaPerfil() {
                     <div className='container-perfil-infos'>
 
                         <div className='div-infosLeft'>
-                            <img src={iconPerfil} className='iconPerfil' alt='icon' />
-                            <div style={{ display: 'block' , marginLeft:'10%'}}>
+                            <div>
+                                <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                <div className='infoHeader'>
+                                    <a href='https://www.linkedin.com/in/dione-de-quadros-teodoro-98902522/'>Contate-me</a>
+                                </div>
+                            </div>
+                            <div style={{ display: 'block', marginLeft: '10%' }}>
                                 <div className='infoHeader'>
                                     <h1>Happy Monke 🍌</h1>
                                     <span>@happyMonke22</span>
                                 </div>
-
+                        
                                 <div className='accountInfos'>
                                     <div className='div-forInfos'>
                                         <span className='infoFollowing'>236</span>
