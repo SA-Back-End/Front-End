@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
 import Select from "react-select";
-import Botao from "./botao";
 
 function Formacao() {
   const [formacoes, setFormacoes] = useState([]);
