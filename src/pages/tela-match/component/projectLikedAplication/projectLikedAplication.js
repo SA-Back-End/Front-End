@@ -1,49 +1,53 @@
 import axios from "axios";
 import { useState } from "react";
+import { FaUserAlt } from "react-icons/fa";
 import { styled } from "styled-components";
 
-/** * 
- * @param {{projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0 
- * @returns 
+/** *
+ * @param {{idCandidate: number, projectName: string, projectRole: {id_role: number, user_role: string}[], closeModal: () => void}} param0
+ * @returns
  */
-export default function ProjectLikedAplication({projectName, projectRole, closeModal}) {
-
+export default function ProjectLikedAplication({
+  projectName,
+  projectRole,
+  closeModal,
+  idCandidate,
+}) {
   const [idRole, setIdRole] = useState(null);
-  
-  const handleIdSelect = (e) => {
-    console.log(e.target.id)
-    setIdRole(e.target.id);
-  }
 
-  const handleCloseModal = () => {    
+  const handleIdSelect = (e) => {
+    setIdRole(e.target.id);
+  };
+
+  const handleCloseModal = () => {
     closeModal();
-  }
+  };
 
   const handleLiked = () => {
     const payLoad = preparePayload();
-    const header = prepareHeaders();
-    sendLiked(payLoad, header);
-  }
+    sendLiked(payLoad);
+  };
 
   const preparePayload = () => {
     return {
-      id_candidate: Number(sessionStorage.getItem("id")),
+      id_candidate: idCandidate,
       id_role: Number(idRole),
-    }
-  }
+    };
+  };
 
-  const prepareHeaders = async () => {
-    return {
-      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+  const sendLiked = async (payload) => {
+    const AUTH = {
+      Authorization: `Bearer ${sessionStorage.getItem("bearer")}`,
+    };
+    const url = `http://localhost:3000/screen-stick/create`;
+    try {
+      await axios.post(url, payload, { headers: AUTH }).then((res) => {
+        handleResponse(res);
+      });
+    } catch (error) {
+      console.log(error);
     }
-  }
-
-  const sendLiked = async (payload, headers) => {
-    const url = `http://localhost:3000/screen-stick/create?idRequisitionMaker=${sessionStorage.getItem("id")}`;
-    await axios.post(url, payload, { headers }).then((res) => {
-      handleResponse(res);
-    });
-  }
+  };
 
   const handleResponse = (res) => {
     if (res.status !== 201) {
@@ -51,19 +55,32 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
     }
     setIdRole(null);
     handleCloseModal();
-    alert("Solicitação enviada com sucesso!")
+    alert("Solicitação enviada com sucesso!");
     return;
-  }
+  };
 
   return (
     <ProjectLikedAplicationComponent>
-      <div><h2>Você curtiu o projeto {projectName}. Para enviar sua solicitação, selecione o cargo que gostaria de preencher!</h2></div>
+      <div>
+        <h2>
+          Você curtiu o projeto {projectName}. Para enviar sua solicitação,
+          selecione o cargo que gostaria de preencher!
+        </h2>
+      </div>
       <form>
         <ul>
           {projectRole.map((e) => {
             return (
               <li key={e.id_role}>
-                <label htmlFor={e.id_role}>{e.user_role}</label><input name="projectLikedApp" id={e.id_role} type="radio" onInput={handleIdSelect}></input>
+                <label htmlFor={e.id_role}>
+                  <FaUserAlt /> {e.user_role}
+                </label>
+                <input
+                  name="projectLikedApp"
+                  id={e.id_role}
+                  type="radio"
+                  onInput={handleIdSelect}
+                ></input>
               </li>
             );
           })}
@@ -71,7 +88,9 @@ export default function ProjectLikedAplication({projectName, projectRole, closeM
       </form>
       <div className="form-buttons">
         <button onClick={handleCloseModal}>Cancelar</button>
-        <button disabled={!idRole ? true : false} onClick={handleLiked}>Concluir solicitação</button>
+        <button disabled={!idRole ? true : false} onClick={handleLiked}>
+          Concluir solicitação
+        </button>
       </div>
     </ProjectLikedAplicationComponent>
   );
@@ -92,18 +111,30 @@ const ProjectLikedAplicationComponent = styled.div`
   form ul {
     list-style: none;
     padding: 0;
-    
+
     li {
       padding: 5px 0;
+
+      svg {
+        color: #003da5;
+      }
+
+      &:nth-child(4n),
+      &:nth-child(4n - 1) {
+        svg {
+          color: #ff8200;
+        }
+      }
     }
   }
 
   .form-buttons {
+    margin-top: 15px;
     display: flex;
     justify-content: flex-end;
 
     button {
-      background-color: #FF8200;
+      background-color: #ff8200;
       border: none;
       border-radius: 10px;
       color: black;
@@ -123,7 +154,5 @@ const ProjectLikedAplicationComponent = styled.div`
         cursor: not-allowed;
       }
     }
-
   }
-  
-`
+`;
