@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import './arquivo.css';
 
-const Botao = ({ onClick }) => {
+export const Botao = ({ onClick }) => {
   return (
     <button className="botao" onClick={onClick}>
       Novo projeto+
@@ -10,4 +10,10 @@ const Botao = ({ onClick }) => {
   );
 };
 
-export default Botao;
+export const botaoConstrucao =({ onClick, children })=> {
+  return (
+    <button className="botaoConstrucao" onClick={onClick}>
+      {children}
+    </button>
+  );
+};

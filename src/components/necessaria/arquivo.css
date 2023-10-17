@@ -109,6 +109,7 @@ input {
   border-radius: 10px;
   border: none;
   position: absolute;
+  cursor: pointer;
 }
 
 .lateral {
@@ -116,7 +117,7 @@ input {
   color: #fff;
   width: 74px;
   height: 22px;
-  top: 416px;
+  top: 407px;
   left: 413px;
   border-radius: 5px;
   border: none;
@@ -187,4 +188,9 @@ input {
   font-size: 14px;
   font-weight: 500;
   color: black;
+}
+
+.itensCargo{
+  position: relative;
+  top:5px;
 }

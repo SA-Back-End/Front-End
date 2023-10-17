@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./Projetos.css";
-import Botao from "../necessaria/botao";
+import { Botao, botaoConstrucao } from "../necessaria/botao";
 import Modal from "../necessaria/modal";
 import icone from "../img/icone.png";
 import Img from "./img.js";
@@ -96,14 +96,16 @@ function Projetos({ user }) {
   ];
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const handleOpenModal = () => {
     setIsModalOpen(true);
   };
-
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+  const handleClick = () => {
+    alert("Página em construção!")
+  }
+
   const [openCardIndices, setOpenCardIndices] = useState(
     Array(respostaAPI.length).fill(null)
   );
@@ -114,7 +116,7 @@ function Projetos({ user }) {
       newOpenCardIndices[groupIndex] === cardIndex ? null : cardIndex;
     setOpenCardIndices(newOpenCardIndices);
   };
-  
+
   return (
     <>
       <div className="page_title">
@@ -136,7 +138,7 @@ function Projetos({ user }) {
           {respostaAPI.map((e, groupIndex) => (
             <div id={groupIndex} className="profile_card_body_real-oficial">
               <div className="profile_card_body_title">
-                <p> {e.name} </p>  
+                <p> {e.name} </p>
               </div>
               <div className="profile_card_body_content">
                 <ul className={`test`}>
@@ -151,7 +153,7 @@ function Projetos({ user }) {
                       onClick={() => handleToggleCard(groupIndex, cardIndex)}
                     >
                       <h3>{itens.projectTitle}</h3>
-                     
+
                       <p className="card_status">
                         {itens.status.replaceAll("_", " ")}
                       </p>
@@ -172,9 +174,13 @@ function Projetos({ user }) {
                       </div>
 
                       <div className="escondida">
-                       <div className="editor">
+                        <botaoConstrucao
+                          onClick={handleClick}
+                          className="editor"
+                        >
                           <EditProjeto></EditProjeto>
-                        </div><div>
+                        </botaoConstrucao>
+                        <div>
                           <h2>Cargos:</h2>
                           <div className="lideranca">
                             <div className="tituloLideranca">Liderança</div>

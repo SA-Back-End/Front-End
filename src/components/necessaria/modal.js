@@ -1,11 +1,9 @@
 import React from "react";
 import "./arquivo.css";
-import { Link } from 'react-router-dom';
-import Projetos from '../profile/Projetos.js'
 
 const Modal = ({ isOpen, onClose }) => {
   const modalClassName = isOpen ? "modal modal-open" : "modal";
-  
+
   return (
     <div className={modalClassName}>
       <div className="modal-content">
@@ -21,11 +19,10 @@ const Modal = ({ isOpen, onClose }) => {
         <div className="lados">
           <span className="statusDeAndamento">
             <p className="p">Status de Andamento</p>
-            <select
-              className="status_modalidade"
-              placeholder="Status de Andamento"
-            >
-              <option>Status de Andamento</option>
+            <select className="status_modalidade">
+              <option value="" disabled selected hidden>
+                Selecione uma opção
+              </option>
               <option>Indisponível para participar</option>
               <option>Disponível para participar</option>
             </select>
@@ -33,11 +30,13 @@ const Modal = ({ isOpen, onClose }) => {
 
           <span className="modalidade">
             <p className="p">Modalidade</p>
-            <select className="status_modalidade" placeholder="Modalidade">
-              <option>Modalidade</option>
+            <select className="status_modalidade">
+              <option value="" disabled selected hidden>
+                Selecione uma opção
+              </option>
               <option>Presencial</option>
               <option>Hibrido</option>
-              <option>Home Office</option>
+              <option>Remoto</option>
             </select>
           </span>
         </div>
@@ -48,7 +47,7 @@ const Modal = ({ isOpen, onClose }) => {
         <input className="juntar"></input>
         <button className="lateral">Adicionar</button>
         <br />
-        <button className="azul">Cancelar</button>
+        <button className="azul" onClick={onClose}>Cancelar</button>
         <button className="laranja">Salvar</button>
       </div>
     </div>
