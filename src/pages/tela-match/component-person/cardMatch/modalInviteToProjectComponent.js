@@ -51,18 +51,18 @@ export default function ModalInviteToProject({ nameUser, closeModal, idUser }) {
         <>
             <ApplicationContainerStyled>
                 <div className="title">
-                    <p>Você curtiu {nameUser}. Para enviar sua solicitação, selecione o projeto para o qual gostaria de convidá-lo.</p>
+                    <h2>Você curtiu {nameUser}. Para enviar sua solicitação, selecione o projeto para o qual gostaria de convidá-lo.</h2>
                 </div>
-                <div className="projects">
-                    <ul>
+                <form className="projects">
+                    <div className="project-list">
                         {ownerData.project && ownerData.project.map((e) => (
-                            <li key={e.id_project}>
+                            <div key={e.id_project}>
                                 <label htmlFor={e.id_project}><RiPresentationFill />{e.project_name}</label><input name="project-selected" id={e.id_project} type='radio' onInput={ (inputEvent) => handleProjectSelected({id_project: e.id_project, project_name: e.project_name})  }/>
-                            </li>
+                            </div>
                         ))}
-                    </ul>
-                </div>
-                <div className="btn-options">
+                    </div>
+                </form>
+                <div className="form-buttons">
                     <button onClick={handleCloseModal}>cancelar</button>
                     <button onClick={handleNextModal}>próximo</button>
                 </div>
@@ -87,4 +87,64 @@ const ApplicationContainerStyled = styled.div`
     .title {
         font-weight: 700;
     }
+
+    .projects {
+        .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            margin: 0 auto;
+            max-width: 360px;
+            width: 60%;
+        
+            div {
+                backgorund-color: #fff;
+                margin-top: 15px;
+                width: 180px;
+            
+                &:nth-child(4n - 1),
+                &:nth-child(4n) {
+                    svg {
+                        color: #003DA5;
+                    }
+                }
+
+                label {
+                    font-size: 15px;
+                    
+                    svg {
+                        color: #FF8200;
+                    }
+                }
+            
+            }
+        }
+    }
+
+    .form-buttons {
+        display: flex;
+        justify-content: flex-end;
+        margin-top: 15px;
+    
+        button {
+          background-color: #FF8200;
+          border: none;
+          border-radius: 10px;
+          color: black;
+          cursor: pointer;
+          height: 25px;
+          padding: 5px 10px;
+          transition: 0.3s;
+    
+          &:first-child {
+            background-color: #003da5;
+            color: #fff;
+            margin-right: 10px;
+          }
+    
+          &:disabled {
+            filter: brightness(0.8);
+            cursor: not-allowed;
+          }
+        }
+      }
 `
