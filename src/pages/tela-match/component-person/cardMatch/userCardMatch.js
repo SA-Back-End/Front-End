@@ -3,25 +3,29 @@ import { useEffect, useState } from "react";
 import { AiFillHeart, AiFillInfoCircle, AiOutlineClose } from "react-icons/ai";
 import styled from "styled-components";
 import ModalInviteToProject from "./modalInviteToProjectComponent";
+import StyledAllDone from "../../component/cardMatch/styledAllDone";
 
-export default function UserCardMatch() {
-
+/**
+ *
+ * @param {{disableItensParent: () => boolean}} param0
+ * @returns
+ */
+export default function UserCardMatch({ disableItensParent }) {
   const [data, setData] = useState([]);
   const [currentUserToDisplay, setCurrentUserToDisplay] = useState(0);
-  const [openSelectProjectModal, setOpenSelectProjectModal] = useState(false)
-
+  const [openSelectProjectModal, setOpenSelectProjectModal] = useState(false);
 
   useEffect(() => {
     setData([]);
     getDataAPI();
-  }, [])
+  }, []);
 
   const getDataAPI = async () => {
     const url = "http://localhost:3000/user/findInterested";
     axios.get(url).then((res) => {
       handleResponse(res);
     });
-  }
+  };
 
   const handleResponse = (res) => {
     if (res.status !== 200) {
@@ -29,60 +33,82 @@ export default function UserCardMatch() {
     }
     setData(res.data);
     return;
-  }
+  };
 
   const handleOpenSelectProjectModal = () => {
     setOpenSelectProjectModal(!openSelectProjectModal);
+  };
+
+  const handleNextUser = () => {
+    setCurrentUserToDisplay(currentUserToDisplay + 1);
+  }
+
+  const disableItens = () => {
+    disableItensParent(true);
   }
 
   return (
-    <div>
-      <StyledUserCard>
-        <div className="left-side">
-          <div className="img-container">
-            <img src='' alt="user-profile-image" />
-          </div>
-        </div>
-        <div className="rigth-side">
-          <div className="user-status">
-            <div className="user_name">
-              <h3>{data[0] && data[0].name}</h3>
-              <p>{data[0] && data[0].username}</p>
-            </div>
-            <div className="follow-status">
-              <div>
-                <p style={{ color:  '#FF8200', fontWeight: 700 }}>{data[0] && data[0].followers.length}</p>
-                <p>seguidores</p>
-              </div>
-              <div>
-                <p style={{ color: '#003DA5', fontWeight: 700 }}>{data[0] && data[0].following.length}</p>
-                <p>seguindo</p>
+    <>
+      {data[currentUserToDisplay] ? (
+        <div>
+          <StyledUserCard>
+            <div className="left-side">
+              <div className="img-container">
+                <img src="" alt="user-profile-image" />
               </div>
             </div>
-          </div>
-          <div>
-            <div>
-              <p>{data[0] && data[0].description}</p>
+            <div className="rigth-side">
+              <div className="user-status">
+                <div className="user_name">
+                  <h3>{data[currentUserToDisplay] && data[currentUserToDisplay].name}</h3>
+                  <p>{data[currentUserToDisplay] && data[currentUserToDisplay].username}</p>
+                </div>
+                <div className="follow-status">
+                  <div>
+                    <p style={{ color: "#FF8200", fontWeight: 700 }}>
+                      {data[currentUserToDisplay] && data[currentUserToDisplay].followers.length}
+                    </p>
+                    <p>seguidores</p>
+                  </div>
+                  <div>
+                    <p style={{ color: "#003DA5", fontWeight: 700 }}>
+                      {data[currentUserToDisplay] && data[currentUserToDisplay].following.length}
+                    </p>
+                    <p>seguindo</p>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <div>
+                  <p>{data[currentUserToDisplay] && data[currentUserToDisplay].description}</p>
+                </div>
+              </div>
             </div>
+          </StyledUserCard>
+          <div className="card-applications">
+            <div className="btn-card-applications">
+              <button onClick={handleOpenSelectProjectModal}>
+                <AiFillHeart />
+              </button>
+            </div>
+            <div className="btn-card-applications">
+              <button onClick={console.log}>
+                <AiOutlineClose onClick={handleNextUser}/>
+              </button>
+            </div>
+            {openSelectProjectModal && (
+              <ModalInviteToProject
+                nameUser={data[currentUserToDisplay] && data[currentUserToDisplay].name}
+                closeModal={handleOpenSelectProjectModal}
+                idUser={data[currentUserToDisplay] && data[currentUserToDisplay].id_user}
+              />
+            )}
           </div>
         </div>
-      </StyledUserCard>
-      <div className="card-applications">
-        <div className="btn-card-applications">
-          <button onClick={handleOpenSelectProjectModal}>
-            <AiFillHeart />
-          </button>
-        </div>
-        <div className="btn-card-applications">
-          <button onClick={console.log}>
-            <AiOutlineClose />
-          </button>
-        </div>
-        {openSelectProjectModal && (
-          <ModalInviteToProject nameUser={data[0] && data[0].name} closeModal={handleOpenSelectProjectModal} idUser={data[0] && data[0].id_user}/>
-        )}
-      </div>
-    </div>
+      ) : (
+        <StyledAllDone onLoad={disableItens} />
+      )}
+    </>
   );
 }
 
@@ -103,9 +129,9 @@ const StyledUserCard = styled.div`
       width: 220px;
 
       img {
-          border-radius: 50%;
-          height: 100%;
-          width: 100%;
+        border-radius: 50%;
+        height: 100%;
+        width: 100%;
       }
     }
   }
@@ -120,7 +146,7 @@ const StyledUserCard = styled.div`
       justify-content: space-between;
       max-width: 400px;
       width: 95%;
-      
+
       .follow-status {
         display: flex;
         justify-content: space-between;

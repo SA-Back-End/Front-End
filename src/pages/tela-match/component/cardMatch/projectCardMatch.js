@@ -32,7 +32,6 @@ export default function ProjectCardMatch({ disableItensParent }) {
         return console.log("Deu erro");
       }
       setMyId(res.data.id_user);
-      console.log(res.data.id_user)
     });
   }
 

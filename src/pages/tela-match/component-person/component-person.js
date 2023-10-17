@@ -25,7 +25,7 @@ export default function ComponentPerson() {
                     />
                 </>
             )}
-            <UserCardMatch />
+            <UserCardMatch disableItensParent={handleDisableOutputProp} />
         </div>
     )
 }
