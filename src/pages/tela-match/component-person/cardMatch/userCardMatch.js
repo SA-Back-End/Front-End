@@ -58,7 +58,8 @@ export default function UserCardMatch({ disableItensParent }) {
               </div>
             </div>
             <div className="rigth-side">
-              <div className="user-status">
+              <div className="card-title">
+                <div className="user-status">
                 <div className="user_name">
                   <h3>{data[currentUserToDisplay] && data[currentUserToDisplay].name}</h3>
                   <p>{data[currentUserToDisplay] && data[currentUserToDisplay].username}</p>
@@ -76,6 +77,13 @@ export default function UserCardMatch({ disableItensParent }) {
                     </p>
                     <p>seguindo</p>
                   </div>
+                </div>
+                </div>              
+                <div className="hXj1oQp">
+                  <p>
+                    <AiFillInfoCircle />
+                    <span>Ver mais!</span>
+                  </p>
                 </div>
               </div>
               <div>
@@ -141,17 +149,42 @@ const StyledUserCard = styled.div`
     width: 75%;
     height: 300px;
 
-    .user-status {
+    .card-title {
+      align-itens: center;
       display: flex;
       justify-content: space-between;
-      max-width: 400px;
-      width: 95%;
 
-      .follow-status {
+      .user-status {
         display: flex;
         justify-content: space-between;
-        text-align: center;
-        width: 45%;
+        max-width: 400px;
+        width: 95%;
+
+        .follow-status {
+          display: flex;
+          justify-content: space-between;
+          text-align: center;
+          width: 45%;
+        }
+      }
+
+      .hXj1oQp {
+        color: #ff8200;
+        text-decoration: underline;
+    
+        p {
+          align-items: center;
+          display: flex;
+    
+          svg {
+            font-size: 20px;
+          }
+    
+          span {
+            font-weight: bold;
+            margin-left: 10px;
+          }
+        }
       }
     }
   }
