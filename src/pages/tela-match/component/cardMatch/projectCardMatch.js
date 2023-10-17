@@ -12,10 +12,29 @@ import StyledAllDone from "./styledAllDone";
  * @returns
  */
 export default function ProjectCardMatch({ disableItensParent }) {
+  const [myId, setMyId] = useState()
   const [data, setData] = useState([]);
   const [currentProjectToDisplay, setCurrentProjectToDisplay] = useState(0);
   const [showLikedAplicationComponent, setShowLikedAplicationComponent] =
     useState(false);
+
+  useEffect(()=>{
+    getMyDataAPI();
+  }, [])
+
+  const getMyDataAPI = async () => {
+    const url = 'http://localhost:3000/auth/profile';
+    const AUTH = {
+      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+    }    
+    axios.get(url, { headers: AUTH }).then((res) => {
+      if (res.status !== 200) {
+        return console.log("Deu erro");
+      }
+      setMyId(res.data.id_user);
+      console.log(res.data.id_user)
+    });
+  }
 
   useEffect(() => {
     setData([]);
@@ -128,6 +147,7 @@ export default function ProjectCardMatch({ disableItensParent }) {
                   data[currentProjectToDisplay].project_Role
                 }
                 closeModal={toggleLikedAplicationComponent}
+                idCandidate={myId}
               />
             )}
           </div>
