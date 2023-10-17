@@ -109,4 +109,57 @@ const SelectToRoleComponentContainerStyled = styled.div`
   .title {
     font-weight: 700;
   }
+
+  .role-list{
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 360px;
+    width: 60%;
+
+    div {
+      backgorund-color: #fff;
+      margin-top: 15px;
+      width: 180px;
+
+      &:nth-child(4n - 1),
+      &:nth-child(4n) {
+        svg {
+          color: #003DA5;
+        }
+      }
+
+      svg {
+        color: #FF8200;
+      }
+    }
+  }
+
+  .form-buttons {
+    margin-top: 15px;
+    display: flex;
+    justify-content: flex-end;
+
+    button {
+      background-color: #FF8200;
+      border: none;
+      border-radius: 10px;
+      color: black;
+      cursor: pointer;
+      height: 25px;
+      padding: 5px 10px;
+      transition: 0.3s;
+
+      &:first-child {
+        background-color: #003da5;
+        color: #fff;
+        margin-right: 10px;
+      }
+
+      &:disabled {
+        filter: brightness(0.8);
+        cursor: not-allowed;
+      }
+    }
+  }
 `;
