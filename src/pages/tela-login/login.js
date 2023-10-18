@@ -32,10 +32,25 @@ function TelaLogin() {
 
     axios.post('http://localhost:3000/auth/login', loginInfos)
       .then(response => {
-        console.log(response.data)
-        sessionStorage.setItem('accessToken', response.data);
+        console.log(response)
+        sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
         alert("Login sucesso: " + response.status);
-        navigate('/perfil')
+
+        const config = {
+          headers: {
+            Authorization: sessionStorage.getItem('accessToken')
+          }
+        }
+
+        axios.get('http://localhost:3000/auth/profile', config)
+          .then(response => {
+            console.log(response)
+            navigate('/perfil', { state: { user: response.data } })
+          })
+          .catch(error => {
+            console.log(error.response)
+          })
+          
       })
       .catch(error => {
         console.log(error.response)

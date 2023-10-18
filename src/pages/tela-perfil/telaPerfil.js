@@ -6,9 +6,80 @@ import "./telaPerfil.css";
 import { FaCakeCandles } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
 import { FaMapLocationDot } from 'react-icons/fa6'
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 
 function TelaPerfil() {
+
+    const location = useLocation()
+    const user = location.state.user;
+    console.log(user)
+
+    // if (user.name === undefined) {
+    //     alert("ERRO: usuário indefinido, redirecionando para login...")
+    //     navigate('/login')
+    // }
+
+    const stateName = (state) => {
+        switch (state) {
+            case 'AC':
+                return 'Acre';
+            case 'AL':
+                return 'Alagoas';
+            case 'AP':
+                return 'Amapá';
+            case 'AM':
+                return 'Amazonas';
+            case 'BA':
+                return 'Bahia';
+            case 'CE':
+                return 'Ceará';
+            case 'DF':
+                return 'Distrito Federal';
+            case 'ES':
+                return 'Espírito Santo';
+            case 'GO':
+                return 'Goiás';
+            case 'MA':
+                return 'Maranhão';
+            case 'MT':
+                return 'Mato Grosso';
+            case 'MS':
+                return 'Mato Grosso do Sul';
+            case 'MG':
+                return 'Minas Gerais';
+            case 'PA':
+                return 'Pará';
+            case 'PB':
+                return 'Paraíba';
+            case 'PR':
+                return 'Paraná';
+            case 'PE':
+                return 'Pernambuco';
+            case 'PI':
+                return 'Piauí';
+            case 'RJ':
+                return 'Rio de Janeiro';
+            case 'RN':
+                return 'Rio Grande do Norte';
+            case 'RS':
+                return 'Rio Grande do Sul';
+            case 'RO':
+                return 'Rondônia';
+            case 'RR':
+                return 'Roraima';
+            case 'SC':
+                return 'Santa Catarina';
+            case 'SP':
+                return 'São Paulo';
+            case 'SE':
+                return 'Sergipe';
+            case 'TO':
+                return 'Tocantins';
+            default:
+                return 'Estado Desconhecido';
+        }
+    }
+
     return (
         <div>
             <div className='TelaPerfil'>
@@ -25,8 +96,10 @@ function TelaPerfil() {
                                 <img src={iconPerfil} className='iconPerfil' alt='icon' />
                                 <div style={{ display: 'block', marginLeft: '10%' }}>
                                     <div className='infoHeader'>
-                                        <h1>Happy Monke 🍌</h1>
-                                        <span>@happyMonke22</span>
+                                        {/* <h1>Happy Monke 🍌</h1>
+                                        <span>@happyMonke22</span> */}
+                                        <h1>{user.name}</h1>
+                                        <span>{user.username}</span>
                                     </div>
 
                                     <div className='accountInfos'>
@@ -58,7 +131,7 @@ function TelaPerfil() {
                                         <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>Disponibilidade limitada</span></div>
                                     </li>
                                     <li style={{ marginLeft: 30 }}>
-                                        <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>Santa Catarina</span></div>
+                                        <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>{stateName(user.state)}</span></div>
                                     </li>
                                 </ul>
                             </div>

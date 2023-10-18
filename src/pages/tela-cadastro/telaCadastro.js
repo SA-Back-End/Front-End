@@ -43,7 +43,7 @@ function TelaCadastro() {
             .then(response => {
                 console.log(response);
                 console.log(response.data);
-                navigate('/perfil');
+                navigate('/perfil', { state: { user: response.data } });
             })
             .catch(error => {
                 console.log(error.request.response);
@@ -60,7 +60,7 @@ function TelaCadastro() {
     const [showSecondButtons, setBackButton] = useState(false);
 
     const changeForSecondInputs = () => {
-        setDivForInputsContent(<SecondInputs onFormUpdate={getSecondInputsData}/>);
+        setDivForInputsContent(<SecondInputs onFormUpdate={getSecondInputsData} />);
         setShowButton(false);
         setBackButton(true);
     };
