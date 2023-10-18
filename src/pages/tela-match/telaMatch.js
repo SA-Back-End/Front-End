@@ -5,6 +5,7 @@ import BtnDrop from "./component/buttonDropdown/btn-drop";
 import ComponentPerson from "./component-person/component-person.js";
 import ComponentProject from "./component/component-project.js";
 import { AiOutlineCloseCircle } from "react-icons/ai";
+import HomeNavbar from "../components/navbar/navbar";
 
 const TelaMatch = () => {
   const [isSearchingProject, setIsSearchingProject] = useState(true);
@@ -367,52 +368,55 @@ const TelaMatch = () => {
   }
   
   return (
-    <Main>
-      <Filter>
-        <ToogleBtn toFilter={handleSearching} />
-        {isSearchingProject
-          ? filterProjectList.map((e) => (
-              <BtnDrop
-                onItemSelect={addItemFilter}
-                btnText={e.btnText}
-                itensList={e.itensList}
-                itemType={e.itemType}
-                disableCondition={e?.disableCondition || false}
-              />
-            ))
-          : filterPersonList.map((e) => (
-              <BtnDrop
-                onItemSelect={addItemFilter}
-                btnText={e.btnText}
-                itensList={e.itensList}
-                itemType={e.itemType}
-                disableCondition={e?.disableCondition || false}
-              />
-            ))}
-        <Button type="button" className="btn-filter" onClick={sendFilter}>
-          {" "}
-          Filtrar{" "}
-        </Button>
-      </Filter>
+    <>
+      <HomeNavbar />
+      <Main>
+        <Filter>
+          <ToogleBtn toFilter={handleSearching} />
+          {isSearchingProject
+            ? filterProjectList.map((e) => (
+                <BtnDrop
+                  onItemSelect={addItemFilter}
+                  btnText={e.btnText}
+                  itensList={e.itensList}
+                  itemType={e.itemType}
+                  disableCondition={e?.disableCondition || false}
+                />
+              ))
+            : filterPersonList.map((e) => (
+                <BtnDrop
+                  onItemSelect={addItemFilter}
+                  btnText={e.btnText}
+                  itensList={e.itensList}
+                  itemType={e.itemType}
+                  disableCondition={e?.disableCondition || false}
+                />
+              ))}
+          <Button type="button" className="btn-filter" onClick={sendFilter}>
+            {" "}
+            Filtrar{" "}
+          </Button>
+        </Filter>
 
-      <FiltersFlagsContainer>
-        {filterPayload.map((e, index) => (
-          <FiltersFlags type="button" className="btn-filter" key={index}>
-            <FiltersFlagsClose
-              onClick={() => {
-                handleClearFilterItem(e.value, e.type);
-              }}
-            >
-              {" "}
-              <AiOutlineCloseCircle />{" "}
-            </FiltersFlagsClose>
-            {e.value}
-          </FiltersFlags>
-        ))}
-      </FiltersFlagsContainer>
+        <FiltersFlagsContainer>
+          {filterPayload.map((e, index) => (
+            <FiltersFlags type="button" className="btn-filter" key={index}>
+              <FiltersFlagsClose
+                onClick={() => {
+                  handleClearFilterItem(e.value, e.type);
+                }}
+              >
+                {" "}
+                <AiOutlineCloseCircle />{" "}
+              </FiltersFlagsClose>
+              {e.value}
+            </FiltersFlags>
+          ))}
+        </FiltersFlagsContainer>
 
-      {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson filterPayload={filterPayloadSend}/>}
-    </Main>
+        {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson filterPayload={filterPayloadSend}/>}
+      </Main>
+    </>
   );
 };
 
