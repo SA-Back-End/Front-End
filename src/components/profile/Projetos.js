@@ -6,9 +6,12 @@ import icone from "../img/icone.png";
 import Img from "./img.js";
 import ImgLaranja from "./imgLaranja";
 import EditProjeto from "./edit.js";
+import axios from "axios";
+import { useEffect } from "react";
 
 function Projetos({ user }) {
   // const [showRegister, setshowRegister] = useState(false);s
+  const [data, setData] = useState([]);
   const liderando = [
     {
       projectTitle: "Lavagem de dinheiro",
@@ -87,13 +90,32 @@ function Projetos({ user }) {
         "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
     },
   ];
-  console.log(user);
-
   const respostaAPI = [
     { name: "liderando", itens: liderando },
     { name: "participando", itens: participando },
     { name: "concluído", itens: concluido },
   ];
+
+  useEffect(()=> {
+    getDataApi();
+  }, [])
+
+  const getDataApi = async () => {
+
+    console.log(user)
+    
+    const url = `http://localhost:3000/user/findOne/${user.userName}`
+    console.log(url)
+    const auth = {
+      Authorization : `${sessionStorage.getItem('accessToken')}`
+    }
+
+    await axios.get(url, { headers: auth }).then( (res) => {
+      setData(res.data)
+      console.log(res.data)
+    })
+
+  }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleOpenModal = () => {
@@ -103,8 +125,8 @@ function Projetos({ user }) {
     setIsModalOpen(false);
   };
   const handleClick = () => {
-    alert("Página em construção!")
-  }
+    alert("Página em construção!");
+  };
 
   const [openCardIndices, setOpenCardIndices] = useState(
     Array(respostaAPI.length).fill(null)
@@ -128,7 +150,7 @@ function Projetos({ user }) {
 
       <div className="profile_card">
         {/* className='profile_card_header' = display: flex; align-itens: space-between */}
-
+        
         <div className="profile_card_body" id="profileCardBody">
           <div>
             <Botao onClick={handleOpenModal} />
@@ -172,7 +194,6 @@ function Projetos({ user }) {
                           <strong>Descrição: </strong> {itens.description}
                         </p>
                       </div>
-
                       <div className="escondida">
                         <botaoConstrucao
                           onClick={handleClick}

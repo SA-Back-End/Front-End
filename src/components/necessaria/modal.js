@@ -1,9 +1,14 @@
 import React from "react";
 import "./arquivo.css";
+import Img from "../profile/img";
+import ImgLaranja from "../profile/imgLaranja";
 
 const Modal = ({ isOpen, onClose }) => {
   const modalClassName = isOpen ? "modal modal-open" : "modal";
-
+  const handleClick = () => {
+    alert("Página em construção!");
+  };
+  
   return (
     <div className={modalClassName}>
       <div className="modal-content">
@@ -23,8 +28,10 @@ const Modal = ({ isOpen, onClose }) => {
               <option value="" disabled selected hidden>
                 Selecione uma opção
               </option>
+              <option>Sketch</option>
               <option>Indisponível para participar</option>
               <option>Disponível para participar</option>
+              <option>Concluido</option>
             </select>
           </span>
 
@@ -40,15 +47,53 @@ const Modal = ({ isOpen, onClose }) => {
             </select>
           </span>
         </div>
-
+        <h2>Cargos:</h2>
         <p className="p">Descrição</p>
         <input className="descricao"></input>
         <p className="p">Cargos</p>
         <input className="juntar"></input>
-        <button className="lateral">Adicionar</button>
+
+        <div className="CargosModal">
+          <div className="lider">
+            <div className="tituloLider">Liderança</div>
+            <Img></Img>
+          </div>
+          <div className="engSoft">
+            <div className="tituloEngSoft">Engenheiro de Software</div>
+            <Img></Img>
+          </div>
+
+          <div className="engenheirosoft">
+            <div className="tituloEngenheiroSoft">Engenheiro de Software</div>
+            <Img></Img>
+          </div>
+
+          <div className="engenheirosof">
+            <div className="tituloEngenheirosof">Engenheiro de Software</div>
+            <Img></Img>
+          </div>
+
+          <div className="engenheirosoftwa">
+            <div className="tituloCargoSoftwa">Engenheiro de Software</div>
+            <Img></Img>
+          </div>
+
+          <div className="desenvolvedorLaranja">
+            <div className="tituloDesenvolvedorLaranja">Desenvolvedor</div>
+            <ImgLaranja></ImgLaranja>
+          </div>
+        </div>
+
+        <button className="lateral" onClick={handleClick}>
+          Adicionar{" "}
+        </button>
         <br />
-        <button className="azul" onClick={onClose}>Cancelar</button>
-        <button className="laranja">Salvar</button>
+        <button className="azul" onClick={onClose}>
+          Cancelar
+        </button>
+        <button className="laranja" onClick={handleClick}>
+          Salvar
+        </button>
       </div>
     </div>
   );
