@@ -3,14 +3,22 @@ import { styled } from "styled-components";
 import ToogleBtn from "./component/filter/Toogle.btn";
 import BtnDrop from "./component/buttonDropdown/btn-drop";
 import ComponentPerson from "./component-person/component-person.js";
-import ComponentProject from "./component/component-project.js"
+import ComponentProject from "./component/component-project.js";
+import { AiOutlineCloseCircle } from "react-icons/ai";
 
 const TelaMatch = () => {
-
-  const [isSearchingProject, setIsSearchingProject] = useState(true)
+  const [isSearchingProject, setIsSearchingProject] = useState(true);
+  const [filterPayload, setFilterPayload] = useState([]);
+  const [filterPayloadSend, setFilterPayloadSend] = useState([]);
+  const [workTypeDisable, setWorkTypeDisable] = useState(false);
+  const [statusUserDisable, setStatusUserDisable] = useState(false);
+  const [stateDisable, setStateDisable] = useState(false);
+  const [filterProjectList, setFilterProjectList] = useState([]);
+  const [filterPersonList, setFilterPersonList] = useState([]);
 
   const handleSearching = (state) => {
     setIsSearchingProject(state);
+    setFilterPayload([]);
   };
 
   const actingAreaList = [
@@ -128,7 +136,7 @@ const TelaMatch = () => {
     "Habilidade_de_administracao_de_conflitos",
     "Gerenciamento_de_inovacao",
     "Habilidade_de_lidar_com_a_ambiguidade",
-    "Habilidade_de_gerenciamento_de_desempenho"
+    "Habilidade_de_gerenciamento_de_desempenho",
   ];
 
   const statusUserList = [
@@ -139,9 +147,9 @@ const TelaMatch = () => {
     "Disponibilidade_Limitada",
     "Em_Reuniao",
     "Indisponivel",
-    "Em_Pausa"
+    "Em_Pausa",
   ];
-  
+
   const statesList = [
     "AC",
     "AL",
@@ -169,7 +177,7 @@ const TelaMatch = () => {
     "SC",
     "SP",
     "SE",
-    "TO"
+    "TO",
   ];
 
   const hardSkillsList = [
@@ -272,43 +280,139 @@ const TelaMatch = () => {
     "Biologia_Molecular",
     "Microscopia_Eletronica",
     "Energias_Renovaveis",
-    "Agricultura_Sustentavel"
+    "Agricultura_Sustentavel",
   ];
 
-  function addItemFilter(item) {
-    console.log(item);
+  function addItemFilter(value, itemType) {
+    const payload = { type: itemType, value };
+    setFilterPayload([...filterPayload, payload]);
+    toogleItem(itemType, true);
   }
 
-  const filterProject = [{ btnText: "Área de atuação", itensList: actingAreaList }, { btnText: "Modalidade", itensList: workTypeList }]
+  const toogleItem = (itemType, value) => {
+    switch (itemType) {
+      case "workType":
+        setWorkTypeDisable(value);
+        break;
+      case "status":
+        setStatusUserDisable(value);
+        break;
+      case "state":
+        setStateDisable(value);
+        break;
+      default:
+        break;
+    }
+  };
 
-  const filterPerson = [{ btnText: "Área de atuação", itensList: actingAreaList }, { btnText: "Status de disponibilidade", itensList:  statusUserList}, { btnText: "Soft skills", itensList: softSkillsList },{ btnText: "Hard skills", itensList: hardSkillsList }, { btnText: "UF", itensList: statesList},]
+  function handleClearFilterItem(value, filterType) {
+    toogleItem(filterType, false);
+    const newFilterPayload = filterPayload.filter((item) => {
+      return item.type !== filterType && item.value !== value;
+    });
+    setFilterPayload(newFilterPayload);
+  }
 
+  useEffect(() => {
+    const getFilterProject = () => [
+      {
+        btnText: "Área de atuação",
+        itensList: actingAreaList,
+        itemType: "studyArea",
+      },
+      {
+        btnText: "Modalidade",
+        itensList: workTypeList,
+        itemType: "workType",
+        disableCondition: workTypeDisable,
+      },
+    ];
+    setFilterProjectList(getFilterProject());
+  }, [workTypeDisable]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  useEffect(() => {
+    const getFilterPerson = () => [
+      {
+        btnText: "Área de atuação",
+        itensList: actingAreaList,
+        itemType: "studyArea",
+      },
+      {
+        btnText: "Status de disponibilidade",
+        itensList: statusUserList,
+        itemType: "status",
+        disableCondition: statusUserDisable,
+      },
+      {
+        btnText: "Soft skills",
+        itensList: softSkillsList,
+        itemType: "softSkills",
+      },
+      {
+        btnText: "Hard skills",
+        itensList: hardSkillsList,
+        itemType: "hardSkills",
+      },
+      {
+        btnText: "UF",
+        itensList: statesList,
+        itemType: "state",
+        disableCondition: stateDisable,
+      },
+    ];
+    setFilterPersonList(getFilterPerson());
+  }, [stateDisable, statusUserDisable]) // eslint-disable-line react-hooks/exhaustive-deps
+
+  const sendFilter = () => {
+    setFilterPayloadSend(filterPayload);
+  }
+  
   return (
     <Main>
       <Filter>
         <ToogleBtn toFilter={handleSearching} />
-        {
-          isSearchingProject ?
-
-            filterProject.map((e) => (
-              <BtnDrop onItemSelect={addItemFilter} btnText={e.btnText} itensList={e.itensList} />
+        {isSearchingProject
+          ? filterProjectList.map((e) => (
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={e.btnText}
+                itensList={e.itensList}
+                itemType={e.itemType}
+                disableCondition={e?.disableCondition || false}
+              />
             ))
-            :
-            filterPerson.map((e) => (
-              <BtnDrop onItemSelect={addItemFilter} btnText={e.btnText} itensList={e.itensList} />
-            ))
-        }
-        <Button type="button" className="btn-filter">
+          : filterPersonList.map((e) => (
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={e.btnText}
+                itensList={e.itensList}
+                itemType={e.itemType}
+                disableCondition={e?.disableCondition || false}
+              />
+            ))}
+        <Button type="button" className="btn-filter" onClick={sendFilter}>
           {" "}
           Filtrar{" "}
         </Button>
       </Filter>
-      {
-          isSearchingProject ?            
-            <ComponentProject />
-          :
-            <ComponentPerson />
-      }
+
+      <FiltersFlagsContainer>
+        {filterPayload.map((e, index) => (
+          <FiltersFlags type="button" className="btn-filter" key={index}>
+            <FiltersFlagsClose
+              onClick={() => {
+                handleClearFilterItem(e.value, e.type);
+              }}
+            >
+              {" "}
+              <AiOutlineCloseCircle />{" "}
+            </FiltersFlagsClose>
+            {e.value}
+          </FiltersFlags>
+        ))}
+      </FiltersFlagsContainer>
+
+      {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson />}
     </Main>
   );
 };
@@ -344,6 +448,45 @@ const Button = styled.button`
   margin: 0 10px;
   min-width: 100px;
   padding: 0 5px;
+`;
+
+const FiltersFlagsContainer = styled.div`
+  align-items: center;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  margin-top: 20px;
+`;
+
+const FiltersFlags = styled.button`
+  background-color: #ffa647;
+  border: none;
+  border-radius: 10px;
+  color: black;
+  padding: 7px 15px;
+  position: relative;
+  margin: 0 10px;
+  transition: all 0.3s ease;
+
+  &:hover {
+    background-color: #ff8200;
+    color: black;
+  }
+
+  &:first-child {
+    margin-left: 0;
+  }
+
+  &:last-child {
+    margin-right: 0;
+  }
+`;
+
+const FiltersFlagsClose = styled.span`
+  cursor: pointer;
+  position: absolute;
+  right: -5px;
+  top: -5px;
 `;
 
 export default TelaMatch;
