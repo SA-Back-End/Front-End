@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import axios from 'axios';
+import InstitutionAdd from './institutionAdd';
 
 // Constante globais (options)
 const e_options = [
@@ -32,10 +33,11 @@ const s_options = [
 function Formacao() {
     const [modalIsOpen, setModalIsOpen] = useState(false);
     const [institutionOptions, setInstitutionOptions] = useState([]);
-    const [institutionTypeOptions, setIntitutionTypeOptions] = useState([]);
     const [dataInicio, setDataInicio] = useState('');
     const [dataConclusao, setDataConclusao] = useState('');
     const [descricao, setDescricao] = useState('');
+    const [inputText, setInputText] = useState('');
+    const [inputType, setInputType] = useState('');
 
     function openModal() {
         setModalIsOpen(true);
@@ -45,11 +47,41 @@ function Formacao() {
         setModalIsOpen(false);
     }
 
+    const addInstitution = () => {
+        
+        sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzY1ODY0MiwiZXhwIjoxNjk3NjYyMjQyfQ._q8JQpjFQIvmDYlZtqoFf-1oXpul-FJl7cSM5JGiTIM');
+        const accessToken = sessionStorage.getItem('accessToken');
+
+        if (accessToken) {
+            const config = {
+                headers: {
+                    Authorization: `Bearer ${accessToken}`,
+                },
+            };
+
+            const institutionData = {
+                institution_name: inputText,
+                institutionss_type: inputType || 'Faculdade',
+            };
+
+            axios.post('http://localhost:3000/institution/create', institutionData, config)
+                .then(function (response) {
+                    console.log(response);
+                })
+                .catch(function (error) {
+                    console.error(error);
+                });
+        } else {
+            alert('Nenhum token disponível');
+        }
+    };
+
     useEffect(() => {
+        
         const getOptions = () => {
 
 
-            sessionStorage.setItem('accessToken', ''); // Adicionar Token quando possível
+            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzY1ODY0MiwiZXhwIjoxNjk3NjYyMjQyfQ._q8JQpjFQIvmDYlZtqoFf-1oXpul-FJl7cSM5JGiTIM'); // Adicionar Token quando possível
             const accessToken = sessionStorage.getItem('accessToken');
 
             if (accessToken) {
@@ -60,7 +92,7 @@ function Formacao() {
                 }
 
 
-                axios.get('http://localhost:3000/', config) // Por rota do get das instituições (testar também)
+                axios.get('http://localhost:3000/institution/findAll/0', config) // Por rota do get das instituições (testar também)
                     .then(res => {
                         const i_data = res.data;
 
@@ -98,6 +130,8 @@ function Formacao() {
                 <div>
                     <p>Instituição de Ensino</p>
                     <Select options={institutionOptions} />  
+                    <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)}/>
+                    <button onClick={addInstitution}>Adicionar Instituição</button>
 
                     <p>Nível de Formação</p>
                     <Select options={e_options} />
@@ -128,8 +162,11 @@ function Formacao() {
                         rows="5"
                         cols="85"
                     />
-                </div>
+                    <InstitutionAdd />
 
+                    <button onClick={closeModal}>Cancelar</button>
+                    
+                </div>
             </Modal>
         </div>
     );
