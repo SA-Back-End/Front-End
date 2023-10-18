@@ -1,6 +1,6 @@
 //import './App.css';
 import Skill from './components/skill';
-import Habilidade from './components/habilidade';
+import Formacao from './components/formacaoModal';
 import { Multiselect } from './components/multiselect';
 
 function App() {
@@ -8,7 +8,7 @@ function App() {
     <div className="App">
       <header className="App-header">
       </header>
-      <Habilidade/>
+      <Formacao/>
     </div>
   );
 }
