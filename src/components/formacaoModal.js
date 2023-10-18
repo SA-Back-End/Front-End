@@ -123,6 +123,7 @@ function Formacao() {
             </div>
            
             <Modal
+                className="modal"
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel='Adicionar Formação'

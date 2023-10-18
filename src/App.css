@@ -1,5 +1,8 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@300;400&display=swap");
+
 .App {
-  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  margin: 50px;
 }
 
 .App-logo {
@@ -35,4 +38,17 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.flex-container {
+  display: flex;
+}
+
+.skill-item {
+  margin: auto;
+  border-color: #000;
+  width: 581px;
+  height: 537px;
+  border-radius: 10px;
+  Border: 0.2px;
 }

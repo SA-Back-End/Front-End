@@ -1,5 +1,6 @@
 import React from "react";
 import Select from "react-select"; // Importe o componente Select
+import './multiselect.css'
 
 const options = [
     { value: "skill 1", label: "skill 1" },
@@ -12,7 +13,7 @@ const options = [
 export const Multiselect = () => {
     return (
         <>
-            <Select isMulti options={options} /> {/* Use o componente Select corretamente */}
+            <Select className="skill" isMulti options={options} /> {/* Use o componente Select corretamente */}
         </>
     );
 };
