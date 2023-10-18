@@ -1,103 +1,205 @@
-.tela-cadastro {
-    position: relative;
+/*tela padrão 1366x768*/
+
+.TelaCadastro {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(#003DA5, #0052E0, #1F71FF);
     width: 100%;
     height: 100vh;
-    background: rgb(0, 61, 165);
-    background: linear-gradient(45deg, rgba(0, 61, 165, 1) 0%, rgba(0, 82, 224, 1) 35%, rgba(0, 0, 0, 1) 100%);
     overflow: hidden;
 }
 
-.h1-skills-cadastro {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 40px;
-    color: #FF8200;
-    font-size: 10ex;
-    margin-top: 110px;
-    z-index: 900;
-}
-
-.h2-cadastrar {
-    text-align: center;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 40px;
-    color: aliceblue;
-    margin-bottom: 10%;
-    margin-top: -65px;
-    font-size: 25x;
-    z-index: -1;
-}
-
-.centralizar {
-    display: grid;
-    place-items: center;
-    margin-top: 100px;
-    margin-bottom: 5px;
-}
-
-.button_submit {
-    display: grid;
-    place-items: center;
-    font-family: 'Montserrat', sans-serif;
-    border-radius: 20px;
-}
-
-.primeiro_nome,
-.ultimo_nome,
-.usuario,
-.email,
-.senha,
-.descricao,
-.confirmar_senha {
-    background-color: aliceblue;
-    border-radius: 20px;
-    border-color: aliceblue;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 900;
-}
-
-.descricao {
-    margin-top: 5px;
-}
-
-.nome,
-.credenciais,
-.user_email {
+.TelaCadastro .containers {
     display: flex;
-    margin-top: 5px;
-    margin-left: 5px;
-    font-weight: bold;
+    width: 100%;
 }
 
-/* input#data_nascimento {
-    font-family: 'Montserrat', sans-serif;
-    background-color: aliceblue;
-    border-radius: 20px;
-    border-color: aliceblue;
+.TelaCadastro .left-container {
+    margin: 5% 0 0 0;
+    width: 50%;
+    height: 650px;
+}
 
+.TelaCadastro .right-container {
+    width: 50%;
+}
+
+/*----------------*/
+
+.TelaCadastro .left-container .quadrado-branco {
+    display: block;
+    position: relative;
+    width: 545px;
+    height: 550px;
+    margin: 50px 0 0 50px;
+    border-radius: 20px;
+    background-color: white;
+    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+.TelaCadastro .left-container .quadrado-branco h1 {
+    position: relative;
+    color: #003DA5;
+    font-size: 70px;
+    top: 30px;
+    text-align: center;
+    /* width: 448px;
+    height: 62px;
+    position: relative;
+    right: -50px;
+    top: 30px; */
+}
+
+
+.TelaCadastro .left-container .quadrado-branco h2 {
+    position: relative;
+    width: 350px;
+    left: 100px;
+    margin: 0;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+    filter: drop-shadow(0 0px 0px black);
+}
+
+/* .TelaCadastro .left-container .quadrado-branco .usuario,
+.email,
+.primeiro_nome,
+.ultimo_nome {
+    border-radius: 10px;
+    border: 2px solid #003DA5;
+    height: 40px;
+    padding-left: 10px;
+    font-weight: bold;
+    color: #000;
+}
+
+.TelaCadastro .left-container .quadrado-branco .nome {
+    display: flex;
+    margin: 40px 0 10px 40px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .nome .primeiro_nome,
+.ultimo_nome {
+    width: 205px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .nome .ultimo_nome {
+    margin-left: 10px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .user_email {
+    margin: 0 0 10px 40px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .usuario,
+.email {
+    width: 435px;
+    margin-bottom: 10px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .button_submit {
+    margin: 15px 0 10px 40px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .btt-toSecondInputs {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 443px;
 } */
 
-.Logo {
-    display: grid;
-    place-items: center;
-    top: -100px;
-    transform: scale(2.5);
-    z-index: 0;
+.TelaCadastro .left-container .quadrado-branco .btt-backFirstInputs {
+    background-color: #FF8200;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 110px;
+    margin: 0 0 0 2.5%;
 }
 
-.botao {
-    background-color: aliceblue;
-    border-radius: 20px;
-    border-color: aliceblue;
-    font-family: 'Montserrat', sans-serif;
-    z-index: 900;
+.TelaCadastro .left-container .quadrado-branco .btt-createAccount {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 300px;
+    margin: 0 0 0 1%;
 }
 
-.data {
-    width: 210px;
-    height: 50px;
+.TelaCadastro .left-container .quadrado-branco .p-login {
+    color: black;
+    top: 20px;
+    position: relative;
     text-align: center;
-    z-index: 900;
-    background: transparent;
-    margin-top: -15px;
+}
+
+.TelaCadastro .left-container .quadrado-branco .text {
+    filter: drop-shadow(0 0px 0px black);
+}
+
+/*------------------*/
+
+.TelaCadastro .div-bichinho {
+    margin: -90px 0 0 0;
+    height: 500px;
+}
+
+.TelaCadastro .div-bichinho .bichinho {
+    width: 685px;
+    height: 588px;
+}
+
+.TelaCadastro .div-text {
+    margin: 2% 0 0 0;
+    width: 95%;
+}
+
+.TelaCadastro .div-text h1 {
+    font-size: 45px;
+    color: white;
+}
+
+.TelaCadastro .div-text p {
+    filter: drop-shadow(0 0px 0px white);
+    color: white;
+    font-size: 18px;
+}
+
+.TelaCadastro .div-text span {
+    color: #FF8200;
+}
+
+.TelaCadastro .button_submit {
+    margin: 15px 0 10px 40px;
+}
+
+.TelaCadastro .btt-toSecondInputs {
+    background-color: #003DA5;
+    color: white;
+    border-radius: 15px;
+    font-size: 18px;
+    border: none;
+    padding: 10px 20px;
+    width: 443px;
+}
+
+@media (min-width: 1500px) {
+
+    .TelaCadastro .left-container {
+        margin: 5% 0 0 10%;
+    }
+
+    .TelaCadastro .right-container .div-bichinho {
+        margin: -9% 0 0 30%;
+    }
+
 }
