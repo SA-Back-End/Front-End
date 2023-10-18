@@ -2,7 +2,12 @@ import { useState, useEffect } from "react";
 import TitleCardMatch from "./title/titleCardMatch";
 import ProjectCardMatch from "./cardMatch/projectCardMatch";
 
-export default function ComponentProject() {
+/**
+ * 
+ * @param {{ filterPayload: [{}] }} filterPayload 
+ * @returns 
+ */
+export default function ComponentProject({ filterPayload }) {
 
     const [disableItens, setDisableItens] = useState(false);
 
@@ -25,7 +30,7 @@ export default function ComponentProject() {
                     />
                 </>
             )}
-            <ProjectCardMatch disableItensParent={handleDisableOutputProp} />
+            <ProjectCardMatch filterObject={filterPayload} disableItensParent={handleDisableOutputProp} />
         </div>
     )
 }
