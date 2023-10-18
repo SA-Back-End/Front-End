@@ -8,10 +8,10 @@ import StyledAllDone from "./styledAllDone";
 
 /**
  *
- * @param {{disableItensParent: () => boolean}} param0
+ * @param {{filterObject: [{}], disableItensParent: () => boolean}} param0
  * @returns
  */
-export default function ProjectCardMatch({ disableItensParent }) {
+export default function ProjectCardMatch({ filterObject, disableItensParent }) {
   const [myId, setMyId] = useState()
   const [data, setData] = useState([]);
   const [currentProjectToDisplay, setCurrentProjectToDisplay] = useState(0);
@@ -37,17 +37,23 @@ export default function ProjectCardMatch({ disableItensParent }) {
 
   useEffect(() => {
     setData([]);
-    getDataAPI();
-  }, []);
+    getDataAPI(filterObject);
+  }, [filterObject]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const getDataAPI = async () => {
+  const getDataAPI = async (filterObject) => {
     const url = "http://localhost:3000/project/findOpenProjects";
-    const AUTH = {
+    const filterInString = JSON.stringify(filterObject);
+    const options = {
       "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+      "Filters": filterInString,
     }
-    axios.get(url, { headers: AUTH }).then((res) => {
-      handleResponse(res);
-    });
+
+    try {
+      const response = await axios.get(url, { headers: options });
+      handleResponse(response);
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleResponse = (res) => {
