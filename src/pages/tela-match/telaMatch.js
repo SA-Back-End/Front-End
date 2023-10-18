@@ -411,7 +411,7 @@ const TelaMatch = () => {
         ))}
       </FiltersFlagsContainer>
 
-      {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson />}
+      {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson filterPayload={filterPayloadSend}/>}
     </Main>
   );
 };
