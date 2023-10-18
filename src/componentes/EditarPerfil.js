@@ -77,7 +77,7 @@ function EditarPerfil() {
 
       <form action="/pagina-processa-dados-do-form" method="post">
         <div className='centerN'>
-          <label for="nome">login:</label>
+          <label for="nome">Login:</label>
           <input type="text" id="login" />
         </div>
 
