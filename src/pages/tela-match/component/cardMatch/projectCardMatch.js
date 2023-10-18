@@ -5,13 +5,14 @@ import { AiFillInfoCircle, AiFillHeart, AiOutlineClose } from "react-icons/ai";
 import { BsFillPersonFill } from "react-icons/bs";
 import ProjectLikedAplication from "../projectLikedAplication/projectLikedAplication";
 import StyledAllDone from "./styledAllDone";
+import TitleCardMatch from "../title/titleCardMatch";
 
 /**
  *
- * @param {{filterObject: [{}], disableItensParent: () => boolean}} param0
+ * @param {{filterObject: [{}]}} param0
  * @returns
  */
-export default function ProjectCardMatch({ filterObject, disableItensParent }) {
+export default function ProjectCardMatch({ filterObject }) {
   const [myId, setMyId] = useState()
   const [data, setData] = useState([]);
   const [currentProjectToDisplay, setCurrentProjectToDisplay] = useState(0);
@@ -72,14 +73,15 @@ export default function ProjectCardMatch({ filterObject, disableItensParent }) {
     setCurrentProjectToDisplay(currentProjectToDisplay + 1);
   };
 
-  const disableItens = () => {
-    disableItensParent(true);
-  };
-
   return (
     <div>
       {data[currentProjectToDisplay] ? (
         <>
+          <TitleCardMatch
+              title="Buscando novos projetos"
+              subTitle="Para o seu"
+              subTitleEnphasisWord="portfólio"
+          />
           <StyledProjectCard>
             <div className="card-title">
               <div>
@@ -158,7 +160,7 @@ export default function ProjectCardMatch({ filterObject, disableItensParent }) {
           </div>
         </>
       ) : (
-        <StyledAllDone onLoad={disableItens} />
+        <StyledAllDone  />
       )}
     </div>
   );

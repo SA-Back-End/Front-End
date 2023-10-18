@@ -8,6 +8,7 @@ import { RiCake2Line } from "react-icons/ri";
 import styled from "styled-components";
 import ModalInviteToProject from "./modalInviteToProjectComponent";
 import StyledAllDone from "../../component/cardMatch/styledAllDone";
+import TitleCardMatch from "../../component/title/titleCardMatch";
 
 const convertStates = (val) => {
   let data;
@@ -130,22 +131,27 @@ const convertMonths = (val) => {
 
 /**
  *
- * @param {{disableItensParent: () => boolean}} param0
+ * @param {{filterObject: [{}]}} param0
  * @returns
  */
-export default function UserCardMatch({ disableItensParent }) {
+export default function UserCardMatch({ filterObject }) {
   const [data, setData] = useState([]);
   const [currentUserToDisplay, setCurrentUserToDisplay] = useState(0);
   const [openSelectProjectModal, setOpenSelectProjectModal] = useState(false);
 
   useEffect(() => {
     setData([]);
-    getDataAPI();
-  }, []);
+    getDataAPI(filterObject);
+  }, [filterObject]);
 
   const getDataAPI = async () => {
     const url = "http://localhost:3000/user/findInterested";
-    axios.get(url).then((res) => {
+    const filterInString = JSON.stringify(filterObject);
+    const options = {
+      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+      "Filters": filterInString,
+    }
+    axios.get(url, { headers: options }).then((res) => {
       handleResponse(res);
     });
   };
@@ -166,10 +172,6 @@ export default function UserCardMatch({ disableItensParent }) {
     setCurrentUserToDisplay(currentUserToDisplay + 1);
   };
 
-  const disableItens = () => {
-    disableItensParent(true);
-  };
-
   const handleBirthDate = (isoBirthDate) => {
     const date = new Date(isoBirthDate);
     const day = date.getDate();
@@ -182,10 +184,15 @@ export default function UserCardMatch({ disableItensParent }) {
     <>
       {data[currentUserToDisplay] ? (
         <div>
+          <TitleCardMatch
+              title="Buscando novos participantes"
+              subTitle="Para os seus"
+              subTitleEnphasisWord="projetos!"
+          />
           <StyledUserCard>
             <div className="left-side">
               <div className="img-container">
-                <img src="" alt="user-profile-image" />
+                <img src={data?.[currentUserToDisplay].profilePictureUrl ?? 'https://as1.ftcdn.net/v2/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg'} alt="user-profile-image" />
               </div>
             </div>
             <div className="rigth-side">
@@ -294,7 +301,7 @@ export default function UserCardMatch({ disableItensParent }) {
           </div>
         </div>
       ) : (
-        <StyledAllDone onLoad={disableItens} />
+        <StyledAllDone />
       )}
     </>
   );
@@ -308,6 +315,8 @@ const StyledUserCard = styled.div`
   padding: 25px 50px;
 
   .left-side {
+    align-items: center;
+    display: flex;
     min-width: 150px;
     width: 25%;
     height: 300px;
