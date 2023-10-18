@@ -1,15 +1,6 @@
-import { useEffect } from "react";
 import styled from "styled-components";
 
-/**
- * 
- * @param {{onLoad: () => void}} param0 
- * @returns 
- */
-export default function StyledAllDone({onLoad}) {
-  useEffect(() => {
-    onLoad();
-  }, []);
+export default function StyledAllDone() {
   return (
     <StyledAllDoneDiv>
       <h1>Por hoje é só!</h1>
