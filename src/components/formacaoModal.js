@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import axios from 'axios';
+import "./formacaoModal.css";
 
 // Constante globais (options)
 const e_options = [
@@ -91,6 +92,7 @@ function Formacao() {
             </div>
            
             <Modal
+                className="modal"
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel='Adicionar Formação'
