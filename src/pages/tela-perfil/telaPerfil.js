@@ -32,7 +32,7 @@ function TelaPerfil() {
                                     <h1>Happy Monke 🍌</h1>
                                     <span>@happyMonke22</span>
                                 </div>
-                        
+
                                 <div className='accountInfos'>
                                     <div className='div-forInfos'>
                                         <span className='infoFollowing'>236</span>
@@ -86,7 +86,6 @@ function TelaPerfil() {
                         </p>
                     </div>
                 </div>
-
             </div>
 
         </div>

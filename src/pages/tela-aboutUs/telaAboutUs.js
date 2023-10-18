@@ -25,7 +25,7 @@ const TelaAboutUs = () => {
           <h1 className='nome'>S K I L L S</h1>
           <p className='slogan'>Encontre os parceiros <span className='laranja'>ideais</span> para os seus projetos</p>
           <a href=''>
-            <button className='btn' htype="button">Saiba mais</button>
+            <button className='btn' type="button">Saiba mais</button>
           </a>
         </div>
       </div>

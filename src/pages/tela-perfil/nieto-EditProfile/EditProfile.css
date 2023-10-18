@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap');
+
 /*tela padrão: 1366x768*/
 
 .EditProfile {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
 }
 
 /*----------------*/
@@ -95,6 +98,7 @@
     width: 80%;
     margin-left: 10%;
     margin-right: 10%;
+    font-weight: 400;
 }
 
 /*<ul> . Está agrupando 'horizontalmente' a dupla <label> + <input>*/
@@ -128,7 +132,7 @@ textarea,
 select,
 option {
     font-size: 13px;
-    font-weight: bold;
+    font-weight: 600;
     border-radius: 15px;
     border: 1px solid #969595;
     text-align: left;

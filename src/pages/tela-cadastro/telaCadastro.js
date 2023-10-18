@@ -35,7 +35,7 @@ function TelaCadastro() {
                             <input type="text" className="ultimo_nome" placeholder='Último Nome' />
                         </div>
                         <div className='user_email'>
-                            <input type="text" className="usuario" placeholder=' Nome de usuário' />
+                            <input type="text" className="usuario" placeholder='Nome de usuário' />
                             <input type="text" className="email" placeholder='E-mail' />
                         </div>
                         <div className='button_submit'>
