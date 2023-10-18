@@ -4,6 +4,7 @@ import Atividades from './components/profile/Atividades';
 import Bio from './components/profile/Bio';
 import Certificados from './components/profile/Certificados';
 import Formacao from './components/profile/Formacao';
+import Experiencias from './components/profile/Experiencias';
 import Projetos from './components/profile/Projetos';
 
 function App() {
@@ -13,10 +14,11 @@ function App() {
   return (
     <div>
       {/* <Formacao></Formacao>
-      <Bio></Bio>
+      <Bio></Bio>*/}
+      {/* <Atividades></Atividades> */}
+      <Experiencias></Experiencias>
       <Certificados></Certificados>
-      <Atividades></Atividades> */}
-      <Projetos user={user}></Projetos>
+      {/*<Projetos user={user}></Projetos>*/}
     </div>
   );
 }
