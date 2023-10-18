@@ -2,7 +2,7 @@ import { styled } from "styled-components";
 import { IoIosArrowDown } from "react-icons/io";
 import { useState } from "react";
 
-export default function BtnDrop({ btnText, itensList, onItemSelect }) {
+export default function BtnDrop({ btnText, itensList, onItemSelect, itemType, disableCondition = false }) {
   const [isOpen, setIsOpen] = useState("closed");
 
   const handleDropdown = () => {
@@ -26,7 +26,7 @@ export default function BtnDrop({ btnText, itensList, onItemSelect }) {
 
   return (
     <DropContainer>
-      <Button type="button" onClick={handleDropdown} className={isOpen}>
+      <Button disabled={disableCondition} type="button" onClick={handleDropdown} className={isOpen}>
         {btnText}
         <span>
           <IoIosArrowDown />
@@ -36,7 +36,7 @@ export default function BtnDrop({ btnText, itensList, onItemSelect }) {
             {itensList.map((element) => (
               <li
                 onClick={(action) => {
-                  onItemSelect(element);
+                  onItemSelect(element, itemType);
                 }}
               >
                 {element}
@@ -88,8 +88,10 @@ const DropContainer = styled.div`
     height: 200px;
     margin: 0;
     padding: 0;
+    position: relative;
     overflow-y: auto;
     width: 100%;
+    z-index: 999;
   }
 
   li {
@@ -114,4 +116,9 @@ const Button = styled.button`
   margin: 0 10px;
   min-width: 100px;
   padding: 5px 5px 0;
+
+  &:disabled {
+    cursor: not-allowed;
+    filter: brightness(0.5);
+  }
 `;
