@@ -22,16 +22,15 @@ const TelaMatch = () => {
   };
 
   const actingAreaList = [
-    "Ciências Exatas",
-    "Ciências Biológicas",
-    "Engenharia",
-    "Tecnologia",
-    "Ciências da Saúde",
-    "Ciências Agrárias",
-    "Ciências Sociais",
-    "Ciências Humanas",
-    "Linguística",
-    "Letras e Artes",
+    "Ciencias_Exatas_e_da_Terra",
+    "Ciencias_Biologicas",
+    "Engenharia_ou_Tecnologia",
+    "Ciencias_da_Saude",
+    "Ciencias_Agrarias",
+    "Ciencias_Sociais",
+    "Ciencias_Humanas",
+    "Linguistica",
+    "Letras_e_Artes",
   ];
 
   const workTypeList = ["Híbrido", "Remoto", "Presencial"];
