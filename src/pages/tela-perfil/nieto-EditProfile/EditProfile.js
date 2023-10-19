@@ -20,7 +20,7 @@ const EditProfile = () => {
                         </div>
                         <div className='buttons'>
                             <Link to={'/perfil'}><button className='profileButton cancel'>Cancelar</button></Link>
-                            <Link><button className='profileButton save'>Salvar</button></Link>
+                            <Link to={'/perfil'}><button className='profileButton save' type='submit'>Salvar</button></Link>
                         </div>
                     </div>
                 </div>

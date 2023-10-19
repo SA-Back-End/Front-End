@@ -92,15 +92,18 @@ function TelaPerfil() {
 
                         <div className='container-perfil-infos'>
 
-                            <div className='div-infosLeft'>
+                        <div className='div-infosLeft'>
+                            <div>
                                 <img src={iconPerfil} className='iconPerfil' alt='icon' />
-                                <div style={{ display: 'block', marginLeft: '10%' }}>
-                                    <div className='infoHeader'>
-                                        {/* <h1>Happy Monke 🍌</h1>
-                                        <span>@happyMonke22</span> */}
-                                        <h1>{user.name}</h1>
-                                        <span>{user.username}</span>
-                                    </div>
+                                <div className='infoHeader'>
+                                    <a href=''>Contate-me</a>
+                                </div>
+                            </div>
+                            <div style={{ display: 'block', marginLeft: '10%' }}>
+                                <div className='infoHeader'>
+                                    <h1>{user.name}</h1> {/* name => firstName + lastName (junção feita no backend) */}
+                                    <span>@{user.username}</span>
+                                </div>
 
                                     <div className='accountInfos'>
                                         <div className='div-forInfos'>

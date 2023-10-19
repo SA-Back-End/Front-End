@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap');
 /*tela padrão 1366x768*/
 
 .TelaCadastro {
@@ -7,6 +8,7 @@
     width: 100%;
     height: 100vh;
     overflow: hidden;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .TelaCadastro .containers {
@@ -47,8 +49,8 @@
     height: 62px;
     position: relative;
     right: -50px;
-    top: 30px; */
-}
+    top: px; */
+} 
 
 
 .TelaCadastro .left-container .quadrado-branco h2 {
@@ -71,8 +73,10 @@
     border: 2px solid #003DA5;
     height: 40px;
     padding-left: 10px;
-    font-weight: bold;
+    font-weight: 300;
     color: #000;
+    font-size: 15px;
+    letter-spacing: 1px;
 }
 
 .TelaCadastro .left-container .quadrado-branco .nome {
