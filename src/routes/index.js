@@ -7,7 +7,7 @@ import TelaAboutUs from '../pages/Home/telaAboutUs.js';
 import { TelaPerfil } from '../pages/tela-perfil/telaPerfil.js';
 import TelaLogin from '../pages/tela-login/login.js';
 import EditProfile from "../pages/tela-perfil/nieto-EditProfile/EditProfile.js"
-import Nieto from '../pages/nieto/nieto.js';
+import Certificados from '../pages/tela-perfil/nicoly/Certificados/Certificados.js';
 
 function WebRoutes() {
     return (
@@ -22,7 +22,7 @@ function WebRoutes() {
                         <Route path="/login" element={<TelaLogin />} />
                         <Route path="/cadastro" element={<TelaCadastro />} />
                         <Route path='/editProfile' element={<EditProfile />} />
-                        <Route path='/nieto' element={<Nieto />} />
+                        <Route path='/teste' element={<Certificados />} />
                     </Routes>
                 </Router>
             </div>

@@ -23,8 +23,6 @@ function TelaLogin() {
 
     e.preventDefault();
 
-    console.log(login, password)
-
     const loginInfos = {
       login: login,
       password: password

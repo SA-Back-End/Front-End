@@ -3,6 +3,7 @@ import './navbar.css';
 import logo from './images/logo.ico'
 import profilePicture from '../../tela-perfil/nieto-EditProfile/profilePicture.png'
 import { BsFillGearFill, BsBellFill, BsSearch } from 'react-icons/bs'
+import { Link } from 'react-router-dom';
 
 const HomeNavbar = () => {
     return (
@@ -11,21 +12,21 @@ const HomeNavbar = () => {
                 <nav>
                     <ul>
                         <li className='logoFlex'>
-                            <img src={logo} alt='logo' id='logo' />
+                            <Link to={"/match"}><img src={logo} alt='logo' id='logo' /></Link>
                             <p>Skills</p>
                         </li>
                         <ul className='icon-buttons'>
                             <li>
-                                <BsSearch className='icons' />
+                                <Link to={"/forYou"}><BsSearch className='icons' /></Link>
                             </li>
                             <li>
                                 <BsBellFill className='icons' />
                             </li>
                             <li>
-                                <BsFillGearFill className='icons' />
+                                <Link to={"/editProfile"}><BsFillGearFill className='icons' /></Link>
                             </li>
                             <li>
-                                <img src={profilePicture} alt='profile' id='profilePicture' />
+                                <Link to={"/perfil"}><img src={profilePicture} alt='profile' id='profilePicture' /></Link>
                             </li>
                         </ul>
                     </ul>

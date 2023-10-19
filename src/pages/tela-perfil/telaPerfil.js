@@ -7,6 +7,8 @@ import { FaCakeCandles } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
 import { FaMapLocationDot } from 'react-icons/fa6'
 import { Link, useLocation } from 'react-router-dom';
+import Experiencias from './nicoly/Experiencias/Experiencias';
+import Certificados from './nicoly/Certificados/Certificados';
 
 function TelaPerfil() {
 
@@ -92,18 +94,18 @@ function TelaPerfil() {
 
                         <div className='container-perfil-infos'>
 
-                        <div className='div-infosLeft'>
-                            <div>
-                                <img src={iconPerfil} className='iconPerfil' alt='icon' />
-                                <div className='infoHeader'>
-                                    <a href=''>Contate-me</a>
+                            <div className='div-infosLeft'>
+                                <div>
+                                    <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                    <div className='infoHeader'>
+                                        <a href=''>Contate-me</a>
+                                    </div>
                                 </div>
-                            </div>
-                            <div style={{ display: 'block', marginLeft: '10%' }}>
-                                <div className='infoHeader'>
-                                    <h1>{user.name}</h1> {/* name => firstName + lastName (junção feita no backend) */}
-                                    <span>@{user.username}</span>
-                                </div>
+                                <div style={{ display: 'block', marginLeft: '10%' }}>
+                                    <div className='infoHeader'>
+                                        <h1>{user.name}</h1> {/* name => firstName + lastName (junção feita no backend) */}
+                                        <span>@{user.username}</span>
+                                    </div>
 
                                     <div className='accountInfos'>
                                         <div className='div-forInfos'>
@@ -151,9 +153,9 @@ function TelaPerfil() {
                         <div className='container-perfil-aboutMe-infos'>
                             <h2>Sobre mim</h2>
                             <p>
-                                Olá pessoal! Me chamo Jorginho, tenho 22 anos e sou formado
-                                em Marketing. Atualmente moro em Palhoça/SC e curso sistemas
-                                de informação na UNISUL. Sou muito criativo, divertido e proativo
+                                Olá pessoal! Me chamo {user.name} e sou formado
+                                em Marketing. Atualmente moro em Palhoça/SC e curso Sistemas
+                                de Informação na UNISUL. Sou muito criativo, divertido e proativo
                                 e busco projetos que me permitam aprender mais!
                             </p>
                         </div>
@@ -161,7 +163,46 @@ function TelaPerfil() {
 
                 </div>
 
+                <footer style={{
+                    display: 'block',
+                    position: 'absolute',
+                    top: '92%',
+                    width: '100%'
+                }}>
+                    <ul style={{
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        listStyle: 'none'
+                    }}>
+                        <li><a href='#skills' style={{ textDecoration: 'none', color: 'black' }}>Skills</a></li>
+                        <li><a href='#formacoes' style={{ textDecoration: 'none', color: 'black' }}>Formações</a></li>
+                        <li><a href='#experiencias' style={{ textDecoration: 'none', color: 'black' }}>Experiências</a></li>
+                        <li><a href='#certificados' style={{ textDecoration: 'none', color: 'black' }}>Certificados</a></li>
+                        <li><a href='#projetos' style={{ textDecoration: 'none', color: 'black' }}>Projetos</a></li>
+                    </ul>
+                    <hr style={{ boxShadow: '0px 4px 4px 0px #00000040' }} />
+                </footer>
+
+            </div> {/*fim da primeira parte da telaPerfil*/}
+
+            <div style={{
+                marginTop: '40%',
+                marginLeft: '8%'
+            }}
+                id='#experiencia'
+            >
+                <Experiencias />
             </div>
+
+            <div style={{
+                marginTop: '10%',
+                marginLeft: '8%'
+            }}
+                id='#certificados'
+            >
+                <Certificados />
+            </div>
+
         </div>
     );
 }
