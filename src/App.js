@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <h2>Skills</h2>
-      <div class="flex-container">
+      <div className="flex-container">
         <div className='skill-item'>
           <h3>Hard Skills</h3>
         <Multiselect/>

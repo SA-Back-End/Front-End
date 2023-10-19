@@ -48,7 +48,11 @@ function Formacao() {
     }
 
     const addInstitution = () => {
-        
+        if(!inputText.trim()){
+            alert('Digite o nome de uma instituição válida!')
+            return
+        }
+
         sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzY1ODY0MiwiZXhwIjoxNjk3NjYyMjQyfQ._q8JQpjFQIvmDYlZtqoFf-1oXpul-FJl7cSM5JGiTIM');
         const accessToken = sessionStorage.getItem('accessToken');
 
@@ -74,10 +78,10 @@ function Formacao() {
         } else {
             alert('Nenhum token disponível');
         }
-    };
+        };
 
     useEffect(() => {
-        
+
         const getOptions = () => {
 
 
@@ -93,11 +97,13 @@ function Formacao() {
 
 
                 axios.get('http://localhost:3000/institution/findAll/0', config) // Por rota do get das instituições (testar também)
-                    .then(res => {
+                    .then((res) => {
                         const i_data = res.data;
-
-                        const new_i_options = i_data.institution_name;
-                        setInstitutionOptions(new_i_options);
+                        const options = i_data.map((institution) => ({
+                            value: institution.institution_id,
+                            label: institution.institution_name,
+                        }));
+                        setInstitutionOptions(options);
                     })
                     .catch(error => {
                         console.error(error);
@@ -121,17 +127,17 @@ function Formacao() {
             <div>
                 <button onClick={openModal}>Adicionar Formação</button>
             </div>
-           
+
             <Modal
-                className="modal"
+                
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel='Adicionar Formação'
             >
                 <div>
                     <p>Instituição de Ensino</p>
-                    <Select options={institutionOptions} />  
-                    <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)}/>
+                    <Select options={institutionOptions} />
+                    <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)} />
                     <button onClick={addInstitution}>Adicionar Instituição</button>
 
                     <p>Nível de Formação</p>
@@ -141,7 +147,6 @@ function Formacao() {
                     <Select options={s_options} />
 
                     <p>Data de Início</p>
-
                     <input
                         type="date"
                         value={dataInicio}
@@ -149,7 +154,6 @@ function Formacao() {
                     />
 
                     <p>Data de Conclusão</p>
-
                     <input
                         type="date"
                         value={dataConclusao}
@@ -163,10 +167,9 @@ function Formacao() {
                         rows="5"
                         cols="85"
                     />
-                    <InstitutionAdd />
 
                     <button onClick={closeModal}>Cancelar</button>
-                    
+
                 </div>
             </Modal>
         </div>
