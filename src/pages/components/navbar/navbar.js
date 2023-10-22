@@ -12,6 +12,7 @@ const HomeNavbar = () => {
                 <nav>
                     <ul>
                         <li className='logoFlex'>
+                            {/* <Link to={"/"}><img src={logo} alt='logo' id='logo' /></Link> */}
                             <Link to={"/match"}><img src={logo} alt='logo' id='logo' /></Link>
                             <p>Skills</p>
                         </li>
@@ -26,7 +27,7 @@ const HomeNavbar = () => {
                                 <Link to={"/editProfile"}><BsFillGearFill className='icons' /></Link>
                             </li>
                             <li>
-                                <Link to={"/perfil"}><img src={profilePicture} alt='profile' id='profilePicture' /></Link>
+                                <Link to={""}><img src={profilePicture} alt='profile' id='profilePicture' /></Link>
                             </li>
                         </ul>
                     </ul>

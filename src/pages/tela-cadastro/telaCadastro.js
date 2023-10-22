@@ -1,6 +1,6 @@
 import './telaCadastro.css';
 import React, { useState } from 'react';
-import NavBar from './Components/Inputs/Geral/navBarCadastro';
+import NavBar from './Components/navBar-cadastro/navBarCadastro';
 import desenho from './img/desenho.png';
 import { FirstInputs } from './Components/Inputs/FirstInputs/firstInputs.js';
 import SecondInputs from './Components/Inputs/SecondInputs/secondInputs.js';
@@ -13,12 +13,12 @@ function TelaCadastro() {
     const navigate = useNavigate();
 
     //para receber os dados de FirstInput
-    const [dataFirstInputs, setDataFirstInputs] = useState();
+    const [dataFirstInputs, setDataFirstInputs] = useState([]);
     const getFirstInputsData = (data) => {
         setDataFirstInputs(data)
     }
 
-    const [dataSecondInputs, setDataSecontInputs] = useState()
+    const [dataSecondInputs, setDataSecontInputs] = useState([])
     const getSecondInputsData = (data) => {
         setDataSecontInputs(data)
     }
@@ -43,10 +43,11 @@ function TelaCadastro() {
             .then(response => {
                 console.log(response);
                 console.log(response.data);
-                navigate('/perfil', { state: { user: response.data } });
+                navigate(`/${response.data.username}`);
             })
             .catch(error => {
-                console.log(error.request.response);
+                // console.log(error)
+                alert(error.response.data.message)
             });
     };
 

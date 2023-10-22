@@ -5,7 +5,7 @@ import add from '../img/add.png';
 import ModalCertificados from './Components/ModalCertificados.js';
 import { AiOutlineExport } from 'react-icons/ai'
 
-function Certificados({ user }) {
+function Certificados() {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -60,7 +60,6 @@ function Certificados({ user }) {
         endDate: "2026",
         url: "",
     }];
-    console.log(user)
 
     const respostaAPI = [
         { name: "", itens: exp },

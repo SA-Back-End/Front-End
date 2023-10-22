@@ -1,10 +1,67 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './EditProfile.css'
 import HomeNavbar from '../../components/navbar/navbar.js';
 import profilePicture from './profilePicture.png'
-import { Link } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import axios from 'axios';
 
 const EditProfile = () => {
+
+    const navigate = useNavigate()
+
+    /*save code from telaPerfil to get the user infos from the URL*/
+    const [user, setUser] = useState([])
+    const { username } = useParams()
+
+    const handleRequisition = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`)
+            console.log(response)
+            setUser(response.data)
+        } catch (error) {
+            console.log(error)
+            alert(error.response.data.message)
+        }
+    }
+
+    useEffect(() => {
+        handleRequisition()
+    }, [])
+
+    useEffect(() => {
+        console.log(user)
+    }, [user])
+
+    const saveChanges = () => {
+
+        const editData = {
+            "name": "Caio",
+            "StatusUser": "Disponibilidade limitada",
+            "description": "Ta editando",
+            "state": "RJ"
+        }
+
+        const accessToken = sessionStorage.getItem('accessToken');
+        // console.log(accessToken)
+
+        const config = {
+            headers: {
+                Authorization: `${accessToken}`
+            },
+        };
+
+        axios.patch(`http://localhost:3000/user/update/${user.username}`, editData, config)
+            .then(res => {
+                console.log(res.data);
+                alert("EDITOU: " + res.status)
+                navigate(`/${user.username}`)
+            })
+            .catch(error => {
+                alert("N EDITOU")
+                console.error(error.response)
+            });
+    }
+
     return (
         <div className='EditProfile'>
 
@@ -15,12 +72,12 @@ const EditProfile = () => {
                     <img src={profilePicture} alt='profilePicture' id="profile" />
                     <div className='breakLine'>
                         <div className='breakLine-left'>
-                            <h3 className='username'>Julia Alvarenga</h3>
+                            <h3 className='username'>{user.name}</h3>
                             <span className='editInfo'>Edite abaixo suas informações pessoais</span>
                         </div>
                         <div className='buttons'>
-                            <Link to={'/perfil'}><button className='profileButton cancel'>Cancelar</button></Link>
-                            <Link to={'/perfil'}><button className='profileButton save' type='submit'>Salvar</button></Link>
+                            <Link to={`/${user.username}`}><button className='profileButton cancel'>Cancelar</button></Link>
+                            <button className='profileButton save' type='submit' onClick={saveChanges}>Salvar</button>
                         </div>
                     </div>
                 </div>

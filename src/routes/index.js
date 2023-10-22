@@ -7,7 +7,6 @@ import TelaAboutUs from '../pages/Home/telaAboutUs.js';
 import { TelaPerfil } from '../pages/tela-perfil/telaPerfil.js';
 import TelaLogin from '../pages/tela-login/login.js';
 import EditProfile from "../pages/tela-perfil/nieto-EditProfile/EditProfile.js"
-import Projetos from '../pages/tela-perfil/isa_e_vih/Projects/projetos.js';
 
 function WebRoutes() {
     return (
@@ -18,11 +17,10 @@ function WebRoutes() {
                         <Route path="/" element={<TelaAboutUs />} />
                         <Route path="/match" element={<TelaMatch />} />
                         <Route path="/forYou" element={<TelaForYou />} />
-                        <Route path="/perfil" element={<TelaPerfil />} />
+                        <Route path="/:username" element={<TelaPerfil />} />
                         <Route path="/login" element={<TelaLogin />} />
                         <Route path="/cadastro" element={<TelaCadastro />} />
-                        <Route path='/editProfile' element={<EditProfile />} />
-                        <Route path='/teste' element={<Projetos />} />
+                        <Route path='/:username/editProfile' element={<EditProfile />} />
                     </Routes>
                 </Router>
             </div>

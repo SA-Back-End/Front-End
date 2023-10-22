@@ -43,12 +43,12 @@ function TelaLogin() {
         axios.get('http://localhost:3000/auth/profile', config)
           .then(response => {
             console.log(response)
-            navigate('/perfil', { state: { user: response.data } })
+            navigate(`/${response.data.username}`)
           })
           .catch(error => {
             console.log(error.response)
           })
-          
+
       })
       .catch(error => {
         console.log(error.response)
@@ -72,16 +72,17 @@ function TelaLogin() {
             <h1>S K I L L S</h1>
           </div>
 
-          <div className='div-inputs'>
-            <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' id='user-login' onInput={handleLogin} /> <br></br>
-            <input type="password" className='login-inputs' placeholder='Senha' id='user-password' onInput={handlePassword} />
-          </div>
-
-          <div className='div-links'>
-            <p className='p-senha'>Esqueceu a senha?</p>
-            <button className="botao-submit" type="submit" onClick={userLogin}><b>Entrar</b></button>
-            <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
-          </div>
+          <form onSubmit={userLogin}>
+            <div className='div-inputs'>
+              <input type="text" className='login-inputs' placeholder='Usuário ou E-mail' id='user-login' onInput={handleLogin} required /> <br></br>
+              <input type="password" className='login-inputs' placeholder='Senha' id='user-password' onInput={handlePassword} required />
+            </div>
+            <div className='div-links'>
+              <p className='p-senha'>Esqueceu a senha?</p>
+              <button className="botao-submit" type="submit"><b>Entrar</b></button>
+              <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
+            </div>
+          </form>
 
         </div>
 

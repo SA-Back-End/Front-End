@@ -1,6 +1,7 @@
 import React from "react"
-import logo from '../../../../components/navbar/images/logo.ico'
-import '../Geral/navBarCadastro.css'
+import logo from './logo.ico'
+import './navBarCadastro.css'
+import { Link } from "react-router-dom";
 
 function NavBarCadastro() {
   return (
@@ -9,7 +10,7 @@ function NavBarCadastro() {
         <nav>
           <ul style={{ display: 'flex', justifyContent: 'space-between' }}>
             <li className='logoFlex'>
-              <img src={logo} alt='logo' id='logo' />
+              <Link to={'/'}><img src={logo} alt='logo' id='logo' /></Link>
               <p>Skills</p>
             </li>
             <ul className='links'>
