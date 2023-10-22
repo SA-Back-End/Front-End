@@ -3,12 +3,13 @@
 import iconPerfil from './img/mamaco.jpg';
 import Header from '../components/navbar/navbar'
 import "./telaPerfil.css";
-import { FaCakeCandles } from 'react-icons/fa6';
+import { FaCakeCandles, FaMapLocationDot } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
-import { FaMapLocationDot } from 'react-icons/fa6'
+import { AiOutlineExport } from 'react-icons/ai'
 import { Link, useLocation } from 'react-router-dom';
 import Experiencias from './nicoly/Experiencias/Experiencias';
 import Certificados from './nicoly/Certificados/Certificados';
+import Projetos from './isa_e_vih/Projects/projetos';
 
 function TelaPerfil() {
 
@@ -98,7 +99,7 @@ function TelaPerfil() {
                                 <div>
                                     <img src={iconPerfil} className='iconPerfil' alt='icon' />
                                     <div className='infoHeader'>
-                                        <a href=''>Contate-me</a>
+                                        <a href=''><AiOutlineExport /> Contate-me</a>
                                     </div>
                                 </div>
                                 <div style={{ display: 'block', marginLeft: '10%' }}>
@@ -165,10 +166,11 @@ function TelaPerfil() {
 
                 <footer style={{
                     display: 'block',
-                    position: 'absolute',
-                    top: '92%',
+                    marginTop: '24%',
                     width: '100%'
-                }}>
+                }}
+                    className='perfil-footer'
+                >
                     <ul style={{
                         display: 'flex',
                         justifyContent: 'space-around',
@@ -186,21 +188,33 @@ function TelaPerfil() {
             </div> {/*fim da primeira parte da telaPerfil*/}
 
             <div style={{
-                marginTop: '40%',
-                marginLeft: '8%'
+                marginTop: '3%',
+                marginLeft: '8%',
+                width: '85%'
             }}
-                id='#experiencia'
+                id='experiencia'
             >
                 <Experiencias />
             </div>
 
             <div style={{
-                marginTop: '10%',
-                marginLeft: '8%'
+                marginTop: '5%',
+                marginLeft: '8%',
+                width: '85%'
             }}
-                id='#certificados'
+                id='certificados'
             >
                 <Certificados />
+            </div>
+
+            <div style={{
+                marginTop: '3%',
+                marginLeft: '8%',
+                width: '85%'
+            }}
+                id='projetos'
+            >
+                <Projetos />
             </div>
 
         </div>

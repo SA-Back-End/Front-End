@@ -1,20 +1,23 @@
 .certificados {
     font-family: 'Montserrat', sans-serif;
     background-color: #FFFF;
+    overflow: hidden;
 }
 
-.certificados .header {
-    /* display: grid;
-    grid-template-columns: 1fr 1fr; */
-    /* display: flex; */
+/* .certificados .header {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    display: flex;
     padding-bottom: 10px;
-}
+} */
 
 .certificados .exp_header {
     display: flex;
     list-style-type: none;
-    width: 85%;
+    /* width: 86%; */
     justify-content: space-between;
+    padding-inline-start: 29px;
+    margin: 0;
 }
 
 .certificados .exp_add {
@@ -22,12 +25,12 @@
 }
 
 .certificados .page_title {
-    width: 172px;
+    /* width: 172px;
     height: 24px;
     top: 2191px;
     left: 78px;
     padding-bottom: 20px;
-    padding-left: 25px;
+    padding-left: 25px; */
     font-size: 24px;
     font-weight: 500;
     line-height: 29px;
@@ -36,20 +39,22 @@
 }
 
 
-.certificados .add_icon {
-    /* width: 2px;
-    height: 2px; */
-}
+/* .certificados .add_icon {
+    width: 2px;
+    height: 2px;
+} */
 
 
 .certificados .profile_card_body_real-oficial {
-    width: 1182px;
+    /* width: 1182px; */
     height: 580px;
-    top: 2237px;
-    left: 49px;
+    /* top: 2237px;
+    left: 49px; */
     border-radius: 10px;
     border: 0.2px solid #000000;
     box-shadow: 0px 4px 4px 0px #00000040;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
 
 .certificados .card_itens {
@@ -58,9 +63,9 @@
 
 }
 
-.certificados .profile_card_body {
+/* .certificados .profile_card_body {
     align-items: space-between;
-}
+} */
 
 .certificados h3 {
     width: 67px;
@@ -87,8 +92,6 @@
     left: 78px;
 } */
 
-/* Experiencias.css */
-
 .certificados .profile_card_body_content {
     display: flex;
     grid-template-columns: repeat(2, 1fr);
@@ -99,7 +102,7 @@
     display: flex;
     grid-template-columns: repeat(2, 1fr);
     flex-direction: column;
-    overflow: auto;
+    /* overflow: auto; */
     height: 100%;
 }
 

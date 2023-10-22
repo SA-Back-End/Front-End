@@ -2,7 +2,7 @@ import React from "react";
 import "./ModalExp.css";
 
 const Modal = ({ isOpen, onClose }) => {
-    const modalClassName = isOpen ? "modal-open" : "modal";
+    const modalClassName = isOpen ? "modal-open-exp" : "modal-exp";
     console.log(modalClassName)
     return (
         <div className={modalClassName}>

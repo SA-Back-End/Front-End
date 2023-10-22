@@ -13,7 +13,7 @@ function Experiencias() {
         setIsModalOpen(!isModalOpen);
     }
 
-    // const [showRegister, setshowRegister] = useState(false);s
+    // const [showRegister, setshowRegister] = useState(false);
     const exp = [{
         id_experience: "..",
         id_user: "..",
@@ -23,6 +23,24 @@ function Experiencias() {
         beginDate: "Fev 2023",
         endDate: "2026",
         experience_description: "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.",
+    }, {
+        id_experience: "..",
+        id_user: "Disponível_para_participar",
+        id_instituition: "Santander",
+        id_studyArea: "Ciências Humanas",
+        role: "Assistente de Marketing",
+        beginDate: "Jun 2021",
+        endDate: "2023",
+        experience_description: "Lorem ipsum dolor sit amet.",
+    }, {
+        id_experience: "..",
+        id_user: "Disponível_para_participar",
+        id_instituition: "Santander",
+        id_studyArea: "Ciências Humanas",
+        role: "Assistente de Marketing",
+        beginDate: "Jun 2021",
+        endDate: "2023",
+        experience_description: "Lorem ipsum dolor sit amet.",
     }, {
         id_experience: "..",
         id_user: "Disponível_para_participar",
@@ -48,6 +66,7 @@ function Experiencias() {
 
     return (
         <div className='experiencia'>
+
             <div className='header'>
                 <ul className='exp_header'>
                     <li className='page_title'>
@@ -61,8 +80,8 @@ function Experiencias() {
                         </div>
                     </li>
                 </ul>
-
             </div>
+
             <div className='profile_card'>
                 <div className='profile_card_body' id='profileCardBody'>
                     {respostaAPI.map((e, index) => (

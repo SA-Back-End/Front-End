@@ -58,7 +58,7 @@
 .TelaPerfil .div-Atalhos {
     font-weight: 100;
     position: relative;
-    top:23%;
+    top: 23%;
     left: 4%;
     margin-left: 200%;
 }
@@ -86,10 +86,10 @@
     font-size: 15px;
     font-weight: 550;
     position: absolute;
-    margin: 1% 0 0 2%;
+    margin: 1% 0 0 1%;
     color: #003da5;
     text-decoration: none;
-    }
+}
 
 
 .TelaPerfil .infoHeader h1 {
@@ -322,7 +322,7 @@
         position: absolute;
         margin: -1% 0 0 87%;
     }
-    
+
     .TelaPerfil .div-button .btt-editProfile {
         font-size: 13px;
         padding: 4px;
@@ -339,11 +339,9 @@
     .TelaPerfil .container-perfil-aboutMe-retanguloLaranja .container-perfil-aboutMe-infos p {
         font-size: 18px;
     }
+
     .TelaPerfil .container-perfil-aboutMe-retanguloLaranja .container-perfil-aboutMe-infos h2 {
         font-size: 24px;
     }
 
 }
-
-/* Estilos para largura de tela de celulares (por exemplo, 360x640) */
-@media (max-width: 767px) {}

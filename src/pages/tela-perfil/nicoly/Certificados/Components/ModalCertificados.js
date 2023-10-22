@@ -3,7 +3,7 @@ import "./ModalCertificados.css";
 // import "../../Experiencias/Components/ModalExp.css"
 
 const Modal = ({ isOpen, onClose }) => {
-  const modalClassName = isOpen ? "modal-open" : "modal";
+  const modalClassName = isOpen ? "modal-open-certificados" : "modal-certificados";
 
   return (
     <div className={modalClassName}>

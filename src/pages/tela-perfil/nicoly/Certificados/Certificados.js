@@ -3,6 +3,7 @@ import "./Certificados.css";
 import icone from '../img/icone.png';
 import add from '../img/add.png';
 import ModalCertificados from './Components/ModalCertificados.js';
+import { AiOutlineExport } from 'react-icons/ai'
 
 function Certificados({ user }) {
 
@@ -115,11 +116,10 @@ function Certificados({ user }) {
                                                         <p>{itens.id_instituition}</p>
                                                         <p>{itens.beginDate}</p>
                                                         <div className='button_certificado'>
-                                                            <button className='exibir_credencial'>Exibir credencial</button>
+                                                            <button className='exibir_credencial'>Exibir credencial <AiOutlineExport /></button>
                                                         </div>
                                                     </div>
                                                 </div>
-
 
                                                 {/* <div className='button_certificado'>
                                                     <button className='exibir_credencial'>Exibir credencial</button>
