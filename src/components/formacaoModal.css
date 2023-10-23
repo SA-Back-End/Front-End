@@ -33,26 +33,35 @@ h1{
   width: 495px;
   position: absolute;
   top: 140px;
+  border-radius: 10px;
 }
 
 .descr{
   max-height: 35px;
   width: 500px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .date{
   min-height: 25px;
   width: 500px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .r{
   height: 3px;
   width: 500px;
+  border-radius: 10px;
+  
 }
 
 .y{
   position: absolute;
   top: 185px;
+  border-radius: 10px;
+  border: 1px solid rgb(0, 0, 0);
 }
 
 .s{
