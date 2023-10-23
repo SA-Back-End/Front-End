@@ -1,7 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import logo from './images/logo.ico'
-import profilePicture from '../../tela-perfil/nieto-EditProfile/profilePicture.png'
+import profilePicture from '../../tela-perfil/EditProfile/profilePicture.png'
 import { BsFillGearFill, BsBellFill, BsSearch } from 'react-icons/bs'
 import { Link } from 'react-router-dom';
 

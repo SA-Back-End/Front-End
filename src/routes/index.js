@@ -6,7 +6,10 @@ import TelaForYou from '../pages/tela-forYou/telaForYou.js';
 import TelaAboutUs from '../pages/Home/telaAboutUs.js';
 import { TelaPerfil } from '../pages/tela-perfil/telaPerfil.js';
 import TelaLogin from '../pages/tela-login/login.js';
-import EditProfile from "../pages/tela-perfil/nieto-EditProfile/EditProfile.js"
+/*EditProfile => edit profile*/
+import EditProfile from "../pages/tela-perfil/EditProfile/EditProfile.js"
+/*EditarPerfil => edit profile account infos(username,email), (evelyn)*/
+import EditarPerfil from '../pages/tela-perfil/EditProfile/Edit-account/EditarPerfil.js';
 
 function WebRoutes() {
     return (
@@ -21,6 +24,7 @@ function WebRoutes() {
                         <Route path="/login" element={<TelaLogin />} />
                         <Route path="/cadastro" element={<TelaCadastro />} />
                         <Route path='/:username/editProfile' element={<EditProfile />} />
+                        <Route path='/:username/editProfile/accountInfos' element={<EditarPerfil />} />
                     </Routes>
                 </Router>
             </div>
