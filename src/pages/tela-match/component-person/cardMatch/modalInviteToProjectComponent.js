@@ -21,7 +21,7 @@ export default function ModalInviteToProject({ nameUser, closeModal, idUser }) {
 
     const getDataAPI = async () => {
         const AUTH = {
-            "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+            "Authorization": `${sessionStorage.getItem("accessToken")}`,
         }
         await axios.get('http://localhost:3000/auth/profile', { headers: AUTH })
             .then(async (res) => {

@@ -26,7 +26,7 @@ export default function ProjectCardMatch({ filterObject }) {
   const getMyDataAPI = async () => {
     const url = 'http://localhost:3000/auth/profile';
     const AUTH = {
-      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+      "Authorization": `${sessionStorage.getItem("accessToken")}`,
     }    
     axios.get(url, { headers: AUTH }).then((res) => {
       if (res.status !== 200) {
@@ -45,7 +45,7 @@ export default function ProjectCardMatch({ filterObject }) {
     const url = "http://localhost:3000/project/findOpenProjects";
     const filterInString = JSON.stringify(filterObject);
     const options = {
-      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+      "Authorization": `${sessionStorage.getItem("accessToken")}`,
       "Filters": filterInString,
     }
 

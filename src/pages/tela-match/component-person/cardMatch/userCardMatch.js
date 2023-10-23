@@ -148,7 +148,7 @@ export default function UserCardMatch({ filterObject }) {
     const url = "http://localhost:3000/user/findInterested";
     const filterInString = JSON.stringify(filterObject);
     const options = {
-      "Authorization": `Bearer ${sessionStorage.getItem("bearer")}`,
+      "Authorization": `${sessionStorage.getItem("accessToken")}`,
       "Filters": filterInString,
     }
     axios.get(url, { headers: options }).then((res) => {
