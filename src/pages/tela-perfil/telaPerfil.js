@@ -1,23 +1,55 @@
-// import PerfilTay from "./tay/perfil-tay";
-// import Logo from '../tela-aboutUs/img/logo.ico';
+/*import geral*/
 import iconPerfil from './img/mamaco.jpg';
 import Header from '../components/navbar/navbar'
 import "./telaPerfil.css";
-import { FaCakeCandles } from 'react-icons/fa6';
+
+/*react*/
+import { useEffect, useState } from 'react';
+import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+
+/*react-icons*/
+import { FaCakeCandles, FaMapLocationDot } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
-import { FaMapLocationDot } from 'react-icons/fa6'
-import { Link, useLocation } from 'react-router-dom';
+import { AiOutlineExport } from 'react-icons/ai'
+
+/*components from telaPerfil*/
+import Experiencias from './nicoly/Experiencias/Experiencias';
+import Certificados from './nicoly/Certificados/Certificados';
+import Projetos from './isa_e_vih/Projects/projetos';
+import axios from 'axios';
 
 function TelaPerfil() {
 
-    const location = useLocation()
-    const user = location.state.user;
-    console.log(user)
+    window.scrollTo(0, 0)
 
-    // if (user.name === undefined) {
-    //     alert("ERRO: usuário indefinido, redirecionando para login...")
-    //     navigate('/login')
-    // }
+    // const location = useLocation()
+    // const user = location.state.user;
+    // console.log(user)
+
+    const navigate = useNavigate()
+
+    const [user, setUser] = useState([])
+    const { username } = useParams()
+
+    const handleRequisition = async () => {
+        try {
+            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`)
+            console.log(response)
+            setUser(response.data)
+        } catch (error) {
+            console.log(error)
+            alert(error.response.data.message)
+            navigate('/')
+        }
+    }
+
+    useEffect(() => {
+        handleRequisition()
+    }, [])
+
+    useEffect(() => {
+        console.log(user)
+    }, [user])
 
     const stateName = (state) => {
         switch (state) {
@@ -93,13 +125,16 @@ function TelaPerfil() {
                         <div className='container-perfil-infos'>
 
                             <div className='div-infosLeft'>
-                                <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                <div>
+                                    <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                    <div className='infoHeader'>
+                                        <a href=''><AiOutlineExport /> Contate-me</a>
+                                    </div>
+                                </div>
                                 <div style={{ display: 'block', marginLeft: '10%' }}>
                                     <div className='infoHeader'>
-                                        {/* <h1>Happy Monke 🍌</h1>
-                                        <span>@happyMonke22</span> */}
-                                        <h1>{user.name}</h1>
-                                        <span>{user.username}</span>
+                                        <h1>{user.name}</h1> {/* name => firstName + lastName (junção feita no backend) */}
+                                        <span>@{user.username}</span>
                                     </div>
 
                                     <div className='accountInfos'>
@@ -119,25 +154,25 @@ function TelaPerfil() {
 
                             <div className='div-infosRight'>
                                 <ul>
-                                    <li>
+                                    <li style={{ width: 290 }}>
                                         <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div><span className='spanIcon'>Engenharia/Tecnologia</span></div>
                                     </li>
-                                    <li style={{ marginLeft: 40 }}>
+                                    <li>
                                         <div className='groupIcons'><div className='div-blueIcon'><FaCakeCandles className='icon' /></div><span className='spanIcon'>25 de agosto</span></div>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li>
-                                        <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>Disponibilidade limitada</span></div>
+                                    <li style={{ width: 290 }}>
+                                        <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>{user.status}</span></div>
                                     </li>
-                                    <li style={{ marginLeft: 30 }}>
+                                    <li>
                                         <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>{stateName(user.state)}</span></div>
                                     </li>
                                 </ul>
                             </div>
 
                             <div className='div-button'>
-                                <Link to={'/editProfile'}><button className='btt-editProfile'>Editar Perfil</button></Link>
+                                <Link to={`/${user.username}/editProfile`}><button className='btt-editProfile'>Editar Perfil</button></Link>
                             </div>
 
                         </div>
@@ -148,17 +183,66 @@ function TelaPerfil() {
                         <div className='container-perfil-aboutMe-infos'>
                             <h2>Sobre mim</h2>
                             <p>
-                                Olá pessoal! Me chamo Jorginho, tenho 22 anos e sou formado
-                                em Marketing. Atualmente moro em Palhoça/SC e curso sistemas
-                                de informação na UNISUL. Sou muito criativo, divertido e proativo
-                                e busco projetos que me permitam aprender mais!
+                                Olá pessoal! Me chamo {user.name}, natural de {stateName(user.state)} e esse é meu perfil na SKILLS!
                             </p>
                         </div>
                     </div>
 
                 </div>
 
+                <footer style={{
+                    display: 'block',
+                    marginTop: '24%',
+                    width: '100%'
+                }}
+                    className='perfil-footer'
+                >
+                    <ul style={{
+                        display: 'flex',
+                        justifyContent: 'space-around',
+                        listStyle: 'none'
+                    }}>
+                        <li><a href='#skills' style={{ textDecoration: 'none', color: 'black' }}>Skills</a></li>
+                        <li><a href='#formacoes' style={{ textDecoration: 'none', color: 'black' }}>Formações</a></li>
+                        <li><a href='#experiencias' style={{ textDecoration: 'none', color: 'black' }}>Experiências</a></li>
+                        <li><a href='#certificados' style={{ textDecoration: 'none', color: 'black' }}>Certificados</a></li>
+                        <li><a href='#projetos' style={{ textDecoration: 'none', color: 'black' }}>Projetos</a></li>
+                    </ul>
+                    <hr style={{ boxShadow: '0px 4px 4px 0px #00000040' }} />
+                </footer>
+
+            </div> {/*fim da primeira parte da telaPerfil*/}
+
+            <div style={{
+                marginTop: '3%',
+                marginLeft: '6%',
+                width: '90%'
+            }}
+                id='experiencias'
+            >
+                <Experiencias />
             </div>
+
+            <div style={{
+                marginTop: '5%',
+                marginLeft: '6%',
+                width: '90%'
+            }}
+                id='certificados'
+            >
+                <Certificados />
+            </div>
+
+            <div style={{
+                marginTop: '3%',
+                marginLeft: '6%',
+                width: '90%'
+            }}
+                id='projetos'
+            >
+                <Projetos />
+            </div>
+
         </div>
     );
 }
