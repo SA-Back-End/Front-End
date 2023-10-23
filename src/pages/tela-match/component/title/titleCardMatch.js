@@ -18,7 +18,7 @@ export default function TitleCardMatch({title, subTitle, subTitleEnphasisWord}) 
 }
 
 const StyledTitleContainer = styled.div`
-    margin-top: 100px;
+    margin-top: 40px;
 
     h2 {
         margin-bottom: 0;

@@ -422,6 +422,7 @@ const TelaMatch = () => {
 
 const Main = styled.main`
   padding: 50px;
+  padding-top: 20px;
     
   .card-applications { 
 		display: flex;
