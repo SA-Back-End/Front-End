@@ -20,7 +20,7 @@ h2 {
     height: 34px;
     width: 385px;
     text-align: left;
-    padding: 18px 24px 0 21px;
+    padding: 18px 35px 0 10px;
     border-radius: 10px;
 }
 .notifi-box {
@@ -41,8 +41,8 @@ h2 {
 }
 .avatar, .project-img {
     border-radius: 30px;
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
     margin-top: 8px;
 }
 .project-img{
@@ -52,7 +52,7 @@ h2 {
     position: absolute;
     width: 20px;
     height: 20px;
-    left: 45px;
+    left: 38px;
     border-radius: 10px;
     background-color: #70a5ff;
 }
@@ -70,6 +70,7 @@ h2 {
 
 }
 .follow-btn {
+    margin-top: .3rem;
     background-color: #ff9c33;
     font-size: 10px;
     width: 145px;
@@ -129,7 +130,7 @@ h2 {
     /* Coloca o elemento atrás do botão */}
     .content-note {
     display: flex;
-    margin-bottom: -7%;
+    margin-bottom: -9%;
 }
 :is(.p-notify, .p-notify-short) > b {
     font-family: 'Montserrat', sans-serif;
