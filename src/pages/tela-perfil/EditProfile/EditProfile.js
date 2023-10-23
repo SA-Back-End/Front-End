@@ -13,11 +13,22 @@ const EditProfile = () => {
     const [user, setUser] = useState([])
     const { username } = useParams()
 
+    const config = {
+        headers: {
+            Authorization: sessionStorage.getItem('accessToken')
+        }
+    }
+
     const handleRequisition = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`)
+            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`, config)
+            console.log(`response`)
             console.log(response)
-            setUser(response.data)
+            if (response.data.isMe) {
+                setUser(response.data)
+            } else {
+                navigate(`/${response.data.username}`)
+            }
         } catch (error) {
             console.log(error)
             alert(error.response.data.message)

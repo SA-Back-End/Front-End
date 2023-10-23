@@ -20,7 +20,7 @@ import axios from 'axios';
 
 function TelaPerfil() {
 
-    window.scrollTo(0, 0)
+    // window.scrollTo(0, 0)
 
     // const location = useLocation()
     // const user = location.state.user;
@@ -31,10 +31,16 @@ function TelaPerfil() {
     const [user, setUser] = useState([])
     const { username } = useParams()
 
+    const config = {
+        headers: {
+            Authorization: sessionStorage.getItem('accessToken')
+        }
+    }
+
     const handleRequisition = async () => {
         try {
-            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`)
-            console.log(response)
+            const response = await axios.get(`http://localhost:3000/user/findOne/${username}`, config)
+            console.log(response.data)
             setUser(response.data)
         } catch (error) {
             console.log(error)
@@ -47,9 +53,9 @@ function TelaPerfil() {
         handleRequisition()
     }, [])
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
+    // useEffect(() => {
+    //     console.log(user)
+    // }, [user])
 
     const stateName = (state) => {
         switch (state) {
@@ -171,9 +177,11 @@ function TelaPerfil() {
                                 </ul>
                             </div>
 
-                            <div className='div-button'>
-                                <Link to={`/${user.username}/editProfile`}><button className='btt-editProfile'>Editar Perfil</button></Link>
-                            </div>
+                            {user?.isMe &&
+                                <div className='div-button'>
+                                    <Link to={`/${user.username}/editProfile`}><button className='btt-editProfile'>Editar Perfil</button></Link>
+                                </div>
+                            }
 
                         </div>
 
