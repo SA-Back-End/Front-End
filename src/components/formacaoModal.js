@@ -53,7 +53,7 @@ function Formacao() {
             return
         }
 
-        sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzY1ODY0MiwiZXhwIjoxNjk3NjYyMjQyfQ._q8JQpjFQIvmDYlZtqoFf-1oXpul-FJl7cSM5JGiTIM');
+        sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE');
         const accessToken = sessionStorage.getItem('accessToken');
 
         if (accessToken) {
@@ -65,7 +65,7 @@ function Formacao() {
 
             const institutionData = {
                 institution_name: inputText,
-                institutionss_type: inputType || 'Faculdade',
+                institutions_type: 'Faculdade'
             };
 
             axios.post('http://localhost:3000/institution/create', institutionData, config)
@@ -80,12 +80,12 @@ function Formacao() {
         }
         };
 
-    useEffect(() => {
+    
 
         const getOptions = () => {
 
 
-            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5NzY1ODY0MiwiZXhwIjoxNjk3NjYyMjQyfQ._q8JQpjFQIvmDYlZtqoFf-1oXpul-FJl7cSM5JGiTIM'); // Adicionar Token quando possível
+            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE'); // Adicionar Token quando possível
             const accessToken = sessionStorage.getItem('accessToken');
 
             if (accessToken) {
@@ -96,9 +96,10 @@ function Formacao() {
                 }
 
 
-                axios.get('http://localhost:3000/institution/findAll/0', config) // Por rota do get das instituições (testar também)
+               axios.get('http://localhost:3000/institution/findAll/0', config) 
                     .then((res) => {
                         const i_data = res.data;
+                        
                         const options = i_data.map((institution) => ({
                             value: institution.institution_id,
                             label: institution.institution_name,
@@ -113,13 +114,52 @@ function Formacao() {
                 alert('NÃO TEM TOKEN')
             }
 
-            getOptions();
+            ;
 
 
         }
 
+        const sendFormation = () => {
+            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE'); // Substitua pelo seu token
+            const accessToken = sessionStorage.getItem('accessToken');
+        
+            if (accessToken) {
+              const config = {
+                headers: {
+                  Authorization: `Bearer ${accessToken}`,
+                },
+              };
+        
+              axios.get('http://localhost:3000/auth/profile', config)
+                .then((res) => {
+                  const user_data = res.data;
 
-    }, []);
+                  const formationData = {
+                    degree: e_options.map(option => option.value),
+                    studyArea: s_options,
+                    beginDate: dataInicio,
+                    endDate: dataConclusao,
+                    description: descricao,
+                    userId: user_data.user_id,
+                    institutionId: institutionOptions.map(option => option.value)
+                  };
+        
+                  axios.post('http://localhost:3000/formation/create', formationData, config)
+                    .then(function (response) {
+                      console.log(response);
+                    })
+                    .catch(function (error) {
+                      console.error(error);
+                    });
+                })
+                .catch(error => {
+                  console.error(error);
+                });
+            } else {
+              alert('Nenhum token disponível');
+            }
+          };
+    
 
     return (
         <div>
@@ -136,7 +176,7 @@ function Formacao() {
             >
                 <div>
                     <p>Instituição de Ensino</p>
-                    <Select options={institutionOptions} />
+                    <Select options={institutionOptions} onClick={getOptions()}/>
                     <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)} />
                     <button onClick={addInstitution}>Adicionar Instituição</button>
 
@@ -167,8 +207,9 @@ function Formacao() {
                         rows="5"
                         cols="85"
                     />
-
+                    <button onClick={sendFormation}>Enviar</button>
                     <button onClick={closeModal}>Cancelar</button>
+                    
 
                 </div>
             </Modal>
