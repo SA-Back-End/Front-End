@@ -91,8 +91,7 @@ export default function ProjectCardMatch({ filterObject }) {
                 </h2>
                 <p>
                   Liderado por{" "}
-                  {data[currentProjectToDisplay] &&
-                    data[currentProjectToDisplay].status}
+                  {data?.[currentProjectToDisplay]?.userAdmin?.username}
                 </p>
               </div>
               <div className="hXj1oQp">
