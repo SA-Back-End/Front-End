@@ -1,6 +1,112 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat&family=Montserrat+Alternates:wght@300;400&display=swap");
 
 /* Botao.css */
+*{
+  font-family: "Montserrat", sans-serif;
+}
+
+.descricao{
+  position: absolute;
+  top: 490px;
+}
+
+.formacao{
+  padding-top: 110px;
+}
+
+.datadeinicio{
+  padding-top: 25px;
+}
+
+.datadetermino{
+  position: absolute;
+  top: 410px;
+}
+
+h1{
+  position: absolute;
+  top: -8px;
+}
+
+.desc{
+  min-height: 30px;
+  width: 495px;
+  position: absolute;
+  top: 140px;
+}
+
+.descr{
+  max-height: 35px;
+  width: 500px;
+}
+
+.date{
+  min-height: 25px;
+  width: 500px;
+}
+
+.r{
+  height: 3px;
+  width: 500px;
+}
+
+.y{
+  position: absolute;
+  top: 185px;
+}
+
+.s{
+  background-color: rgba(190, 35, 35, 0);
+  max-width: 500px;
+  min-height: 560px;
+  border: 2px solid;
+  border-color: #FF8200;
+  border-radius: 10px;
+  position: absolute;
+  left: 390px;
+  top: 25px;
+  padding: 20px;
+  padding-top: 40px;
+}
+
+.y{
+  padding: 1px 10px;
+  min-width: 100px;
+  font-size: 14px;
+  background-color: #ffe8cf;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  position: absolute;
+  top: 190px;
+  left: 20px;
+}
+.y:hover{
+  background-color: #f8f0e8;
+}
+
+.botaosalve{
+  padding: 1px 10px;
+  font-size: 16px;
+  background-color: #FF8200;
+  color: rgb(0, 0, 0);
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+  margin-left: 91px;
+  z-index: 900;
+  position: absolute;
+  top: 590px;
+  left: 340px;
+  min-width: 60px;
+}
+
+.botaosalve:hover {
+  background-color: #fd9e37;
+}
 
 .botao {
   padding: 1px 10px;
@@ -13,184 +119,11 @@
   font-family: "Montserrat", sans-serif;
   margin-left: 91px;
   z-index: 900;
-  position: relative;
-  top: 47px;
+  position: absolute;
+  top: 590px;
+  left: 240px;
 }
 
 .botao:hover {
   background-color: #2980b9;
-}
-
-.title {
-  z-index: auto;
-  position: relative;
-  top: 89px;
-  font-weight: 500;
-}
-
-/* Modal.css */
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-  padding-top: 60px;
-  z-index: 200000;
-}
-
-.modal-open {
-  display: block;
-}
-
-.modal-content {
-  background-color: #fefefe;
-  margin: 5% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-  max-width: 600px;
-}
-
-.close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-  color: black;
-  text-decoration: none;
-  cursor: pointer;
-}
-
-input {
-  width: 466px;
-  height: 20px;
-  border-radius: 5px;
-  border-color: #696161;
-  margin-bottom: 13px;
-  border: 1px solid #999;
-}
-.lados {
-  display: flex;
-  gap: 25px;
-  z-index: 1;
-}
-
-.statusDeAndamento,
-.modalidade {
-  flex-direction: column;
-  z-index: 10;
-}
-.status_modalidade{
-  border-radius: 5px;
-  border-color: #696161;
-  margin-bottom: 13px;
-  border: 1px solid #999;
-  width: 220px;
-  height: 30px;
-}
-
-.azul {
-  background: #003da5;
-  color: #fff;
-  width: 75px;
-  height: 25px;
-  top: 540px;
-  left: 310px;
-  border-radius: 10px;
-  border: none;
-  position: absolute;
-  cursor: pointer;
-}
-
-.lateral {
-  background: #003da5;
-  color: #fff;
-  width: 74px;
-  height: 22px;
-  top: 416px;
-  left: 413px;
-  border-radius: 5px;
-  border: none;
-  position: absolute;
-  z-index: 3;
-}
-
-.laranja {
-  background: #ff8200;
-  color: #fff;
-  width: 75px;
-  height: 25px;
-  top: 540px;
-  left: 395px;
-  border-radius: 10px;
-  border: none;
-  position: absolute;
-}
-
-.linha {
-  position: relative;
-  left: 226px;
-  top: -39px;
-  width: 190px;
-  height: 20px;
-}
-
-.titulo {
-  top: 8px;
-  height: 55px;
-  position: relative;
-  font-size: 23px;
-  font-weight: 500;
-}
-
-.descricao {
-  width: 466px;
-  height: 70px;
-  border-radius: 5px;
-}
-
-.modal-content {
-  width: 468px;
-  height: 550px;
-  top: -40px;
-  left: 7px;
-  border-radius: 10px;
-  border: 1px;
-  position: relative;
-}
-
-/* dropdowns */
-.escolha {
-  width: 190px;
-  height: 20px;
-  border-radius: 5px;
-}
-
-.opcoes {
-  width: 190px;
-  height: 20px;
-  border-radius: 5px;
-}
-
-.p {
-  position: relative;
-  top: -1px;
-  font-size: 14px;
-  font-weight: 500;
-  color: black;
-}
-
-.itensCargo{
-  position: relative;
-  top:5px;
 }

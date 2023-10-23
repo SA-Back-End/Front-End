@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import Select from 'react-select';
 import axios from 'axios';
+import "./formacaoModal.css"
 import InstitutionAdd from './institutionAdd';
 
 // Constante globais (options)
@@ -125,53 +126,64 @@ function Formacao() {
         <div>
 
             <div>
-                <button onClick={openModal}>Adicionar Formação</button>
+                <button className='p' onClick={openModal}>Adicionar Formação</button>
             </div>
 
             <Modal
-                
+                className='s'
                 isOpen={modalIsOpen}
                 onRequestClose={closeModal}
                 contentLabel='Adicionar Formação'
             >
                 <div>
-                    <p>Instituição de Ensino</p>
-                    <Select options={institutionOptions} />
-                    <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)} />
-                    <button onClick={addInstitution}>Adicionar Instituição</button>
+                    <h1>Adicionar formação</h1>
 
+                    <p>Instituição de Ensino</p>
+                    <Select className='r' options={institutionOptions} />
+                    <input className='desc' type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)} />
+                    <button className='y' onClick={addInstitution}>Adicionar Instituição</button>
+
+<div className='formacao'>
                     <p>Nível de Formação</p>
-                    <Select options={e_options} />
+                    <Select className='r' options={e_options} />
 
                     <p>Área de Atuação</p>
-                    <Select options={s_options} />
+                    <Select className='r' options={s_options} />
 
+                <div className='datadeinicio'>
                     <p>Data de Início</p>
                     <input
+                    className='date'
                         type="date"
                         value={dataInicio}
                         onChange={(e) => setDataInicio(e.target.value)}
                     />
-
+</div>
+                <div className='datadetermino'>
                     <p>Data de Conclusão</p>
                     <input
+                    className='date'
                         type="date"
                         value={dataConclusao}
                         onChange={(e) => setDataConclusao(e.target.value)}
                     />
-
+</div>
+<div className='descricao'>
                     <p>Descrição</p>
                     <textarea
+                    className='descr'
                         value={descricao}
                         onChange={(e) => setDescricao(e.target.value)}
                         rows="5"
                         cols="85"
-                    />
-
-                    <button onClick={closeModal}>Cancelar</button>
+                    /></div>
+</div>
+                    <button className='botao' onClick={closeModal}>Cancelar</button>
+                    <button className='botaosalve' onClick={closeModal}>Salvar</button>
 
                 </div>
             </Modal>
+            
         </div>
     );
 }
