@@ -52,3 +52,26 @@
   border-radius: 10px;
   Border: 0.2px;
 }
+
+.botaoAzul {
+  color: white;
+  font-family: "Montserrat", sans-serif;
+  background-color: #0052E0;
+  border-color: none;
+  height: 25px;
+  width: 75px;
+  top: 480px;
+  left: 363px;
+  border-radius: 10px;
+  border-style: none;
+
+}
+
+.botaoAzul:hover {
+  transition: 0.3s;
+  background-color: #003da0;
+}
+
+.show-skill {
+  border-color: #000000;
+}
