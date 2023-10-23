@@ -32,18 +32,21 @@ h2 {
     top: 10px;
     border-radius: 10px;
     padding: 10px;
-    border: 2px solid #0000ff;
+    border: 2px solid #003DA5;
     display: flex;
     flex-direction: column;
     overflow: auto;
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
-.avatar {
+.avatar, .project-img {
     border-radius: 30px;
     width: 50px;
     height: 50px;
     margin-top: 8px;
+}
+.project-img{
+    border-radius: .7rem;
 }
 .icon-role {
     position: absolute;
@@ -67,7 +70,7 @@ h2 {
 
 }
 .follow-btn {
-    background-color: #ffa500;
+    background-color: #ff9c33;
     font-size: 10px;
     width: 145px;
     height: 19px;
@@ -84,11 +87,11 @@ h2 {
     position: relative;
 }
 .follow-btn:focus,.follow-btn:hover {
-    background: darken(#ffa500, 7%);
+    background: darken(#ff9c33, 7%);
 }
 .follow-btn:hover {
     color: #fff;
-    background-color: #0077ff;
+    background-color: #0052E0;
 }
 .follow-btn.active {
     background-color: #70a5ff;

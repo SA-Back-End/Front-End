@@ -7,7 +7,10 @@ import match from './img/match.svg';
 import seguidor from './img/person.svg';
 import projeto from './img/projeto.svg';
 import avatar from './img/sugar.avif';
+import defaultAvatar from './img/default_avatar.png';
 import { useState } from 'react';
+import projectIcon from './img/Projeto.png'
+
 
 function Notificacao() {
     const [click, setClick] = useState(false);
@@ -17,7 +20,7 @@ function Notificacao() {
         setTextMatch(click ? 'Curtir de volta' : 'Curtido de volta')
     };
     const estiloBotao = {
-        backgroundColor: click ? '#ffd079' : '',
+        backgroundColor: click ? '#ffa647' : '',
         color: click ? '#000' : ''
     };
     const [click2, setClick2] = useState(false);
@@ -27,7 +30,7 @@ function Notificacao() {
     }
     const estiloBotao2 = {
         color: click2 ? '#000' : '',
-        backgroundColor: click2 ? '#ffd079' : ''
+        backgroundColor: click2 ? '#ffa647' : ''
     };
     return (
         <div>
@@ -37,10 +40,10 @@ function Notificacao() {
             <div className='notifi-box'>
                 <div className='content-note'>
                     <th>
-                        <p><img className='icon-role' src={curtir} /> <img className='avatar' src={avatar} /></p>
+                        <p><img className='icon-role' src={curtir} /> <img className='avatar' src={defaultAvatar} /></p>
                     </th>
                     <th>
-                        <p className='p-notify'><b>User12231</b> curtiu o cargo <b>"Engenheiro"</b> do seu projeto <b>"Casa"</b>.
+                        <p className='p-notify'><b>Adalberto</b> curtiu o cargo <b>"Engenheiro"</b> do seu projeto <b>"Casa"</b>.
                             <span className='text-time'> Há 20min</span>
                             <button className='follow-btn' style={estiloBotao} onClick={handleClick}><b>{textMatch}</b></button>
                         </p>
@@ -49,10 +52,10 @@ function Notificacao() {
 
                 <div className='content-note'>
                     <th>
-                        <p><img className='icon-role' src={match} /> <img className='avatar' src={avatar} /></p>
+                        <p><img className='icon-role' src={match} /> <img className='avatar' src={defaultAvatar} /></p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User1243r</b> e você se curtiram para o projeto <b>"Back-End"</b>.
+                        <p className='p-notify-short'><b>Marcelo Campos</b> e você se curtiram para o projeto <b>"Back-End"</b>.
                             <span className='text-time'> Há 20min</span>
                         </p>
                     </th>
@@ -60,11 +63,11 @@ function Notificacao() {
 
                 <div className='content-note'>
                     <th>
-                        <p><img className='icon-role' src={curtir} /> <img className='avatar' src={avatar} />
+                        <p><img className='icon-role' src={curtir} /> <img className='project-img' src={projectIcon} />
                         </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User12231</b> curtiu um atividade do seu projeto <b>"Casa"</b>.
+                        <p className='p-notify-short'><b>Marcelo Campos</b> curtiu uma atividade do seu projeto <b>"Casa"</b>.
                             <span className='text-time'> Há 20min</span>
                         </p>
                     </th>
@@ -72,10 +75,10 @@ function Notificacao() {
 
                 <div className='content-note'>
                     <th>
-                        <p><img className='icon-role' src={projeto} /> <img className='avatar' src={avatar} /> </p>
+                        <p><img className='icon-role' src={projeto} /> <img className='project-img' src={projectIcon} /> </p>
                     </th>
                     <th>
-                        <p className='p-notify'><b>User1243r</b> comentou em uma atividade do projeto <b>"Back-End"</b>.
+                        <p className='p-notify'><b>Luis Santos</b> comentou em uma atividade do projeto <b>"Back-End"</b>.
                             <span className='text-time'> Há 20min</span>
                             <button className='follow-btn' style={estiloBotao2} onClick={handleClick2}><b>{textFollow}</b></button>
                         </p>
@@ -88,7 +91,7 @@ function Notificacao() {
                         </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User12231</b> começou a seguir você.
+                        <p className='p-notify-short'><b>Carlos Fernando</b> começou a seguir você.
                             <span className='text-time'> Há 20min</span>
                             </p>
                     </th>
@@ -96,10 +99,10 @@ function Notificacao() {
 
                 <div className='content-note'>
                     <th>
-                        <p><img className='icon-role' src={projeto} /> <img className='avatar' src={avatar} /> </p>
+                        <p><img className='icon-role' src={projeto} /> <img className='project-img' src={projectIcon} /> </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User1243r</b> adicionou uma atividade ao projeto <b>"Back-End"</b>.
+                        <p className='p-notify-short'><b>Carlos Fernando</b> adicionou uma atividade ao projeto <b>"Back-End"</b>.
                         <span className='text-time'> Há 20min</span>
                     </p>
                     </th>
@@ -112,7 +115,7 @@ function Notificacao() {
                     </th>
                     <th>
 
-                        <p className='p-notify-short'><b>User1243r</b> excluiu o projeto <b>"Back-End"</b>.
+                        <p className='p-notify-short'><b>Carlos Fernando</b> excluiu o projeto <b>"Back-End"</b>.
                             <span className='text-time'> Há 20min</span>
                         </p>
                     </th>
@@ -125,7 +128,7 @@ function Notificacao() {
                         </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User1243r</b> excluiu uma atividade do projeto "Back-End".<span className='text-time'> Há 20min</span>
+                        <p className='p-notify-short'><b>Carlos Fernando</b> excluiu uma atividade do projeto "Back-End".<span className='text-time'> Há 20min</span>
                         </p>
                     </th>
                 </div>
@@ -135,7 +138,7 @@ function Notificacao() {
                         <p><img className='icon-role' src={excluir} /> <img className='avatar' src={avatar} /> </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User1243r</b> excluiu o projeto <b>"Back-End"</b>.
+                        <p className='p-notify-short'><b>Carlos Fernando</b> excluiu o projeto <b>"Back-End"</b>.
                             <span className='text-time'> Há 20min</span>
                         </p>
                     </th>
@@ -147,7 +150,7 @@ function Notificacao() {
                         </p>
                     </th>
                     <th>
-                        <p className='p-notify-short'><b>User1243r</b> atribuiu você ao cargo "Front-End" do projeto <b>"Back-End"</b>.
+                        <p className='p-notify-short'><b>Carlos Fernando</b> atribuiu você ao cargo "Front-End" do projeto <b>"Back-End"</b>.
                             <span className='text-time'> Há 20min</span>
                         </p>
                     </th>
