@@ -39,7 +39,7 @@ function SecondInputs(props) {
         <div className='SecondInputs'>
             <Data onDateUpdate={getBirthDate}></Data>
             <select className='unidades' placeholder='Unidade Federativa' id='state'>
-                <option value="">Selecione um estado</option>
+                <option disabled>Selecione um estado</option>
                 <option value="AC">AC</option>
                 <option value="AL">AL</option>
                 <option value="AP">AP</option>

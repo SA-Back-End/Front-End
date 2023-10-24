@@ -1,14 +1,14 @@
 /*import geral*/
-import iconPerfil from './img/mamaco.jpg';
+import iconPerfil from './img/account.png';
 import Header from '../components/navbar/navbar'
 import "./telaPerfil.css";
 
 /*react*/
 import { useEffect, useState } from 'react';
-import { Link, useLocation, useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 
 /*react-icons*/
-import { FaCakeCandles, FaMapLocationDot } from 'react-icons/fa6';
+import { FaCakeCandles, FaMapLocationDot, FaCircleUser } from 'react-icons/fa6';
 import { BiSolidBriefcase, BiLoaderCircle } from 'react-icons/bi'
 import { AiOutlineExport } from 'react-icons/ai'
 
@@ -20,11 +20,7 @@ import axios from 'axios';
 
 function TelaPerfil() {
 
-    // window.scrollTo(0, 0)
-
-    // const location = useLocation()
-    // const user = location.state.user;
-    // console.log(user)
+    window.scrollTo(0, 0)
 
     const navigate = useNavigate()
 
@@ -53,9 +49,9 @@ function TelaPerfil() {
         handleRequisition()
     }, [])
 
-    // useEffect(() => {
-    //     console.log(user)
-    // }, [user])
+    /*==========================================*/
+
+    //Tratamento dos dados do back-end para exibit bonitin no front
 
     const stateName = (state) => {
         switch (state) {
@@ -118,11 +114,57 @@ function TelaPerfil() {
         }
     }
 
+    const convertMonths = (val) => {
+        switch (val) {
+            case 1:
+                return "Janeiro";
+            case 2:
+                return "Fevereiro";
+            case 3:
+                return "Março";
+            case 4:
+                return "Abril";
+            case 5:
+                return "Maio";
+            case 6:
+                return "Junho";
+            case 7:
+                return "Julho";
+            case 8:
+                return "Agosto";
+            case 9:
+                return "Setembro";
+            case 10:
+                return "Outubro";
+            case 11:
+                return "Novembro";
+            default:
+                return "Dezembro";
+        }
+    };
+
+    const handleBirthDate = (isoBirthDate) => {
+        const date = new Date(isoBirthDate);
+        const day = date.getDate();
+        const month = convertMonths(date.getMonth() + 1);
+
+        return `${day} de ${month}`;
+    };
+
+    // const studyAreaName = (studyArea) => {
+    //     if (studyArea === undefined) {
+    //         return studyArea
+    //     }
+    //     const parte1 = studyArea[0].split("_")
+    //     const final = parte1.join(" ")
+    //     return final
+    // }
+
     return (
         <div>
             <div className='TelaPerfil'>
 
-                <Header />
+                <Header getUser={user} />
 
                 <div className='div-perfil-retanguloAzul'>
 
@@ -132,7 +174,12 @@ function TelaPerfil() {
 
                             <div className='div-infosLeft'>
                                 <div>
-                                    <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                    {user.profilePictureUrl ? (
+                                        <img src={user.profilePictureUrl} className='iconPerfil' alt='icon' />
+                                    ) : (
+                                        <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                    )
+                                    }
                                     <div className='infoHeader'>
                                         <a href=''><AiOutlineExport /> Contate-me</a>
                                     </div>
@@ -160,18 +207,27 @@ function TelaPerfil() {
 
                             <div className='div-infosRight'>
                                 <ul>
-                                    <li style={{ width: 290 }}>
-                                        <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div><span className='spanIcon'>Engenharia/Tecnologia</span></div>
+                                    <li style={{ width: 265 }}>
+                                        <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div>
+                                            {user.studyArea == [] ?
+                                                (
+                                                    <span className='spanIcon'>{user.studyArea}</span>
+                                                ) :
+                                                (
+                                                    <span className='spanIcon'>Área de Estudo</span>
+                                                )
+                                            }
+                                        </div>
                                     </li>
-                                    <li>
-                                        <div className='groupIcons'><div className='div-blueIcon'><FaCakeCandles className='icon' /></div><span className='spanIcon'>25 de agosto</span></div>
+                                    <li style={{ marginLeft: 15 }}>
+                                        <div className='groupIcons'><div className='div-blueIcon'><FaCakeCandles className='icon' /></div><span className='spanIcon'>{handleBirthDate(user.birthDate)}</span></div>
                                     </li>
                                 </ul>
                                 <ul>
-                                    <li style={{ width: 290 }}>
+                                    <li style={{ width: 265 }}>
                                         <div className='groupIcons'><div className='div-blueIcon'><BiLoaderCircle className='icon' /></div><span className='spanIcon'>{user.status}</span></div>
                                     </li>
-                                    <li>
+                                    <li style={{ marginLeft: 15 }}>
                                         <div className='groupIcons'><div className='div-orangeIcon'><FaMapLocationDot className='icon' /></div><span className='spanIcon'>{stateName(user.state)}</span></div>
                                     </li>
                                 </ul>
@@ -190,9 +246,14 @@ function TelaPerfil() {
                     <div className='container-perfil-aboutMe-retanguloLaranja'>
                         <div className='container-perfil-aboutMe-infos'>
                             <h2>Sobre mim</h2>
-                            <p>
-                                Olá pessoal! Me chamo {user.name}, natural de {stateName(user.state)} e esse é meu perfil na SKILLS!
-                            </p>
+
+                            {user.description === null ? (
+                                <p>Olá pessoal! Me chamo {user.name}, natural de {stateName(user.state)} e esse é meu perfil na SKILLS!</p>
+                            ) : (
+                                <p>{user.description}</p>
+                            )
+                            }
+
                         </div>
                     </div>
 

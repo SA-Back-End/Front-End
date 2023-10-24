@@ -52,7 +52,7 @@ function TelaLogin() {
       })
       .catch(error => {
         console.log(error.response)
-        alert("Login erro: " + error.status);
+        alert("Login erro: " + error.response.data.message);
       })
   }
 

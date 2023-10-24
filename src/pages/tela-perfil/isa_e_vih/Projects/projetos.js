@@ -20,81 +20,58 @@ function Projetos({ user }) {
   const [data, setData] = useState([]);
   const liderando = [
     {
-      projectTitle: "Lavagem de dinheiro",
+      projectTitle: "Construção do banco de dados",
       status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
-    {
-      projectTitle: "Lavagem de dinheiro",
-      status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
-      modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
-    {
-      projectTitle: "Lavagem de dinheiro",
-      status: "Concluido",
-      occupationArea: "Contábeis",
-      modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
+      duration: "2 meses",
+      description: "Construção do banco de dados do projeto Skills",
+    }
   ];
+
   const participando = [
     {
-      projectTitle: "Lavagem de money",
-      status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
+      projectTitle: "Construção do Front-end",
+      status: "Indisponível_para_participar",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
+      duration: "2 meses",
+      description: "Construção do front-end do projeto Skills",
     },
     {
-      projectTitle: "Lavagem de money",
-      status: "Indisponível_para_participar",
-      occupationArea: "Contábeis",
+      projectTitle: "Construção do Front-end",
+      status: "Disponível_para_participar",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
+      duration: "2 meses",
+      description: "Construção do front-end do projeto Skills",
+    }
   ];
+
   const concluido = [
     {
-      projectTitle: "Lavagem de dindin",
-      status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
+      projectTitle: "Construção do Back-end",
+      status: "concluido",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
+      duration: "2 meses",
+      description: "Construção do back-end do projeto Skills",
     },
     {
-      projectTitle: "Lavagem de dindin",
-      status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
+      projectTitle: "Construção do Back-end",
+      status: "concluido",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
-    {
-      projectTitle: "Lavagem de dindin",
-      status: "Disponível_para_participar",
-      occupationArea: "Contábeis",
+      duration: "2 meses",
+      description: "Construção do back-end do projeto Skills",
+    },{
+      projectTitle: "Construção do Back-end",
+      status: "concluido",
+      occupationArea: "Engenharia_ou_Tecnologia",
       modalidaty: "Presencial",
-      duration: "6 meses",
-      description:
-        "asdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassdaasdsadasdsadassda",
-    },
+      duration: "2 meses",
+      description: "Construção do back-end do projeto Skills",
+    }
   ];
 
   const respostaAPI = [
@@ -102,27 +79,6 @@ function Projetos({ user }) {
     { name: "participando", itens: participando },
     { name: "concluído", itens: concluido },
   ];
-
-  // useEffect(() => {
-  //   getDataApi();
-  // }, [])
-
-  // const getDataApi = async () => {
-
-  //   console.log(user)
-
-  //   const url = `http://localhost:3000/user/findOne/${user.userName}`
-  //   console.log(url)
-  //   const auth = {
-  //     Authorization: `${sessionStorage.getItem('accessToken')}`
-  //   }
-
-  //   await axios.get(url, { headers: auth }).then((res) => {
-  //     setData(res.data)
-  //     console.log(res.data)
-  //   })
-
-  // }
 
   const [isModalOpen, setIsModalOpen] = useState(false);
 

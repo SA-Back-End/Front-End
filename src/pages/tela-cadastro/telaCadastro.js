@@ -26,6 +26,7 @@ function TelaCadastro() {
     //Criar usuário a partir dos dados do front e mandar para o back-end
     const createUser = () => {
 
+        //cria um objeto 'user' com os dados vindos dos inputs
         const user = {
             firstName: dataFirstInputs.firstName,
             status: "Disponivel",
@@ -34,20 +35,46 @@ function TelaCadastro() {
             username: dataFirstInputs.username,
             email: dataFirstInputs.email,
             password: dataSecondInputs.password,
-            state: dataSecondInputs.state
+            state: dataSecondInputs.state,
+            studyArea: ['Engenharia_ou_Tecnologia']
         };
 
         console.log(user)
 
+        //faz a requisição para o back-end efetivamente criar o usuario e cadastrar no banco
+        //envia para a rota o objeto 'user'
         axios.post('http://localhost:3000/user/create', user)
             .then(response => {
                 console.log(response);
                 console.log(response.data);
-                navigate(`/${response.data.username}`);
+
+                //2º etapa: após um cadastro bem-sucedido, o sistema irá automaticamente 'fazer um login', para receber a token
+                //de acesso (accessToken), e poder então efetivamente logar no sistema
+
+                //cria um objeto 'login' com os próprios dados bem-sucedidos do usuario recem cadastrado
+                const loginInfos = {
+                    login: user.username,
+                    password: user.password
+                }
+
+                //chama a rota de login, enviando os dados a serem autenticados
+                axios.post('http://localhost:3000/auth/login', loginInfos)
+                    .then(response => {
+                        console.log(response)
+                        //uma vez autenticados, cadastra a accessToken no SessionStorage do navegador -> accessToken = chave de acesso
+                        sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
+                        //redireciona o usuario para seu perfil
+                        navigate(`/${user.username}`)
+                    })
+                    .catch(error => {
+                        console.log(error.response)
+                        alert("Login erro: " + error.response.data.message);
+                        navigate('/login')
+                    })
             })
             .catch(error => {
                 console.log(error)
-                alert(error.response.data.message)
+                alert("ERRO!\nVerifique os dados inseridos e tente novamente!")
             });
     };
 

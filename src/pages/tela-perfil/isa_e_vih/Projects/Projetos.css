@@ -28,7 +28,7 @@
 }
 
 .projetosComponent .concluido {
-    border-color: orange;
+    border-color: orange !important;
 }
 
 .projetosComponent .profile_card_body {

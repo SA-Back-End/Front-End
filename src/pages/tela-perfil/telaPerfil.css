@@ -66,7 +66,7 @@
 /* <img> */
 .TelaPerfil .iconPerfil {
     border-radius: 100%;
-    width: 180px;
+    width: 170px;
     height: 166px;
     filter: drop-shadow(0 7px 5px #3a3a3a);
 }
@@ -144,8 +144,8 @@
 /*---------------------*/
 
 .TelaPerfil .div-infosRight {
-    margin: 4% 0 0 10%;
-    width: 41%;
+    margin: 4% 0 0 5%;
+    width: 51%;
 }
 
 .TelaPerfil .div-infosRight ul {

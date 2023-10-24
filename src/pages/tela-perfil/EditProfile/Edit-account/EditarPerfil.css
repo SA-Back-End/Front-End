@@ -1,11 +1,10 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,500&display=swap');
+
 .divMommy {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-}
-
-.divMommy{
-    width: 100%;
+    font-family: 'Montserrat', sans-serif;
 }
 
 .divMommy .center {
@@ -14,11 +13,11 @@
     width: 300px;
 }
 
-.divMommy .centerN label{
+.divMommy .centerN label {
     display: block;
     position: relative;
-    top: 370px;
-    left: -515px;
+    top: 286px;
+    left: 140px;
 }
 
 .divMommy .centerN input {
@@ -31,7 +30,7 @@
     border-width: 0.5px;
 }
 
-.divMommy .centerE label{
+.divMommy .centerE label {
     display: block;
     position: absolute;
     top: 370px;
@@ -48,7 +47,7 @@
     border-width: 0.5px;
 }
 
-.divMommy .centerS label{
+.divMommy .centerS label {
     display: block;
     position: absolute;
     top: 450px;
@@ -65,7 +64,7 @@
     border-width: 0.5px;
 }
 
-.divMommy .centerC{
+.divMommy .centerC {
     position: absolute;
     top: 450px;
     left: 750px;
@@ -76,36 +75,36 @@
     position: absolute;
     top: 1px;
     left: 88px;
-    width:  430%;
+    width: 430%;
     height: 20px;
     border-radius: 7px;
     border-width: 0.5px;
 }
 
 .divMommy h1 {
- position: absolute;
- top: 198px;
- left: 140px;
- color:  #1a1b1b;
- font-weight: normal;
+    position: absolute;
+    top: 198px;
+    left: 140px;
+    color: #1a1b1b;
+    font-weight: normal;
 }
 
-.divMommy .centerP{
+.divMommy .centerP {
     position: absolute;
     top: 250px;
     left: 140px;
     font-size: 20px;
 }
 
-.divMommy .centerP2{
+.divMommy .centerP2 {
     position: absolute;
     top: 478px;
     left: 850px;
-    color:#1F71FF;
+    color: #1F71FF;
     font-size: 10px;
 }
 
-.divMommy .fundo{
+.divMommy .fundo {
     position: absolute;
     top: 70px;
     left: 0px;
@@ -116,10 +115,10 @@
     align-self: flex-start;
     max-width: 2000px;
     background-color: #0052E0;
-    background-image: linear-gradient(#0052E0,#1F71FF);
+    background-image: linear-gradient(#0052E0, #1F71FF);
 }
 
-.divMommy .button{
+.divMommy .button {
     margin-bottom: 14px;
     margin: 10px;
     font-size: 12px;
@@ -128,45 +127,46 @@
     border-radius: 7px;
     border-color: #ffa341;
     color: rgb(255, 255, 255);
-    position:absolute;
+    position: absolute;
     top: 550px;
     left: 150px;
     height: 25px;
     width: 9%;
 }
 
-.divMommy .button:hover{
+.divMommy .button:hover {
     background-color: rgb(230, 136, 29)
 }
 
-.divMommy .buttonS{
+.divMommy .buttonS {
     margin-bottom: 14px;
     margin: 10px;
-    font-size: 12px;  
+    font-size: 12px;
     cursor: pointer;
     background-color: #fc8200;
     border-radius: 7px;
     border-color: #ffa341;
     color: rgb(255, 255, 255);
-    position:absolute;
+    position: absolute;
     top: 550px;
     left: 290px;
     height: 25px;
     width: 9%;
 }
 
-.divMommy .buttonS:hover{
+.divMommy .buttonS:hover {
     background-color: rgb(230, 136, 29)
 }
 
-.divMommy .button, .buttonS {
+.divMommy .button,
+.buttonS {
     border: none;
 }
 
-.divMommy .butdelt{
+.divMommy .butdelt {
     margin-bottom: 14px;
     margin: 10px;
-    font-size: 11px; 
+    font-size: 11px;
     cursor: pointer;
     background-color: #d44f1a;
     border-radius: 7px;
@@ -181,7 +181,7 @@
     padding: 0px;
 }
 
-.divMommy .butdelt:hover{
+.divMommy .butdelt:hover {
     background-color: rgb(219, 62, 0)
 }
 
@@ -195,9 +195,9 @@
 
 }
 
-.divMommy .butsair{
+.divMommy .butsair {
     width: 30px;
-    background-color:azure;
+    background-color: azure;
     font-size: 15px;
     border: none;
     background-color: #FFF;
