@@ -91,7 +91,7 @@ const editUser = (e) => {
     if (accessToken) {
         const config = {
             headers: {
-                Authorization: `Bearer ${accessToken}`,
+                Authorization: accessToken,
             },
         };
 
@@ -137,7 +137,7 @@ const seguirUser = (e) => {
             if (accessToken) {
                 const config = {
                     headers: {
-                        Authorization: `Bearer ${accessToken}`,
+                        Authorization: accessToken,
                     },
                 };
 
