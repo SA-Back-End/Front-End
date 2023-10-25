@@ -19,6 +19,7 @@ import Certificados from './nicoly/Certificados/Certificados';
 import Projetos from './isa_e_vih/Projects/projetos';
 import axios from 'axios';
 import Formacao from './lele/Formacao/formacao';
+import Skills from './lele/skills/userSkills';
 
 function TelaPerfil() {
 
@@ -283,6 +284,16 @@ function TelaPerfil() {
                 </footer>
 
             </div> {/*fim da primeira parte da telaPerfil*/}
+
+            <div style={{
+                marginTop: '3%',
+                marginLeft: '5.6%',
+                width: '90%'
+            }}
+                id='skills'
+            >
+                <Skills />
+            </div>
 
             <div style={{
                 marginTop: '3%',
