@@ -47,13 +47,17 @@ function Formacao() {
         setModalIsOpen(false);
     }
 
+    function alertPageInDev() {
+        alert("Página em construção!")
+    }
+
     const addInstitution = () => {
         if(!inputText.trim()){
             alert('Digite o nome de uma instituição válida!')
             return
         }
 
-        sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE');
+        sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5ODIwMDc1OCwiZXhwIjoxNjk4MjA0MzU4fQ.mkqEn5goZ82rvthjd5tnANNaEEQR0Ns8baa_C6cPD9M');
         const accessToken = sessionStorage.getItem('accessToken');
 
         if (accessToken) {
@@ -85,7 +89,7 @@ function Formacao() {
         const getOptions = () => {
 
 
-            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE'); // Adicionar Token quando possível
+            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5ODIwMDc1OCwiZXhwIjoxNjk4MjA0MzU4fQ.mkqEn5goZ82rvthjd5tnANNaEEQR0Ns8baa_C6cPD9M'); // Adicionar Token quando possível
             const accessToken = sessionStorage.getItem('accessToken');
 
             if (accessToken) {
@@ -120,7 +124,7 @@ function Formacao() {
         }
 
         const sendFormation = () => {
-            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MiwidXNlcm5hbWUiOiJNYXJpYUJlYXRyaXoiLCJpYXQiOjE2OTgwODQwNzYsImV4cCI6MTY5ODA4NzY3Nn0.rs87uItgSKGoP6Lmrn7UYxGmXzHdZ075J8-80WsnmfE'); // Substitua pelo seu token
+            sessionStorage.setItem('accessToken', 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MSwidXNlcm5hbWUiOiJSb2RyaWdvTHVpcyIsImlhdCI6MTY5ODIwMDc1OCwiZXhwIjoxNjk4MjA0MzU4fQ.mkqEn5goZ82rvthjd5tnANNaEEQR0Ns8baa_C6cPD9M'); // Substitua pelo seu token
             const accessToken = sessionStorage.getItem('accessToken');
         
             if (accessToken) {
@@ -176,7 +180,7 @@ function Formacao() {
             >
                 <div>
                     <p>Instituição de Ensino</p>
-                    <Select options={institutionOptions} onClick={getOptions()}/>
+                    <Select options={institutionOptions} onMenuOpen={getOptions}/>
                     <input type='Text' placeholder='Não Encontrou a sua? Digite aqui' value={inputText} onChange={(e) => setInputText(e.target.value)} />
                     <button onClick={addInstitution}>Adicionar Instituição</button>
 
@@ -207,7 +211,7 @@ function Formacao() {
                         rows="5"
                         cols="85"
                     />
-                    <button onClick={sendFormation}>Enviar</button>
+                    <button onClick={alertPageInDev}>Enviar</button>
                     <button onClick={closeModal}>Cancelar</button>
                     
 
