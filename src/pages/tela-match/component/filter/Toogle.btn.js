@@ -1,5 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"
+import { FaUserAlt } from "react-icons/fa";
+import { RiPresentationFill } from "react-icons/ri";
 import "./Toogle.btn.css"
 
 export default function ToogleBtn({ toFilter }) {
@@ -44,7 +46,7 @@ export default function ToogleBtn({ toFilter }) {
     return (
         <label className="toogle-container">
             <input type="checkbox" defaultChecked={isToggled} className={`input-${isToggled}`} onClick={callback} />
-            <span />
+            <span> { isToggled ? <RiPresentationFill /> : <FaUserAlt /> } </span>
         </label>
     )
 }
