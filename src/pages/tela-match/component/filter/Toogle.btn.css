@@ -1,4 +1,6 @@
 label.toogle-container {
+    border-radius: 100%;
+    box-shadow: 0 5px 9px -5px black;
     position: relative;
     display: inline-block;
     width: 60px;
@@ -18,9 +20,18 @@ label.toogle-container span {
     left: 0;
     right: 0;
     bottom: 0;
-    background: #2c3e50;
+    background: #003DA5;
     transition: 0.3s;
     border-radius: 30px;
+    display: flex;
+    align-items: center;
+    color: #003DA5;
+}
+
+
+label.toogle-container span svg {
+    z-index: 11;
+    transform: translateX(8px);
 }
 
 label.toogle-container span:before {
@@ -30,15 +41,22 @@ label.toogle-container span:before {
     width: 25px;
     left: 3px;
     bottom: 2.6px;
-    background-color: #fff;
+    background-color: #ff9c33;
     border-radius: 50%;
     transition: 0.3s;
+    z-index: 10;
 }
 
-label.toogle-container input.input-false + span{
-    background-color: #00c853;
+label.toogle-container input.input-false + span {
+    background-color: #ff9c33;
+    color: #ff9c33;
+}
+
+label.toogle-container input.input-false + span svg {
+    transform: translateX(37.5px);
 }
 
 label.toogle-container input.input-false + span:before {
     transform: translateX(29px);
+    background: #003DA5;
 }
