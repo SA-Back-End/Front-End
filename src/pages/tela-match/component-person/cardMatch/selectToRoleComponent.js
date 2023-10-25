@@ -37,7 +37,7 @@ export default function SelectToRoleComponent({
 
   const prepareHeaders = () => {
     return {
-      Authorization: `Bearer ${sessionStorage.getItem("bearer")}`,
+      Authorization: sessionStorage.getItem("accessToken"),
     };
   };
 

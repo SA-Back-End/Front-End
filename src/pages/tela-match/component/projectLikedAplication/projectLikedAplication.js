@@ -37,7 +37,7 @@ export default function ProjectLikedAplication({
 
   const sendLiked = async (payload) => {
     const AUTH = {
-      Authorization: `Bearer ${sessionStorage.getItem("bearer")}`,
+      Authorization: sessionStorage.getItem("accessToken"),
     };
     const url = `http://localhost:3000/screen-stick/create`;
     try {
