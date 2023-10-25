@@ -1,18 +1,49 @@
-import React, { useState } from "react"
+import axios from "axios";
+import React, { useEffect, useState } from "react"
 import "./Toogle.btn.css"
 
-export default function ToogleBtn({toFilter}) {
+export default function ToogleBtn({ toFilter }) {
 
-    const [isToggled, toggle] = useState(false)
+    const [myData, setMyData] = useState([]);
+    const [isToggled, toggle] = useState(true)
 
-    const callback = () => {
-        toggle(!isToggled)
-        toFilter(!isToggled)
+    useEffect(() => {
+        getMyDataAPI();
+    }, [])
+
+    const getMyDataAPI = async () => {
+        const url = 'http://localhost:3000/auth/profile';
+        const AUTH = {
+            "Authorization": `${sessionStorage.getItem("accessToken")}`,
+        }
+        axios.get(url, { headers: AUTH }).then((res) => {
+            if (res.status !== 200) {
+                return console.log("Deu erro");
+            }
+            setMyData(res.data);
+        });
+    }
+
+    const callback = async () => {
+        if (await iHaveProject() === true) {
+            toggle(!isToggled);
+            toFilter(!isToggled);
+            return
+        } else {
+            alert("Você não possui projetos para convidar alguém!")
+            toggle(isToggled)
+            toFilter(isToggled)
+        }
+    }
+ 
+    const iHaveProject = async () => {
+        const boolean = myData?.project?.[0] ? true : false;
+        return boolean;
     }
 
     return (
         <label className="toogle-container">
-            <input type="checkbox" defaultChecked={isToggled} onClick={callback}/>
+            <input type="checkbox" defaultChecked={isToggled} className={`input-${isToggled}`} onClick={callback} />
             <span />
         </label>
     )
