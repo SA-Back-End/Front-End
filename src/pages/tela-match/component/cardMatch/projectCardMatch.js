@@ -51,6 +51,7 @@ export default function ProjectCardMatch({ filterObject }) {
 
     try {
       const response = await axios.get(url, { headers: options });
+      console.log(response.data)
       handleResponse(response);
     } catch (error) {
       console.log(error);
@@ -71,7 +72,13 @@ export default function ProjectCardMatch({ filterObject }) {
 
   const handleNextAplication = () => {
     setCurrentProjectToDisplay(currentProjectToDisplay + 1);
+    console.log(projectIsMine(currentProjectToDisplay + 1))
+    if (projectIsMine(currentProjectToDisplay + 1)) setCurrentProjectToDisplay(currentProjectToDisplay + 1);
   };
+
+  const projectIsMine = (project) => {
+    return data?.[project]?.id_projectManager === myId ? true : false;
+  }
 
   return (
     <div>
