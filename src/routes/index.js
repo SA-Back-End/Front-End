@@ -20,7 +20,6 @@ function WebRoutes() {
                         <Route path="/" element={<TelaAboutUs />} />
                         <Route path="/match" element={<TelaMatch />} />
                         <Route path="/forYou" element={<TelaForYou />} />
-                        <Route path="/login" element={<TelaLogin />} />
                         <Route path="/cadastro" element={<TelaCadastro />} />
                         <Route path="/:username" element={<TelaPerfil />} />
                         <Route path='/:username/editProfile' element={<EditProfile />} />

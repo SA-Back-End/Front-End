@@ -5,6 +5,7 @@ import TelaLogin from '../tela-login/login.js'
 import TelaCarrossel from './tela-carrossel/telaCarrossel';
 
 const TelaAboutUs = () => {
+
   return (
     <div className='mainPage'>
       <div className='TelaAboutUs'>

@@ -69,7 +69,7 @@ function TelaCadastro() {
                     .catch(error => {
                         console.log(error.response)
                         alert("Login erro: " + error.response.data.message);
-                        navigate('/login')
+                        goToLogin()
                     })
             })
             .catch(error => {
@@ -98,6 +98,16 @@ function TelaCadastro() {
         setShowButton(true);
         setBackButton(false);
     };
+
+    const goToLogin = () => {
+        navigate('/')
+        setTimeout(() => {
+            const loginSection = document.getElementById('login')
+            if (loginSection) {
+                loginSection.scrollIntoView()
+            }
+        }, 500)
+    }
 
     return (
         <div className="TelaCadastro">
@@ -131,7 +141,7 @@ function TelaCadastro() {
                         </div>
                         <p className="p-login">
                             <span className="text">Já tem uma conta?</span>{' '}
-                            <a style={{ color: '#FF8200', fontWeight: 'bold' }} href="/login">
+                            <a style={{ color: '#FF8200', fontWeight: 'bold', textDecoration: 'underline' }} onClick={goToLogin}  href='#login'>
                                 Faça login
                             </a>
                         </p>
