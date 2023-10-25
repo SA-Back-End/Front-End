@@ -69,6 +69,7 @@
     width: 170px;
     height: 166px;
     filter: drop-shadow(0 7px 5px #3a3a3a);
+    background-color: #c9d3dc;
 }
 
 .TelaPerfil .infoHeader {

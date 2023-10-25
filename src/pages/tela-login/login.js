@@ -56,13 +56,17 @@ function TelaLogin() {
       })
   }
 
+  const alertInDev = () => {
+    alert("Página em constrção!")
+  }
+
   return (
     <div className='TelaLogin'>
       <div className="div-toGroup">
 
         <div className="div-merchan">
-          <p className="p-merchan"> <img className="logoLogin" src={logo} alt="logo" /> Aprimore suas <strong className='strong-login'>skills!</strong> </p>
-          <p className="p-merchan"> <strong> Para nos mantermos <strong className='strong-login'>conectados</strong>, entre com suas credenciais.</strong></p>
+          <p className="p1-merchan"> <img className="logoLogin" src={logo} alt="logo" /> Aprimore suas <strong className='strong-login'>skills!</strong> </p>
+          <p className="p-merchan"> Para nos mantermos <strong className='strong-login'>conectados</strong>, entre com suas credenciais.</p>
           <img className="boneco" src={boneco} alt="login" />
         </div>
 
@@ -78,8 +82,8 @@ function TelaLogin() {
               <input type="password" className='login-inputs' placeholder='Senha' id='user-password' onInput={handlePassword} required />
             </div>
             <div className='div-links'>
-              <p className='p-senha'>Esqueceu a senha?</p>
-              <button className="botao-submit" type="submit"><b>Entrar</b></button>
+              <p className='p-senha'><span onClick={alertInDev}>Esqueceu a senha?</span></p>
+              <button className="botao-submit" type="submit">Entrar</button>
               <p className='p-conta'><span>Não tem uma conta?</span> <a className='a-login' href='/cadastro'>Cadastre-se</a></p>
             </div>
           </form>

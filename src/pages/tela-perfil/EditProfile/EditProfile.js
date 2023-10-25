@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './EditProfile.css'
 import HomeNavbar from '../../components/navbar/navbar.js';
-import profilePicture from './img/account.png'
+import profilePicture from './img/userIcon.png'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -185,9 +185,9 @@ const EditProfile = () => {
                 <div className='gradient'>
                     <div className='flex'>
                         {user.profilePictureUrl ? (
-                            <img src={user.profilePictureUrl} alt='profilePicture' id="profile" style={{ backgroundColor: 'white' }} />
+                            <img src={user.profilePictureUrl} alt='profilePicture' id="profile" style={{ backgroundColor: '#c9d3dc' }} />
                         ) : (
-                            <img src={profilePicture} alt='profilePicture' id="profile" style={{ backgroundColor: 'white' }}/>
+                            <img src={profilePicture} alt='profilePicture' id="profile" style={{ backgroundColor: '#c9d3dc' }} />
                         )
                         }
                         <div className='breakLine'>

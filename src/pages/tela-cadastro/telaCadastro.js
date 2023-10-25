@@ -35,8 +35,7 @@ function TelaCadastro() {
             username: dataFirstInputs.username,
             email: dataFirstInputs.email,
             password: dataSecondInputs.password,
-            state: dataSecondInputs.state,
-            studyArea: ['Engenharia_ou_Tecnologia']
+            state: dataSecondInputs.state
         };
 
         console.log(user)
@@ -64,6 +63,7 @@ function TelaCadastro() {
                         //uma vez autenticados, cadastra a accessToken no SessionStorage do navegador -> accessToken = chave de acesso
                         sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
                         //redireciona o usuario para seu perfil
+                        alert("Cadastro realizado com sucesso!")
                         navigate(`/${user.username}`)
                     })
                     .catch(error => {

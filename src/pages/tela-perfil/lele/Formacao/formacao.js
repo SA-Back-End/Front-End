@@ -1,51 +1,38 @@
 import React, { useState } from 'react';
-import "./Experiencias.css";
-import icone from '../img/icone.png';
-import add from '../img/add.png';
-import ModalExperiencias from './Components/ModalExp.jsx';
+import "./formacao.css";
+import { HiOutlineAcademicCap } from 'react-icons/hi2'
+import add from './add.png';
 
+function Formacao() {
 
-function Experiencias() {
-
-    const [isModalOpen, setIsModalOpen] = useState(false);
-
-    const toggleModal = () => {
-        setIsModalOpen(!isModalOpen);
+    const alertInDev = () => {
+        alert("Página em construção!")
     }
 
     const exp = [{
-        id_experience: "..",
+        id_experience: "1",
         id_user: "..",
-        id_instituition: "Intelbras",
-        id_studyArea: "Engenharia / Tecnologia",
-        role: "Desenvolvedor Back-End",
+        id_instituition: "Unisul",
+        id_studyArea: "Sistemas de Informação",
+        area: "Engenharia/ Tecnologia",
         beginDate: "Fev 2023",
         endDate: "2026",
         experience_description: "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.",
     }, {
-        id_experience: "..",
+        id_experience: "1",
         id_user: "Disponível_para_participar",
-        id_instituition: "Santander",
-        id_studyArea: "Ciências Humanas",
-        role: "Assistente de Marketing",
+        id_instituition: "UDESC",
+        id_studyArea: "Marketing",
+        area: "Ciências Humanas",
         beginDate: "Jun 2021",
         endDate: "2023",
         experience_description: "Lorem ipsum dolor sit amet.",
     }, {
-        id_experience: "..",
+        id_experience: "2",
         id_user: "Disponível_para_participar",
-        id_instituition: "Santander",
-        id_studyArea: "Ciências Humanas",
-        role: "Assistente de Marketing",
-        beginDate: "Jun 2021",
-        endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
-    }, {
-        id_experience: "..",
-        id_user: "Disponível_para_participar",
-        id_instituition: "Santander",
-        id_studyArea: "Ciências Humanas",
-        role: "Assistente de Marketing",
+        id_instituition: "SENAI",
+        id_studyArea: "Ensino Médio",
+        area: "Geral",
         beginDate: "Jun 2021",
         endDate: "2023",
         experience_description: "Lorem ipsum dolor sit amet.",
@@ -56,18 +43,18 @@ function Experiencias() {
     ];
 
     return (
-        <div className='experiencia'>
+        <div className='formacao'>
 
             <div className='header'>
                 <ul className='exp_header'>
                     <li className='page_title'>
                         <div className='title'>
-                            <p className='title'>Experiências</p>
+                            <p className='title'>Formações</p>
                         </div>
                     </li>
                     <li className='exp_add'>
                         <div className='add'>
-                            <span><img className="add" src={add} onClick={toggleModal} /></span>
+                            <span><img className="add" src={add} onClick={alertInDev}/></span>
                         </div>
                     </li>
                 </ul>
@@ -84,15 +71,30 @@ function Experiencias() {
                                 <ul className='test'>
                                     {e.itens.map((itens, subIndex) => (
                                         <li className={`card_itens`} key={subIndex}>
-                                            <div className='exp_icon'>
-                                                <span>
-                                                    <img className="icone-exp" src={icone} />
-                                                </span>
+                                            <div>
+                                                {itens.id_experience == 1 ? (
+                                                    <div className='exp_icon' style={{ backgroundColor: '#1F71FF' }}>
+                                                        <HiOutlineAcademicCap style={{
+                                                            fontSize: 45,
+                                                            paddingTop: 7,
+                                                            paddingLeft: 8
+                                                        }} />
+                                                    </div>
+                                                ) : (
+                                                    <div className='exp_icon' style={{ backgroundColor: '#FFA647' }}>
+                                                        <HiOutlineAcademicCap style={{
+                                                            fontSize: 45,
+                                                            paddingTop: 7,
+                                                            paddingLeft: 8
+                                                        }} />
+                                                    </div>
+                                                )
+                                                }
                                             </div>
                                             <div className='info'>
                                                 <h3>{itens.id_instituition}</h3>
-                                                <p><strong>Área:</strong> {itens.id_studyArea}</p>
-                                                <p><strong>Cargo:</strong> {itens.role}</p>
+                                                <p><strong>Graduação - </strong> {itens.id_studyArea}</p>
+                                                <p><strong>Área: </strong> {itens.area}</p>
                                             </div>
                                             <div className='data_e_funcao'>
                                                 <p>{itens.beginDate} - {itens.endDate}</p>
@@ -107,9 +109,8 @@ function Experiencias() {
                     ))}
                 </div>
             </div>
-            {isModalOpen && <ModalExperiencias isOpen={isModalOpen} onClose={toggleModal} />}
         </div>
     );
 }
 
-export default Experiencias;
+export default Formacao;

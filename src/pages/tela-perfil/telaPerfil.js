@@ -1,5 +1,6 @@
 /*import geral*/
 import iconPerfil from './img/account.png';
+import userIcon from './img/userIcon.png'
 import Header from '../components/navbar/navbar'
 import "./telaPerfil.css";
 
@@ -17,6 +18,7 @@ import Experiencias from './nicoly/Experiencias/Experiencias';
 import Certificados from './nicoly/Certificados/Certificados';
 import Projetos from './isa_e_vih/Projects/projetos';
 import axios from 'axios';
+import Formacao from './lele/Formacao/formacao';
 
 function TelaPerfil() {
 
@@ -177,7 +179,7 @@ function TelaPerfil() {
                                     {user.profilePictureUrl ? (
                                         <img src={user.profilePictureUrl} className='iconPerfil' alt='icon' />
                                     ) : (
-                                        <img src={iconPerfil} className='iconPerfil' alt='icon' />
+                                        <img src={userIcon} className='iconPerfil' alt='icon' />
                                     )
                                     }
                                     <div className='infoHeader'>
@@ -209,12 +211,12 @@ function TelaPerfil() {
                                 <ul>
                                     <li style={{ width: 265 }}>
                                         <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div>
-                                            {user.studyArea == [] ?
-                                                (
-                                                    <span className='spanIcon'>{user.studyArea}</span>
-                                                ) :
+                                            {user.studyArea == "" ?
                                                 (
                                                     <span className='spanIcon'>Área de Estudo</span>
+                                                ) :
+                                                (
+                                                    <span className='spanIcon'>{user.studyArea}</span>
                                                 )
                                             }
                                         </div>
@@ -281,6 +283,16 @@ function TelaPerfil() {
                 </footer>
 
             </div> {/*fim da primeira parte da telaPerfil*/}
+
+            <div style={{
+                marginTop: '3%',
+                marginLeft: '6%',
+                width: '90%'
+            }}
+                id='formacoes'
+            >
+                <Formacao />
+            </div>
 
             <div style={{
                 marginTop: '3%',
