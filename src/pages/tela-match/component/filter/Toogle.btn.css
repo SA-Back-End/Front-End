@@ -35,10 +35,10 @@ label.toogle-container span:before {
     transition: 0.3s;
 }
 
-label.toogle-container input:checked+span {
+label.toogle-container input.input-false + span{
     background-color: #00c853;
 }
 
-label.toogle-container input:checked+span:before {
+label.toogle-container input.input-false + span:before {
     transform: translateX(29px);
 }

@@ -287,8 +287,8 @@ export default function UserCardMatch({ filterObject }) {
               </button>
             </div>
             <div className="btn-card-applications">
-              <button onClick={console.log}>
-                <AiOutlineClose onClick={handleNextUser} />
+              <button onClick={handleNextUser}>
+                <AiOutlineClose/>
               </button>
             </div>
             {openSelectProjectModal && (
