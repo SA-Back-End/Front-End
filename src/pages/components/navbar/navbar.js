@@ -85,12 +85,12 @@ const HomeNavbar = () => {
                 <nav>
                     <ul>
                         <li className='logoFlex'>
-                            {/* {isUserLogged ? (
+                            {isUserLogged ? (
                                 <Link to={"/match"}><img src={logo} alt='logo' id='logo' /></Link>
                             ) : (
                                 <Link to={"/"}><img src={logo} alt='logo' id='logo' /></Link>
-                            )} */}
-                            <Link to={"/"}><img src={logo} alt='logo' id='logo' /></Link>
+                            )}
+                            {/* <Link to={"/"}><img src={logo} alt='logo' id='logo' /></Link> */}
                             <p>Skills</p>
                         </li>
                         <ul className='icon-buttons'>
