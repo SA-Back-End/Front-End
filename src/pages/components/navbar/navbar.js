@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './navbar.css';
 import logo from './images/logo.ico'
 // import profilePicture from '../../tela-perfil/EditProfile/profilePicture.png'
@@ -9,12 +9,7 @@ import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 import Notificacao from '../modules/tela-notificacao/telaNotificacao';
 
-const HomeNavbar = (props) => {
-
-    const [user, setUser] = useState()
-    const getUser = () => {
-        setUser(props.getUser())
-    }
+const HomeNavbar = () => {
 
     const { username } = useParams()
     const navigate = useNavigate()
@@ -38,8 +33,23 @@ const HomeNavbar = (props) => {
 
         } catch (e) {
             console.log(e)
-            alert("ERROR!\nVoltando para tela inicial...")
-            navigate('/')
+            alert("ERROR!\nVoltando para o perfil anterior...")
+            navigate(`/${username}`)
+        }
+    }
+
+    const goToUserEdit = async () => {
+        try {
+            const response = await axios.get('http://localhost:3000/auth/profile', config)
+            if (response.status === 200) {
+                console.log("navegando...")
+                navigate(`/${response.data.username}/editProfile/accountInfos`)
+                window.location.reload()
+            }
+        } catch (e) {
+            console.log(e)
+            alert("ERROR!\nVoltando para o perfil anterior...")
+            navigate(`/${username}`)
         }
     }
 
@@ -49,33 +59,69 @@ const HomeNavbar = (props) => {
         setShowNotification(!showNotification);
     };
 
+    const alertInDev = () => {
+        alert("Página em construção!")
+    }
+
+    const [isUserLogged, setUserLogged] = useState(false)
+
+    const verifyIfUserIsLogged = () => {
+        const accessToken = sessionStorage.getItem('accessToken')
+        console.log(accessToken)
+        if (accessToken) {
+            setUserLogged(true)
+        } else {
+            setUserLogged(false)
+        }
+    }
+
+    useEffect(() => {
+        verifyIfUserIsLogged()
+    })
+
     return (
         <div className='HomeNavbar'>
             <header>
                 <nav>
                     <ul>
                         <li className='logoFlex'>
-                            <Link to={"/match"}><img src={logo} alt='logo' id='logo' /></Link>
+                            {isUserLogged ? (
+                                <Link to={"/match"}><img src={logo} alt='logo' id='logo' /></Link>
+                            ) : (
+                                <Link to={"/"}><img src={logo} alt='logo' id='logo' /></Link>
+                            )}
                             <p>Skills</p>
                         </li>
                         <ul className='icon-buttons'>
                             <li>
-                                <Link to={"/forYou"}><BsSearch className='icons' /></Link>
+                                <a style={{ textDecoration: 'underline' }} onClick={alertInDev}><BsSearch className='icons' /></a>
                             </li>
                             <li>
-                                <BsBellFill className='icons' onClick={handleShowNotification} />
+                                {isUserLogged ? (
+                                    <BsBellFill className='icons' onClick={handleShowNotification} />
+                                ) : (
+                                    <a style={{ display: 'none' }} />
+                                )}
                             </li>
                             <li>
-                                <Link to={`/${username}/editProfile/accountInfos`}><BsFillGearFill className='icons' /></Link>
+                                {isUserLogged ? (
+                                    <a style={{ textDecoration: 'underline' }} onClick={goToUserEdit}><BsFillGearFill className='icons' /></a>
+                                ) : (
+                                    <a style={{ display: 'none' }}></a>
+                                )}
                             </li>
                             <li>
-                                <img
-                                    src={profilePicture}
-                                    style={{ width: 30, height: 30, color: '#003da5' }}
-                                    alt='profile'
-                                    id='profilePicture'
-                                    onClick={goToUserLoggedAccount}
-                                />
+                                {isUserLogged ? (
+                                    <img
+                                        src={profilePicture}
+                                        style={{ width: 30, height: 30, color: '#003da5' }}
+                                        alt='profile'
+                                        id='profilePicture'
+                                        onClick={goToUserLoggedAccount}
+                                    />
+                                ) : (
+                                    <img style={{ display: 'none' }}></img>
+                                )}
                             </li>
                         </ul>
                     </ul>

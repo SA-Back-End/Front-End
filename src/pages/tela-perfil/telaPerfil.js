@@ -167,7 +167,7 @@ function TelaPerfil() {
         <div>
             <div className='TelaPerfil'>
 
-                <Header getUser={user} />
+                <Header />
 
                 <div className='div-perfil-retanguloAzul'>
 

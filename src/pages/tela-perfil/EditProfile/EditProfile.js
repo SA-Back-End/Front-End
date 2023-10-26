@@ -166,7 +166,7 @@ const EditProfile = () => {
         axios.patch(`http://localhost:3000/user/update/${user.username}`, editData, config)
             .then(res => {
                 console.log(res.data);
-                alert("EDITOU: " + res.status)
+                alert("Alterações salvas com sucesso!\n Status:" + res.status)
                 navigate(`/${user.username}`)
             })
             .catch(error => {
