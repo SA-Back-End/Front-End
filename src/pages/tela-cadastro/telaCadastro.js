@@ -35,8 +35,7 @@ function TelaCadastro() {
             username: dataFirstInputs.username,
             email: dataFirstInputs.email,
             password: dataSecondInputs.password,
-            state: dataSecondInputs.state,
-            studyArea: ['Engenharia_ou_Tecnologia']
+            state: dataSecondInputs.state
         };
 
         console.log(user)
@@ -64,12 +63,13 @@ function TelaCadastro() {
                         //uma vez autenticados, cadastra a accessToken no SessionStorage do navegador -> accessToken = chave de acesso
                         sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
                         //redireciona o usuario para seu perfil
+                        alert("Cadastro realizado com sucesso!")
                         navigate(`/${user.username}`)
                     })
                     .catch(error => {
                         console.log(error.response)
                         alert("Login erro: " + error.response.data.message);
-                        navigate('/login')
+                        goToLogin()
                     })
             })
             .catch(error => {
@@ -98,6 +98,16 @@ function TelaCadastro() {
         setShowButton(true);
         setBackButton(false);
     };
+
+    const goToLogin = () => {
+        navigate('/')
+        setTimeout(() => {
+            const loginSection = document.getElementById('login')
+            if (loginSection) {
+                loginSection.scrollIntoView()
+            }
+        }, 500)
+    }
 
     return (
         <div className="TelaCadastro">
@@ -131,7 +141,7 @@ function TelaCadastro() {
                         </div>
                         <p className="p-login">
                             <span className="text">Já tem uma conta?</span>{' '}
-                            <a style={{ color: '#FF8200', fontWeight: 'bold' }} href="/login">
+                            <a style={{ color: '#FF8200', fontWeight: 'bold', textDecoration:'underline' }} href="#login" onClick={goToLogin}>
                                 Faça login
                             </a>
                         </p>
