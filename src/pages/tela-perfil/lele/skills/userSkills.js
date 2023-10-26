@@ -54,7 +54,7 @@ const Skills = () => {
                 }}>
                     <header>
                         <ul style={{ display: 'flex', justifyContent: 'space-between', listStyle: 'none' }}>
-                            <li><span style={{ fontSize: 20, fontWeight: 500 }}>Hard skills</span></li>
+                            <li><span style={{ fontSize: 20, fontWeight: 500 }}>Soft skills</span></li>
                             <li><AiOutlinePlus style={{ marginRight: 10, fontSize: 20 }} onClick={alertInDev} /></li>
                         </ul>
                     </header>

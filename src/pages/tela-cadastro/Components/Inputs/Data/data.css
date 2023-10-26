@@ -1,12 +1,19 @@
 .data {
     color: #003DA5;
-    width: 204px;
+    width: 200px;;
     height: 45px;
-    top: 14px;
+    top: 30px;
     left: 51px;
     position: relative;
     z-index: 9000;
     font-size: larger;
+}
+
+#p-title-data {
+    font-size: 14px;
+    margin-bottom: 5px;
+    color: black;
+    font-weight: normal;
 }
 
 #data_nascimento {
@@ -15,5 +22,6 @@
     border: 2px solid #003DA5;
     border-radius: 10px;
     font-size: 18px;
-    text-align: center;
+    padding-left: 5px;
+    padding-right: 5px;
 }

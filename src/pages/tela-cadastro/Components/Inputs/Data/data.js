@@ -8,6 +8,7 @@ const Data = (props) => {
 
   return (
     <div className='data'>
+      <p id='p-title-data'>Data de nascimento:</p>
       <input
         type="date"
         id="data_nascimento"

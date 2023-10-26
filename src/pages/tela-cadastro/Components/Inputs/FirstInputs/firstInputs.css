@@ -7,6 +7,7 @@
     height: 40px;
     padding-left: 10px;
     color: #000;
+    height: 45px;
 }
 
 .FirstInputs .nome {
@@ -17,10 +18,12 @@
 .FirstInputs .nome .primeiro_nome,
 .ultimo_nome {
     width: 205px;
+    font-size: 14px;
 }
 
 .FirstInputs .nome .ultimo_nome {
     margin-left: 10px;
+    font-size: 14px;
 }
 
 .FirstInputs .user_email {
@@ -31,4 +34,5 @@
 .email {
     width: 435px;
     margin-bottom: 10px;
+    font-size: 14px;
 }

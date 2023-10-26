@@ -35,7 +35,8 @@ function TelaCadastro() {
             username: dataFirstInputs.username,
             email: dataFirstInputs.email,
             password: dataSecondInputs.password,
-            state: dataSecondInputs.state
+            state: dataSecondInputs.state,
+            studyArea: ['Engenharia_ou_Tecnologia']
         };
 
         console.log(user)
@@ -63,13 +64,12 @@ function TelaCadastro() {
                         //uma vez autenticados, cadastra a accessToken no SessionStorage do navegador -> accessToken = chave de acesso
                         sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
                         //redireciona o usuario para seu perfil
-                        alert("Cadastro realizado com sucesso!")
                         navigate(`/${user.username}`)
                     })
                     .catch(error => {
                         console.log(error.response)
                         alert("Login erro: " + error.response.data.message);
-                        goToLogin()
+                        navigate('/login')
                     })
             })
             .catch(error => {
@@ -99,16 +99,6 @@ function TelaCadastro() {
         setBackButton(false);
     };
 
-    const goToLogin = () => {
-        navigate('/')
-        setTimeout(() => {
-            const loginSection = document.getElementById('login')
-            if (loginSection) {
-                loginSection.scrollIntoView()
-            }
-        }, 500)
-    }
-
     return (
         <div className="TelaCadastro">
             <NavBar />
@@ -124,7 +114,7 @@ function TelaCadastro() {
                             <div className="button_submit">
                                 {showFirstButton && (
                                     <button className="btt-toSecondInputs" onClick={changeForSecondInputs}>
-                                        Próximo➜
+                                        Próximo ➜
                                     </button>
                                 )}
                                 {showSecondButtons && (
@@ -141,7 +131,7 @@ function TelaCadastro() {
                         </div>
                         <p className="p-login">
                             <span className="text">Já tem uma conta?</span>{' '}
-                            <a style={{ color: '#FF8200', fontWeight: 'bold', textDecoration: 'underline' }} onClick={goToLogin}  href='#login'>
+                            <a style={{ color: '#FF8200', fontWeight: 'bold' }} href="/login">
                                 Faça login
                             </a>
                         </p>
@@ -156,9 +146,9 @@ function TelaCadastro() {
                             Bem vindo ao <span>S K I L L S</span> !
                         </h1>
                         <p>
-                            Inicie sua jornada no <span>S K I L L S</span>, onde você tem passe livre para se desafiar em{' '}
-                            <span>qualquer área</span> e crescer através da experiência do desenvolvimento de{' '}
-                            <span>projetos em equipes</span>.
+                            Inicie sua jornada no <span className='strong-text'>S K I L L S</span>, onde você tem passe livre para se desafiar em
+                            <span className='strong-text'> qualquer área</span> e crescer através da experiência do desenvolvimento de
+                            <span className='strong-text'> projetos em equipes</span>.
                         </p>
                     </div>
                 </div>
