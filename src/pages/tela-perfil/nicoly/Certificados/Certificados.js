@@ -28,8 +28,8 @@ function Certificados() {
         id_user: "..",
         id_instituition: "SENAI/SC",
         id_studyArea: "Engenharia / Tecnologia",
-        certificate_name: "Tecnologias 4.0",
-        beginDate: "Fev 2023",
+        certificate_name: "Scrum",
+        beginDate: "Maio 2023",
         endDate: "2026",
         url: "",
     }, {
@@ -37,8 +37,8 @@ function Certificados() {
         id_user: "..",
         id_instituition: "SENAI/SC",
         id_studyArea: "Engenharia / Tecnologia",
-        certificate_name: "Tecnologias 4.0",
-        beginDate: "Fev 2023",
+        certificate_name: "Versionamento",
+        beginDate: "Jul 2023",
         endDate: "2026",
         url: "",
     }, {
@@ -46,8 +46,8 @@ function Certificados() {
         id_user: "..",
         id_instituition: "SENAI/SC",
         id_studyArea: "Engenharia / Tecnologia",
-        certificate_name: "Tecnologias 4.0",
-        beginDate: "Fev 2023",
+        certificate_name: "Dev Back-End",
+        beginDate: "Ago 2023",
         endDate: "2026",
         url: "",
     }, {
@@ -55,8 +55,8 @@ function Certificados() {
         id_user: "..",
         id_instituition: "SENAI/SC",
         id_studyArea: "Engenharia / Tecnologia",
-        certificate_name: "Tecnologias 4.0",
-        beginDate: "Fev 2023",
+        certificate_name: "API's",
+        beginDate: "Março 2023",
         endDate: "2026",
         url: "",
     }];
@@ -73,6 +73,10 @@ function Certificados() {
     // if (showRegister) {
     //     return <InputCertificados />;
     // }
+
+    const alertInDev = () => {
+        alert("Página em construção!")
+      }
 
     return (
         <div className='certificados'>
@@ -115,7 +119,7 @@ function Certificados() {
                                                         <p>{itens.id_instituition}</p>
                                                         <p>{itens.beginDate}</p>
                                                         <div className='button_certificado'>
-                                                            <button className='exibir_credencial'>Exibir credencial <AiOutlineExport /></button>
+                                                            <button className='exibir_credencial' onClick={alertInDev}>Exibir credencial <AiOutlineExport /></button>
                                                         </div>
                                                     </div>
                                                 </div>

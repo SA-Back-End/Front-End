@@ -21,7 +21,7 @@ function Experiencias() {
         role: "Desenvolvedor Back-End",
         beginDate: "Fev 2023",
         endDate: "2026",
-        experience_description: "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.",
+        experience_description: "Programação com JavaScript e Node.js, integração com banco de dados (relacional e linguagem SQL), versionamento de código com git e monitoramento de performance",
     }, {
         id_experience: "..",
         id_user: "Disponível_para_participar",
@@ -30,25 +30,7 @@ function Experiencias() {
         role: "Assistente de Marketing",
         beginDate: "Jun 2021",
         endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
-    }, {
-        id_experience: "..",
-        id_user: "Disponível_para_participar",
-        id_instituition: "Santander",
-        id_studyArea: "Ciências Humanas",
-        role: "Assistente de Marketing",
-        beginDate: "Jun 2021",
-        endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
-    }, {
-        id_experience: "..",
-        id_user: "Disponível_para_participar",
-        id_instituition: "Santander",
-        id_studyArea: "Ciências Humanas",
-        role: "Assistente de Marketing",
-        beginDate: "Jun 2021",
-        endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
+        experience_description: "Auxiliar de acompanhamento de desempenho de vendas e fornecedores, prestador de suporte de agência de propaganda, controlador de notas fiscais, apoio em negociações, implementação de campanhas publicitárias e de vendas.",
     }];
 
     const respostaAPI = [

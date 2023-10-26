@@ -16,9 +16,9 @@ const Modal = ({ isOpen, onClose }) => {
                         <option value="" disabled selected hidden>
                             Selecione aqui
                         </option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option>SENAI - São José</option>
+                        <option>Intelbras</option>
+                        <option>Santander</option>
                     </select>
                 </span>
 
@@ -31,9 +31,14 @@ const Modal = ({ isOpen, onClose }) => {
                         <option value="" disabled selected hidden>
                             Selecione aqui
                         </option>
-                        <option>1</option>
-                        <option>2</option>
-                        <option>3</option>
+                        <option>Ciências Exatas e da Terra</option>
+                        <option>Ciências Biológicas</option>
+                        <option>Engenharia ou Tecnologia</option>
+                        <option>Ciências da Saude</option>
+                        <option>Ciências Agrárias</option>
+                        <option>Ciências Humanas</option>
+                        <option>Linguística</option>
+                        <option>Letras e Artes</option>
                     </select>
                 </span>
 

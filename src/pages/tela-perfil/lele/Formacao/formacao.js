@@ -17,7 +17,7 @@ function Formacao() {
         area: "Engenharia/ Tecnologia",
         beginDate: "Fev 2023",
         endDate: "2026",
-        experience_description: "Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.Lorem ipsum dolor sit amet.",
+        experience_description: "2° graduação... Cursando bacharelado em Sistemas de informação. Sou apaixonado pela área <3 Aprendendo muito sobre coletar, armazenar, processar, analisar e distribuir informações por meio de tecnologias, incluindo hardware, software e rede.",
     }, {
         id_experience: "1",
         id_user: "Disponível_para_participar",
@@ -26,7 +26,7 @@ function Formacao() {
         area: "Ciências Humanas",
         beginDate: "Jun 2021",
         endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
+        experience_description: "Formado em Marketing pela UDESC. Uma graduação que me permitiu evoluir em todos os quesitos! Especialista em compreender as necessidades dos clientes e elaborar estratégias de comunicação e venda de produtos e serviços.",
     }, {
         id_experience: "2",
         id_user: "Disponível_para_participar",
@@ -35,7 +35,7 @@ function Formacao() {
         area: "Geral",
         beginDate: "Jun 2021",
         endDate: "2023",
-        experience_description: "Lorem ipsum dolor sit amet.",
+        experience_description: "Cursei o ensino médio completo no SENAI, onde pude crescer como ser humano e adquirir conhecimentos básicos e técnicos",
     }];
 
     const respostaAPI = [
@@ -54,7 +54,7 @@ function Formacao() {
                     </li>
                     <li className='exp_add'>
                         <div className='add'>
-                            <span><img className="add" src={add} onClick={alertInDev}/></span>
+                            <span><img className="add" src={add} onClick={alertInDev} /></span>
                         </div>
                     </li>
                 </ul>
@@ -98,7 +98,7 @@ function Formacao() {
                                             </div>
                                             <div className='data_e_funcao'>
                                                 <p>{itens.beginDate} - {itens.endDate}</p>
-                                                <p id='funcoes'><strong>Funções:</strong></p>
+                                                <p id='funcoes'><strong>Descrição:</strong></p>
                                                 <p>{itens.experience_description}</p>
                                             </div>
                                         </li>

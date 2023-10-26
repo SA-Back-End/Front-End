@@ -104,6 +104,10 @@ function Projetos({ user }) {
     setOpenCardIndices(newOpenCardIndices);
   };
 
+  const alertInDev = () => {
+    alert("Página em construção!")
+  }
+
   return (
     <div className="projetosComponent">
       {/* <div className="page_title">
@@ -136,7 +140,9 @@ function Projetos({ user }) {
               width: 33,
               height: 33,
               borderStyle: "none",
-            }}>
+            }}
+            onClick={alertInDev}
+            >
               <CiEdit style={{
                 color: "white",
                 fontSize: 19
