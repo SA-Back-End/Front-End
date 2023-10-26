@@ -6,6 +6,7 @@ import ComponentPerson from "./component-person/component-person.js";
 import ComponentProject from "./component/component-project.js";
 import { AiOutlineCloseCircle } from "react-icons/ai";
 import HomeNavbar from "../components/navbar/navbar";
+import './telaMatch.css'
 
 const TelaMatch = () => {
   const [isSearchingProject, setIsSearchingProject] = useState(true);
@@ -366,32 +367,32 @@ const TelaMatch = () => {
   const sendFilter = () => {
     setFilterPayloadSend(filterPayload);
   }
-  
+
   return (
-    <>
+    <div className="telaMatch">
       <HomeNavbar />
       <Main>
         <Filter>
           <ToogleBtn toFilter={handleSearching} />
           {isSearchingProject
             ? filterProjectList.map((e) => (
-                <BtnDrop
-                  onItemSelect={addItemFilter}
-                  btnText={e.btnText}
-                  itensList={e.itensList}
-                  itemType={e.itemType}
-                  disableCondition={e?.disableCondition || false}
-                />
-              ))
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={e.btnText}
+                itensList={e.itensList}
+                itemType={e.itemType}
+                disableCondition={e?.disableCondition || false}
+              />
+            ))
             : filterPersonList.map((e) => (
-                <BtnDrop
-                  onItemSelect={addItemFilter}
-                  btnText={e.btnText}
-                  itensList={e.itensList}
-                  itemType={e.itemType}
-                  disableCondition={e?.disableCondition || false}
-                />
-              ))}
+              <BtnDrop
+                onItemSelect={addItemFilter}
+                btnText={e.btnText}
+                itensList={e.itensList}
+                itemType={e.itemType}
+                disableCondition={e?.disableCondition || false}
+              />
+            ))}
           <Button type="button" className="btn-filter" onClick={sendFilter}>
             {" "}
             Filtrar{" "}
@@ -414,9 +415,9 @@ const TelaMatch = () => {
           ))}
         </FiltersFlagsContainer>
 
-        {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend}/> : <ComponentPerson filterPayload={filterPayloadSend}/>}
+        {isSearchingProject ? <ComponentProject filterPayload={filterPayloadSend} /> : <ComponentPerson filterPayload={filterPayloadSend} />}
       </Main>
-    </>
+    </div>
   );
 };
 
