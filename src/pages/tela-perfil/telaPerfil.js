@@ -151,7 +151,7 @@ function TelaPerfil() {
         const day = date.getDate();
         const month = convertMonths(date.getMonth() + 1);
 
-        return `${day} de ${month}`;
+        return `${day + 1} de ${month}`;
     };
 
     // const studyAreaName = (studyArea) => {

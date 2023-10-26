@@ -67,7 +67,7 @@ const HomeNavbar = () => {
 
     const verifyIfUserIsLogged = () => {
         const accessToken = sessionStorage.getItem('accessToken')
-        console.log(accessToken)
+
         if (accessToken) {
             setUserLogged(true)
         } else {

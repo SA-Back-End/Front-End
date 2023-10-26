@@ -32,7 +32,7 @@ function TelaLogin() {
       .then(response => {
         console.log(response)
         sessionStorage.setItem('accessToken', `Bearer ${response.data}`);
-        alert("Login sucesso: " + response.status);
+        alert(`Login sucesso!\nstatus: ${response.status}`);
 
         const config = {
           headers: {
@@ -51,8 +51,8 @@ function TelaLogin() {
 
       })
       .catch(error => {
-        console.log(error.response)
-        alert("Login erro: " + error.response.data.message);
+        console.log(error)
+        alert(`${error.response.data.message}\nstatus: ${error.response.status}`);
       })
   }
 

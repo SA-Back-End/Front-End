@@ -74,7 +74,16 @@ function TelaCadastro() {
             })
             .catch(error => {
                 console.log(error)
-                alert("ERRO!\nVerifique os dados inseridos e tente novamente!")
+                if (error.response.data.message.length > 1) {
+                    if (error.response.status != 409) {
+                        alert(`Erro na validação dos dados!\nVerifique-os e tente novamete\nstatus: ${error.response.status}`)
+                    } else {
+                        alert(`${error.response.data.message}\nstatus: ${error.response.data.statusCode}`)
+                    }
+                } else {
+                    alert(`${error.response.data.message}\nstatus: ${error.response.data.statusCode}`)
+                }
+                window.location.reload()
             });
     };
 
@@ -141,7 +150,7 @@ function TelaCadastro() {
                         </div>
                         <p className="p-login">
                             <span className="text">Já tem uma conta?</span>{' '}
-                            <a style={{ color: '#FF8200', fontWeight: 'bold', textDecoration:'underline' }} href="#login" onClick={goToLogin}>
+                            <a style={{ color: '#FF8200', fontWeight: 'bold', textDecoration: 'underline' }} href="#login" onClick={goToLogin}>
                                 Faça login
                             </a>
                         </p>
