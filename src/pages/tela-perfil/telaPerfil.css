@@ -268,56 +268,12 @@
 @media (min-width: 1700px) {
 
     .TelaPerfil .container-perfil-infos {
-        top: 13%;
-        left: 3%;
+        top: 16%;
+        left: 4%;
     }
-
-    .TelaPerfil .div-infosLeft .iconPerfil {
-        width: 220px;
-        height: 200px;
-    }
-
-    .TelaPerfil .div-infosLeft .accountInfos .div-forInfos .infoFollowers {
-        font-size: 40px;
-    }
-
-    .TelaPerfil .div-infosLeft .accountInfos .div-forInfos .infoFollowing {
-        font-size: 40px;
-    }
-
-    .TelaPerfil .div-infosLeft .accountInfos .div-forInfos .spanFollowers {
-        font-size: 15px;
-    }
-
-    .TelaPerfil .div-infosLeft .accountInfos .div-forInfos .spanFollowing {
-        font-size: 15px;
-    }
-
 
     .TelaPerfil .div-infosRight {
         margin: 2% 0 0 10%;
-    }
-
-    .TelaPerfil .div-infosRight .groupIcons {
-        align-items: center;
-    }
-
-    .TelaPerfil .div-infosRight .div-orangeIcon {
-        width: 60px;
-        height: 60px;
-        border-radius: 40px;
-        font-size: 35px;
-    }
-
-    .TelaPerfil .div-infosRight .div-blueIcon {
-        width: 60px;
-        height: 60px;
-        border-radius: 40px;
-        font-size: 35px;
-    }
-
-    .TelaPerfil .div-infosRight .icon {
-        padding: 11px 0 0 0;
     }
 
     .TelaPerfil .div-button {
@@ -325,25 +281,9 @@
         margin: -1% 0 0 87%;
     }
 
-    .TelaPerfil .div-button .btt-editProfile {
-        font-size: 13px;
-        padding: 4px;
-        width: 120px;
-        height: 30px;
-    }
-
     .TelaPerfil .container-perfil-aboutMe-retanguloLaranja {
         width: 85%;
         height: 30vh;
         margin: 17% 0 0 8%;
     }
-
-    .TelaPerfil .container-perfil-aboutMe-retanguloLaranja .container-perfil-aboutMe-infos p {
-        font-size: 18px;
-    }
-
-    .TelaPerfil .container-perfil-aboutMe-retanguloLaranja .container-perfil-aboutMe-infos h2 {
-        font-size: 24px;
-    }
-
 }

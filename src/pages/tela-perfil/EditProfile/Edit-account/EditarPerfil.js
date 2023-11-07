@@ -89,7 +89,7 @@ function EditarPerfil() {
     axios.delete(`http://localhost:3000/user/delete/${user.username}`, config)
       .then(res => {
         console.log(res);
-        alert("Usuário deletado com sucesso!: " + res.status)
+        alert("Usuário deletado com sucesso!\nstatus: " + res.status)
         navigate(`/`)
       })
       .catch(error => {

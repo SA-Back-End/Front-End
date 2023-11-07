@@ -40,3 +40,10 @@
     padding-left: 17px;
     top: 4px;
 }
+
+@media (min-width: 1700px) {
+
+    .userSkills .hardSkills, .softSkills {
+        min-width: 48.3%;
+    }
+}

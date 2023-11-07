@@ -50,7 +50,7 @@ const Skills = () => {
                     boxShadow: '0px 4px 4px 0px #00000040',
                     height: 500,
                     width: 580,
-                    marginLeft: 20
+                    marginLeft: 60
                 }}>
                     <header>
                         <ul style={{ display: 'flex', justifyContent: 'space-between', listStyle: 'none' }}>

@@ -44,27 +44,40 @@ const EditProfile = () => {
 
     //pré-definir alguns inputs com os dados atuais do usuário
     useEffect(() => {
-        console.log(user)
-        setState(user.state)
-        setBirthDate(user.birthDate)
-        setStatus(user.status)
-        setStudyArea(["Ciencias_Exatas_e_da_Terra"])
-        setProfilePictureUrl(user.profilePictureUrl)
+        if (user) {
+            console.log(user)
+            setState(user.state)
+            setBirthDate(user.birthDate)
+            setStatus(user.status)
+            setProfilePictureUrl(user.profilePictureUrl)
+
+            if (user.studyArea == "") {
+                setStudyArea(["Ciencias_Exatas_e_da_Terra"])
+            } else {
+                setStudyArea(user.studyArea)
+            }
+
+            setDescription(user.description)
+
+            if (user.name) {
+                const name = user.name.split(' ')
+                setFirstName(name[0])
+                setLastName(name[1])
+            }
+        }
     }, [user])
 
     //pegar os dados dos inputs
 
-    const [firstName, setFirstName] = useState('')
+    const [firstName, setFirstName] = useState()
     const handleFirstNameChange = (event) => {
         setFirstName(event.target.value)
     }
 
-    const [lastName, setLastName] = useState('')
+    const [lastName, setLastName] = useState()
     const handleLastNameChange = (event) => {
         setLastName(event.target.value)
     }
-
-    // const [name, setName] = useState('')
 
     const [birthDate, setBirthDate] = useState()
     const handleBirthDateChange = (event) => {
@@ -78,14 +91,21 @@ const EditProfile = () => {
 
     const [description, setDescription] = useState()
     const handleDescriptionChange = (event) => {
-        setDescription(event.target.value)
+        console.log(event)
+        if (event.target.value != "") {
+            setDescription(event.target.value)
+        } else {
+            setDescription("Olá, esse é meu perfil na Skills")
+        }
     }
 
-    const [studyArea, setStudyArea] = useState(user.studyArea)
+    const [studyArea, setStudyArea] = useState()
     const handleStudyArea = (event) => {
         setStudyArea(event.target.value)
     }
 
+    //apenas para o MVP, deixamos pré-definidas algumas imagens com suas respectivas URL's
+    //(lembrar de baixar as imagens local -> estão em telaPerfil/img/icons)
     const getIcon = (iconName) => {
         switch (iconName) {
             case 'abelha.png':
@@ -119,16 +139,6 @@ const EditProfile = () => {
         const URL = getIcon(arquivo)
         setProfilePictureUrl(URL)
     }
-    // const handleProfilePicture = (event) => {
-    //     console.log(event)
-    //     const newImage = event.target.files[0];
-    //     const imageURL = URL.createObjectURL(newImage);
-    //     setProfilePictureUrl(imageURL);
-
-    //     if (profilePictureUrl) {
-    //         URL.revokeObjectURL(profilePictureUrl);
-    //     }
-    // }
 
     const [status, setStatus] = useState()
     const handleStatusChange = (event) => {
@@ -166,7 +176,7 @@ const EditProfile = () => {
         axios.patch(`http://localhost:3000/user/update/${user.username}`, editData, config)
             .then(res => {
                 console.log(res.data);
-                alert("Alterações salvas com sucesso!\nstatus:" + res.status)
+                alert("Alterações salvas com sucesso!\nstatus: " + res.status)
                 navigate(`/${user.username}`)
             })
             .catch(error => {
@@ -208,13 +218,13 @@ const EditProfile = () => {
                         <li>
                             <div>
                                 <label>Primeiro nome:</label>
-                                <input type="text" name="firstName" id="firstName" className='inputs' placeholder={user.name} onInput={handleFirstNameChange} required />
+                                <input type="text" name="firstName" id="firstName" className='inputs' defaultValue={firstName} onInput={handleFirstNameChange} required />
                             </div>
                         </li>
                         <li>
                             <div>
                                 <label>Último nome:</label>
-                                <input type="text" name="lastName" id="lastName" className='inputs' onInput={handleLastNameChange} required />
+                                <input type="text" name="lastName" id="lastName" className='inputs' defaultValue={lastName} onInput={handleLastNameChange} required />
                             </div>
                         </li>
                     </ul>
@@ -277,6 +287,14 @@ const EditProfile = () => {
                                 <div style={{
                                     marginLeft: 80
                                 }}>
+                                    {/* {user.description == "" ?
+                                        (
+                                            <textarea rows={4} cols={26} placeholder='Adicione uma curta biografia...' onChange={handleDescriptionChange} />
+                                        ) :
+                                        (
+                                            <textarea rows={4} cols={26} defaultValue={user.description} onInput={handleDescriptionChange} />
+                                        )
+                                    } */}
                                     <textarea rows={4} cols={26} placeholder='Adicione uma curta biografia...' onChange={handleDescriptionChange} />
                                 </div>
                             </div>
