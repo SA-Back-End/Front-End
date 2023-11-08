@@ -52,12 +52,16 @@ const EditProfile = () => {
             setProfilePictureUrl(user.profilePictureUrl)
 
             if (user.studyArea == "") {
-                setStudyArea(["Ciencias_Exatas_e_da_Terra"])
+                setStudyArea(["Indefinido"])
             } else {
                 setStudyArea(user.studyArea)
             }
 
-            setDescription(user.description)
+            if (user.description == null) {
+                setDescription("descriptionEmpty")
+            } else {
+                setDescription(user.description)
+            }
 
             if (user.name) {
                 const name = user.name.split(' ')
@@ -91,7 +95,6 @@ const EditProfile = () => {
 
     const [description, setDescription] = useState()
     const handleDescriptionChange = (event) => {
-        console.log(event)
         if (event.target.value != "") {
             setDescription(event.target.value)
         } else {
@@ -151,7 +154,7 @@ const EditProfile = () => {
     const saveChanges = (e) => {
 
         e.preventDefault();
-
+     
         const editData = {
             name: `${firstName} ${lastName}`,
             birthDate: `${birthDate}`,
@@ -287,15 +290,15 @@ const EditProfile = () => {
                                 <div style={{
                                     marginLeft: 80
                                 }}>
-                                    {/* {user.description == "" ?
+                                    {description == "descriptionEmpty" ?
                                         (
                                             <textarea rows={4} cols={26} placeholder='Adicione uma curta biografia...' onChange={handleDescriptionChange} />
                                         ) :
                                         (
                                             <textarea rows={4} cols={26} defaultValue={user.description} onInput={handleDescriptionChange} />
                                         )
-                                    } */}
-                                    <textarea rows={4} cols={26} placeholder='Adicione uma curta biografia...' onChange={handleDescriptionChange} />
+                                    }
+                                    {/* <textarea rows={4} cols={26} placeholder='Adicione uma curta biografia...' onChange={handleDescriptionChange} /> */}
                                 </div>
                             </div>
                         </li>
@@ -308,6 +311,7 @@ const EditProfile = () => {
                                 </div>
                                 <select className='inputs' onChange={handleStudyArea} value={studyArea}>
                                     <option disabled>Seleciona uma opção</option>
+                                    <option value={"Indefinido"}>Não definida</option>
                                     <option value={"Ciencias_Exatas_e_da_Terra"}>Ciências Exatas e da Terra</option>
                                     <option value={"Ciencias_Biologicas"}>Ciências Biológicas</option>
                                     <option value={"Engenharia_ou_Tecnologia"}>Engenharia / Tecnologia</option>

@@ -93,7 +93,7 @@ function EditarPerfil() {
         navigate(`/`)
       })
       .catch(error => {
-        alert("ERROR")
+        alert(error.response.data.message + "\nstatus: " + error.response.status)
         console.error(error)
       });
   }

@@ -212,7 +212,7 @@ function TelaPerfil() {
                                 <ul>
                                     <li style={{ width: 265 }}>
                                         <div className='groupIcons'><div className='div-orangeIcon'><BiSolidBriefcase className='icon' /></div>
-                                            {user.studyArea == "" ?
+                                            {user.studyArea == "Indefinido" || user.studyArea == "" ?
                                                 (
                                                     <span className='spanIcon'>Área de Estudo</span>
                                                 ) :
@@ -250,7 +250,7 @@ function TelaPerfil() {
                         <div className='container-perfil-aboutMe-infos'>
                             <h2>Sobre mim</h2>
 
-                            {user.description === null ? (
+                            {user.description === null || user.description == "descriptionEmpty" ? (
                                 <p>Olá pessoal! Me chamo {user.name}, natural de {stateName(user.state)} e esse é meu perfil na SKILLS!</p>
                             ) : (
                                 <p>{user.description}</p>
