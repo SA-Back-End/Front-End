@@ -1,6 +1,3 @@
-> **⚠ WARNING: NÃO CODAR NA MAIN!**  
-> Criar branch com o nome da tela que está fazendo e codar nela.
-
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -16,6 +13,11 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
+
+### ⚠ Important !
+
+Our back-end also runs at the port 3000. So, to not run both enviroments at the same port, and avoid errors, we first need to run the back-end (at the port 3000), and
+only then, run our front-end, also because the React provides the opportunity to run in other port (first try is 3001, then 3002, ...)
 
 ### `npm test`
 
