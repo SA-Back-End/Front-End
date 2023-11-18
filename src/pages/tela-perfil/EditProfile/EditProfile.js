@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './EditProfile.css'
 import HomeNavbar from '../../components/navbar/navbar.js';
-import profilePicture from './img/userIcon.png'
+import profilePicture from '../../../icons/userIcon.png'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import axios from 'axios';
 
@@ -108,7 +108,7 @@ const EditProfile = () => {
     }
 
     //apenas para o MVP, deixamos pré-definidas algumas imagens com suas respectivas URL's
-    //(lembrar de baixar as imagens local -> estão em telaPerfil/img/icons)
+    //(lembrar de baixar as imagens local -> estão em src/icons)
     const getIcon = (iconName) => {
         switch (iconName) {
             case 'abelha.png':
