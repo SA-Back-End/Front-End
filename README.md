@@ -14,10 +14,14 @@ Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
 The page will reload when you make changes.\
 You may also see any lint errors in the console.
 
+<hr>
+
 ### ⚠ Important !
 
 Our back-end also runs at the port 3000. So, to not run both enviroments at the same port, and avoid errors, we first need to run the back-end (at the port 3000), and
 only then, run our front-end, also because the React provides the opportunity to run in other port (first try is 3001, then 3002, ...)
+
+<hr>
 
 ### `npm test`
 
@@ -43,6 +47,16 @@ If you aren't satisfied with the build tool and configuration choices, you can `
 Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+
+<hr>
+
+### ❕ About our Front-End MVP
+
+- As it's a MVP, some functionalities are not fully developed. So, we added a warning alert informing "Página em Construção" (_EN: Page in development_) in the things not completed.
+- Because of the short time available, we focused to develop the pages based on a 1360x768 screen
+- To change the user icon, please select one of the images that we provide. The images are in "src/icons"
+
+<hr>
 
 ## Learn More
 
